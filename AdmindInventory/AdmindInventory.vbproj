@@ -73,10 +73,52 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Form1.vb">
+    <Compile Include="Add Stock.Designer.vb">
+      <DependentUpon>Add Stock.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Add Stock.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.vb">
+    <Compile Include="Assets\Assets Disposal to approve for Director.Designer.vb">
+      <DependentUpon>Assets Disposal to approve for Director.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Assets\Assets Disposal to approve for Director.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Assets\Assets.Designer.vb">
+      <DependentUpon>Assets.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Assets\Assets.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Assets\Admin asset addition.Designer.vb">
+      <DependentUpon>Admin asset addition.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Assets\Admin asset addition.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Assets\Fixed Assets Disposal.Designer.vb">
+      <DependentUpon>Fixed Assets Disposal.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Assets\Fixed Assets Disposal.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Categories.Designer.vb">
+      <DependentUpon>Categories.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Categories.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Departments.Designer.vb">
+      <DependentUpon>Departments.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Departments.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Interfaces\Form1.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Interfaces\Form1.Designer.vb">
       <DependentUpon>Form1.vb</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
@@ -95,13 +137,91 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="Items.Designer.vb">
+      <DependentUpon>Items.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Items.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PendingRequests.Designer.vb">
+      <DependentUpon>PendingRequests.vb</DependentUpon>
+    </Compile>
+    <Compile Include="PendingRequests.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Stock Distribution.Designer.vb">
+      <DependentUpon>Stock Distribution.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Stock Distribution.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DistributionHistory.Designer.vb">
+      <DependentUpon>DistributionHistory.vb</DependentUpon>
+    </Compile>
+    <Compile Include="DistributionHistory.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="StockHistory.Designer.vb">
+      <DependentUpon>StockHistory.vb</DependentUpon>
+    </Compile>
+    <Compile Include="StockHistory.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="StockRequest.Designer.vb">
+      <DependentUpon>StockRequest.vb</DependentUpon>
+    </Compile>
+    <Compile Include="StockRequest.vb">
+      <SubType>Form</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Add Stock.resx">
+      <DependentUpon>Add Stock.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Assets\Assets Disposal to approve for Director.resx">
+      <DependentUpon>Assets Disposal to approve for Director.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Assets\Assets.resx">
+      <DependentUpon>Assets.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Assets\Admin asset addition.resx">
+      <DependentUpon>Admin asset addition.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Assets\Fixed Assets Disposal.resx">
+      <DependentUpon>Fixed Assets Disposal.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Categories.resx">
+      <DependentUpon>Categories.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Departments.resx">
+      <DependentUpon>Departments.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Interfaces\Form1.resx">
+      <DependentUpon>Form1.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.vb</LastGenOutput>
       <CustomToolNamespace>My.Resources</CustomToolNamespace>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Items.resx">
+      <DependentUpon>Items.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PendingRequests.resx">
+      <DependentUpon>PendingRequests.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Stock Distribution.resx">
+      <DependentUpon>Stock Distribution.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DistributionHistory.resx">
+      <DependentUpon>DistributionHistory.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StockHistory.resx">
+      <DependentUpon>StockHistory.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StockRequest.resx">
+      <DependentUpon>StockRequest.vb</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
@@ -116,5 +236,6 @@
     </None>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>
