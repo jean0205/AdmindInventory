@@ -23,24 +23,24 @@ Partial Class StockRequest
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
-        Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
         Me.Category = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Item = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Label4 = New System.Windows.Forms.Label()
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
-        Me.TextBox2 = New System.Windows.Forms.TextBox()
-        Me.Label1 = New System.Windows.Forms.Label()
-        Me.Label2 = New System.Windows.Forms.Label()
-        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
-        Me.Button1 = New System.Windows.Forms.Button()
-        Me.Label3 = New System.Windows.Forms.Label()
-        Me.TextBox3 = New System.Windows.Forms.TextBox()
+        Me.GroupBox2 = New System.Windows.Forms.GroupBox()
+        Me.ComboBoxDepartment = New System.Windows.Forms.ComboBox()
         Me.Label5 = New System.Windows.Forms.Label()
-        Me.ComboBox2 = New System.Windows.Forms.ComboBox()
+        Me.TextBoxrequested = New System.Windows.Forms.TextBox()
+        Me.Label3 = New System.Windows.Forms.Label()
+        Me.Button1 = New System.Windows.Forms.Button()
+        Me.ComboBoxCategory = New System.Windows.Forms.ComboBox()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.TextBoxAmount = New System.Windows.Forms.TextBox()
+        Me.Label4 = New System.Windows.Forms.Label()
+        Me.TextBoxItem = New System.Windows.Forms.TextBox()
         Me.GroupBox1.SuspendLayout()
-        Me.GroupBox2.SuspendLayout()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.GroupBox2.SuspendLayout()
         Me.SuspendLayout()
         '
         'GroupBox1
@@ -52,25 +52,6 @@ Partial Class StockRequest
         Me.GroupBox1.TabIndex = 0
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Items List"
-        '
-        'GroupBox2
-        '
-        Me.GroupBox2.Controls.Add(Me.ComboBox2)
-        Me.GroupBox2.Controls.Add(Me.Label5)
-        Me.GroupBox2.Controls.Add(Me.TextBox3)
-        Me.GroupBox2.Controls.Add(Me.Label3)
-        Me.GroupBox2.Controls.Add(Me.Button1)
-        Me.GroupBox2.Controls.Add(Me.ComboBox1)
-        Me.GroupBox2.Controls.Add(Me.Label2)
-        Me.GroupBox2.Controls.Add(Me.Label1)
-        Me.GroupBox2.Controls.Add(Me.TextBox2)
-        Me.GroupBox2.Controls.Add(Me.Label4)
-        Me.GroupBox2.Controls.Add(Me.TextBox1)
-        Me.GroupBox2.Location = New System.Drawing.Point(8, 12)
-        Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Size = New System.Drawing.Size(386, 194)
-        Me.GroupBox2.TabIndex = 1
-        Me.GroupBox2.TabStop = False
         '
         'DataGridView1
         '
@@ -91,80 +72,32 @@ Partial Class StockRequest
         Me.Item.HeaderText = "Item"
         Me.Item.Name = "Item"
         '
-        'Label4
+        'GroupBox2
         '
-        Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(13, 84)
-        Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(30, 13)
-        Me.Label4.TabIndex = 9
-        Me.Label4.Text = "Item:"
+        Me.GroupBox2.Controls.Add(Me.ComboBoxDepartment)
+        Me.GroupBox2.Controls.Add(Me.Label5)
+        Me.GroupBox2.Controls.Add(Me.TextBoxrequested)
+        Me.GroupBox2.Controls.Add(Me.Label3)
+        Me.GroupBox2.Controls.Add(Me.Button1)
+        Me.GroupBox2.Controls.Add(Me.ComboBoxCategory)
+        Me.GroupBox2.Controls.Add(Me.Label2)
+        Me.GroupBox2.Controls.Add(Me.Label1)
+        Me.GroupBox2.Controls.Add(Me.TextBoxAmount)
+        Me.GroupBox2.Controls.Add(Me.Label4)
+        Me.GroupBox2.Controls.Add(Me.TextBoxItem)
+        Me.GroupBox2.Location = New System.Drawing.Point(8, 3)
+        Me.GroupBox2.Name = "GroupBox2"
+        Me.GroupBox2.Size = New System.Drawing.Size(386, 203)
+        Me.GroupBox2.TabIndex = 1
+        Me.GroupBox2.TabStop = False
         '
-        'TextBox1
+        'ComboBoxDepartment
         '
-        Me.TextBox1.Location = New System.Drawing.Point(90, 85)
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(168, 20)
-        Me.TextBox1.TabIndex = 8
-        '
-        'TextBox2
-        '
-        Me.TextBox2.Location = New System.Drawing.Point(89, 123)
-        Me.TextBox2.Name = "TextBox2"
-        Me.TextBox2.Size = New System.Drawing.Size(77, 20)
-        Me.TextBox2.TabIndex = 10
-        '
-        'Label1
-        '
-        Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(13, 122)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(46, 13)
-        Me.Label1.TabIndex = 11
-        Me.Label1.Text = "Amount:"
-        '
-        'Label2
-        '
-        Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(13, 50)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(52, 13)
-        Me.Label2.TabIndex = 12
-        Me.Label2.Text = "Category:"
-        '
-        'ComboBox1
-        '
-        Me.ComboBox1.FormattingEnabled = True
-        Me.ComboBox1.Location = New System.Drawing.Point(90, 50)
-        Me.ComboBox1.Name = "ComboBox1"
-        Me.ComboBox1.Size = New System.Drawing.Size(168, 21)
-        Me.ComboBox1.TabIndex = 13
-        '
-        'Button1
-        '
-        Me.Button1.Location = New System.Drawing.Point(271, 134)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(95, 47)
-        Me.Button1.TabIndex = 14
-        Me.Button1.Text = "Post Request"
-        Me.Button1.UseVisualStyleBackColor = True
-        '
-        'Label3
-        '
-        Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(13, 160)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(77, 13)
-        Me.Label3.TabIndex = 15
-        Me.Label3.Text = "Requested By:"
-        '
-        'TextBox3
-        '
-        Me.TextBox3.Enabled = False
-        Me.TextBox3.Location = New System.Drawing.Point(90, 157)
-        Me.TextBox3.Name = "TextBox3"
-        Me.TextBox3.Size = New System.Drawing.Size(140, 20)
-        Me.TextBox3.TabIndex = 16
+        Me.ComboBoxDepartment.FormattingEnabled = True
+        Me.ComboBoxDepartment.Location = New System.Drawing.Point(89, 13)
+        Me.ComboBoxDepartment.Name = "ComboBoxDepartment"
+        Me.ComboBoxDepartment.Size = New System.Drawing.Size(168, 21)
+        Me.ComboBoxDepartment.TabIndex = 0
         '
         'Label5
         '
@@ -175,13 +108,80 @@ Partial Class StockRequest
         Me.Label5.TabIndex = 17
         Me.Label5.Text = "Department:"
         '
-        'ComboBox2
+        'TextBoxrequested
         '
-        Me.ComboBox2.FormattingEnabled = True
-        Me.ComboBox2.Location = New System.Drawing.Point(89, 13)
-        Me.ComboBox2.Name = "ComboBox2"
-        Me.ComboBox2.Size = New System.Drawing.Size(168, 21)
-        Me.ComboBox2.TabIndex = 18
+        Me.TextBoxrequested.Enabled = False
+        Me.TextBoxrequested.Location = New System.Drawing.Point(90, 157)
+        Me.TextBoxrequested.Name = "TextBoxrequested"
+        Me.TextBoxrequested.Size = New System.Drawing.Size(140, 20)
+        Me.TextBoxrequested.TabIndex = 4
+        '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.Location = New System.Drawing.Point(13, 160)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(77, 13)
+        Me.Label3.TabIndex = 15
+        Me.Label3.Text = "Requested By:"
+        '
+        'Button1
+        '
+        Me.Button1.Location = New System.Drawing.Point(271, 157)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(95, 24)
+        Me.Button1.TabIndex = 5
+        Me.Button1.Text = "Post Request"
+        Me.Button1.UseVisualStyleBackColor = True
+        '
+        'ComboBoxCategory
+        '
+        Me.ComboBoxCategory.FormattingEnabled = True
+        Me.ComboBoxCategory.Location = New System.Drawing.Point(90, 50)
+        Me.ComboBoxCategory.Name = "ComboBoxCategory"
+        Me.ComboBoxCategory.Size = New System.Drawing.Size(168, 21)
+        Me.ComboBoxCategory.TabIndex = 1
+        '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Location = New System.Drawing.Point(13, 50)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(52, 13)
+        Me.Label2.TabIndex = 12
+        Me.Label2.Text = "Category:"
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Location = New System.Drawing.Point(13, 122)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(46, 13)
+        Me.Label1.TabIndex = 11
+        Me.Label1.Text = "Amount:"
+        '
+        'TextBoxAmount
+        '
+        Me.TextBoxAmount.Location = New System.Drawing.Point(89, 123)
+        Me.TextBoxAmount.Name = "TextBoxAmount"
+        Me.TextBoxAmount.Size = New System.Drawing.Size(77, 20)
+        Me.TextBoxAmount.TabIndex = 3
+        '
+        'Label4
+        '
+        Me.Label4.AutoSize = True
+        Me.Label4.Location = New System.Drawing.Point(13, 84)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(30, 13)
+        Me.Label4.TabIndex = 9
+        Me.Label4.Text = "Item:"
+        '
+        'TextBoxItem
+        '
+        Me.TextBoxItem.Location = New System.Drawing.Point(90, 85)
+        Me.TextBoxItem.Name = "TextBoxItem"
+        Me.TextBoxItem.Size = New System.Drawing.Size(168, 20)
+        Me.TextBoxItem.TabIndex = 2
         '
         'StockRequest
         '
@@ -193,9 +193,9 @@ Partial Class StockRequest
         Me.Name = "StockRequest"
         Me.Text = "Stock Request"
         Me.GroupBox1.ResumeLayout(False)
+        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox2.ResumeLayout(False)
         Me.GroupBox2.PerformLayout()
-        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -205,15 +205,15 @@ Partial Class StockRequest
     Friend WithEvents GroupBox2 As GroupBox
     Friend WithEvents Category As DataGridViewTextBoxColumn
     Friend WithEvents Item As DataGridViewTextBoxColumn
-    Friend WithEvents TextBox3 As TextBox
+    Friend WithEvents TextBoxrequested As TextBox
     Friend WithEvents Label3 As Label
     Friend WithEvents Button1 As Button
-    Friend WithEvents ComboBox1 As ComboBox
+    Friend WithEvents ComboBoxCategory As ComboBox
     Friend WithEvents Label2 As Label
     Friend WithEvents Label1 As Label
-    Friend WithEvents TextBox2 As TextBox
+    Friend WithEvents TextBoxAmount As TextBox
     Friend WithEvents Label4 As Label
-    Friend WithEvents TextBox1 As TextBox
-    Friend WithEvents ComboBox2 As ComboBox
+    Friend WithEvents TextBoxItem As TextBox
+    Friend WithEvents ComboBoxDepartment As ComboBox
     Friend WithEvents Label5 As Label
 End Class

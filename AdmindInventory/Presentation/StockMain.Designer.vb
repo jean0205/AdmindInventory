@@ -31,26 +31,26 @@ Partial Class StockMain
         Me.Unit = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Cost = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
-        Me.CheckBox1 = New System.Windows.Forms.CheckBox()
+        Me.CheckBoxReorder = New System.Windows.Forms.CheckBox()
         Me.Label4 = New System.Windows.Forms.Label()
-        Me.TextBox2 = New System.Windows.Forms.TextBox()
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
+        Me.TextBoxName = New System.Windows.Forms.TextBox()
+        Me.TextBoxCode = New System.Windows.Forms.TextBox()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
-        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
+        Me.ComboBoxCategory = New System.Windows.Forms.ComboBox()
         Me.Button1 = New System.Windows.Forms.Button()
-        Me.Button2 = New System.Windows.Forms.Button()
-        Me.Button3 = New System.Windows.Forms.Button()
+        Me.ButtonAddStock = New System.Windows.Forms.Button()
+        Me.ButtonDistrStock = New System.Windows.Forms.Button()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.Panel1 = New System.Windows.Forms.Panel()
-        Me.Button6 = New System.Windows.Forms.Button()
-        Me.Button5 = New System.Windows.Forms.Button()
-        Me.Button4 = New System.Windows.Forms.Button()
-        Me.Button7 = New System.Windows.Forms.Button()
-        Me.Button8 = New System.Windows.Forms.Button()
-        Me.Button9 = New System.Windows.Forms.Button()
-        Me.Button10 = New System.Windows.Forms.Button()
+        Me.ButtonReports = New System.Windows.Forms.Button()
+        Me.ButtonPendingReqs = New System.Windows.Forms.Button()
+        Me.ButtonDistrbHistory = New System.Windows.Forms.Button()
+        Me.ButtonStockHistory = New System.Windows.Forms.Button()
+        Me.ButtonMngDepart = New System.Windows.Forms.Button()
+        Me.ButtonMngCat = New System.Windows.Forms.Button()
+        Me.ButtonMngitems = New System.Windows.Forms.Button()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
@@ -102,28 +102,28 @@ Partial Class StockMain
         '
         'GroupBox1
         '
-        Me.GroupBox1.Controls.Add(Me.CheckBox1)
+        Me.GroupBox1.Controls.Add(Me.CheckBoxReorder)
         Me.GroupBox1.Controls.Add(Me.Label4)
-        Me.GroupBox1.Controls.Add(Me.TextBox2)
-        Me.GroupBox1.Controls.Add(Me.TextBox1)
+        Me.GroupBox1.Controls.Add(Me.TextBoxName)
+        Me.GroupBox1.Controls.Add(Me.TextBoxCode)
         Me.GroupBox1.Controls.Add(Me.Label3)
         Me.GroupBox1.Controls.Add(Me.Label2)
         Me.GroupBox1.Controls.Add(Me.Label1)
-        Me.GroupBox1.Controls.Add(Me.ComboBox1)
+        Me.GroupBox1.Controls.Add(Me.ComboBoxCategory)
         Me.GroupBox1.Location = New System.Drawing.Point(127, 5)
         Me.GroupBox1.Name = "GroupBox1"
         Me.GroupBox1.Size = New System.Drawing.Size(927, 111)
         Me.GroupBox1.TabIndex = 1
         Me.GroupBox1.TabStop = False
         '
-        'CheckBox1
+        'CheckBoxReorder
         '
-        Me.CheckBox1.AutoSize = True
-        Me.CheckBox1.Location = New System.Drawing.Point(769, 27)
-        Me.CheckBox1.Name = "CheckBox1"
-        Me.CheckBox1.Size = New System.Drawing.Size(15, 14)
-        Me.CheckBox1.TabIndex = 7
-        Me.CheckBox1.UseVisualStyleBackColor = True
+        Me.CheckBoxReorder.AutoSize = True
+        Me.CheckBoxReorder.Location = New System.Drawing.Point(769, 27)
+        Me.CheckBoxReorder.Name = "CheckBoxReorder"
+        Me.CheckBoxReorder.Size = New System.Drawing.Size(15, 14)
+        Me.CheckBoxReorder.TabIndex = 7
+        Me.CheckBoxReorder.UseVisualStyleBackColor = True
         '
         'Label4
         '
@@ -134,19 +134,19 @@ Partial Class StockMain
         Me.Label4.TabIndex = 6
         Me.Label4.Text = "Items to re-order:"
         '
-        'TextBox2
+        'TextBoxName
         '
-        Me.TextBox2.Location = New System.Drawing.Point(591, 23)
-        Me.TextBox2.Name = "TextBox2"
-        Me.TextBox2.Size = New System.Drawing.Size(100, 20)
-        Me.TextBox2.TabIndex = 5
+        Me.TextBoxName.Location = New System.Drawing.Point(591, 23)
+        Me.TextBoxName.Name = "TextBoxName"
+        Me.TextBoxName.Size = New System.Drawing.Size(100, 20)
+        Me.TextBoxName.TabIndex = 5
         '
-        'TextBox1
+        'TextBoxCode
         '
-        Me.TextBox1.Location = New System.Drawing.Point(368, 23)
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(100, 20)
-        Me.TextBox1.TabIndex = 4
+        Me.TextBoxCode.Location = New System.Drawing.Point(368, 23)
+        Me.TextBoxCode.Name = "TextBoxCode"
+        Me.TextBoxCode.Size = New System.Drawing.Size(100, 20)
+        Me.TextBoxCode.TabIndex = 4
         '
         'Label3
         '
@@ -175,14 +175,14 @@ Partial Class StockMain
         Me.Label1.TabIndex = 1
         Me.Label1.Text = "Order By Category:"
         '
-        'ComboBox1
+        'ComboBoxCategory
         '
-        Me.ComboBox1.FormattingEnabled = True
-        Me.ComboBox1.Items.AddRange(New Object() {"Office Suply", "It Supplies", "Canteen Supplies"})
-        Me.ComboBox1.Location = New System.Drawing.Point(116, 23)
-        Me.ComboBox1.Name = "ComboBox1"
-        Me.ComboBox1.Size = New System.Drawing.Size(121, 21)
-        Me.ComboBox1.TabIndex = 0
+        Me.ComboBoxCategory.FormattingEnabled = True
+        Me.ComboBoxCategory.Items.AddRange(New Object() {"Office Suply", "It Supplies", "Canteen Supplies"})
+        Me.ComboBoxCategory.Location = New System.Drawing.Point(116, 23)
+        Me.ComboBoxCategory.Name = "ComboBoxCategory"
+        Me.ComboBoxCategory.Size = New System.Drawing.Size(121, 21)
+        Me.ComboBoxCategory.TabIndex = 0
         '
         'Button1
         '
@@ -193,23 +193,23 @@ Partial Class StockMain
         Me.Button1.Text = "New Item"
         Me.Button1.UseVisualStyleBackColor = True
         '
-        'Button2
+        'ButtonAddStock
         '
-        Me.Button2.Location = New System.Drawing.Point(4, 146)
-        Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(115, 38)
-        Me.Button2.TabIndex = 3
-        Me.Button2.Text = "Add Stock"
-        Me.Button2.UseVisualStyleBackColor = True
+        Me.ButtonAddStock.Location = New System.Drawing.Point(4, 146)
+        Me.ButtonAddStock.Name = "ButtonAddStock"
+        Me.ButtonAddStock.Size = New System.Drawing.Size(115, 38)
+        Me.ButtonAddStock.TabIndex = 3
+        Me.ButtonAddStock.Text = "Add Stock"
+        Me.ButtonAddStock.UseVisualStyleBackColor = True
         '
-        'Button3
+        'ButtonDistrStock
         '
-        Me.Button3.Location = New System.Drawing.Point(4, 191)
-        Me.Button3.Name = "Button3"
-        Me.Button3.Size = New System.Drawing.Size(115, 38)
-        Me.Button3.TabIndex = 4
-        Me.Button3.Text = "Distribute Stock"
-        Me.Button3.UseVisualStyleBackColor = True
+        Me.ButtonDistrStock.Location = New System.Drawing.Point(4, 191)
+        Me.ButtonDistrStock.Name = "ButtonDistrStock"
+        Me.ButtonDistrStock.Size = New System.Drawing.Size(115, 38)
+        Me.ButtonDistrStock.TabIndex = 4
+        Me.ButtonDistrStock.Text = "Distribute Stock"
+        Me.ButtonDistrStock.UseVisualStyleBackColor = True
         '
         'GroupBox2
         '
@@ -223,94 +223,94 @@ Partial Class StockMain
         '
         'Panel1
         '
-        Me.Panel1.Controls.Add(Me.Button10)
-        Me.Panel1.Controls.Add(Me.Button9)
-        Me.Panel1.Controls.Add(Me.Button8)
-        Me.Panel1.Controls.Add(Me.Button7)
-        Me.Panel1.Controls.Add(Me.Button6)
-        Me.Panel1.Controls.Add(Me.Button5)
-        Me.Panel1.Controls.Add(Me.Button4)
-        Me.Panel1.Controls.Add(Me.Button3)
-        Me.Panel1.Controls.Add(Me.Button2)
+        Me.Panel1.Controls.Add(Me.ButtonReports)
+        Me.Panel1.Controls.Add(Me.ButtonPendingReqs)
+        Me.Panel1.Controls.Add(Me.ButtonDistrbHistory)
+        Me.Panel1.Controls.Add(Me.ButtonStockHistory)
+        Me.Panel1.Controls.Add(Me.ButtonMngDepart)
+        Me.Panel1.Controls.Add(Me.ButtonMngCat)
+        Me.Panel1.Controls.Add(Me.ButtonMngitems)
+        Me.Panel1.Controls.Add(Me.ButtonDistrStock)
+        Me.Panel1.Controls.Add(Me.ButtonAddStock)
         Me.Panel1.Dock = System.Windows.Forms.DockStyle.Left
         Me.Panel1.Location = New System.Drawing.Point(0, 0)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(121, 547)
+        Me.Panel1.Size = New System.Drawing.Size(121, 551)
         Me.Panel1.TabIndex = 8
         '
-        'Button6
+        'ButtonReports
         '
-        Me.Button6.Location = New System.Drawing.Point(4, 326)
-        Me.Button6.Name = "Button6"
-        Me.Button6.Size = New System.Drawing.Size(115, 38)
-        Me.Button6.TabIndex = 7
-        Me.Button6.Text = "Mange Departments"
-        Me.Button6.UseVisualStyleBackColor = True
+        Me.ButtonReports.Location = New System.Drawing.Point(2, 504)
+        Me.ButtonReports.Name = "ButtonReports"
+        Me.ButtonReports.Size = New System.Drawing.Size(115, 38)
+        Me.ButtonReports.TabIndex = 11
+        Me.ButtonReports.Text = "Reports"
+        Me.ButtonReports.UseVisualStyleBackColor = True
         '
-        'Button5
+        'ButtonPendingReqs
         '
-        Me.Button5.Location = New System.Drawing.Point(3, 281)
-        Me.Button5.Name = "Button5"
-        Me.Button5.Size = New System.Drawing.Size(115, 38)
-        Me.Button5.TabIndex = 6
-        Me.Button5.Text = "Mange Categories"
-        Me.Button5.UseVisualStyleBackColor = True
+        Me.ButtonPendingReqs.Location = New System.Drawing.Point(3, 460)
+        Me.ButtonPendingReqs.Name = "ButtonPendingReqs"
+        Me.ButtonPendingReqs.Size = New System.Drawing.Size(115, 38)
+        Me.ButtonPendingReqs.TabIndex = 10
+        Me.ButtonPendingReqs.Text = "Pending Requests"
+        Me.ButtonPendingReqs.UseVisualStyleBackColor = True
         '
-        'Button4
+        'ButtonDistrbHistory
         '
-        Me.Button4.Location = New System.Drawing.Point(3, 236)
-        Me.Button4.Name = "Button4"
-        Me.Button4.Size = New System.Drawing.Size(115, 38)
-        Me.Button4.TabIndex = 5
-        Me.Button4.Text = "Mange Items"
-        Me.Button4.UseVisualStyleBackColor = True
+        Me.ButtonDistrbHistory.Location = New System.Drawing.Point(3, 416)
+        Me.ButtonDistrbHistory.Name = "ButtonDistrbHistory"
+        Me.ButtonDistrbHistory.Size = New System.Drawing.Size(115, 38)
+        Me.ButtonDistrbHistory.TabIndex = 9
+        Me.ButtonDistrbHistory.Text = "Distribution History"
+        Me.ButtonDistrbHistory.UseVisualStyleBackColor = True
         '
-        'Button7
+        'ButtonStockHistory
         '
-        Me.Button7.Location = New System.Drawing.Point(3, 371)
-        Me.Button7.Name = "Button7"
-        Me.Button7.Size = New System.Drawing.Size(115, 38)
-        Me.Button7.TabIndex = 8
-        Me.Button7.Text = "Stock History"
-        Me.Button7.UseVisualStyleBackColor = True
+        Me.ButtonStockHistory.Location = New System.Drawing.Point(3, 371)
+        Me.ButtonStockHistory.Name = "ButtonStockHistory"
+        Me.ButtonStockHistory.Size = New System.Drawing.Size(115, 38)
+        Me.ButtonStockHistory.TabIndex = 8
+        Me.ButtonStockHistory.Text = "Stock History"
+        Me.ButtonStockHistory.UseVisualStyleBackColor = True
         '
-        'Button8
+        'ButtonMngDepart
         '
-        Me.Button8.Location = New System.Drawing.Point(3, 416)
-        Me.Button8.Name = "Button8"
-        Me.Button8.Size = New System.Drawing.Size(115, 38)
-        Me.Button8.TabIndex = 9
-        Me.Button8.Text = "Distribution History"
-        Me.Button8.UseVisualStyleBackColor = True
+        Me.ButtonMngDepart.Location = New System.Drawing.Point(4, 326)
+        Me.ButtonMngDepart.Name = "ButtonMngDepart"
+        Me.ButtonMngDepart.Size = New System.Drawing.Size(115, 38)
+        Me.ButtonMngDepart.TabIndex = 7
+        Me.ButtonMngDepart.Text = "Mange Departments"
+        Me.ButtonMngDepart.UseVisualStyleBackColor = True
         '
-        'Button9
+        'ButtonMngCat
         '
-        Me.Button9.Location = New System.Drawing.Point(3, 460)
-        Me.Button9.Name = "Button9"
-        Me.Button9.Size = New System.Drawing.Size(115, 38)
-        Me.Button9.TabIndex = 10
-        Me.Button9.Text = "Pending Requests"
-        Me.Button9.UseVisualStyleBackColor = True
+        Me.ButtonMngCat.Location = New System.Drawing.Point(3, 281)
+        Me.ButtonMngCat.Name = "ButtonMngCat"
+        Me.ButtonMngCat.Size = New System.Drawing.Size(115, 38)
+        Me.ButtonMngCat.TabIndex = 6
+        Me.ButtonMngCat.Text = "Mange Categories"
+        Me.ButtonMngCat.UseVisualStyleBackColor = True
         '
-        'Button10
+        'ButtonMngitems
         '
-        Me.Button10.Location = New System.Drawing.Point(2, 504)
-        Me.Button10.Name = "Button10"
-        Me.Button10.Size = New System.Drawing.Size(115, 38)
-        Me.Button10.TabIndex = 11
-        Me.Button10.Text = "Reports"
-        Me.Button10.UseVisualStyleBackColor = True
+        Me.ButtonMngitems.Location = New System.Drawing.Point(3, 236)
+        Me.ButtonMngitems.Name = "ButtonMngitems"
+        Me.ButtonMngitems.Size = New System.Drawing.Size(115, 38)
+        Me.ButtonMngitems.TabIndex = 5
+        Me.ButtonMngitems.Text = "Mange Items"
+        Me.ButtonMngitems.UseVisualStyleBackColor = True
         '
-        'Form1
+        'StockMain
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1064, 547)
+        Me.ClientSize = New System.Drawing.Size(1064, 551)
         Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.GroupBox1)
-        Me.Name = "Form1"
+        Me.Name = "StockMain"
         Me.Text = "Stock"
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox1.ResumeLayout(False)
@@ -323,17 +323,17 @@ Partial Class StockMain
 
     Friend WithEvents DataGridView1 As DataGridView
     Friend WithEvents GroupBox1 As GroupBox
-    Friend WithEvents CheckBox1 As CheckBox
+    Friend WithEvents CheckBoxReorder As CheckBox
     Friend WithEvents Label4 As Label
-    Friend WithEvents TextBox2 As TextBox
-    Friend WithEvents TextBox1 As TextBox
+    Friend WithEvents TextBoxName As TextBox
+    Friend WithEvents TextBoxCode As TextBox
     Friend WithEvents Label3 As Label
     Friend WithEvents Label2 As Label
     Friend WithEvents Label1 As Label
-    Friend WithEvents ComboBox1 As ComboBox
+    Friend WithEvents ComboBoxCategory As ComboBox
     Friend WithEvents Button1 As Button
-    Friend WithEvents Button2 As Button
-    Friend WithEvents Button3 As Button
+    Friend WithEvents ButtonAddStock As Button
+    Friend WithEvents ButtonDistrStock As Button
     Friend WithEvents Id As DataGridViewTextBoxColumn
     Friend WithEvents Item As DataGridViewTextBoxColumn
     Friend WithEvents Category As DataGridViewTextBoxColumn
@@ -343,11 +343,11 @@ Partial Class StockMain
     Friend WithEvents Cost As DataGridViewTextBoxColumn
     Friend WithEvents GroupBox2 As GroupBox
     Friend WithEvents Panel1 As Panel
-    Friend WithEvents Button6 As Button
-    Friend WithEvents Button5 As Button
-    Friend WithEvents Button4 As Button
-    Friend WithEvents Button8 As Button
-    Friend WithEvents Button7 As Button
-    Friend WithEvents Button9 As Button
-    Friend WithEvents Button10 As Button
+    Friend WithEvents ButtonMngDepart As Button
+    Friend WithEvents ButtonMngCat As Button
+    Friend WithEvents ButtonMngitems As Button
+    Friend WithEvents ButtonDistrbHistory As Button
+    Friend WithEvents ButtonStockHistory As Button
+    Friend WithEvents ButtonPendingReqs As Button
+    Friend WithEvents ButtonReports As Button
 End Class

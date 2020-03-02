@@ -1,3 +1,3 @@
-﻿Public Class Add_Stock
+﻿Public Class FrmAddStock
 
 End Class

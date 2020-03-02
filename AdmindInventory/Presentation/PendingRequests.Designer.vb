@@ -37,9 +37,9 @@ Partial Class PendingRequests
         'GroupBox1
         '
         Me.GroupBox1.Controls.Add(Me.DataGridView1)
-        Me.GroupBox1.Location = New System.Drawing.Point(12, 12)
+        Me.GroupBox1.Location = New System.Drawing.Point(6, 12)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(858, 426)
+        Me.GroupBox1.Size = New System.Drawing.Size(868, 426)
         Me.GroupBox1.TabIndex = 0
         Me.GroupBox1.TabStop = False
         '

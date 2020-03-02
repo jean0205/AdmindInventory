@@ -24,25 +24,26 @@ Partial Class New_Item
     Private Sub InitializeComponent()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
-        Me.Button1 = New System.Windows.Forms.Button()
-        Me.Button2 = New System.Windows.Forms.Button()
-        Me.Button4 = New System.Windows.Forms.Button()
-        Me.Button3 = New System.Windows.Forms.Button()
-        Me.TextBox3 = New System.Windows.Forms.TextBox()
-        Me.TextBox2 = New System.Windows.Forms.TextBox()
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
+        Me.ButtonDelete = New System.Windows.Forms.Button()
+        Me.ButtonNew = New System.Windows.Forms.Button()
+        Me.ButtonUpdate = New System.Windows.Forms.Button()
+        Me.TextBoxReorder = New System.Windows.Forms.TextBox()
+        Me.TextBoxPresentation = New System.Windows.Forms.TextBox()
+        Me.TextBoxName = New System.Windows.Forms.TextBox()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
-        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
+        Me.ComboBoxCategory = New System.Windows.Forms.ComboBox()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
         Me.Column1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Unit = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.Label5 = New System.Windows.Forms.Label()
-        Me.TextBox4 = New System.Windows.Forms.TextBox()
+        Me.TextBoxFindByName = New System.Windows.Forms.TextBox()
+        Me.TextBoxDescript = New System.Windows.Forms.TextBox()
+        Me.Label6 = New System.Windows.Forms.Label()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox3.SuspendLayout()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -51,94 +52,86 @@ Partial Class New_Item
         '
         'GroupBox1
         '
+        Me.GroupBox1.Controls.Add(Me.TextBoxDescript)
+        Me.GroupBox1.Controls.Add(Me.Label6)
         Me.GroupBox1.Controls.Add(Me.GroupBox3)
-        Me.GroupBox1.Controls.Add(Me.Button3)
-        Me.GroupBox1.Controls.Add(Me.TextBox3)
-        Me.GroupBox1.Controls.Add(Me.TextBox2)
-        Me.GroupBox1.Controls.Add(Me.TextBox1)
+        Me.GroupBox1.Controls.Add(Me.TextBoxReorder)
+        Me.GroupBox1.Controls.Add(Me.TextBoxPresentation)
+        Me.GroupBox1.Controls.Add(Me.TextBoxName)
         Me.GroupBox1.Controls.Add(Me.Label4)
         Me.GroupBox1.Controls.Add(Me.Label3)
         Me.GroupBox1.Controls.Add(Me.Label2)
         Me.GroupBox1.Controls.Add(Me.Label1)
-        Me.GroupBox1.Controls.Add(Me.ComboBox1)
+        Me.GroupBox1.Controls.Add(Me.ComboBoxCategory)
         Me.GroupBox1.Location = New System.Drawing.Point(9, 5)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(458, 184)
+        Me.GroupBox1.Size = New System.Drawing.Size(458, 211)
         Me.GroupBox1.TabIndex = 0
         Me.GroupBox1.TabStop = False
         '
         'GroupBox3
         '
-        Me.GroupBox3.Controls.Add(Me.Button1)
-        Me.GroupBox3.Controls.Add(Me.Button2)
-        Me.GroupBox3.Controls.Add(Me.Button4)
+        Me.GroupBox3.Controls.Add(Me.ButtonDelete)
+        Me.GroupBox3.Controls.Add(Me.ButtonNew)
+        Me.GroupBox3.Controls.Add(Me.ButtonUpdate)
         Me.GroupBox3.Location = New System.Drawing.Point(331, 19)
         Me.GroupBox3.Name = "GroupBox3"
-        Me.GroupBox3.Size = New System.Drawing.Size(119, 152)
+        Me.GroupBox3.Size = New System.Drawing.Size(119, 182)
         Me.GroupBox3.TabIndex = 15
         Me.GroupBox3.TabStop = False
         '
-        'Button1
+        'ButtonDelete
         '
-        Me.Button1.Location = New System.Drawing.Point(21, 113)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(75, 23)
-        Me.Button1.TabIndex = 13
-        Me.Button1.Text = "Delete"
-        Me.Button1.UseVisualStyleBackColor = True
+        Me.ButtonDelete.Location = New System.Drawing.Point(21, 141)
+        Me.ButtonDelete.Name = "ButtonDelete"
+        Me.ButtonDelete.Size = New System.Drawing.Size(75, 23)
+        Me.ButtonDelete.TabIndex = 13
+        Me.ButtonDelete.Text = "Delete"
+        Me.ButtonDelete.UseVisualStyleBackColor = True
         '
-        'Button2
+        'ButtonNew
         '
-        Me.Button2.Location = New System.Drawing.Point(21, 17)
-        Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(75, 23)
-        Me.Button2.TabIndex = 11
-        Me.Button2.Text = "New"
-        Me.Button2.UseVisualStyleBackColor = True
+        Me.ButtonNew.Location = New System.Drawing.Point(21, 17)
+        Me.ButtonNew.Name = "ButtonNew"
+        Me.ButtonNew.Size = New System.Drawing.Size(75, 23)
+        Me.ButtonNew.TabIndex = 11
+        Me.ButtonNew.Text = "New"
+        Me.ButtonNew.UseVisualStyleBackColor = True
         '
-        'Button4
+        'ButtonUpdate
         '
-        Me.Button4.Location = New System.Drawing.Point(21, 65)
-        Me.Button4.Name = "Button4"
-        Me.Button4.Size = New System.Drawing.Size(75, 23)
-        Me.Button4.TabIndex = 12
-        Me.Button4.Text = "Update"
-        Me.Button4.UseVisualStyleBackColor = True
+        Me.ButtonUpdate.Location = New System.Drawing.Point(21, 79)
+        Me.ButtonUpdate.Name = "ButtonUpdate"
+        Me.ButtonUpdate.Size = New System.Drawing.Size(75, 23)
+        Me.ButtonUpdate.TabIndex = 12
+        Me.ButtonUpdate.Text = "Update"
+        Me.ButtonUpdate.UseVisualStyleBackColor = True
         '
-        'Button3
+        'TextBoxReorder
         '
-        Me.Button3.Location = New System.Drawing.Point(259, 25)
-        Me.Button3.Name = "Button3"
-        Me.Button3.Size = New System.Drawing.Size(40, 23)
-        Me.Button3.TabIndex = 12
-        Me.Button3.Text = "New"
-        Me.Button3.UseVisualStyleBackColor = True
+        Me.TextBoxReorder.Location = New System.Drawing.Point(103, 181)
+        Me.TextBoxReorder.Name = "TextBoxReorder"
+        Me.TextBoxReorder.Size = New System.Drawing.Size(174, 20)
+        Me.TextBoxReorder.TabIndex = 9
         '
-        'TextBox3
+        'TextBoxPresentation
         '
-        Me.TextBox3.Location = New System.Drawing.Point(103, 151)
-        Me.TextBox3.Name = "TextBox3"
-        Me.TextBox3.Size = New System.Drawing.Size(174, 20)
-        Me.TextBox3.TabIndex = 9
+        Me.TextBoxPresentation.Location = New System.Drawing.Point(103, 146)
+        Me.TextBoxPresentation.Name = "TextBoxPresentation"
+        Me.TextBoxPresentation.Size = New System.Drawing.Size(174, 20)
+        Me.TextBoxPresentation.TabIndex = 8
         '
-        'TextBox2
+        'TextBoxName
         '
-        Me.TextBox2.Location = New System.Drawing.Point(103, 110)
-        Me.TextBox2.Name = "TextBox2"
-        Me.TextBox2.Size = New System.Drawing.Size(174, 20)
-        Me.TextBox2.TabIndex = 8
-        '
-        'TextBox1
-        '
-        Me.TextBox1.Location = New System.Drawing.Point(103, 69)
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(174, 20)
-        Me.TextBox1.TabIndex = 7
+        Me.TextBoxName.Location = New System.Drawing.Point(103, 53)
+        Me.TextBoxName.Name = "TextBoxName"
+        Me.TextBoxName.Size = New System.Drawing.Size(174, 20)
+        Me.TextBoxName.TabIndex = 7
         '
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(15, 154)
+        Me.Label4.Location = New System.Drawing.Point(15, 185)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(82, 13)
         Me.Label4.TabIndex = 6
@@ -147,16 +140,16 @@ Partial Class New_Item
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(15, 113)
+        Me.Label3.Location = New System.Drawing.Point(15, 150)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(29, 13)
+        Me.Label3.Size = New System.Drawing.Size(69, 13)
         Me.Label3.TabIndex = 5
-        Me.Label3.Text = "Unit:"
+        Me.Label3.Text = "Presentation:"
         '
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(15, 72)
+        Me.Label2.Location = New System.Drawing.Point(15, 58)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(38, 13)
         Me.Label2.TabIndex = 4
@@ -165,20 +158,20 @@ Partial Class New_Item
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(15, 31)
+        Me.Label1.Location = New System.Drawing.Point(15, 21)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(52, 13)
         Me.Label1.TabIndex = 3
         Me.Label1.Text = "Category:"
         '
-        'ComboBox1
+        'ComboBoxCategory
         '
-        Me.ComboBox1.FormattingEnabled = True
-        Me.ComboBox1.Items.AddRange(New Object() {"Office Suply", "It Supplies", "Canteen Supplies"})
-        Me.ComboBox1.Location = New System.Drawing.Point(103, 27)
-        Me.ComboBox1.Name = "ComboBox1"
-        Me.ComboBox1.Size = New System.Drawing.Size(137, 21)
-        Me.ComboBox1.TabIndex = 2
+        Me.ComboBoxCategory.FormattingEnabled = True
+        Me.ComboBoxCategory.Items.AddRange(New Object() {"Office Suply", "It Supplies", "Canteen Supplies"})
+        Me.ComboBoxCategory.Location = New System.Drawing.Point(103, 17)
+        Me.ComboBoxCategory.Name = "ComboBoxCategory"
+        Me.ComboBoxCategory.Size = New System.Drawing.Size(174, 21)
+        Me.ComboBoxCategory.TabIndex = 2
         '
         'DataGridView1
         '
@@ -186,7 +179,7 @@ Partial Class New_Item
         Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column1, Me.Unit, Me.Column2})
         Me.DataGridView1.Location = New System.Drawing.Point(6, 45)
         Me.DataGridView1.Name = "DataGridView1"
-        Me.DataGridView1.Size = New System.Drawing.Size(444, 284)
+        Me.DataGridView1.Size = New System.Drawing.Size(444, 300)
         Me.DataGridView1.TabIndex = 1
         '
         'Column1
@@ -207,35 +200,52 @@ Partial Class New_Item
         'GroupBox2
         '
         Me.GroupBox2.Controls.Add(Me.Label5)
-        Me.GroupBox2.Controls.Add(Me.TextBox4)
+        Me.GroupBox2.Controls.Add(Me.TextBoxFindByName)
         Me.GroupBox2.Controls.Add(Me.DataGridView1)
-        Me.GroupBox2.Location = New System.Drawing.Point(9, 195)
+        Me.GroupBox2.Location = New System.Drawing.Point(9, 222)
         Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Size = New System.Drawing.Size(458, 351)
+        Me.GroupBox2.Size = New System.Drawing.Size(458, 359)
         Me.GroupBox2.TabIndex = 2
         Me.GroupBox2.TabStop = False
         '
         'Label5
         '
         Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(6, 23)
+        Me.Label5.Location = New System.Drawing.Point(15, 23)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(76, 13)
         Me.Label5.TabIndex = 16
         Me.Label5.Text = "Find By Name:"
         '
-        'TextBox4
+        'TextBoxFindByName
         '
-        Me.TextBox4.Location = New System.Drawing.Point(86, 19)
-        Me.TextBox4.Name = "TextBox4"
-        Me.TextBox4.Size = New System.Drawing.Size(174, 20)
-        Me.TextBox4.TabIndex = 16
+        Me.TextBoxFindByName.Location = New System.Drawing.Point(103, 19)
+        Me.TextBoxFindByName.Name = "TextBoxFindByName"
+        Me.TextBoxFindByName.Size = New System.Drawing.Size(174, 20)
+        Me.TextBoxFindByName.TabIndex = 16
+        '
+        'TextBoxDescript
+        '
+        Me.TextBoxDescript.Location = New System.Drawing.Point(103, 88)
+        Me.TextBoxDescript.Multiline = True
+        Me.TextBoxDescript.Name = "TextBoxDescript"
+        Me.TextBoxDescript.Size = New System.Drawing.Size(174, 43)
+        Me.TextBoxDescript.TabIndex = 17
+        '
+        'Label6
+        '
+        Me.Label6.AutoSize = True
+        Me.Label6.Location = New System.Drawing.Point(15, 101)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(63, 13)
+        Me.Label6.TabIndex = 16
+        Me.Label6.Text = "Description:"
         '
         'New_Item
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(476, 558)
+        Me.ClientSize = New System.Drawing.Size(476, 587)
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.GroupBox1)
         Me.Name = "New_Item"
@@ -252,23 +262,24 @@ Partial Class New_Item
 
     Friend WithEvents GroupBox1 As GroupBox
     Friend WithEvents Label1 As Label
-    Friend WithEvents ComboBox1 As ComboBox
+    Friend WithEvents ComboBoxCategory As ComboBox
     Friend WithEvents Label3 As Label
     Friend WithEvents Label2 As Label
     Friend WithEvents Label4 As Label
-    Friend WithEvents TextBox3 As TextBox
-    Friend WithEvents TextBox2 As TextBox
-    Friend WithEvents TextBox1 As TextBox
-    Friend WithEvents Button3 As Button
+    Friend WithEvents TextBoxReorder As TextBox
+    Friend WithEvents TextBoxPresentation As TextBox
+    Friend WithEvents TextBoxName As TextBox
     Friend WithEvents GroupBox3 As GroupBox
-    Friend WithEvents Button1 As Button
-    Friend WithEvents Button2 As Button
-    Friend WithEvents Button4 As Button
+    Friend WithEvents ButtonDelete As Button
+    Friend WithEvents ButtonNew As Button
+    Friend WithEvents ButtonUpdate As Button
     Friend WithEvents DataGridView1 As DataGridView
     Friend WithEvents GroupBox2 As GroupBox
     Friend WithEvents Column1 As DataGridViewTextBoxColumn
     Friend WithEvents Unit As DataGridViewTextBoxColumn
     Friend WithEvents Column2 As DataGridViewTextBoxColumn
     Friend WithEvents Label5 As Label
-    Friend WithEvents TextBox4 As TextBox
+    Friend WithEvents TextBoxFindByName As TextBox
+    Friend WithEvents TextBoxDescript As TextBox
+    Friend WithEvents Label6 As Label
 End Class

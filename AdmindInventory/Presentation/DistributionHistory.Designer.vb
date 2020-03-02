@@ -32,10 +32,11 @@ Partial Class DistributionHistory
         Me.Cost = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Autorized = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
-        Me.Label4 = New System.Windows.Forms.Label()
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
+        Me.ButtonFilter = New System.Windows.Forms.Button()
         Me.Label3 = New System.Windows.Forms.Label()
-        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
+        Me.ComboBoxcategory = New System.Windows.Forms.ComboBox()
+        Me.Label4 = New System.Windows.Forms.Label()
+        Me.TextBoxItem = New System.Windows.Forms.TextBox()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.DateTimePicker2 = New System.Windows.Forms.DateTimePicker()
@@ -50,7 +51,7 @@ Partial Class DistributionHistory
         Me.GroupBox2.Controls.Add(Me.DataGridView1)
         Me.GroupBox2.Location = New System.Drawing.Point(2, 85)
         Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Size = New System.Drawing.Size(793, 450)
+        Me.GroupBox2.Size = New System.Drawing.Size(1054, 460)
         Me.GroupBox2.TabIndex = 7
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "."
@@ -58,9 +59,9 @@ Partial Class DistributionHistory
         'DataGridView1
         '
         Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.columm1, Me.Item, Me.Amount, Me.Department, Me.Unit, Me.Cost, Me.Autorized})
-        Me.DataGridView1.Location = New System.Drawing.Point(6, 15)
+        Me.DataGridView1.Location = New System.Drawing.Point(6, 21)
         Me.DataGridView1.Name = "DataGridView1"
-        Me.DataGridView1.Size = New System.Drawing.Size(780, 429)
+        Me.DataGridView1.Size = New System.Drawing.Size(1042, 429)
         Me.DataGridView1.TabIndex = 0
         '
         'columm1
@@ -100,58 +101,68 @@ Partial Class DistributionHistory
         '
         'GroupBox1
         '
-        Me.GroupBox1.Controls.Add(Me.Label4)
-        Me.GroupBox1.Controls.Add(Me.TextBox1)
+        Me.GroupBox1.Controls.Add(Me.ButtonFilter)
         Me.GroupBox1.Controls.Add(Me.Label3)
-        Me.GroupBox1.Controls.Add(Me.ComboBox1)
+        Me.GroupBox1.Controls.Add(Me.ComboBoxcategory)
+        Me.GroupBox1.Controls.Add(Me.Label4)
+        Me.GroupBox1.Controls.Add(Me.TextBoxItem)
         Me.GroupBox1.Controls.Add(Me.Label2)
         Me.GroupBox1.Controls.Add(Me.Label1)
         Me.GroupBox1.Controls.Add(Me.DateTimePicker2)
         Me.GroupBox1.Controls.Add(Me.DateTimePicker1)
-        Me.GroupBox1.Location = New System.Drawing.Point(2, 5)
+        Me.GroupBox1.Location = New System.Drawing.Point(8, 5)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(793, 74)
-        Me.GroupBox1.TabIndex = 8
+        Me.GroupBox1.Size = New System.Drawing.Size(1048, 74)
+        Me.GroupBox1.TabIndex = 11
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Filter by:"
+        '
+        'ButtonFilter
+        '
+        Me.ButtonFilter.Location = New System.Drawing.Point(951, 38)
+        Me.ButtonFilter.Name = "ButtonFilter"
+        Me.ButtonFilter.Size = New System.Drawing.Size(75, 23)
+        Me.ButtonFilter.TabIndex = 10
+        Me.ButtonFilter.Text = "Filter"
+        Me.ButtonFilter.UseVisualStyleBackColor = True
+        '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.Location = New System.Drawing.Point(295, 16)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(52, 13)
+        Me.Label3.TabIndex = 9
+        Me.Label3.Text = "Category:"
+        '
+        'ComboBoxcategory
+        '
+        Me.ComboBoxcategory.FormattingEnabled = True
+        Me.ComboBoxcategory.Location = New System.Drawing.Point(298, 39)
+        Me.ComboBoxcategory.Name = "ComboBoxcategory"
+        Me.ComboBoxcategory.Size = New System.Drawing.Size(152, 21)
+        Me.ComboBoxcategory.TabIndex = 1
         '
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(71, 16)
+        Me.Label4.Location = New System.Drawing.Point(52, 16)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(30, 13)
         Me.Label4.TabIndex = 7
         Me.Label4.Text = "Item:"
         '
-        'TextBox1
+        'TextBoxItem
         '
-        Me.TextBox1.Location = New System.Drawing.Point(74, 34)
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(131, 20)
-        Me.TextBox1.TabIndex = 6
-        '
-        'Label3
-        '
-        Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(314, 16)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(65, 13)
-        Me.Label3.TabIndex = 5
-        Me.Label3.Text = "Department:"
-        '
-        'ComboBox1
-        '
-        Me.ComboBox1.FormattingEnabled = True
-        Me.ComboBox1.Location = New System.Drawing.Point(317, 34)
-        Me.ComboBox1.Name = "ComboBox1"
-        Me.ComboBox1.Size = New System.Drawing.Size(121, 21)
-        Me.ComboBox1.TabIndex = 4
+        Me.TextBoxItem.Location = New System.Drawing.Point(55, 39)
+        Me.TextBoxItem.Name = "TextBoxItem"
+        Me.TextBoxItem.Size = New System.Drawing.Size(152, 20)
+        Me.TextBoxItem.TabIndex = 0
         '
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(673, 16)
+        Me.Label2.Location = New System.Drawing.Point(823, 20)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(55, 13)
         Me.Label2.TabIndex = 3
@@ -160,7 +171,7 @@ Partial Class DistributionHistory
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(519, 16)
+        Me.Label1.Location = New System.Drawing.Point(667, 20)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(58, 13)
         Me.Label1.TabIndex = 2
@@ -169,24 +180,24 @@ Partial Class DistributionHistory
         'DateTimePicker2
         '
         Me.DateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.DateTimePicker2.Location = New System.Drawing.Point(675, 35)
+        Me.DateTimePicker2.Location = New System.Drawing.Point(823, 39)
         Me.DateTimePicker2.Name = "DateTimePicker2"
         Me.DateTimePicker2.Size = New System.Drawing.Size(111, 20)
-        Me.DateTimePicker2.TabIndex = 1
+        Me.DateTimePicker2.TabIndex = 3
         '
         'DateTimePicker1
         '
         Me.DateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.DateTimePicker1.Location = New System.Drawing.Point(522, 35)
+        Me.DateTimePicker1.Location = New System.Drawing.Point(670, 39)
         Me.DateTimePicker1.Name = "DateTimePicker1"
         Me.DateTimePicker1.Size = New System.Drawing.Size(111, 20)
-        Me.DateTimePicker1.TabIndex = 0
+        Me.DateTimePicker1.TabIndex = 2
         '
         'DistributionHistory
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(800, 547)
+        Me.ClientSize = New System.Drawing.Size(1064, 551)
         Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.GroupBox2)
         Me.Name = "DistributionHistory"
@@ -201,15 +212,6 @@ Partial Class DistributionHistory
 
     Friend WithEvents GroupBox2 As GroupBox
     Friend WithEvents DataGridView1 As DataGridView
-    Friend WithEvents GroupBox1 As GroupBox
-    Friend WithEvents Label3 As Label
-    Friend WithEvents ComboBox1 As ComboBox
-    Friend WithEvents Label2 As Label
-    Friend WithEvents Label1 As Label
-    Friend WithEvents DateTimePicker2 As DateTimePicker
-    Friend WithEvents DateTimePicker1 As DateTimePicker
-    Friend WithEvents Label4 As Label
-    Friend WithEvents TextBox1 As TextBox
     Friend WithEvents columm1 As DataGridViewTextBoxColumn
     Friend WithEvents Item As DataGridViewTextBoxColumn
     Friend WithEvents Amount As DataGridViewTextBoxColumn
@@ -217,4 +219,14 @@ Partial Class DistributionHistory
     Friend WithEvents Unit As DataGridViewTextBoxColumn
     Friend WithEvents Cost As DataGridViewTextBoxColumn
     Friend WithEvents Autorized As DataGridViewTextBoxColumn
+    Friend WithEvents GroupBox1 As GroupBox
+    Friend WithEvents ButtonFilter As Button
+    Friend WithEvents Label3 As Label
+    Friend WithEvents ComboBoxcategory As ComboBox
+    Friend WithEvents Label4 As Label
+    Friend WithEvents TextBoxItem As TextBox
+    Friend WithEvents Label2 As Label
+    Friend WithEvents Label1 As Label
+    Friend WithEvents DateTimePicker2 As DateTimePicker
+    Friend WithEvents DateTimePicker1 As DateTimePicker
 End Class

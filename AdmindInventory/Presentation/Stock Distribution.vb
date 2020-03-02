@@ -1,3 +1,3 @@
-﻿Public Class Stock_Distribution
+﻿Public Class FrmDistibuteStock
 
 End Class
