@@ -33,9 +33,6 @@ Partial Class Categories
         Me.Label1 = New System.Windows.Forms.Label()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
-        Me.Id = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Name = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Description = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.GroupBox2.SuspendLayout()
         Me.GroupBox3.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
@@ -138,26 +135,10 @@ Partial Class Categories
         'DataGridView1
         '
         Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Id, Me.Name, Me.Description})
-        Me.DataGridView1.Location = New System.Drawing.Point(5, 19)
+        Me.DataGridView1.Location = New System.Drawing.Point(6, 19)
         Me.DataGridView1.Name = "DataGridView1"
-        Me.DataGridView1.Size = New System.Drawing.Size(413, 229)
-        Me.DataGridView1.TabIndex = 6
-        '
-        'Id
-        '
-        Me.Id.HeaderText = "Id"
-        Me.Id.Name = "Id"
-        '
-        'Name
-        '
-        Me.Name.HeaderText = "Name"
-        Me.Name.Name = "Name"
-        '
-        'Description
-        '
-        Me.Description.HeaderText = "Description"
-        Me.Description.Name = "Description"
+        Me.DataGridView1.Size = New System.Drawing.Size(414, 238)
+        Me.DataGridView1.TabIndex = 0
         '
         'Categories
         '
@@ -188,7 +169,4 @@ Partial Class Categories
     Friend WithEvents Label1 As Label
     Friend WithEvents GroupBox1 As GroupBox
     Friend WithEvents DataGridView1 As DataGridView
-    Friend WithEvents Id As DataGridViewTextBoxColumn
-    Friend WithEvents Name As DataGridViewTextBoxColumn
-    Friend WithEvents Description As DataGridViewTextBoxColumn
 End Class

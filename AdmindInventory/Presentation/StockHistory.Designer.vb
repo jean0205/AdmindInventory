@@ -23,6 +23,7 @@ Partial Class StockHistory
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.ButtonFilter = New System.Windows.Forms.Button()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.ComboBoxcategory = New System.Windows.Forms.ComboBox()
         Me.Label4 = New System.Windows.Forms.Label()
@@ -40,7 +41,6 @@ Partial Class StockHistory
         Me.Unit = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Cost = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Recibed = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.ButtonFilter = New System.Windows.Forms.Button()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -63,6 +63,15 @@ Partial Class StockHistory
         Me.GroupBox1.TabIndex = 10
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Filter by:"
+        '
+        'ButtonFilter
+        '
+        Me.ButtonFilter.Location = New System.Drawing.Point(951, 38)
+        Me.ButtonFilter.Name = "ButtonFilter"
+        Me.ButtonFilter.Size = New System.Drawing.Size(75, 23)
+        Me.ButtonFilter.TabIndex = 10
+        Me.ButtonFilter.Text = "Filter"
+        Me.ButtonFilter.UseVisualStyleBackColor = True
         '
         'Label3
         '
@@ -181,17 +190,8 @@ Partial Class StockHistory
         '
         'Recibed
         '
-        Me.Recibed.HeaderText = "Recibed By:"
+        Me.Recibed.HeaderText = "Recived By:"
         Me.Recibed.Name = "Recibed"
-        '
-        'ButtonFilter
-        '
-        Me.ButtonFilter.Location = New System.Drawing.Point(951, 38)
-        Me.ButtonFilter.Name = "ButtonFilter"
-        Me.ButtonFilter.Size = New System.Drawing.Size(75, 23)
-        Me.ButtonFilter.TabIndex = 10
-        Me.ButtonFilter.Text = "Filter"
-        Me.ButtonFilter.UseVisualStyleBackColor = True
         '
         'StockHistory
         '
@@ -219,6 +219,9 @@ Partial Class StockHistory
     Friend WithEvents DateTimePicker1 As DateTimePicker
     Friend WithEvents GroupBox2 As GroupBox
     Friend WithEvents DataGridView1 As DataGridView
+    Friend WithEvents Label3 As Label
+    Friend WithEvents ComboBoxcategory As ComboBox
+    Friend WithEvents ButtonFilter As Button
     Friend WithEvents columm1 As DataGridViewTextBoxColumn
     Friend WithEvents Item As DataGridViewTextBoxColumn
     Friend WithEvents Category As DataGridViewTextBoxColumn
@@ -226,7 +229,4 @@ Partial Class StockHistory
     Friend WithEvents Unit As DataGridViewTextBoxColumn
     Friend WithEvents Cost As DataGridViewTextBoxColumn
     Friend WithEvents Recibed As DataGridViewTextBoxColumn
-    Friend WithEvents Label3 As Label
-    Friend WithEvents ComboBoxcategory As ComboBox
-    Friend WithEvents ButtonFilter As Button
 End Class

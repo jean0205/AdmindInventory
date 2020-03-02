@@ -23,6 +23,7 @@ Partial Class FrmAddStock
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.ButtonClean = New System.Windows.Forms.Button()
         Me.TextBoxInvoice = New System.Windows.Forms.TextBox()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.TextBoxTotalCost = New System.Windows.Forms.TextBox()
@@ -38,12 +39,15 @@ Partial Class FrmAddStock
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
-        Me.ButtonClean = New System.Windows.Forms.Button()
+        Me.TextBox1 = New System.Windows.Forms.TextBox()
+        Me.Label8 = New System.Windows.Forms.Label()
         Me.GroupBox1.SuspendLayout()
         Me.SuspendLayout()
         '
         'GroupBox1
         '
+        Me.GroupBox1.Controls.Add(Me.TextBox1)
+        Me.GroupBox1.Controls.Add(Me.Label8)
         Me.GroupBox1.Controls.Add(Me.ButtonClean)
         Me.GroupBox1.Controls.Add(Me.TextBoxInvoice)
         Me.GroupBox1.Controls.Add(Me.Label7)
@@ -62,9 +66,18 @@ Partial Class FrmAddStock
         Me.GroupBox1.Controls.Add(Me.Label1)
         Me.GroupBox1.Location = New System.Drawing.Point(8, 6)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(324, 333)
+        Me.GroupBox1.Size = New System.Drawing.Size(324, 370)
         Me.GroupBox1.TabIndex = 1
         Me.GroupBox1.TabStop = False
+        '
+        'ButtonClean
+        '
+        Me.ButtonClean.Location = New System.Drawing.Point(15, 335)
+        Me.ButtonClean.Name = "ButtonClean"
+        Me.ButtonClean.Size = New System.Drawing.Size(75, 23)
+        Me.ButtonClean.TabIndex = 17
+        Me.ButtonClean.Text = "Clean"
+        Me.ButtonClean.UseVisualStyleBackColor = True
         '
         'TextBoxInvoice
         '
@@ -86,7 +99,7 @@ Partial Class FrmAddStock
         'TextBoxTotalCost
         '
         Me.TextBoxTotalCost.Enabled = False
-        Me.TextBoxTotalCost.Location = New System.Drawing.Point(198, 239)
+        Me.TextBoxTotalCost.Location = New System.Drawing.Point(198, 276)
         Me.TextBoxTotalCost.Name = "TextBoxTotalCost"
         Me.TextBoxTotalCost.Size = New System.Drawing.Size(69, 20)
         Me.TextBoxTotalCost.TabIndex = 7
@@ -94,7 +107,7 @@ Partial Class FrmAddStock
         'Label6
         '
         Me.Label6.AutoSize = True
-        Me.Label6.Location = New System.Drawing.Point(200, 215)
+        Me.Label6.Location = New System.Drawing.Point(200, 252)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(58, 13)
         Me.Label6.TabIndex = 14
@@ -102,7 +115,7 @@ Partial Class FrmAddStock
         '
         'TextBoxCost
         '
-        Me.TextBoxCost.Location = New System.Drawing.Point(86, 236)
+        Me.TextBoxCost.Location = New System.Drawing.Point(86, 273)
         Me.TextBoxCost.Name = "TextBoxCost"
         Me.TextBoxCost.Size = New System.Drawing.Size(69, 20)
         Me.TextBoxCost.TabIndex = 6
@@ -110,7 +123,7 @@ Partial Class FrmAddStock
         'Label5
         '
         Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(12, 241)
+        Me.Label5.Location = New System.Drawing.Point(12, 278)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(59, 13)
         Me.Label5.TabIndex = 12
@@ -126,7 +139,7 @@ Partial Class FrmAddStock
         '
         'ButtonReestock
         '
-        Me.ButtonReestock.Location = New System.Drawing.Point(233, 294)
+        Me.ButtonReestock.Location = New System.Drawing.Point(233, 335)
         Me.ButtonReestock.Name = "ButtonReestock"
         Me.ButtonReestock.Size = New System.Drawing.Size(75, 23)
         Me.ButtonReestock.TabIndex = 8
@@ -135,7 +148,7 @@ Partial Class FrmAddStock
         '
         'TextBoxAmount
         '
-        Me.TextBoxAmount.Location = New System.Drawing.Point(86, 195)
+        Me.TextBoxAmount.Location = New System.Drawing.Point(86, 232)
         Me.TextBoxAmount.Name = "TextBoxAmount"
         Me.TextBoxAmount.Size = New System.Drawing.Size(69, 20)
         Me.TextBoxAmount.TabIndex = 5
@@ -159,7 +172,7 @@ Partial Class FrmAddStock
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(12, 200)
+        Me.Label4.Location = New System.Drawing.Point(12, 237)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(46, 13)
         Me.Label4.TabIndex = 6
@@ -192,20 +205,28 @@ Partial Class FrmAddStock
         Me.Label1.TabIndex = 3
         Me.Label1.Text = "Category:"
         '
-        'ButtonClean
+        'TextBox1
         '
-        Me.ButtonClean.Location = New System.Drawing.Point(15, 294)
-        Me.ButtonClean.Name = "ButtonClean"
-        Me.ButtonClean.Size = New System.Drawing.Size(75, 23)
-        Me.ButtonClean.TabIndex = 17
-        Me.ButtonClean.Text = "Clean"
-        Me.ButtonClean.UseVisualStyleBackColor = True
+        Me.TextBox1.Enabled = False
+        Me.TextBox1.Location = New System.Drawing.Point(87, 190)
+        Me.TextBox1.Name = "TextBox1"
+        Me.TextBox1.Size = New System.Drawing.Size(174, 20)
+        Me.TextBox1.TabIndex = 18
+        '
+        'Label8
+        '
+        Me.Label8.AutoSize = True
+        Me.Label8.Location = New System.Drawing.Point(13, 195)
+        Me.Label8.Name = "Label8"
+        Me.Label8.Size = New System.Drawing.Size(52, 13)
+        Me.Label8.TabIndex = 19
+        Me.Label8.Text = "Provider.:"
         '
         'FrmAddStock
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(339, 351)
+        Me.ClientSize = New System.Drawing.Size(339, 388)
         Me.Controls.Add(Me.GroupBox1)
         Me.Name = "FrmAddStock"
         Me.Text = "Restock Inventory"
@@ -232,4 +253,6 @@ Partial Class FrmAddStock
     Friend WithEvents TextBoxInvoice As TextBox
     Friend WithEvents Label7 As Label
     Friend WithEvents ButtonClean As Button
+    Friend WithEvents TextBox1 As TextBox
+    Friend WithEvents Label8 As Label
 End Class

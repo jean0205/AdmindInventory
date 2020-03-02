@@ -24,7 +24,10 @@ Partial Class FrmDistibuteStock
     Private Sub InitializeComponent()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
+        Me.Label6 = New System.Windows.Forms.Label()
+        Me.TextBoxDescription = New System.Windows.Forms.TextBox()
         Me.Label2 = New System.Windows.Forms.Label()
+        Me.Button1 = New System.Windows.Forms.Button()
         Me.TextBoxInStock = New System.Windows.Forms.TextBox()
         Me.ComboBoxDepartment = New System.Windows.Forms.ComboBox()
         Me.Label5 = New System.Windows.Forms.Label()
@@ -34,9 +37,8 @@ Partial Class FrmDistibuteStock
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.TextBoxAmount = New System.Windows.Forms.TextBox()
-        Me.Button1 = New System.Windows.Forms.Button()
-        Me.Label6 = New System.Windows.Forms.Label()
-        Me.TextBoxDescription = New System.Windows.Forms.TextBox()
+        Me.Label7 = New System.Windows.Forms.Label()
+        Me.TextBox1 = New System.Windows.Forms.TextBox()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         Me.SuspendLayout()
@@ -53,6 +55,8 @@ Partial Class FrmDistibuteStock
         '
         'GroupBox2
         '
+        Me.GroupBox2.Controls.Add(Me.Label7)
+        Me.GroupBox2.Controls.Add(Me.TextBox1)
         Me.GroupBox2.Controls.Add(Me.Label6)
         Me.GroupBox2.Controls.Add(Me.TextBoxDescription)
         Me.GroupBox2.Controls.Add(Me.Label2)
@@ -72,99 +76,6 @@ Partial Class FrmDistibuteStock
         Me.GroupBox2.TabIndex = 11
         Me.GroupBox2.TabStop = False
         '
-        'Label2
-        '
-        Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(21, 32)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(30, 13)
-        Me.Label2.TabIndex = 2
-        Me.Label2.Text = "Item:"
-        '
-        'TextBoxInStock
-        '
-        Me.TextBoxInStock.Enabled = False
-        Me.TextBoxInStock.Location = New System.Drawing.Point(222, 194)
-        Me.TextBoxInStock.Name = "TextBoxInStock"
-        Me.TextBoxInStock.Size = New System.Drawing.Size(69, 20)
-        Me.TextBoxInStock.TabIndex = 7
-        '
-        'ComboBoxDepartment
-        '
-        Me.ComboBoxDepartment.FormattingEnabled = True
-        Me.ComboBoxDepartment.Location = New System.Drawing.Point(90, 147)
-        Me.ComboBoxDepartment.Name = "ComboBoxDepartment"
-        Me.ComboBoxDepartment.Size = New System.Drawing.Size(201, 21)
-        Me.ComboBoxDepartment.TabIndex = 3
-        '
-        'Label5
-        '
-        Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(165, 198)
-        Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(48, 13)
-        Me.Label5.TabIndex = 9
-        Me.Label5.Text = "In stock:"
-        '
-        'Label1
-        '
-        Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(21, 151)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(65, 13)
-        Me.Label1.TabIndex = 1
-        Me.Label1.Text = "Department:"
-        '
-        'TextBoxItem
-        '
-        Me.TextBoxItem.Enabled = False
-        Me.TextBoxItem.Location = New System.Drawing.Point(90, 27)
-        Me.TextBoxItem.Name = "TextBoxItem"
-        Me.TextBoxItem.Size = New System.Drawing.Size(201, 20)
-        Me.TextBoxItem.TabIndex = 1
-        '
-        'DateTimePicker1
-        '
-        Me.DateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.DateTimePicker1.Location = New System.Drawing.Point(90, 236)
-        Me.DateTimePicker1.Name = "DateTimePicker1"
-        Me.DateTimePicker1.Size = New System.Drawing.Size(122, 20)
-        Me.DateTimePicker1.TabIndex = 5
-        '
-        'Label3
-        '
-        Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(21, 198)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(46, 13)
-        Me.Label3.TabIndex = 4
-        Me.Label3.Text = "Amount:"
-        '
-        'Label4
-        '
-        Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(21, 242)
-        Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(33, 13)
-        Me.Label4.TabIndex = 6
-        Me.Label4.Text = "Date:"
-        '
-        'TextBoxAmount
-        '
-        Me.TextBoxAmount.Location = New System.Drawing.Point(90, 194)
-        Me.TextBoxAmount.Name = "TextBoxAmount"
-        Me.TextBoxAmount.Size = New System.Drawing.Size(69, 20)
-        Me.TextBoxAmount.TabIndex = 4
-        '
-        'Button1
-        '
-        Me.Button1.Location = New System.Drawing.Point(240, 289)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(81, 25)
-        Me.Button1.TabIndex = 8
-        Me.Button1.Text = "Accept"
-        Me.Button1.UseVisualStyleBackColor = True
-        '
         'Label6
         '
         Me.Label6.AutoSize = True
@@ -181,6 +92,116 @@ Partial Class FrmDistibuteStock
         Me.TextBoxDescription.Name = "TextBoxDescription"
         Me.TextBoxDescription.Size = New System.Drawing.Size(201, 52)
         Me.TextBoxDescription.TabIndex = 2
+        '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Location = New System.Drawing.Point(21, 32)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(30, 13)
+        Me.Label2.TabIndex = 2
+        Me.Label2.Text = "Item:"
+        '
+        'Button1
+        '
+        Me.Button1.Location = New System.Drawing.Point(240, 289)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(81, 25)
+        Me.Button1.TabIndex = 8
+        Me.Button1.Text = "Accept"
+        Me.Button1.UseVisualStyleBackColor = True
+        '
+        'TextBoxInStock
+        '
+        Me.TextBoxInStock.Enabled = False
+        Me.TextBoxInStock.Location = New System.Drawing.Point(222, 223)
+        Me.TextBoxInStock.Name = "TextBoxInStock"
+        Me.TextBoxInStock.Size = New System.Drawing.Size(69, 20)
+        Me.TextBoxInStock.TabIndex = 7
+        '
+        'ComboBoxDepartment
+        '
+        Me.ComboBoxDepartment.FormattingEnabled = True
+        Me.ComboBoxDepartment.Location = New System.Drawing.Point(90, 176)
+        Me.ComboBoxDepartment.Name = "ComboBoxDepartment"
+        Me.ComboBoxDepartment.Size = New System.Drawing.Size(201, 21)
+        Me.ComboBoxDepartment.TabIndex = 3
+        '
+        'Label5
+        '
+        Me.Label5.AutoSize = True
+        Me.Label5.Location = New System.Drawing.Point(165, 227)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(48, 13)
+        Me.Label5.TabIndex = 9
+        Me.Label5.Text = "In stock:"
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Location = New System.Drawing.Point(21, 180)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(65, 13)
+        Me.Label1.TabIndex = 1
+        Me.Label1.Text = "Department:"
+        '
+        'TextBoxItem
+        '
+        Me.TextBoxItem.Enabled = False
+        Me.TextBoxItem.Location = New System.Drawing.Point(90, 27)
+        Me.TextBoxItem.Name = "TextBoxItem"
+        Me.TextBoxItem.Size = New System.Drawing.Size(201, 20)
+        Me.TextBoxItem.TabIndex = 1
+        '
+        'DateTimePicker1
+        '
+        Me.DateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
+        Me.DateTimePicker1.Location = New System.Drawing.Point(90, 265)
+        Me.DateTimePicker1.Name = "DateTimePicker1"
+        Me.DateTimePicker1.Size = New System.Drawing.Size(122, 20)
+        Me.DateTimePicker1.TabIndex = 5
+        '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.Location = New System.Drawing.Point(21, 227)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(46, 13)
+        Me.Label3.TabIndex = 4
+        Me.Label3.Text = "Amount:"
+        '
+        'Label4
+        '
+        Me.Label4.AutoSize = True
+        Me.Label4.Location = New System.Drawing.Point(21, 271)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(33, 13)
+        Me.Label4.TabIndex = 6
+        Me.Label4.Text = "Date:"
+        '
+        'TextBoxAmount
+        '
+        Me.TextBoxAmount.Location = New System.Drawing.Point(90, 223)
+        Me.TextBoxAmount.Name = "TextBoxAmount"
+        Me.TextBoxAmount.Size = New System.Drawing.Size(69, 20)
+        Me.TextBoxAmount.TabIndex = 4
+        '
+        'Label7
+        '
+        Me.Label7.AutoSize = True
+        Me.Label7.Location = New System.Drawing.Point(21, 142)
+        Me.Label7.Name = "Label7"
+        Me.Label7.Size = New System.Drawing.Size(69, 13)
+        Me.Label7.TabIndex = 13
+        Me.Label7.Text = "Presentation:"
+        '
+        'TextBox1
+        '
+        Me.TextBox1.Enabled = False
+        Me.TextBox1.Location = New System.Drawing.Point(90, 137)
+        Me.TextBox1.Name = "TextBox1"
+        Me.TextBox1.Size = New System.Drawing.Size(201, 20)
+        Me.TextBox1.TabIndex = 12
         '
         'FrmDistibuteStock
         '
@@ -212,4 +233,6 @@ Partial Class FrmDistibuteStock
     Friend WithEvents GroupBox2 As GroupBox
     Friend WithEvents Label6 As Label
     Friend WithEvents TextBoxDescription As TextBox
+    Friend WithEvents Label7 As Label
+    Friend WithEvents TextBox1 As TextBox
 End Class

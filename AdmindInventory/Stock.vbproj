@@ -73,6 +73,18 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Data\CategoryDB.vb" />
+    <Compile Include="Data\DepartmentDB.vb" />
+    <Compile Include="Data\Entities\Department.vb" />
+    <Compile Include="Data\Entities\Category.vb" />
+    <Compile Include="Data\Entities\Item.vb" />
+    <Compile Include="Data\Entities\Request.vb" />
+    <Compile Include="Data\Entities\State.vb" />
+    <Compile Include="Data\Entities\Stock.vb" />
+    <Compile Include="Data\Entities\StockEntry.vb" />
+    <Compile Include="Data\Entities\StockOut.vb" />
+    <Compile Include="Data\ItemDB.vb" />
+    <Compile Include="Logic\ItemBL.vb" />
     <Compile Include="Presentation\AddStock.Designer.vb">
       <DependentUpon>AddStock.vb</DependentUpon>
     </Compile>
@@ -200,9 +212,6 @@
     </None>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Data\" />
-    <Folder Include="Logic\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>
