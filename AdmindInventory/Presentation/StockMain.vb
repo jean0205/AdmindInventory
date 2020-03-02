@@ -1,4 +1,4 @@
-﻿Public Class Form1
+﻿Public Class StockMain
     Private Sub DataGridView1_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView1.CellContentClick
 
     End Sub

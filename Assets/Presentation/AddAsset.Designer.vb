@@ -1,5 +1,5 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
-Partial Class Manage_Assets
+Partial Class AssetAddition
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
@@ -22,15 +22,20 @@ Partial Class Manage_Assets
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Manage_Assets))
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(AssetAddition))
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
-        Me.Label5 = New System.Windows.Forms.Label()
-        Me.TextBox4 = New System.Windows.Forms.TextBox()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
-        Me.Column1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Id = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Item = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Unit = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Category = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Stock = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.ReOrderLevel = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Label5 = New System.Windows.Forms.Label()
+        Me.TextBox4 = New System.Windows.Forms.TextBox()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.TextBox10 = New System.Windows.Forms.TextBox()
         Me.Label13 = New System.Windows.Forms.Label()
@@ -74,14 +79,67 @@ Partial Class Manage_Assets
         '
         'GroupBox2
         '
+        Me.GroupBox2.Controls.Add(Me.DataGridView1)
         Me.GroupBox2.Controls.Add(Me.Label5)
         Me.GroupBox2.Controls.Add(Me.TextBox4)
-        Me.GroupBox2.Controls.Add(Me.DataGridView1)
         Me.GroupBox2.Location = New System.Drawing.Point(12, 346)
         Me.GroupBox2.Name = "GroupBox2"
         Me.GroupBox2.Size = New System.Drawing.Size(763, 358)
         Me.GroupBox2.TabIndex = 3
         Me.GroupBox2.TabStop = False
+        '
+        'DataGridView1
+        '
+        Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Id, Me.Item, Me.Unit, Me.Category, Me.Stock, Me.ReOrderLevel, Me.Column1, Me.Column2, Me.Column3})
+        Me.DataGridView1.Location = New System.Drawing.Point(9, 45)
+        Me.DataGridView1.Name = "DataGridView1"
+        Me.DataGridView1.Size = New System.Drawing.Size(746, 307)
+        Me.DataGridView1.TabIndex = 17
+        '
+        'Id
+        '
+        Me.Id.HeaderText = "Code"
+        Me.Id.Name = "Id"
+        '
+        'Item
+        '
+        Me.Item.HeaderText = "Name"
+        Me.Item.Name = "Item"
+        '
+        'Unit
+        '
+        Me.Unit.HeaderText = "Serial No."
+        Me.Unit.Name = "Unit"
+        '
+        'Category
+        '
+        Me.Category.HeaderText = "Category"
+        Me.Category.Name = "Category"
+        '
+        'Stock
+        '
+        Me.Stock.HeaderText = "Department"
+        Me.Stock.Name = "Stock"
+        '
+        'ReOrderLevel
+        '
+        Me.ReOrderLevel.HeaderText = "Purcase price"
+        Me.ReOrderLevel.Name = "ReOrderLevel"
+        '
+        'Column1
+        '
+        Me.Column1.HeaderText = "Depreciation Rate"
+        Me.Column1.Name = "Column1"
+        '
+        'Column2
+        '
+        Me.Column2.HeaderText = "Depreciation Charge"
+        Me.Column2.Name = "Column2"
+        '
+        'Column3
+        '
+        Me.Column3.HeaderText = "Accumulated depreciation"
+        Me.Column3.Name = "Column3"
         '
         'Label5
         '
@@ -98,35 +156,6 @@ Partial Class Manage_Assets
         Me.TextBox4.Name = "TextBox4"
         Me.TextBox4.Size = New System.Drawing.Size(174, 20)
         Me.TextBox4.TabIndex = 16
-        '
-        'DataGridView1
-        '
-        Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column1, Me.Unit, Me.Column2, Me.Column3})
-        Me.DataGridView1.Location = New System.Drawing.Point(6, 44)
-        Me.DataGridView1.Name = "DataGridView1"
-        Me.DataGridView1.Size = New System.Drawing.Size(751, 306)
-        Me.DataGridView1.TabIndex = 1
-        '
-        'Column1
-        '
-        Me.Column1.HeaderText = "Name"
-        Me.Column1.Name = "Column1"
-        '
-        'Unit
-        '
-        Me.Unit.HeaderText = "Code"
-        Me.Unit.Name = "Unit"
-        '
-        'Column2
-        '
-        Me.Column2.HeaderText = "Serial No."
-        Me.Column2.Name = "Column2"
-        '
-        'Column3
-        '
-        Me.Column3.HeaderText = "Cost"
-        Me.Column3.Name = "Column3"
         '
         'GroupBox1
         '
@@ -440,14 +469,14 @@ Partial Class Manage_Assets
         Me.ComboBox1.Size = New System.Drawing.Size(137, 21)
         Me.ComboBox1.TabIndex = 2
         '
-        'Manage_Assets
+        'AssetAddition
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(779, 706)
         Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.GroupBox2)
-        Me.Name = "Manage_Assets"
+        Me.Name = "AssetAddition"
         Me.Text = "Admin Assets Addition"
         Me.GroupBox2.ResumeLayout(False)
         Me.GroupBox2.PerformLayout()
@@ -464,7 +493,6 @@ Partial Class Manage_Assets
     Friend WithEvents GroupBox2 As GroupBox
     Friend WithEvents Label5 As Label
     Friend WithEvents TextBox4 As TextBox
-    Friend WithEvents DataGridView1 As DataGridView
     Friend WithEvents GroupBox1 As GroupBox
     Friend WithEvents GroupBox3 As GroupBox
     Friend WithEvents Button1 As Button
@@ -479,10 +507,6 @@ Partial Class Manage_Assets
     Friend WithEvents Label2 As Label
     Friend WithEvents Label1 As Label
     Friend WithEvents ComboBox1 As ComboBox
-    Friend WithEvents Column1 As DataGridViewTextBoxColumn
-    Friend WithEvents Unit As DataGridViewTextBoxColumn
-    Friend WithEvents Column2 As DataGridViewTextBoxColumn
-    Friend WithEvents Column3 As DataGridViewTextBoxColumn
     Friend WithEvents GroupBox4 As GroupBox
     Friend WithEvents PictureBox1 As PictureBox
     Friend WithEvents Button5 As Button
@@ -502,4 +526,14 @@ Partial Class Manage_Assets
     Friend WithEvents Label9 As Label
     Friend WithEvents TextBox10 As TextBox
     Friend WithEvents Label13 As Label
+    Friend WithEvents DataGridView1 As DataGridView
+    Friend WithEvents Id As DataGridViewTextBoxColumn
+    Friend WithEvents Item As DataGridViewTextBoxColumn
+    Friend WithEvents Unit As DataGridViewTextBoxColumn
+    Friend WithEvents Category As DataGridViewTextBoxColumn
+    Friend WithEvents Stock As DataGridViewTextBoxColumn
+    Friend WithEvents ReOrderLevel As DataGridViewTextBoxColumn
+    Friend WithEvents Column1 As DataGridViewTextBoxColumn
+    Friend WithEvents Column2 As DataGridViewTextBoxColumn
+    Friend WithEvents Column3 As DataGridViewTextBoxColumn
 End Class
