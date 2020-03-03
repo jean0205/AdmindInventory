@@ -23,29 +23,37 @@
     'New
     Private Sub ButtonNew_Click(sender As Object, e As EventArgs) Handles ButtonNew.Click
         Dim item As New ItemDB
+        Dim stock As New StockBL
 
         Try
             Dim name As String = TextBoxName.Text
             Dim presentation As String = TextBoxPresentation.Text
             Dim description As String = TextBoxDescript.Text
             Dim reorder As Integer = Convert.ToInt32(TextBoxReorder.Text)
-            Dim category As Category = ComboBoxCat.SelectedItem
+            Dim category As String = ComboBoxCat.SelectedItem
             If isNew Then
-                item.NewItem(name, presentation, description, reorder, category.Id)
+                item.NewItem(name, presentation, description, reorder, category)
                 MessageBox.Show("Item successfully created")
+                GetItems()
+                Dim itemId As Integer = DataGridView1.Rows(DataGridView1.Rows.Count - 1).Cells(0).Value
+                stock.InsertItemToStock(itemId)
             Else
-                item.UpdateItem(idUpdate, name, presentation, description, reorder, category.Id)
+                item.UpdateItem(idUpdate, name, presentation, description, reorder, category)
                 MessageBox.Show("Item successfully updated")
+                GetItems()
                 isNew = True
             End If
 
             CleanInterface()
-            GetItems()
+
+
 
         Catch ex As Exception
             MessageBox.Show(ex.Message)
 
         End Try
+
+
 
 
     End Sub
@@ -58,13 +66,33 @@
         TextBoxPresentation.Text = DataGridView1.CurrentRow.Cells(2).Value.ToString()
         TextBoxDescript.Text = DataGridView1.CurrentRow.Cells(3).Value.ToString()
         TextBoxReorder.Text = DataGridView1.CurrentRow.Cells(4).Value.ToString()
-        'ComboBoxCat.SelectedItem = ComboBoxCat.FindStringExact(DataGridView1.CurrentRow.Cells(5).Value.ToString())
-        ComboBoxCat.Text = DataGridView1.CurrentRow.Cells(5).Value.ToString()
+        'ComboBoxCat.SelectedItem = ComboBoxCat.FindString(DataGridView1.CurrentRow.Cells(5).Value.ToString().TrimEnd())
+        ComboBoxCat.Text = DataGridView1.CurrentRow.Cells(5).Value.ToString().TrimEnd()
         isNew = False
 
 
 
 
+    End Sub
+
+    'Delete
+    Private Sub ButtonDelete_Click(sender As Object, e As EventArgs) Handles ButtonDelete.Click
+        Dim item As New ItemDB
+        Dim id As Integer = Convert.ToInt32(DataGridView1.CurrentRow.Cells(0).Value)
+
+        Dim message As String = "Do you want to delete this item?"
+        Dim title As String = "Delete item"
+        Dim buttons As MessageBoxButtons = MessageBoxButtons.YesNo
+        Dim result As DialogResult = MessageBox.Show(message, title, buttons)
+        If result = DialogResult.Yes Then
+            Try
+                item.DeleteItem(id)
+                MessageBox.Show("Item  successfully deleted")
+                GetItems()
+            Catch ex As Exception
+                MessageBox.Show(ex.Message)
+            End Try
+        End If
     End Sub
 
 #End Region
@@ -75,20 +103,24 @@
 #Region "Helpers"
     'Load categories to show in combobox
     Sub GetCategories()
-        Dim categoryList As New List(Of Category)
-        Dim category As New CategoryDB
+        ' Dim categoryList As New List(Of Category)
+        'Dim category As New CategoryDB
 
-        ComboBoxCategory.DisplayMember = "Name"
-        ComboBoxCategory.ValueMember = "Id"
+        'ComboBoxCategory.DisplayMember = "Name"
+        ' ComboBoxCategory.ValueMember = "Id"
 
-        ComboBoxCat.DisplayMember = "Name"
-        ComboBoxCat.ValueMember = "Id"
+        'ComboBoxCat.DisplayMember = "Name"
+        'ComboBoxCat.ValueMember = "Id"
 
-        categoryList = category.GetCategories()
+        'categoryList = category.GetCategories()
 
-        For Each item As Category In categoryList
-            ComboBoxCategory.Items.Add(item)
-            ComboBoxCat.Items.Add(item)
+        Dim category As New CategoryBL
+        Dim categoryNames As New List(Of String)
+
+
+        For Each name As String In category.GetCategoriesNames()
+            ComboBoxCategory.Items.Add(name)
+            ComboBoxCat.Items.Add(name)
         Next
 
     End Sub
@@ -111,6 +143,7 @@
         TextBoxPresentation.Clear()
         TextBoxDescript.Clear()
         TextBoxReorder.Clear()
+        ComboBoxCat.SelectedIndex = -1
     End Sub
 
 
@@ -120,11 +153,11 @@
     Private Sub ComboBoxCategory_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboBoxCategory.SelectedIndexChanged
 
         If ComboBoxCategory.Text <> "All Categories" Then
-            Dim category As New Category
+            Dim category As String
             Dim item As New ItemDB
 
             category = ComboBoxCategory.SelectedItem
-            DataGridView1.DataSource = item.GetItemsByCat(category.Id)
+            DataGridView1.DataSource = item.GetItemsByCat(category)
 
 
 
@@ -134,6 +167,8 @@
 
 
     End Sub
+
+
 
 
 

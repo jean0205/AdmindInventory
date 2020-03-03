@@ -91,7 +91,7 @@ Partial Class AssetAddition
         'DataGridView1
         '
         Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Id, Me.Item, Me.Unit, Me.Category, Me.Stock, Me.ReOrderLevel, Me.Column1, Me.Column2, Me.Column3})
-        Me.DataGridView1.Location = New System.Drawing.Point(9, 45)
+        Me.DataGridView1.Location = New System.Drawing.Point(11, 41)
         Me.DataGridView1.Name = "DataGridView1"
         Me.DataGridView1.Size = New System.Drawing.Size(746, 307)
         Me.DataGridView1.TabIndex = 17

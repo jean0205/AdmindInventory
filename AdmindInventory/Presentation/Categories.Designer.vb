@@ -33,6 +33,8 @@ Partial Class Categories
         Me.Label1 = New System.Windows.Forms.Label()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
+        Me.TextBoxGL = New System.Windows.Forms.TextBox()
+        Me.Label3 = New System.Windows.Forms.Label()
         Me.GroupBox2.SuspendLayout()
         Me.GroupBox3.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
@@ -41,6 +43,8 @@ Partial Class Categories
         '
         'GroupBox2
         '
+        Me.GroupBox2.Controls.Add(Me.TextBoxGL)
+        Me.GroupBox2.Controls.Add(Me.Label3)
         Me.GroupBox2.Controls.Add(Me.GroupBox3)
         Me.GroupBox2.Controls.Add(Me.TextBoxDescription)
         Me.GroupBox2.Controls.Add(Me.Label2)
@@ -92,7 +96,7 @@ Partial Class Categories
         '
         'TextBoxDescription
         '
-        Me.TextBoxDescription.Location = New System.Drawing.Point(80, 86)
+        Me.TextBoxDescription.Location = New System.Drawing.Point(80, 103)
         Me.TextBoxDescription.Multiline = True
         Me.TextBoxDescription.Name = "TextBoxDescription"
         Me.TextBoxDescription.Size = New System.Drawing.Size(171, 59)
@@ -101,7 +105,7 @@ Partial Class Categories
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(9, 89)
+        Me.Label2.Location = New System.Drawing.Point(9, 106)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(63, 13)
         Me.Label2.TabIndex = 7
@@ -140,6 +144,22 @@ Partial Class Categories
         Me.DataGridView1.Size = New System.Drawing.Size(414, 238)
         Me.DataGridView1.TabIndex = 0
         '
+        'TextBoxGL
+        '
+        Me.TextBoxGL.Location = New System.Drawing.Point(80, 64)
+        Me.TextBoxGL.Name = "TextBoxGL"
+        Me.TextBoxGL.Size = New System.Drawing.Size(171, 20)
+        Me.TextBoxGL.TabIndex = 15
+        '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.Location = New System.Drawing.Point(9, 67)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(69, 13)
+        Me.Label3.TabIndex = 16
+        Me.Label3.Text = "G\L Number:"
+        '
         'Categories
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -169,4 +189,6 @@ Partial Class Categories
     Friend WithEvents Label1 As Label
     Friend WithEvents GroupBox1 As GroupBox
     Friend WithEvents DataGridView1 As DataGridView
+    Friend WithEvents TextBoxGL As TextBox
+    Friend WithEvents Label3 As Label
 End Class

@@ -38,17 +38,17 @@ Public Class ItemDB
     End Function
 
     'Get item list by category
-    Function GetItemsByCat(ByVal id As Integer) As List(Of Item)
+    Function GetItemsByCat(ByVal name As String) As List(Of Item)
         Dim itemsList As New List(Of Item)
         Dim query As String = "Select I.Id, I.Name, I.Presentation, I.Description, I.Reorder, C.Name from Item I
                                 Inner Join Category C on C.Id=I.Category_Id
-                                where I.Category_Id=@Id"
+                                where I.Category_Id=(Select c.Id from Category C where c.Name=@Name)"
 
         Using connection As New SqlConnection(conString)
 
 
             Using command As New SqlCommand(query, connection)
-                command.Parameters.AddWithValue("@Id", SqlDbType.Int).Value = id
+                command.Parameters.AddWithValue("@Name", SqlDbType.Int).Value = name
 
                 Try
                     connection.Open()
@@ -78,9 +78,9 @@ Public Class ItemDB
     End Function
 
     'Insert Item
-    Sub NewItem(ByVal name As String, ByVal presentation As String, ByVal description As String, ByVal reorder As Integer, ByVal categoryId As Integer)
+    Sub NewItem(ByVal name As String, ByVal presentation As String, ByVal description As String, ByVal reorder As Integer, ByVal categoryName As String)
 
-        Dim query As String = "Insert INTO Item (Name, Presentation, Description, Reorder, Category_Id) values (@Name, @Presentation, @Description, @Reorder, @Category_Id)"
+        Dim query As String = "Insert INTO Item (Name, Presentation, Description, Reorder, Category_Id) values (@Name, @Presentation, @Description, @Reorder, (Select c.Id from Category C where c.Name= @Category_Name))"
         Using Connection As New SqlConnection(conString)
             Using command As New SqlCommand(query, Connection)
                 'command.Parameters.AddWithValue("@Id", SqlDbType.Int).Value = id
@@ -88,14 +88,14 @@ Public Class ItemDB
                 command.Parameters.AddWithValue("@Presentation", SqlDbType.Int).Value = presentation
                 command.Parameters.AddWithValue("@Description", SqlDbType.Int).Value = description
                 command.Parameters.AddWithValue("@Reorder", SqlDbType.Int).Value = reorder
-                command.Parameters.AddWithValue("@Category_Id", SqlDbType.Int).Value = categoryId
+                command.Parameters.AddWithValue("@Category_Name", SqlDbType.NChar).Value = categoryName
 
                 Try
                     Connection.Open()
                     command.ExecuteNonQuery()
                     Connection.Close()
                 Catch ex As Exception
-
+                    Throw ex
                 End Try
             End Using
 
@@ -106,9 +106,9 @@ Public Class ItemDB
     End Sub
 
     'Update Item
-    Sub UpdateItem(ByVal id As Integer, ByVal name As String, ByVal presentation As String, ByVal description As String, ByVal reorder As Integer, ByVal categoryId As Integer)
+    Sub UpdateItem(ByVal id As Integer, ByVal name As String, ByVal presentation As String, ByVal description As String, ByVal reorder As Integer, ByVal categoryName As String)
 
-        Dim query As String = "Update Item set Name= @Name, Presentation= @Presentation, Description= @Description, Reorder= @Reorder, Category_Id= @Category_Id) where Id= @Id"
+        Dim query As String = "Update Item set Name= @Name, Presentation= @Presentation, Description= @Description, Reorder= @Reorder, Category_Id= (Select c.Id from Category C where c.Name= @Category_Name) where Id= @Id"
         Using Connection As New SqlConnection(conString)
             Using command As New SqlCommand(query, Connection)
                 command.Parameters.AddWithValue("@Id", SqlDbType.Int).Value = id
@@ -116,14 +116,14 @@ Public Class ItemDB
                 command.Parameters.AddWithValue("@Presentation", SqlDbType.Int).Value = presentation
                 command.Parameters.AddWithValue("@Description", SqlDbType.Int).Value = description
                 command.Parameters.AddWithValue("@Reorder", SqlDbType.Int).Value = reorder
-                command.Parameters.AddWithValue("@Category_Id", SqlDbType.Int).Value = categoryId
+                command.Parameters.AddWithValue("@Category_Name", SqlDbType.NChar).Value = categoryName
 
                 Try
                     Connection.Open()
                     command.ExecuteNonQuery()
                     Connection.Close()
                 Catch ex As Exception
-
+                    Throw ex
                 End Try
             End Using
 
@@ -146,7 +146,7 @@ Public Class ItemDB
                     connection.Close()
 
                 Catch ex As Exception
-
+                    Throw ex
                 End Try
             End Using
 

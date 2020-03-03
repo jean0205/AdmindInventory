@@ -84,7 +84,11 @@
     <Compile Include="Data\Entities\StockEntry.vb" />
     <Compile Include="Data\Entities\StockOut.vb" />
     <Compile Include="Data\ItemDB.vb" />
+    <Compile Include="Data\StockDB.vb" />
+    <Compile Include="Logic\CategoryBL.vb" />
+    <Compile Include="Logic\DepartmentBL.vb" />
     <Compile Include="Logic\ItemBL.vb" />
+    <Compile Include="Logic\StockBL.vb" />
     <Compile Include="Presentation\AddStock.Designer.vb">
       <DependentUpon>AddStock.vb</DependentUpon>
     </Compile>

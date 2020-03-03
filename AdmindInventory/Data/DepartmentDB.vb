@@ -33,20 +33,19 @@ Public Class DepartmentDB
     End Function
 
     'Insert New department
-    Sub NewCategory(ByVal id As Integer, ByVal name As String, ByVal description As String)
-        Dim query As String = "Insert INTO Department (Id, Name, Description) values (@Id, @Name, @Description)"
+    Sub NewDepartment(ByVal name As String, ByVal description As String)
+        Dim query As String = "Insert INTO Department (Name, Description) values (@Name, @Description)"
         Using connection As New SqlConnection(conString)
             Using command As New SqlCommand(query, connection)
-                command.Parameters.AddWithValue("@Id", SqlDbType.Int).Value = id
-                command.Parameters.AddWithValue("@Id", SqlDbType.NChar).Value = name
-                command.Parameters.AddWithValue("@Id", SqlDbType.NChar).Value = description
+                command.Parameters.AddWithValue("@Name", SqlDbType.NChar).Value = name
+                command.Parameters.AddWithValue("@Description", SqlDbType.NChar).Value = description
                 Try
                     connection.Open()
                     command.ExecuteNonQuery()
                     connection.Close()
 
                 Catch ex As Exception
-
+                    Throw ex
                 End Try
             End Using
 
@@ -55,20 +54,20 @@ Public Class DepartmentDB
     End Sub
 
     'Update Existing Departments
-    Sub UpdateCategory(ByVal id As Integer, ByVal name As String, ByVal description As String)
+    Sub UpdateDepartment(ByVal id As Integer, ByVal name As String, ByVal description As String)
         Dim query As String = "Update Department Set Name= @Name, Description= @Description Where Id=@Id "
         Using connection As New SqlConnection(conString)
             Using command As New SqlCommand(query, connection)
                 command.Parameters.AddWithValue("@Id", SqlDbType.Int).Value = id
-                command.Parameters.AddWithValue("@Id", SqlDbType.NChar).Value = name
-                command.Parameters.AddWithValue("@Id", SqlDbType.NChar).Value = description
+                command.Parameters.AddWithValue("@Name", SqlDbType.NChar).Value = name
+                command.Parameters.AddWithValue("@Description", SqlDbType.NChar).Value = description
                 Try
                     connection.Open()
                     command.ExecuteNonQuery()
                     connection.Close()
 
                 Catch ex As Exception
-
+                    Throw ex
                 End Try
             End Using
 
@@ -77,7 +76,7 @@ Public Class DepartmentDB
     End Sub
 
     'Delete Unnecessary departments
-    Sub Deletecategory(ByVal id As Integer)
+    Sub DeleteDepartment(ByVal id As Integer)
         Dim query As String = "Delete From Department Where Id=@Id "
         Using connection As New SqlConnection(conString)
             Using command As New SqlCommand(query, connection)
@@ -89,7 +88,7 @@ Public Class DepartmentDB
                     connection.Close()
 
                 Catch ex As Exception
-
+                    Throw ex
                 End Try
             End Using
 

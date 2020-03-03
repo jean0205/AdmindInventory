@@ -23,6 +23,7 @@ Partial Class New_Item
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.ComboBoxCat = New System.Windows.Forms.ComboBox()
         Me.TextBoxPresentation = New System.Windows.Forms.TextBox()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.TextBoxDescript = New System.Windows.Forms.TextBox()
@@ -41,7 +42,6 @@ Partial Class New_Item
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.TextBoxFindByName = New System.Windows.Forms.TextBox()
-        Me.ComboBoxCat = New System.Windows.Forms.ComboBox()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox3.SuspendLayout()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -66,6 +66,14 @@ Partial Class New_Item
         Me.GroupBox1.Size = New System.Drawing.Size(560, 211)
         Me.GroupBox1.TabIndex = 0
         Me.GroupBox1.TabStop = False
+        '
+        'ComboBoxCat
+        '
+        Me.ComboBoxCat.FormattingEnabled = True
+        Me.ComboBoxCat.Location = New System.Drawing.Point(103, 169)
+        Me.ComboBoxCat.Name = "ComboBoxCat"
+        Me.ComboBoxCat.Size = New System.Drawing.Size(174, 21)
+        Me.ComboBoxCat.TabIndex = 17
         '
         'TextBoxPresentation
         '
@@ -223,14 +231,6 @@ Partial Class New_Item
         Me.TextBoxFindByName.Name = "TextBoxFindByName"
         Me.TextBoxFindByName.Size = New System.Drawing.Size(174, 20)
         Me.TextBoxFindByName.TabIndex = 16
-        '
-        'ComboBoxCat
-        '
-        Me.ComboBoxCat.FormattingEnabled = True
-        Me.ComboBoxCat.Location = New System.Drawing.Point(103, 169)
-        Me.ComboBoxCat.Name = "ComboBoxCat"
-        Me.ComboBoxCat.Size = New System.Drawing.Size(174, 21)
-        Me.ComboBoxCat.TabIndex = 17
         '
         'New_Item
         '

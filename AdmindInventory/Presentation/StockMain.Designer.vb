@@ -23,20 +23,11 @@ Partial Class StockMain
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
-        Me.Id = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Item = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Category = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Stock = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.ReOrderLevel = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Unit = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Cost = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.CheckBoxReorder = New System.Windows.Forms.CheckBox()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.TextBoxName = New System.Windows.Forms.TextBox()
-        Me.TextBoxCode = New System.Windows.Forms.TextBox()
         Me.Label3 = New System.Windows.Forms.Label()
-        Me.Label2 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.ComboBoxCategory = New System.Windows.Forms.ComboBox()
         Me.Button1 = New System.Windows.Forms.Button()
@@ -59,55 +50,17 @@ Partial Class StockMain
         '
         'DataGridView1
         '
-        Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Id, Me.Item, Me.Category, Me.Stock, Me.ReOrderLevel, Me.Unit, Me.Cost})
         Me.DataGridView1.Location = New System.Drawing.Point(9, 19)
         Me.DataGridView1.Name = "DataGridView1"
         Me.DataGridView1.Size = New System.Drawing.Size(910, 400)
         Me.DataGridView1.TabIndex = 0
-        '
-        'Id
-        '
-        Me.Id.HeaderText = "Code"
-        Me.Id.Name = "Id"
-        '
-        'Item
-        '
-        Me.Item.HeaderText = "Item"
-        Me.Item.Name = "Item"
-        '
-        'Category
-        '
-        Me.Category.HeaderText = "Category"
-        Me.Category.Name = "Category"
-        '
-        'Stock
-        '
-        Me.Stock.HeaderText = "Stock"
-        Me.Stock.Name = "Stock"
-        '
-        'ReOrderLevel
-        '
-        Me.ReOrderLevel.HeaderText = "Re-Order Level"
-        Me.ReOrderLevel.Name = "ReOrderLevel"
-        '
-        'Unit
-        '
-        Me.Unit.HeaderText = "Unit"
-        Me.Unit.Name = "Unit"
-        '
-        'Cost
-        '
-        Me.Cost.HeaderText = "Total Cost"
-        Me.Cost.Name = "Cost"
         '
         'GroupBox1
         '
         Me.GroupBox1.Controls.Add(Me.CheckBoxReorder)
         Me.GroupBox1.Controls.Add(Me.Label4)
         Me.GroupBox1.Controls.Add(Me.TextBoxName)
-        Me.GroupBox1.Controls.Add(Me.TextBoxCode)
         Me.GroupBox1.Controls.Add(Me.Label3)
-        Me.GroupBox1.Controls.Add(Me.Label2)
         Me.GroupBox1.Controls.Add(Me.Label1)
         Me.GroupBox1.Controls.Add(Me.ComboBoxCategory)
         Me.GroupBox1.Location = New System.Drawing.Point(127, 5)
@@ -136,40 +89,24 @@ Partial Class StockMain
         '
         'TextBoxName
         '
-        Me.TextBoxName.Location = New System.Drawing.Point(591, 23)
+        Me.TextBoxName.Location = New System.Drawing.Point(517, 22)
         Me.TextBoxName.Name = "TextBoxName"
-        Me.TextBoxName.Size = New System.Drawing.Size(100, 20)
+        Me.TextBoxName.Size = New System.Drawing.Size(166, 20)
         Me.TextBoxName.TabIndex = 5
-        '
-        'TextBoxCode
-        '
-        Me.TextBoxCode.Location = New System.Drawing.Point(368, 23)
-        Me.TextBoxCode.Name = "TextBoxCode"
-        Me.TextBoxCode.Size = New System.Drawing.Size(100, 20)
-        Me.TextBoxCode.TabIndex = 4
         '
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(495, 27)
+        Me.Label3.Location = New System.Drawing.Point(421, 26)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(90, 13)
         Me.Label3.TabIndex = 3
         Me.Label3.Text = "Search By Name:"
         '
-        'Label2
-        '
-        Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(275, 27)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(87, 13)
-        Me.Label2.TabIndex = 2
-        Me.Label2.Text = "Search By Code:"
-        '
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(5, 27)
+        Me.Label1.Location = New System.Drawing.Point(92, 27)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(96, 13)
         Me.Label1.TabIndex = 1
@@ -178,10 +115,9 @@ Partial Class StockMain
         'ComboBoxCategory
         '
         Me.ComboBoxCategory.FormattingEnabled = True
-        Me.ComboBoxCategory.Items.AddRange(New Object() {"Office Suply", "It Supplies", "Canteen Supplies"})
-        Me.ComboBoxCategory.Location = New System.Drawing.Point(116, 23)
+        Me.ComboBoxCategory.Location = New System.Drawing.Point(203, 23)
         Me.ComboBoxCategory.Name = "ComboBoxCategory"
-        Me.ComboBoxCategory.Size = New System.Drawing.Size(121, 21)
+        Me.ComboBoxCategory.Size = New System.Drawing.Size(171, 21)
         Me.ComboBoxCategory.TabIndex = 0
         '
         'Button1
@@ -326,21 +262,12 @@ Partial Class StockMain
     Friend WithEvents CheckBoxReorder As CheckBox
     Friend WithEvents Label4 As Label
     Friend WithEvents TextBoxName As TextBox
-    Friend WithEvents TextBoxCode As TextBox
     Friend WithEvents Label3 As Label
-    Friend WithEvents Label2 As Label
     Friend WithEvents Label1 As Label
     Friend WithEvents ComboBoxCategory As ComboBox
     Friend WithEvents Button1 As Button
     Friend WithEvents ButtonAddStock As Button
     Friend WithEvents ButtonDistrStock As Button
-    Friend WithEvents Id As DataGridViewTextBoxColumn
-    Friend WithEvents Item As DataGridViewTextBoxColumn
-    Friend WithEvents Category As DataGridViewTextBoxColumn
-    Friend WithEvents Stock As DataGridViewTextBoxColumn
-    Friend WithEvents ReOrderLevel As DataGridViewTextBoxColumn
-    Friend WithEvents Unit As DataGridViewTextBoxColumn
-    Friend WithEvents Cost As DataGridViewTextBoxColumn
     Friend WithEvents GroupBox2 As GroupBox
     Friend WithEvents Panel1 As Panel
     Friend WithEvents ButtonMngDepart As Button

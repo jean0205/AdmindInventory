@@ -1,8 +1,12 @@
 ﻿Public Class Stock
 
-    Public Property Id As Integer
-    Public Property Item_Id As Integer
-    Public Property Stock As Integer
+    'Public Property Id As Integer
+    Public Property ItemId As Integer
+    Public Property ItemName As String
+    Public Property ItemCategory As String
+    Public Property ItemPresentation As String
+    Public Property ItemReorder As Integer
+    Public Property StockRemains As Integer
     Public Property TotalCost As Decimal
 
 End Class

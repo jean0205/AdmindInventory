@@ -1,8 +1,7 @@
 ﻿Public Class StockMain
-    Private Sub DataGridView1_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView1.CellContentClick
 
-    End Sub
 
+#Region "Buttoms"
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles ButtonAddStock.Click
         Dim addStock As New FrmAddStock
         addStock.Show()
@@ -51,4 +50,63 @@
         Dim pendinReqFrm As New PendingRequests
         pendinReqFrm.Show()
     End Sub
+#End Region
+
+
+
+
+    Private Sub StockMain_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        LoadStock()
+        LoadCategories()
+    End Sub
+
+#Region "Events"
+
+    Private Sub ComboBoxCategory_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboBoxCategory.SelectedIndexChanged
+        If ComboBoxCategory.SelectedIndex > 0 Then
+            Dim stock As New StockBL
+            DataGridView1.DataSource = stock.GetStockListByCat(ComboBoxCategory.SelectedItem)
+            DataGridView1.Columns(0).Visible = False
+        Else
+            LoadStock()
+        End If
+
+    End Sub
+
+    Private Sub TextBoxName_TextChanged(sender As Object, e As EventArgs) Handles TextBoxName.TextChanged
+        Dim stock As New StockBL
+        If TextBoxName.Text.Length > 0 Then
+            stock.GetStockByName(TextBoxName.Text)
+
+        End If
+    End Sub
+
+#End Region
+
+#Region "load data"
+
+    Sub LoadStock()
+        Dim stock As New StockBL
+        DataGridView1.DataSource = stock.GetStockList()
+        DataGridView1.Columns(0).Visible = False
+
+    End Sub
+
+    Sub LoadCategories()
+        Dim category As New CategoryBL
+        ComboBoxCategory.Items.Add("All Categories")
+
+        For Each name As String In category.GetCategoriesNames()
+
+            ComboBoxCategory.Items.Add(name)
+
+        Next
+        ComboBoxCategory.SelectedIndex = 0
+
+    End Sub
+
+
+
+
+#End Region
 End Class
