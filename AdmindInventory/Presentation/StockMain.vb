@@ -67,6 +67,8 @@
             Dim stock As New StockBL
             DataGridView1.DataSource = stock.GetStockListByCat(ComboBoxCategory.SelectedItem)
             DataGridView1.Columns(0).Visible = False
+            TextBoxName.Clear()
+
         Else
             LoadStock()
         End If
@@ -74,11 +76,14 @@
     End Sub
 
     Private Sub TextBoxName_TextChanged(sender As Object, e As EventArgs) Handles TextBoxName.TextChanged
-        Dim stock As New StockBL
-        If TextBoxName.Text.Length > 0 Then
-            stock.GetStockByName(TextBoxName.Text)
 
-        End If
+    End Sub
+    Private Sub TextBoxName_KeyUp(sender As Object, e As KeyEventArgs) Handles TextBoxName.KeyUp
+        Dim stock As New StockBL
+
+        DataGridView1.DataSource = stock.GetStockByName(TextBoxName.Text)
+
+
     End Sub
 
 #End Region
@@ -104,6 +109,8 @@
         ComboBoxCategory.SelectedIndex = 0
 
     End Sub
+
+
 
 
 
