@@ -183,4 +183,41 @@ Public Class ItemDB
 
     End Sub
 
+    'Get Item information by id
+    Function GetItemsById(ByVal id As Integer) As Item
+        Dim itemI As New Item
+
+        Dim query As String = "Select I.Id, I.Name, I.Presentation, I.Description, I.Reorder, C.Name, I.Active from Item I
+                                Inner Join Category C on C.Id=I.Category_Id
+                                where I.Id=@Id"
+
+        Using connection As New SqlConnection(conString)
+
+            Using command As New SqlCommand(query, connection)
+                command.Parameters.AddWithValue("@Id", SqlDbType.Int).Value = id
+
+                Try
+                    connection.Open()
+                    Dim reader As SqlDataReader = command.ExecuteReader()
+
+                    While reader.Read()
+                        itemI.Id = reader.GetInt32(0)
+                        itemI.Name = reader.GetString(1)
+                        itemI.Presentation = reader.GetString(2)
+                        itemI.Description = reader.GetString(3)
+                        itemI.Reorder = reader.GetInt32(4)
+                        itemI.Category_Name = reader.GetString(5)
+                        itemI.Active = reader.GetBoolean(6)
+                    End While
+                    reader.Close()
+                    connection.Close()
+
+                Catch ex As Exception
+                    Throw ex
+                End Try
+            End Using
+        End Using
+        Return itemI
+    End Function
+
 End Class

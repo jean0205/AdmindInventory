@@ -5,7 +5,7 @@
     Public Property GLnumber As String
     Public Property Description As String
 
-    Public Property Items As List(Of Item)
+    Public Property Items As List(Of ProviderFrm)
 
 
 

@@ -23,6 +23,10 @@ Partial Class FrmAddStock
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.Label10 = New System.Windows.Forms.Label()
+        Me.Label9 = New System.Windows.Forms.Label()
+        Me.TextBoxprovider = New System.Windows.Forms.TextBox()
+        Me.Label8 = New System.Windows.Forms.Label()
         Me.ButtonClean = New System.Windows.Forms.Button()
         Me.TextBoxInvoice = New System.Windows.Forms.TextBox()
         Me.Label7 = New System.Windows.Forms.Label()
@@ -39,14 +43,14 @@ Partial Class FrmAddStock
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
-        Me.Label8 = New System.Windows.Forms.Label()
         Me.GroupBox1.SuspendLayout()
         Me.SuspendLayout()
         '
         'GroupBox1
         '
-        Me.GroupBox1.Controls.Add(Me.TextBox1)
+        Me.GroupBox1.Controls.Add(Me.Label10)
+        Me.GroupBox1.Controls.Add(Me.Label9)
+        Me.GroupBox1.Controls.Add(Me.TextBoxprovider)
         Me.GroupBox1.Controls.Add(Me.Label8)
         Me.GroupBox1.Controls.Add(Me.ButtonClean)
         Me.GroupBox1.Controls.Add(Me.TextBoxInvoice)
@@ -66,13 +70,47 @@ Partial Class FrmAddStock
         Me.GroupBox1.Controls.Add(Me.Label1)
         Me.GroupBox1.Location = New System.Drawing.Point(8, 6)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(324, 370)
+        Me.GroupBox1.Size = New System.Drawing.Size(324, 412)
         Me.GroupBox1.TabIndex = 1
         Me.GroupBox1.TabStop = False
         '
+        'Label10
+        '
+        Me.Label10.AutoSize = True
+        Me.Label10.Location = New System.Drawing.Point(253, 343)
+        Me.Label10.Name = "Label10"
+        Me.Label10.Size = New System.Drawing.Size(65, 13)
+        Me.Label10.TabIndex = 21
+        Me.Label10.Text = "Revived By:"
+        '
+        'Label9
+        '
+        Me.Label9.AutoSize = True
+        Me.Label9.Location = New System.Drawing.Point(183, 343)
+        Me.Label9.Name = "Label9"
+        Me.Label9.Size = New System.Drawing.Size(65, 13)
+        Me.Label9.TabIndex = 20
+        Me.Label9.Text = "Revived By:"
+        '
+        'TextBoxprovider
+        '
+        Me.TextBoxprovider.Location = New System.Drawing.Point(87, 190)
+        Me.TextBoxprovider.Name = "TextBoxprovider"
+        Me.TextBoxprovider.Size = New System.Drawing.Size(174, 20)
+        Me.TextBoxprovider.TabIndex = 18
+        '
+        'Label8
+        '
+        Me.Label8.AutoSize = True
+        Me.Label8.Location = New System.Drawing.Point(13, 195)
+        Me.Label8.Name = "Label8"
+        Me.Label8.Size = New System.Drawing.Size(52, 13)
+        Me.Label8.TabIndex = 19
+        Me.Label8.Text = "Provider.:"
+        '
         'ButtonClean
         '
-        Me.ButtonClean.Location = New System.Drawing.Point(15, 335)
+        Me.ButtonClean.Location = New System.Drawing.Point(15, 381)
         Me.ButtonClean.Name = "ButtonClean"
         Me.ButtonClean.Size = New System.Drawing.Size(75, 23)
         Me.ButtonClean.TabIndex = 17
@@ -81,7 +119,6 @@ Partial Class FrmAddStock
         '
         'TextBoxInvoice
         '
-        Me.TextBoxInvoice.Enabled = False
         Me.TextBoxInvoice.Location = New System.Drawing.Point(86, 154)
         Me.TextBoxInvoice.Name = "TextBoxInvoice"
         Me.TextBoxInvoice.Size = New System.Drawing.Size(174, 20)
@@ -139,7 +176,7 @@ Partial Class FrmAddStock
         '
         'ButtonReestock
         '
-        Me.ButtonReestock.Location = New System.Drawing.Point(233, 335)
+        Me.ButtonReestock.Location = New System.Drawing.Point(233, 381)
         Me.ButtonReestock.Name = "ButtonReestock"
         Me.ButtonReestock.Size = New System.Drawing.Size(75, 23)
         Me.ButtonReestock.TabIndex = 8
@@ -205,28 +242,11 @@ Partial Class FrmAddStock
         Me.Label1.TabIndex = 3
         Me.Label1.Text = "Category:"
         '
-        'TextBox1
-        '
-        Me.TextBox1.Enabled = False
-        Me.TextBox1.Location = New System.Drawing.Point(87, 190)
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(174, 20)
-        Me.TextBox1.TabIndex = 18
-        '
-        'Label8
-        '
-        Me.Label8.AutoSize = True
-        Me.Label8.Location = New System.Drawing.Point(13, 195)
-        Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(52, 13)
-        Me.Label8.TabIndex = 19
-        Me.Label8.Text = "Provider.:"
-        '
         'FrmAddStock
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(339, 388)
+        Me.ClientSize = New System.Drawing.Size(339, 426)
         Me.Controls.Add(Me.GroupBox1)
         Me.Name = "FrmAddStock"
         Me.Text = "Restock Inventory"
@@ -253,6 +273,8 @@ Partial Class FrmAddStock
     Friend WithEvents TextBoxInvoice As TextBox
     Friend WithEvents Label7 As Label
     Friend WithEvents ButtonClean As Button
-    Friend WithEvents TextBox1 As TextBox
+    Friend WithEvents TextBoxprovider As TextBox
     Friend WithEvents Label8 As Label
+    Friend WithEvents Label10 As Label
+    Friend WithEvents Label9 As Label
 End Class

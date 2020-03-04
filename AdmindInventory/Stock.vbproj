@@ -78,9 +78,7 @@
     <Compile Include="Data\Entities\Department.vb" />
     <Compile Include="Data\Entities\Category.vb" />
     <Compile Include="Data\Entities\Item.vb" />
-    <Compile Include="Data\Entities\Provider.vb">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="Data\Entities\ProviderE.vb" />
     <Compile Include="Data\Entities\Request.vb" />
     <Compile Include="Data\Entities\State.vb" />
     <Compile Include="Data\Entities\Stock.vb" />
@@ -89,11 +87,13 @@
     <Compile Include="Data\ItemDB.vb" />
     <Compile Include="Data\ProviderDB.vb" />
     <Compile Include="Data\StockDB.vb" />
+    <Compile Include="Data\StockEntryDB.vb" />
     <Compile Include="Logic\CategoryBL.vb" />
     <Compile Include="Logic\DepartmentBL.vb" />
     <Compile Include="Logic\ItemBL.vb" />
     <Compile Include="Logic\ProviderBL.vb" />
     <Compile Include="Logic\StockBL.vb" />
+    <Compile Include="Logic\StockEntryBL.vb" />
     <Compile Include="Presentation\AddStock.Designer.vb">
       <DependentUpon>AddStock.vb</DependentUpon>
     </Compile>
@@ -112,10 +112,10 @@
     <Compile Include="Presentation\Departments.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Presentation\Provider.Designer.vb">
-      <DependentUpon>Provider.vb</DependentUpon>
+    <Compile Include="Presentation\ProviderFrm.Designer.vb">
+      <DependentUpon>ProviderFrm.vb</DependentUpon>
     </Compile>
-    <Compile Include="Presentation\Provider.vb">
+    <Compile Include="Presentation\ProviderFrm.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Presentation\StockMain.vb">
@@ -187,8 +187,8 @@
     <EmbeddedResource Include="Presentation\Departments.resx">
       <DependentUpon>Departments.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Presentation\Provider.resx">
-      <DependentUpon>Provider.vb</DependentUpon>
+    <EmbeddedResource Include="Presentation\ProviderFrm.resx">
+      <DependentUpon>ProviderFrm.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Presentation\StockMain.resx">
       <DependentUpon>StockMain.vb</DependentUpon>

@@ -24,6 +24,7 @@ Partial Class StockMain
     Private Sub InitializeComponent()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.Button2 = New System.Windows.Forms.Button()
         Me.CheckBoxReorder = New System.Windows.Forms.CheckBox()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.TextBoxName = New System.Windows.Forms.TextBox()
@@ -42,7 +43,7 @@ Partial Class StockMain
         Me.ButtonMngDepart = New System.Windows.Forms.Button()
         Me.ButtonMngCat = New System.Windows.Forms.Button()
         Me.ButtonMngitems = New System.Windows.Forms.Button()
-        Me.Button2 = New System.Windows.Forms.Button()
+        Me.Button3 = New System.Windows.Forms.Button()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
@@ -60,6 +61,7 @@ Partial Class StockMain
         '
         'GroupBox1
         '
+        Me.GroupBox1.Controls.Add(Me.Button3)
         Me.GroupBox1.Controls.Add(Me.Button2)
         Me.GroupBox1.Controls.Add(Me.CheckBoxReorder)
         Me.GroupBox1.Controls.Add(Me.Label4)
@@ -72,6 +74,15 @@ Partial Class StockMain
         Me.GroupBox1.Size = New System.Drawing.Size(927, 111)
         Me.GroupBox1.TabIndex = 1
         Me.GroupBox1.TabStop = False
+        '
+        'Button2
+        '
+        Me.Button2.Location = New System.Drawing.Point(801, 71)
+        Me.Button2.Name = "Button2"
+        Me.Button2.Size = New System.Drawing.Size(75, 23)
+        Me.Button2.TabIndex = 8
+        Me.Button2.Text = "inactive"
+        Me.Button2.UseVisualStyleBackColor = True
         '
         'CheckBoxReorder
         '
@@ -241,14 +252,14 @@ Partial Class StockMain
         Me.ButtonMngitems.Text = "Mange Items"
         Me.ButtonMngitems.UseVisualStyleBackColor = True
         '
-        'Button2
+        'Button3
         '
-        Me.Button2.Location = New System.Drawing.Point(801, 71)
-        Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(75, 23)
-        Me.Button2.TabIndex = 8
-        Me.Button2.Text = "inactive"
-        Me.Button2.UseVisualStyleBackColor = True
+        Me.Button3.Location = New System.Drawing.Point(680, 71)
+        Me.Button3.Name = "Button3"
+        Me.Button3.Size = New System.Drawing.Size(75, 23)
+        Me.Button3.TabIndex = 9
+        Me.Button3.Text = "TestProvider"
+        Me.Button3.UseVisualStyleBackColor = True
         '
         'StockMain
         '
@@ -291,4 +302,5 @@ Partial Class StockMain
     Friend WithEvents ButtonPendingReqs As Button
     Friend WithEvents ButtonReports As Button
     Friend WithEvents Button2 As Button
+    Friend WithEvents Button3 As Button
 End Class

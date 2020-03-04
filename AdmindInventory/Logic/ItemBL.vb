@@ -12,4 +12,5 @@
         Dim item As New ItemDB
         item.ChangeItemState(id)
     End Sub
+
 End Class

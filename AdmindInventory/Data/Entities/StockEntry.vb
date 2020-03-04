@@ -3,6 +3,7 @@
     Public Property Item_Id As Integer
     Public Property InvoiceNo As String
     Public Property Provider As String
+    Public Property Amount As Integer
     Public Property CostEach As Decimal
     Public Property CostTotal As Decimal
     Public Property Recived As String

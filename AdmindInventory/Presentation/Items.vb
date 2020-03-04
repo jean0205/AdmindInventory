@@ -141,7 +141,7 @@
 
     'Load Items to show on datagridview
     Sub GetItems()
-        Dim itemList As New List(Of Item)
+        Dim itemList As New List(Of ProviderFrm)
         Dim item As New ItemDB
         DataGridView1.DataSource = item.GetItems()
 

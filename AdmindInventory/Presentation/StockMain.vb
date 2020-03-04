@@ -3,7 +3,9 @@
 
 #Region "Buttoms"
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles ButtonAddStock.Click
-        Dim addStock As New FrmAddStock
+        Dim itemId As Integer = DataGridView1.CurrentRow.Cells(0).Value
+
+        Dim addStock As New FrmAddStock(itemId)
         addStock.Show()
     End Sub
 
@@ -74,6 +76,11 @@
 
 
     End Sub
+    ' boton de prueba para los providers
+    Private Sub Button3_Click_1(sender As Object, e As EventArgs) Handles Button3.Click
+        Dim providerFrm As New ProviderFrm
+        providerFrm.Show()
+    End Sub
 #End Region
 
 
@@ -133,6 +140,8 @@
         ComboBoxCategory.SelectedIndex = 0
 
     End Sub
+
+
 
 
 

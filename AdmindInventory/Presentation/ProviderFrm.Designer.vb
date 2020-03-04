@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
-Partial Class Provider
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
+Partial Class ProviderFrm
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,11 +20,14 @@ Partial Class Provider
     'NOTE: The following procedure is required by the Windows Form Designer
     'It can be modified using the Windows Form Designer.  
     'Do not modify it using the code editor.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.Label5 = New System.Windows.Forms.Label()
+        Me.TextBoxNotes = New System.Windows.Forms.TextBox()
+        Me.TextBox1Contact = New System.Windows.Forms.TextBox()
         Me.TextBoxPhone = New System.Windows.Forms.TextBox()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.TextBoxAddress = New System.Windows.Forms.TextBox()
@@ -38,9 +41,6 @@ Partial Class Provider
         Me.Label4 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
-        Me.TextBox1Contact = New System.Windows.Forms.TextBox()
-        Me.TextBoxNotes = New System.Windows.Forms.TextBox()
-        Me.Label5 = New System.Windows.Forms.Label()
         Me.GroupBox2.SuspendLayout()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
@@ -59,11 +59,10 @@ Partial Class Provider
         'DataGridView1
         '
         Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView1.Location = New System.Drawing.Point(9, 19)
+        Me.DataGridView1.Location = New System.Drawing.Point(6, 19)
         Me.DataGridView1.Name = "DataGridView1"
-        Me.DataGridView1.RowHeadersWidth = 51
-        Me.DataGridView1.Size = New System.Drawing.Size(543, 318)
-        Me.DataGridView1.TabIndex = 1
+        Me.DataGridView1.Size = New System.Drawing.Size(548, 318)
+        Me.DataGridView1.TabIndex = 0
         '
         'GroupBox1
         '
@@ -85,6 +84,30 @@ Partial Class Provider
         Me.GroupBox1.Size = New System.Drawing.Size(560, 227)
         Me.GroupBox1.TabIndex = 3
         Me.GroupBox1.TabStop = False
+        '
+        'Label5
+        '
+        Me.Label5.AutoSize = True
+        Me.Label5.Location = New System.Drawing.Point(287, 82)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(38, 13)
+        Me.Label5.TabIndex = 22
+        Me.Label5.Text = "Notes:"
+        '
+        'TextBoxNotes
+        '
+        Me.TextBoxNotes.Location = New System.Drawing.Point(282, 98)
+        Me.TextBoxNotes.Multiline = True
+        Me.TextBoxNotes.Name = "TextBoxNotes"
+        Me.TextBoxNotes.Size = New System.Drawing.Size(133, 101)
+        Me.TextBoxNotes.TabIndex = 21
+        '
+        'TextBox1Contact
+        '
+        Me.TextBox1Contact.Location = New System.Drawing.Point(94, 183)
+        Me.TextBox1Contact.Name = "TextBox1Contact"
+        Me.TextBox1Contact.Size = New System.Drawing.Size(160, 20)
+        Me.TextBox1Contact.TabIndex = 20
         '
         'TextBoxPhone
         '
@@ -198,38 +221,14 @@ Partial Class Provider
         Me.Label1.TabIndex = 3
         Me.Label1.Text = "Contact Person:"
         '
-        'TextBox1Contact
-        '
-        Me.TextBox1Contact.Location = New System.Drawing.Point(94, 183)
-        Me.TextBox1Contact.Name = "TextBox1Contact"
-        Me.TextBox1Contact.Size = New System.Drawing.Size(160, 20)
-        Me.TextBox1Contact.TabIndex = 20
-        '
-        'TextBoxNotes
-        '
-        Me.TextBoxNotes.Location = New System.Drawing.Point(282, 98)
-        Me.TextBoxNotes.Multiline = True
-        Me.TextBoxNotes.Name = "TextBoxNotes"
-        Me.TextBoxNotes.Size = New System.Drawing.Size(133, 101)
-        Me.TextBoxNotes.TabIndex = 21
-        '
-        'Label5
-        '
-        Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(287, 82)
-        Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(38, 13)
-        Me.Label5.TabIndex = 22
-        Me.Label5.Text = "Notes:"
-        '
-        'Provider
+        'ProviderFrm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(584, 591)
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.GroupBox1)
-        Me.Name = "Provider"
+        Me.Name = "ProviderFrm"
         Me.Text = "Provider"
         Me.GroupBox2.ResumeLayout(False)
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
@@ -241,7 +240,6 @@ Partial Class Provider
     End Sub
 
     Friend WithEvents GroupBox2 As GroupBox
-    Friend WithEvents DataGridView1 As DataGridView
     Friend WithEvents GroupBox1 As GroupBox
     Friend WithEvents TextBoxPhone As TextBox
     Friend WithEvents Label3 As Label
@@ -259,4 +257,5 @@ Partial Class Provider
     Friend WithEvents TextBox1Contact As TextBox
     Friend WithEvents Label5 As Label
     Friend WithEvents TextBoxNotes As TextBox
+    Friend WithEvents DataGridView1 As DataGridView
 End Class
