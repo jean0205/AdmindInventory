@@ -128,7 +128,7 @@ Public Class StockDB
 
     'Delete Item from stock when is inactive
     Sub DeleteItemInactive(ByVal id As Integer)
-        Dim query As String = "Delete From Stock Where Id=@Id "
+        Dim query As String = "Delete From Stock Where Item_id=@Id "
         Using connection As New SqlConnection(conString)
             Using command As New SqlCommand(query, connection)
                 command.Parameters.AddWithValue("@Id", SqlDbType.Int).Value = id

@@ -61,10 +61,13 @@
         Dim stockremain As Integer = DataGridView1.CurrentRow.Cells(5).Value
 
         If stockremain = 0 Then
-            item.ChangeItemState(5)
-            stock.DeleteItemInactive(5)
+            item.ChangeItemState(itemId)
+            stock.DeleteItemInactive(itemId)
 
-            MessageBox.Show("Item state changed to inactive ")
+            MessageBox.Show("Item state changed to inactive." & vbCrLf & "Item deleted from the stock table.")
+            LoadStock()
+        Else
+            MessageBox.Show("This item have remaining stock." & vbCrLf & "Just items with no remaining stock can be inactivated.")
         End If
 
 

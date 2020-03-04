@@ -44,6 +44,10 @@
             Else
                 item.UpdateItem(idUpdate, name, presentation, description, reorder, category, Active)
                 MessageBox.Show("Item successfully updated")
+                Dim itemId As Integer = DataGridView1.CurrentRow.Cells(0).Value
+                If Active = True Then
+                    stock.InsertItemToStock(itemId)
+                End If
                 GetItems()
                 isNew = True
             End If
