@@ -126,5 +126,25 @@ Public Class StockDB
         End Using
     End Sub
 
+    'Delete Item from stock when is inactive
+    Sub DeleteItemInactive(ByVal id As Integer)
+        Dim query As String = "Delete From Stock Where Id=@Id "
+        Using connection As New SqlConnection(conString)
+            Using command As New SqlCommand(query, connection)
+                command.Parameters.AddWithValue("@Id", SqlDbType.Int).Value = id
+
+                Try
+                    connection.Open()
+                    command.ExecuteNonQuery()
+                    connection.Close()
+
+                Catch ex As Exception
+                    Throw ex
+                End Try
+            End Using
+
+        End Using
+    End Sub
+
 
 End Class

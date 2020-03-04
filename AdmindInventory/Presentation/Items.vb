@@ -31,14 +31,18 @@
             Dim description As String = TextBoxDescript.Text
             Dim reorder As Integer = Convert.ToInt32(TextBoxReorder.Text)
             Dim category As String = ComboBoxCat.SelectedItem
+            Dim Active As Boolean = RadioButtonActive.Checked
             If isNew Then
-                item.NewItem(name, presentation, description, reorder, category)
+                item.NewItem(name, presentation, description, reorder, category, Active)
                 MessageBox.Show("Item successfully created")
                 GetItems()
                 Dim itemId As Integer = DataGridView1.Rows(DataGridView1.Rows.Count - 1).Cells(0).Value
-                stock.InsertItemToStock(itemId)
+                If Active = True Then
+                    stock.InsertItemToStock(itemId)
+                End If
+
             Else
-                item.UpdateItem(idUpdate, name, presentation, description, reorder, category)
+                item.UpdateItem(idUpdate, name, presentation, description, reorder, category, Active)
                 MessageBox.Show("Item successfully updated")
                 GetItems()
                 isNew = True
@@ -68,6 +72,10 @@
         TextBoxReorder.Text = DataGridView1.CurrentRow.Cells(4).Value.ToString()
         'ComboBoxCat.SelectedItem = ComboBoxCat.FindString(DataGridView1.CurrentRow.Cells(5).Value.ToString().TrimEnd())
         ComboBoxCat.Text = DataGridView1.CurrentRow.Cells(5).Value.ToString().TrimEnd()
+        RadioButtonActive.Checked = DataGridView1.CurrentRow.Cells(6).Value
+        If RadioButtonActive.Checked = False Then
+            RadioButtonInactive.Checked = True
+        End If
         isNew = False
 
 
@@ -144,6 +152,8 @@
         TextBoxDescript.Clear()
         TextBoxReorder.Clear()
         ComboBoxCat.SelectedIndex = -1
+        RadioButtonActive.Checked = False
+        RadioButtonInactive.Checked = False
     End Sub
 
 

@@ -23,7 +23,9 @@
 
     Private Sub Button4_Click_1(sender As Object, e As EventArgs) Handles ButtonMngitems.Click
         Dim newItem As New New_Item
-        newItem.Show()
+        newItem.ShowDialog()
+        LoadStock()
+
     End Sub
 
     Private Sub Button6_Click(sender As Object, e As EventArgs) Handles ButtonMngDepart.Click
@@ -49,6 +51,25 @@
     Private Sub Button9_Click(sender As Object, e As EventArgs) Handles ButtonPendingReqs.Click
         Dim pendinReqFrm As New PendingRequests
         pendinReqFrm.Show()
+    End Sub
+
+    'probando inactivar items o sea borrarlos de la tabla
+    Private Sub Button2_Click_1(sender As Object, e As EventArgs) Handles Button2.Click
+        Dim item As New ItemBL
+        Dim stock As New StockBL
+        Dim itemId As Integer = DataGridView1.CurrentRow.Cells(0).Value
+        Dim stockremain As Integer = DataGridView1.CurrentRow.Cells(5).Value
+
+        If stockremain = 0 Then
+            item.ChangeItemState(5)
+            stock.DeleteItemInactive(5)
+
+            MessageBox.Show("Item state changed to inactive ")
+        End If
+
+
+
+
     End Sub
 #End Region
 
@@ -109,6 +130,8 @@
         ComboBoxCategory.SelectedIndex = 0
 
     End Sub
+
+
 
 
 
