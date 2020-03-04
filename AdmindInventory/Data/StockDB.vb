@@ -126,6 +126,29 @@ Public Class StockDB
         End Using
     End Sub
 
+    'Update stock remains
+
+    Sub UpdateStock(ByVal itemId As Integer, stockAmount As Integer)
+
+        Dim query As String = "Update Stock Set Stock+=@Stock Where Item_id=@Id"
+        Using Connection As New SqlConnection(conString)
+            Using command As New SqlCommand(query, Connection)
+                command.Parameters.AddWithValue("@Stock", SqlDbType.Int).Value = stockAmount
+                command.Parameters.AddWithValue("@Id", SqlDbType.Int).Value = itemId
+
+                Try
+                    Connection.Open()
+                    command.ExecuteNonQuery()
+                    Connection.Close()
+                Catch ex As Exception
+                    Throw ex
+                End Try
+            End Using
+
+        End Using
+    End Sub
+
+
     'Delete Item from stock when is inactive
     Sub DeleteItemInactive(ByVal id As Integer)
         Dim query As String = "Delete From Stock Where Item_id=@Id "

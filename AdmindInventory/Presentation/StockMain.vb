@@ -6,7 +6,9 @@
         Dim itemId As Integer = DataGridView1.CurrentRow.Cells(0).Value
 
         Dim addStock As New FrmAddStock(itemId)
-        addStock.Show()
+        addStock.ShowDialog()
+        LoadStock()
+
     End Sub
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
@@ -125,6 +127,8 @@
         Dim stock As New StockBL
         DataGridView1.DataSource = stock.GetStockList()
         DataGridView1.Columns(0).Visible = False
+        GetFlag()
+
 
     End Sub
 
@@ -143,7 +147,14 @@
 
 
 
+    Sub GetFlag()
+        For Each row As DataGridViewRow In DataGridView1.Rows
+            If row.Cells(5).Value <= row.Cells(4).Value Then
+                row.DefaultCellStyle.BackColor = Color.Yellow
 
+            End If
+        Next
+    End Sub
 
 
 

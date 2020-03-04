@@ -40,13 +40,13 @@ Public Class StockEntryDB
         Return stockList
     End Function
 
-    Sub InsertStockEntry(ByVal itemId As Integer, ByVal invoiceNo As String, ByVal providerId As Integer,
+    Sub InsertStockEntry(ByVal itemId As Integer, ByVal invoiceNo As String, ByVal providerId As String,
                          ByVal amount As Integer, ByVal costEach As Decimal, ByVal costTotal As Decimal,
                          ByVal recived As String, ByVal daterecived As Date)
 
 
         Dim query As String = "Insert INTO StockEntry (Item_Id, InvoiceNo, Provider_Id, Amount, CostEach, CostTotal,
-                                Recived, Date) values (@Item_Id, @InvoiceNo, @Provider_Id, @Amount, @CostEach, @CostTotal, @Recived, @Date)"
+                                Recived, Date) values (@Item_Id, @InvoiceNo, (Select Id from Provider where Name=@Provider_Id), @Amount, @CostEach, @CostTotal, @Recived, @Date)"
 
 
         Using Connection As New SqlConnection(conString)
@@ -55,7 +55,7 @@ Public Class StockEntryDB
 
                 command.Parameters.AddWithValue("@Item_Id", SqlDbType.Int).Value = itemId
                 command.Parameters.AddWithValue("@InvoiceNo", SqlDbType.NChar).Value = invoiceNo
-                command.Parameters.AddWithValue("@Provider_Id", SqlDbType.Int).Value = providerId
+                command.Parameters.AddWithValue("@Provider_Id", SqlDbType.NChar).Value = providerId
                 command.Parameters.AddWithValue("@Amount", SqlDbType.Int).Value = amount
                 command.Parameters.AddWithValue("@CostEach", SqlDbType.Decimal).Value = costEach
                 command.Parameters.AddWithValue("@CostTotal", SqlDbType.Decimal).Value = costTotal

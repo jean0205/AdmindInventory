@@ -4,7 +4,7 @@
         Return stockEntry.GetStockEntryList()
     End Function
 
-    Sub InsertStockEntry(ByVal itemId As Integer, ByVal invoiceNo As String, ByVal providerId As Integer,
+    Sub InsertStockEntry(ByVal itemId As Integer, ByVal invoiceNo As String, ByVal providerId As String,
                          ByVal amount As Integer, ByVal costEach As Decimal, ByVal costTotal As Decimal,
                          ByVal recived As String, ByVal daterecived As Date)
 

@@ -18,9 +18,42 @@
         GetItemInformation()
         ReloadAutocomplete()
 
+
     End Sub
 
+#Region "Buttom"
+    Private Sub ButtonReestock_Click(sender As Object, e As EventArgs) Handles ButtonReestock.Click
 
+
+        Try
+            Dim invoice As String = TextBoxInvoice.Text
+            Dim providerName As String = TextBoxprovider.Text
+            Dim amount As Integer = Convert.ToInt32(TextBoxAmount.Text)
+            Dim costEach As Decimal = Convert.ToDecimal(TextBoxCost.Text)
+            Dim totalCost As Decimal = Convert.ToDecimal(TextBoxTotalCost.Text)
+            Dim recibed As String = Label10.Text
+            Dim todaysdate As Date = Format(DateTime.Now)
+
+
+
+            Dim stockEntry As New StockEntryBL
+            stockEntry.InsertStockEntry(itemId, invoice, providerName, amount, costEach, totalCost, recibed, todaysdate)
+
+            Dim stock As New StockBL
+            stock.UpdateStock(itemId, amount)
+
+            MessageBox.Show("Stock entry saved.")
+            CleanInterfaz()
+        Catch ex As Exception
+            MessageBox.Show(ex.Message)
+        End Try
+
+
+
+
+    End Sub
+
+#End Region
 
 #Region "Load Information"
 
@@ -34,8 +67,19 @@
 
 
     End Sub
+
+    Sub CleanInterfaz()
+        TextBoxAmount.Clear()
+        TextBoxCost.Clear()
+        TextBoxTotalCost.Clear()
+        TextBoxInvoice.Clear()
+        TextBoxprovider.Clear()
+
+
+    End Sub
 #End Region
 
+#Region "Autocomplete texbox from provider.name"
 
     Function Autocomplete() As AutoCompleteStringCollection
 
@@ -62,5 +106,46 @@
         TextBoxprovider.AutoCompleteMode = AutoCompleteMode.Suggest
         TextBoxprovider.AutoCompleteCustomSource = Autocomplete()
     End Sub
+
+    Private Sub TextBoxAmount_KeyUp(sender As Object, e As KeyEventArgs) Handles TextBoxAmount.KeyUp
+        If TextBoxAmount.Text.Length > 0 Then
+            Dim amount As Integer = Convert.ToInt32(TextBoxAmount.Text)
+
+            If TextBoxCost.Text.Length > 0 Then
+                Dim costEach As Decimal = Convert.ToDecimal(TextBoxCost.Text)
+                Dim totalCost As Decimal = amount * costEach
+                TextBoxTotalCost.Text = totalCost.ToString("n2")
+            End If
+        Else
+            TextBoxTotalCost.Clear()
+        End If
+
+
+
+
+
+
+
+        'Dim number As Decimal = Convert.ToDecimal(TextBoxAmount.Text)
+        'TextBoxAmount.Text = number.ToString("n2")
+    End Sub
+
+    Private Sub TextBoxCost_KeyUp(sender As Object, e As KeyEventArgs) Handles TextBoxCost.KeyUp
+        If TextBoxCost.Text.Length > 0 Then
+            Dim amount As Integer = Convert.ToInt32(TextBoxAmount.Text)
+
+            If TextBoxAmount.Text.Length > 0 Then
+                Dim costEach As Decimal = Convert.ToDecimal(TextBoxCost.Text)
+                Dim totalCost As Decimal = amount * costEach
+                TextBoxTotalCost.Text = totalCost.ToString("n2")
+            End If
+        Else
+            TextBoxTotalCost.Clear()
+
+        End If
+    End Sub
+#End Region
+
+
 
 End Class

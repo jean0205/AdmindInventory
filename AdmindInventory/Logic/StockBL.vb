@@ -21,9 +21,15 @@
         stock.InsertItemToStock(itemId)
     End Sub
 
+    Sub UpdateStock(ByVal itemId As Integer, stockAmount As Integer)
+        Dim stock As New StockDB
+        stock.UpdateStock(itemId, stockAmount)
+    End Sub
+
     Sub DeleteItemInactive(ByVal id As Integer)
         Dim stock As New StockDB
         stock.DeleteItemInactive(id)
+
     End Sub
 
 
