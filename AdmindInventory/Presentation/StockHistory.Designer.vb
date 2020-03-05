@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class StockHistory
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,7 +20,7 @@ Partial Class StockHistory
     'NOTE: The following procedure is required by the Windows Form Designer
     'It can be modified using the Windows Form Designer.  
     'Do not modify it using the code editor.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.ButtonFilter = New System.Windows.Forms.Button()
@@ -34,13 +34,6 @@ Partial Class StockHistory
         Me.DateTimePicker1 = New System.Windows.Forms.DateTimePicker()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
-        Me.columm1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Item = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Category = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Amount = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Unit = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Cost = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Recibed = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -152,46 +145,10 @@ Partial Class StockHistory
         '
         'DataGridView1
         '
-        Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.columm1, Me.Item, Me.Category, Me.Amount, Me.Unit, Me.Cost, Me.Recibed})
         Me.DataGridView1.Location = New System.Drawing.Point(6, 15)
         Me.DataGridView1.Name = "DataGridView1"
         Me.DataGridView1.Size = New System.Drawing.Size(1036, 429)
         Me.DataGridView1.TabIndex = 0
-        '
-        'columm1
-        '
-        Me.columm1.HeaderText = "Date"
-        Me.columm1.Name = "columm1"
-        '
-        'Item
-        '
-        Me.Item.HeaderText = "Item"
-        Me.Item.Name = "Item"
-        '
-        'Category
-        '
-        Me.Category.HeaderText = "Category"
-        Me.Category.Name = "Category"
-        '
-        'Amount
-        '
-        Me.Amount.HeaderText = "Amount"
-        Me.Amount.Name = "Amount"
-        '
-        'Unit
-        '
-        Me.Unit.HeaderText = "Unit"
-        Me.Unit.Name = "Unit"
-        '
-        'Cost
-        '
-        Me.Cost.HeaderText = "Total Cost"
-        Me.Cost.Name = "Cost"
-        '
-        'Recibed
-        '
-        Me.Recibed.HeaderText = "Recived By:"
-        Me.Recibed.Name = "Recibed"
         '
         'StockHistory
         '
@@ -222,11 +179,4 @@ Partial Class StockHistory
     Friend WithEvents Label3 As Label
     Friend WithEvents ComboBoxcategory As ComboBox
     Friend WithEvents ButtonFilter As Button
-    Friend WithEvents columm1 As DataGridViewTextBoxColumn
-    Friend WithEvents Item As DataGridViewTextBoxColumn
-    Friend WithEvents Category As DataGridViewTextBoxColumn
-    Friend WithEvents Amount As DataGridViewTextBoxColumn
-    Friend WithEvents Unit As DataGridViewTextBoxColumn
-    Friend WithEvents Cost As DataGridViewTextBoxColumn
-    Friend WithEvents Recibed As DataGridViewTextBoxColumn
 End Class

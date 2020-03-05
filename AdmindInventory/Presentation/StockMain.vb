@@ -21,8 +21,14 @@
     End Sub
 
     Private Sub Button3_Click(sender As Object, e As EventArgs) Handles ButtonDistrStock.Click
-        Dim stockDist As New FrmDistibuteStock
-        stockDist.Show()
+
+        Dim itemId As Integer = DataGridView1.CurrentRow.Cells(0).Value
+        Dim stockAmount As Integer = DataGridView1.CurrentRow.Cells(5).Value
+        Dim stockDist As New FrmDistibuteStock(itemId, stockAmount)
+        stockDist.ShowDialog()
+        LoadStock()
+
+
     End Sub
 
     Private Sub Button4_Click_1(sender As Object, e As EventArgs) Handles ButtonMngitems.Click
@@ -54,7 +60,18 @@
 
     Private Sub Button9_Click(sender As Object, e As EventArgs) Handles ButtonPendingReqs.Click
         Dim pendinReqFrm As New PendingRequests
-        pendinReqFrm.Show()
+        pendinReqFrm.ShowDialog()
+        LoadStock()
+
+    End Sub
+    Private Sub ButtonRequest_Click(sender As Object, e As EventArgs) Handles ButtonRequest.Click
+        Dim stockRequest As New StockRequest
+        stockRequest.ShowDialog()
+        LoadStock()
+        GetFlag()
+
+
+
     End Sub
 
     'probando inactivar items o sea borrarlos de la tabla
@@ -101,6 +118,7 @@
             DataGridView1.DataSource = stock.GetStockListByCat(ComboBoxCategory.SelectedItem)
             DataGridView1.Columns(0).Visible = False
             TextBoxName.Clear()
+            GetFlag()
 
         Else
             LoadStock()
@@ -113,8 +131,10 @@
     End Sub
     Private Sub TextBoxName_KeyUp(sender As Object, e As KeyEventArgs) Handles TextBoxName.KeyUp
         Dim stock As New StockBL
-
+        ComboBoxCategory.SelectedIndex = 0
         DataGridView1.DataSource = stock.GetStockByName(TextBoxName.Text)
+
+        GetFlag()
 
 
     End Sub
@@ -155,6 +175,8 @@
             End If
         Next
     End Sub
+
+
 
 
 

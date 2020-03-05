@@ -24,8 +24,6 @@ Partial Class StockRequest
     Private Sub InitializeComponent()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
-        Me.Category = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Item = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.ComboBoxDepartment = New System.Windows.Forms.ComboBox()
         Me.Label5 = New System.Windows.Forms.Label()
@@ -56,21 +54,10 @@ Partial Class StockRequest
         'DataGridView1
         '
         Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Category, Me.Item})
         Me.DataGridView1.Location = New System.Drawing.Point(6, 19)
         Me.DataGridView1.Name = "DataGridView1"
         Me.DataGridView1.Size = New System.Drawing.Size(369, 264)
         Me.DataGridView1.TabIndex = 0
-        '
-        'Category
-        '
-        Me.Category.HeaderText = "Category"
-        Me.Category.Name = "Category"
-        '
-        'Item
-        '
-        Me.Item.HeaderText = "Item"
-        Me.Item.Name = "Item"
         '
         'GroupBox2
         '
@@ -137,6 +124,7 @@ Partial Class StockRequest
         'ComboBoxCategory
         '
         Me.ComboBoxCategory.FormattingEnabled = True
+        Me.ComboBoxCategory.Items.AddRange(New Object() {"All Categories"})
         Me.ComboBoxCategory.Location = New System.Drawing.Point(90, 50)
         Me.ComboBoxCategory.Name = "ComboBoxCategory"
         Me.ComboBoxCategory.Size = New System.Drawing.Size(168, 21)
@@ -203,8 +191,6 @@ Partial Class StockRequest
     Friend WithEvents GroupBox1 As GroupBox
     Friend WithEvents DataGridView1 As DataGridView
     Friend WithEvents GroupBox2 As GroupBox
-    Friend WithEvents Category As DataGridViewTextBoxColumn
-    Friend WithEvents Item As DataGridViewTextBoxColumn
     Friend WithEvents TextBoxrequested As TextBox
     Friend WithEvents Label3 As Label
     Friend WithEvents Button1 As Button

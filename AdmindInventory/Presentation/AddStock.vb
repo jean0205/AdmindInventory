@@ -108,19 +108,22 @@
     End Sub
 
     Private Sub TextBoxAmount_KeyUp(sender As Object, e As KeyEventArgs) Handles TextBoxAmount.KeyUp
-        If TextBoxAmount.Text.Length > 0 Then
-            Dim amount As Integer = Convert.ToInt32(TextBoxAmount.Text)
+        Try
+            If TextBoxAmount.Text.Length > 0 Then
+                Dim amount As Integer = Convert.ToInt32(TextBoxAmount.Text)
 
-            If TextBoxCost.Text.Length > 0 Then
-                Dim costEach As Decimal = Convert.ToDecimal(TextBoxCost.Text)
-                Dim totalCost As Decimal = amount * costEach
-                TextBoxTotalCost.Text = totalCost.ToString("n2")
+                If TextBoxCost.Text.Length > 0 Then
+                    Dim costEach As Decimal = Convert.ToDecimal(TextBoxCost.Text)
+                    Dim totalCost As Decimal = amount * costEach
+                    TextBoxTotalCost.Text = totalCost.ToString("n2")
+                End If
+            Else
+                TextBoxTotalCost.Clear()
             End If
-        Else
-            TextBoxTotalCost.Clear()
-        End If
+        Catch ex As Exception
+            MessageBox.Show(ex.Message)
 
-
+        End Try
 
 
 
@@ -131,17 +134,47 @@
     End Sub
 
     Private Sub TextBoxCost_KeyUp(sender As Object, e As KeyEventArgs) Handles TextBoxCost.KeyUp
-        If TextBoxCost.Text.Length > 0 Then
-            Dim amount As Integer = Convert.ToInt32(TextBoxAmount.Text)
+        Try
+            If TextBoxCost.Text.Length > 0 AndAlso TextBoxAmount.Text.Length > 0 Then
+                Dim amount As Integer = Convert.ToInt32(TextBoxAmount.Text)
 
-            If TextBoxAmount.Text.Length > 0 Then
-                Dim costEach As Decimal = Convert.ToDecimal(TextBoxCost.Text)
-                Dim totalCost As Decimal = amount * costEach
-                TextBoxTotalCost.Text = totalCost.ToString("n2")
+                If TextBoxAmount.Text.Length > 0 Then
+                    Dim costEach As Decimal = Convert.ToDecimal(TextBoxCost.Text)
+                    Dim totalCost As Decimal = amount * costEach
+                    TextBoxTotalCost.Text = totalCost.ToString("n2")
+                End If
+            Else
+                TextBoxTotalCost.Clear()
+
             End If
-        Else
-            TextBoxTotalCost.Clear()
+        Catch ex As Exception
+            MessageBox.Show(ex.Message)
+        End Try
 
+    End Sub
+
+    Private Sub TextBoxAmount_KeyPress(sender As Object, e As KeyPressEventArgs) Handles TextBoxAmount.KeyPress
+
+        If Char.IsDigit(e.KeyChar) Then
+            e.Handled = False
+        ElseIf Char.IsControl(e.KeyChar) Then
+            e.Handled = False
+        Else
+            e.Handled = True
+        End If
+
+    End Sub
+
+    Private Sub TextBoxCost_KeyPress(sender As Object, e As KeyPressEventArgs) Handles TextBoxCost.KeyPress
+        If Char.IsDigit(e.KeyChar) Then
+            e.Handled = False
+        ElseIf Char.IsControl(e.KeyChar) Then
+            e.Handled = False
+
+        ElseIf e.KeyChar = "." Then
+            e.Handled = False
+        Else
+            e.Handled = True
         End If
     End Sub
 #End Region

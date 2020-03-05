@@ -38,6 +38,57 @@ Public Class ItemDB
         Return itemsList
     End Function
 
+    'Get items name and description if active
+
+    'Get item list to request screen
+    Function GetItemTorequest() As DataTable
+        Dim itemsList As New List(Of Item)
+        Dim query As String = "Select I.Id,I.Name, I.Presentation, I.Description from Item I where i.Active='1'"
+
+        Dim table As New DataTable
+
+        Using connection As New SqlConnection(conString)
+            Dim command As New SqlCommand(query, connection)
+
+            Try
+                connection.Open()
+                Dim reader As SqlDataReader = command.ExecuteReader()
+                table.Load(reader)
+
+
+                reader.Close()
+                connection.Close()
+
+            Catch ex As Exception
+                Throw ex
+            End Try
+        End Using
+        Return table
+    End Function
+
+    Function GetItemsByName(ByVal ItemName As String) As DataTable
+        Dim table As New DataTable
+
+        Dim query As String = "select I.Id, I.Name, I.Presentation, I.Description from Item I where Name Like '" & ItemName & "%' and Active='1' "
+        Using connection As New SqlConnection(conString)
+            Using command As New SqlCommand(query, connection)
+                'command.Parameters.Add("@Item_name", SqlDbType.NChar).Value = ItemName
+                Try
+                    connection.Open()
+                    Dim reader As SqlDataReader = command.ExecuteReader()
+                    table.Load(reader)
+                    reader.Close()
+                    connection.Close()
+                Catch ex As Exception
+                    Throw ex
+
+                End Try
+
+            End Using
+        End Using
+        Return table
+    End Function
+
     'Get item list by category
     Function GetItemsByCat(ByVal name As String) As List(Of Item)
         Dim itemsList As New List(Of Item)

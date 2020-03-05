@@ -88,12 +88,14 @@
     <Compile Include="Data\ProviderDB.vb" />
     <Compile Include="Data\StockDB.vb" />
     <Compile Include="Data\StockEntryDB.vb" />
+    <Compile Include="Data\StockOutDB.vb" />
     <Compile Include="Logic\CategoryBL.vb" />
     <Compile Include="Logic\DepartmentBL.vb" />
     <Compile Include="Logic\ItemBL.vb" />
     <Compile Include="Logic\ProviderBL.vb" />
     <Compile Include="Logic\StockBL.vb" />
     <Compile Include="Logic\StockEntryBL.vb" />
+    <Compile Include="Logic\StockOutBL.vb" />
     <Compile Include="Presentation\AddStock.Designer.vb">
       <DependentUpon>AddStock.vb</DependentUpon>
     </Compile>

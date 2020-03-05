@@ -14,4 +14,10 @@
 
     End Sub
 
+    Function GetStockEntryHistory() As DataTable
+        Dim stockEntry As New StockEntryDB
+        Return stockEntry.GetStockEntryHistory()
+
+    End Function
+
 End Class

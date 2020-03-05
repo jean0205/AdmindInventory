@@ -24,13 +24,6 @@ Partial Class DistributionHistory
     Private Sub InitializeComponent()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
-        Me.columm1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Item = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Amount = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Department = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Unit = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Cost = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Autorized = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.ButtonFilter = New System.Windows.Forms.Button()
         Me.Label3 = New System.Windows.Forms.Label()
@@ -58,46 +51,10 @@ Partial Class DistributionHistory
         '
         'DataGridView1
         '
-        Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.columm1, Me.Item, Me.Amount, Me.Department, Me.Unit, Me.Cost, Me.Autorized})
         Me.DataGridView1.Location = New System.Drawing.Point(6, 21)
         Me.DataGridView1.Name = "DataGridView1"
         Me.DataGridView1.Size = New System.Drawing.Size(1042, 429)
         Me.DataGridView1.TabIndex = 0
-        '
-        'columm1
-        '
-        Me.columm1.HeaderText = "Date"
-        Me.columm1.Name = "columm1"
-        '
-        'Item
-        '
-        Me.Item.HeaderText = "Item"
-        Me.Item.Name = "Item"
-        '
-        'Amount
-        '
-        Me.Amount.HeaderText = "Amount"
-        Me.Amount.Name = "Amount"
-        '
-        'Department
-        '
-        Me.Department.HeaderText = "Department"
-        Me.Department.Name = "Department"
-        '
-        'Unit
-        '
-        Me.Unit.HeaderText = "Unit"
-        Me.Unit.Name = "Unit"
-        '
-        'Cost
-        '
-        Me.Cost.HeaderText = "Total Cost"
-        Me.Cost.Name = "Cost"
-        '
-        'Autorized
-        '
-        Me.Autorized.HeaderText = "Autorized By:"
-        Me.Autorized.Name = "Autorized"
         '
         'GroupBox1
         '
@@ -212,13 +169,6 @@ Partial Class DistributionHistory
 
     Friend WithEvents GroupBox2 As GroupBox
     Friend WithEvents DataGridView1 As DataGridView
-    Friend WithEvents columm1 As DataGridViewTextBoxColumn
-    Friend WithEvents Item As DataGridViewTextBoxColumn
-    Friend WithEvents Amount As DataGridViewTextBoxColumn
-    Friend WithEvents Department As DataGridViewTextBoxColumn
-    Friend WithEvents Unit As DataGridViewTextBoxColumn
-    Friend WithEvents Cost As DataGridViewTextBoxColumn
-    Friend WithEvents Autorized As DataGridViewTextBoxColumn
     Friend WithEvents GroupBox1 As GroupBox
     Friend WithEvents ButtonFilter As Button
     Friend WithEvents Label3 As Label

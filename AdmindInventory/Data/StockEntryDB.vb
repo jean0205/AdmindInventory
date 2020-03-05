@@ -40,6 +40,30 @@ Public Class StockEntryDB
         Return stockList
     End Function
 
+    'get stock hystory view
+    Function GetStockEntryHistory() As DataTable
+        Dim table As New DataTable
+
+        Dim query As String = "select * from StockHistory "
+        Using connection As New SqlConnection(conString)
+            Using command As New SqlCommand(query, connection)
+                'command.Parameters.Add("@Item_name", SqlDbType.NChar).Value = ItemName
+                Try
+                    connection.Open()
+                    Dim reader As SqlDataReader = command.ExecuteReader()
+                    table.Load(reader)
+                    reader.Close()
+                    connection.Close()
+                Catch ex As Exception
+                    Throw ex
+
+                End Try
+
+            End Using
+        End Using
+        Return table
+    End Function
+
     Sub InsertStockEntry(ByVal itemId As Integer, ByVal invoiceNo As String, ByVal providerId As String,
                          ByVal amount As Integer, ByVal costEach As Decimal, ByVal costTotal As Decimal,
                          ByVal recived As String, ByVal daterecived As Date)

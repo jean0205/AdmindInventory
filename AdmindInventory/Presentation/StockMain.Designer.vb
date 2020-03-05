@@ -24,6 +24,8 @@ Partial Class StockMain
     Private Sub InitializeComponent()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.ButtonRequest = New System.Windows.Forms.Button()
+        Me.Button3 = New System.Windows.Forms.Button()
         Me.Button2 = New System.Windows.Forms.Button()
         Me.CheckBoxReorder = New System.Windows.Forms.CheckBox()
         Me.Label4 = New System.Windows.Forms.Label()
@@ -43,7 +45,6 @@ Partial Class StockMain
         Me.ButtonMngDepart = New System.Windows.Forms.Button()
         Me.ButtonMngCat = New System.Windows.Forms.Button()
         Me.ButtonMngitems = New System.Windows.Forms.Button()
-        Me.Button3 = New System.Windows.Forms.Button()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
@@ -53,15 +54,15 @@ Partial Class StockMain
         'DataGridView1
         '
         Me.DataGridView1.ColumnHeadersHeight = 29
-        Me.DataGridView1.Location = New System.Drawing.Point(9, 19)
+        Me.DataGridView1.Location = New System.Drawing.Point(9, 17)
         Me.DataGridView1.Name = "DataGridView1"
         Me.DataGridView1.RowHeadersWidth = 51
-        Me.DataGridView1.Size = New System.Drawing.Size(910, 400)
+        Me.DataGridView1.Size = New System.Drawing.Size(910, 484)
         Me.DataGridView1.TabIndex = 0
         '
         'GroupBox1
         '
-        Me.GroupBox1.Controls.Add(Me.Button3)
+        Me.GroupBox1.Controls.Add(Me.ButtonRequest)
         Me.GroupBox1.Controls.Add(Me.Button2)
         Me.GroupBox1.Controls.Add(Me.CheckBoxReorder)
         Me.GroupBox1.Controls.Add(Me.Label4)
@@ -74,6 +75,24 @@ Partial Class StockMain
         Me.GroupBox1.Size = New System.Drawing.Size(927, 111)
         Me.GroupBox1.TabIndex = 1
         Me.GroupBox1.TabStop = False
+        '
+        'ButtonRequest
+        '
+        Me.ButtonRequest.Location = New System.Drawing.Point(9, 82)
+        Me.ButtonRequest.Name = "ButtonRequest"
+        Me.ButtonRequest.Size = New System.Drawing.Size(92, 23)
+        Me.ButtonRequest.TabIndex = 10
+        Me.ButtonRequest.Text = "StockRequest"
+        Me.ButtonRequest.UseVisualStyleBackColor = True
+        '
+        'Button3
+        '
+        Me.Button3.Location = New System.Drawing.Point(0, 512)
+        Me.Button3.Name = "Button3"
+        Me.Button3.Size = New System.Drawing.Size(115, 38)
+        Me.Button3.TabIndex = 9
+        Me.Button3.Text = "Providers"
+        Me.Button3.UseVisualStyleBackColor = True
         '
         'Button2
         '
@@ -167,7 +186,7 @@ Partial Class StockMain
         Me.GroupBox2.Controls.Add(Me.DataGridView1)
         Me.GroupBox2.Location = New System.Drawing.Point(127, 116)
         Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Size = New System.Drawing.Size(927, 427)
+        Me.GroupBox2.Size = New System.Drawing.Size(927, 509)
         Me.GroupBox2.TabIndex = 6
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "."
@@ -175,6 +194,7 @@ Partial Class StockMain
         'Panel1
         '
         Me.Panel1.Controls.Add(Me.ButtonReports)
+        Me.Panel1.Controls.Add(Me.Button3)
         Me.Panel1.Controls.Add(Me.ButtonPendingReqs)
         Me.Panel1.Controls.Add(Me.ButtonDistrbHistory)
         Me.Panel1.Controls.Add(Me.ButtonStockHistory)
@@ -186,12 +206,12 @@ Partial Class StockMain
         Me.Panel1.Dock = System.Windows.Forms.DockStyle.Left
         Me.Panel1.Location = New System.Drawing.Point(0, 0)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(121, 551)
+        Me.Panel1.Size = New System.Drawing.Size(121, 625)
         Me.Panel1.TabIndex = 8
         '
         'ButtonReports
         '
-        Me.ButtonReports.Location = New System.Drawing.Point(2, 504)
+        Me.ButtonReports.Location = New System.Drawing.Point(4, 564)
         Me.ButtonReports.Name = "ButtonReports"
         Me.ButtonReports.Size = New System.Drawing.Size(115, 38)
         Me.ButtonReports.TabIndex = 11
@@ -252,20 +272,11 @@ Partial Class StockMain
         Me.ButtonMngitems.Text = "Mange Items"
         Me.ButtonMngitems.UseVisualStyleBackColor = True
         '
-        'Button3
-        '
-        Me.Button3.Location = New System.Drawing.Point(680, 71)
-        Me.Button3.Name = "Button3"
-        Me.Button3.Size = New System.Drawing.Size(75, 23)
-        Me.Button3.TabIndex = 9
-        Me.Button3.Text = "TestProvider"
-        Me.Button3.UseVisualStyleBackColor = True
-        '
         'StockMain
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1064, 551)
+        Me.ClientSize = New System.Drawing.Size(1064, 625)
         Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.Button1)
@@ -303,4 +314,5 @@ Partial Class StockMain
     Friend WithEvents ButtonReports As Button
     Friend WithEvents Button2 As Button
     Friend WithEvents Button3 As Button
+    Friend WithEvents ButtonRequest As Button
 End Class

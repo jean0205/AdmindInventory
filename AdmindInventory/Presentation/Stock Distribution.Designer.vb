@@ -24,6 +24,10 @@ Partial Class FrmDistibuteStock
     Private Sub InitializeComponent()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
+        Me.Label9 = New System.Windows.Forms.Label()
+        Me.Label8 = New System.Windows.Forms.Label()
+        Me.Label7 = New System.Windows.Forms.Label()
+        Me.TextBoxPresentation = New System.Windows.Forms.TextBox()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.TextBoxDescription = New System.Windows.Forms.TextBox()
         Me.Label2 = New System.Windows.Forms.Label()
@@ -33,12 +37,8 @@ Partial Class FrmDistibuteStock
         Me.Label5 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.TextBoxItem = New System.Windows.Forms.TextBox()
-        Me.DateTimePicker1 = New System.Windows.Forms.DateTimePicker()
         Me.Label3 = New System.Windows.Forms.Label()
-        Me.Label4 = New System.Windows.Forms.Label()
         Me.TextBoxAmount = New System.Windows.Forms.TextBox()
-        Me.Label7 = New System.Windows.Forms.Label()
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         Me.SuspendLayout()
@@ -55,8 +55,10 @@ Partial Class FrmDistibuteStock
         '
         'GroupBox2
         '
+        Me.GroupBox2.Controls.Add(Me.Label9)
+        Me.GroupBox2.Controls.Add(Me.Label8)
         Me.GroupBox2.Controls.Add(Me.Label7)
-        Me.GroupBox2.Controls.Add(Me.TextBox1)
+        Me.GroupBox2.Controls.Add(Me.TextBoxPresentation)
         Me.GroupBox2.Controls.Add(Me.Label6)
         Me.GroupBox2.Controls.Add(Me.TextBoxDescription)
         Me.GroupBox2.Controls.Add(Me.Label2)
@@ -66,15 +68,48 @@ Partial Class FrmDistibuteStock
         Me.GroupBox2.Controls.Add(Me.Label5)
         Me.GroupBox2.Controls.Add(Me.Label1)
         Me.GroupBox2.Controls.Add(Me.TextBoxItem)
-        Me.GroupBox2.Controls.Add(Me.DateTimePicker1)
         Me.GroupBox2.Controls.Add(Me.Label3)
-        Me.GroupBox2.Controls.Add(Me.Label4)
         Me.GroupBox2.Controls.Add(Me.TextBoxAmount)
         Me.GroupBox2.Location = New System.Drawing.Point(6, 11)
         Me.GroupBox2.Name = "GroupBox2"
         Me.GroupBox2.Size = New System.Drawing.Size(327, 328)
         Me.GroupBox2.TabIndex = 11
         Me.GroupBox2.TabStop = False
+        '
+        'Label9
+        '
+        Me.Label9.AutoSize = True
+        Me.Label9.Location = New System.Drawing.Point(105, 300)
+        Me.Label9.Name = "Label9"
+        Me.Label9.Size = New System.Drawing.Size(72, 13)
+        Me.Label9.TabIndex = 15
+        Me.Label9.Text = "Authorized By"
+        '
+        'Label8
+        '
+        Me.Label8.AutoSize = True
+        Me.Label8.Location = New System.Drawing.Point(21, 299)
+        Me.Label8.Name = "Label8"
+        Me.Label8.Size = New System.Drawing.Size(81, 13)
+        Me.Label8.TabIndex = 14
+        Me.Label8.Text = "Authoraized By:"
+        '
+        'Label7
+        '
+        Me.Label7.AutoSize = True
+        Me.Label7.Location = New System.Drawing.Point(21, 142)
+        Me.Label7.Name = "Label7"
+        Me.Label7.Size = New System.Drawing.Size(69, 13)
+        Me.Label7.TabIndex = 13
+        Me.Label7.Text = "Presentation:"
+        '
+        'TextBoxPresentation
+        '
+        Me.TextBoxPresentation.Enabled = False
+        Me.TextBoxPresentation.Location = New System.Drawing.Point(90, 137)
+        Me.TextBoxPresentation.Name = "TextBoxPresentation"
+        Me.TextBoxPresentation.Size = New System.Drawing.Size(201, 20)
+        Me.TextBoxPresentation.TabIndex = 12
         '
         'Label6
         '
@@ -87,6 +122,7 @@ Partial Class FrmDistibuteStock
         '
         'TextBoxDescription
         '
+        Me.TextBoxDescription.Enabled = False
         Me.TextBoxDescription.Location = New System.Drawing.Point(90, 71)
         Me.TextBoxDescription.Multiline = True
         Me.TextBoxDescription.Name = "TextBoxDescription"
@@ -153,14 +189,6 @@ Partial Class FrmDistibuteStock
         Me.TextBoxItem.Size = New System.Drawing.Size(201, 20)
         Me.TextBoxItem.TabIndex = 1
         '
-        'DateTimePicker1
-        '
-        Me.DateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.DateTimePicker1.Location = New System.Drawing.Point(90, 265)
-        Me.DateTimePicker1.Name = "DateTimePicker1"
-        Me.DateTimePicker1.Size = New System.Drawing.Size(122, 20)
-        Me.DateTimePicker1.TabIndex = 5
-        '
         'Label3
         '
         Me.Label3.AutoSize = True
@@ -170,38 +198,12 @@ Partial Class FrmDistibuteStock
         Me.Label3.TabIndex = 4
         Me.Label3.Text = "Amount:"
         '
-        'Label4
-        '
-        Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(21, 271)
-        Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(33, 13)
-        Me.Label4.TabIndex = 6
-        Me.Label4.Text = "Date:"
-        '
         'TextBoxAmount
         '
         Me.TextBoxAmount.Location = New System.Drawing.Point(90, 223)
         Me.TextBoxAmount.Name = "TextBoxAmount"
         Me.TextBoxAmount.Size = New System.Drawing.Size(69, 20)
         Me.TextBoxAmount.TabIndex = 4
-        '
-        'Label7
-        '
-        Me.Label7.AutoSize = True
-        Me.Label7.Location = New System.Drawing.Point(21, 142)
-        Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(69, 13)
-        Me.Label7.TabIndex = 13
-        Me.Label7.Text = "Presentation:"
-        '
-        'TextBox1
-        '
-        Me.TextBox1.Enabled = False
-        Me.TextBox1.Location = New System.Drawing.Point(90, 137)
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(201, 20)
-        Me.TextBox1.TabIndex = 12
         '
         'FrmDistibuteStock
         '
@@ -226,13 +228,13 @@ Partial Class FrmDistibuteStock
     Friend WithEvents TextBoxInStock As TextBox
     Friend WithEvents Label5 As Label
     Friend WithEvents Button1 As Button
-    Friend WithEvents DateTimePicker1 As DateTimePicker
-    Friend WithEvents Label4 As Label
     Friend WithEvents TextBoxAmount As TextBox
     Friend WithEvents Label3 As Label
     Friend WithEvents GroupBox2 As GroupBox
     Friend WithEvents Label6 As Label
     Friend WithEvents TextBoxDescription As TextBox
     Friend WithEvents Label7 As Label
-    Friend WithEvents TextBox1 As TextBox
+    Friend WithEvents TextBoxPresentation As TextBox
+    Friend WithEvents Label9 As Label
+    Friend WithEvents Label8 As Label
 End Class
