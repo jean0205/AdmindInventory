@@ -7,7 +7,7 @@ Public Class StockEntryDB
     Function GetStockEntryList() As List(Of StockEntry)
 
         Dim stockList As New List(Of StockEntry)
-        Dim query As String = "Select * from StockEntry"
+        Dim query As String = "Select * from StockEntry order by Id desc"
         Using connection As New SqlConnection(conString)
             Using command As New SqlCommand(query, connection)
                 Try
@@ -121,7 +121,7 @@ Public Class StockEntryDB
     Function GetStockEntryHistory() As DataTable
         Dim table As New DataTable
 
-        Dim query As String = "select * from StockHistory "
+        Dim query As String = "select * from StockHistory2 order by Id desc"
         Using connection As New SqlConnection(conString)
             Using command As New SqlCommand(query, connection)
                 'command.Parameters.Add("@Item_name", SqlDbType.NChar).Value = ItemName

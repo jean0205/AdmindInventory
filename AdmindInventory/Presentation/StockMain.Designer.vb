@@ -45,6 +45,7 @@ Partial Class StockMain
         Me.ButtonMngDepart = New System.Windows.Forms.Button()
         Me.ButtonMngCat = New System.Windows.Forms.Button()
         Me.ButtonMngitems = New System.Windows.Forms.Button()
+        Me.Button4 = New System.Windows.Forms.Button()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
@@ -63,6 +64,7 @@ Partial Class StockMain
         '
         'GroupBox1
         '
+        Me.GroupBox1.Controls.Add(Me.Button4)
         Me.GroupBox1.Controls.Add(Me.ButtonRequest)
         Me.GroupBox1.Controls.Add(Me.Button2)
         Me.GroupBox1.Controls.Add(Me.CheckBoxReorder)
@@ -273,6 +275,15 @@ Partial Class StockMain
         Me.ButtonMngitems.Text = "Mange Items"
         Me.ButtonMngitems.UseVisualStyleBackColor = True
         '
+        'Button4
+        '
+        Me.Button4.Location = New System.Drawing.Point(674, 71)
+        Me.Button4.Name = "Button4"
+        Me.Button4.Size = New System.Drawing.Size(75, 23)
+        Me.Button4.TabIndex = 11
+        Me.Button4.Text = "inactive"
+        Me.Button4.UseVisualStyleBackColor = True
+        '
         'StockMain
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -316,4 +327,5 @@ Partial Class StockMain
     Friend WithEvents Button2 As Button
     Friend WithEvents Button3 As Button
     Friend WithEvents ButtonRequest As Button
+    Friend WithEvents Button4 As Button
 End Class

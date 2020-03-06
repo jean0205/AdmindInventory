@@ -200,6 +200,11 @@
         End If
     End Sub
 
+    Private Sub Button4_Click_2(sender As Object, e As EventArgs) Handles Button4.Click
+        Dim report As New Form1
+        report.Show()
+    End Sub
+
 
 
 

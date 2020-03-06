@@ -23,6 +23,7 @@
     Sub getStockOutHistory()
         Dim stockOut As New StockOutBL
         DataGridView1.DataSource = stockOut.GetStockOutHystory
+        DataGridView1.Columns(0).Visible = False
 
     End Sub
 

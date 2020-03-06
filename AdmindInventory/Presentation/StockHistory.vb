@@ -14,6 +14,7 @@
         Dim stockEntry As New StockEntryBL
         DataGridView1.DataSource = stockEntry.GetStockEntryHistory
         DataGridView1.Columns(0).Visible = False
+        DataGridView1.Columns(1).Visible = False
 
         getTotal()
 
@@ -26,7 +27,7 @@
 
         Dim total As Decimal
         For Each row As DataGridViewRow In DataGridView1.Rows
-            total += row.Cells(5).Value
+            total += row.Cells(6).Value
 
 
         Next

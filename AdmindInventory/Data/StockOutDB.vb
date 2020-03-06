@@ -66,7 +66,7 @@ Public Class StockOutDB
     'all records'
     Function GetStockOutHystory() As DataTable
 
-        Dim query As String = "select * from StockOutView"
+        Dim query As String = "select * from StockOutViewOrderById order by Id desc"
         Dim table As New DataTable
 
         Using connection As New SqlConnection(conString)
