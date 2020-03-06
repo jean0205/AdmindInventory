@@ -36,18 +36,20 @@ Public Class StockOutDB
         End Using
 
     End Sub
-    Sub UpdateRequestState(ByVal itemId As Integer, ByVal condition As Integer)
+
+    Sub UpdateRequestState(ByVal requestid As Integer, ByVal condition As Integer)
 
 
-        Dim query As String = "update StockDistribution set Condition=@Condition where Item_Id=@Id"
+        Dim query As String = "update StockDistribution set Condition= @Condition where Id=@Id"
 
 
         Using Connection As New SqlConnection(conString)
 
             Using command As New SqlCommand(query, Connection)
 
-                command.Parameters.AddWithValue("@Id", SqlDbType.Int).Value = itemId
+                command.Parameters.AddWithValue("@Id", SqlDbType.Int).Value = requestid
                 command.Parameters.AddWithValue("@Condition", SqlDbType.Int).Value = condition
+
 
                 Try
                     Connection.Open()
@@ -87,12 +89,111 @@ Public Class StockOutDB
 
     End Function
 
+    'Filter by name
+    Function FilterStockOutByName(ByVal ItemName As String) As DataTable
+        Dim table As New DataTable
+
+        Dim query As String = "select * from StockOutView where Item_Name Like '" & ItemName & "%'"
+        Using connection As New SqlConnection(conString)
+            Using command As New SqlCommand(query, connection)
+                'command.Parameters.Add("@Item_name", SqlDbType.NChar).Value = ItemName
+                Try
+                    connection.Open()
+                    Dim reader As SqlDataReader = command.ExecuteReader()
+                    table.Load(reader)
+                    reader.Close()
+                    connection.Close()
+                Catch ex As Exception
+                    Throw ex
+
+                End Try
+
+            End Using
+        End Using
+        Return table
+    End Function
+
+    'filter by category
+    Function FilterStockOutByCategory(ByVal category As String) As DataTable
+        Dim table As New DataTable
+
+        Dim query As String = "select *from StockOutView where Category=@Category "
+        Using connection As New SqlConnection(conString)
+            Using command As New SqlCommand(query, connection)
+                command.Parameters.Add("@Category", SqlDbType.NChar).Value = category
+                Try
+                    connection.Open()
+                    Dim reader As SqlDataReader = command.ExecuteReader()
+                    table.Load(reader)
+                    reader.Close()
+                    connection.Close()
+                Catch ex As Exception
+                    Throw ex
+
+                End Try
+
+            End Using
+        End Using
+        Return table
+    End Function
+    'filter by department
+    Function FilterStockOutByDepartment(ByVal department As String) As DataTable
+        Dim table As New DataTable
+
+        Dim query As String = "select * from StockOutView where Department=@Department"
+        Using connection As New SqlConnection(conString)
+            Using command As New SqlCommand(query, connection)
+                command.Parameters.Add("@Department", SqlDbType.NChar).Value = department
+                Try
+                    connection.Open()
+                    Dim reader As SqlDataReader = command.ExecuteReader()
+                    table.Load(reader)
+                    reader.Close()
+                    connection.Close()
+                Catch ex As Exception
+                    Throw ex
+
+                End Try
+
+            End Using
+        End Using
+        Return table
+    End Function
+
+    '
+
+    'filter by date 
+
+    Function FilterStockHistoryByDate(ByVal date1 As Date, ByVal date2 As Date) As DataTable
+        Dim table As New DataTable
+
+        Dim query As String = "select * from StockOutView where Date between Cast(@Date1 As Date) and Cast(@Date2 As Date)"
+        Using connection As New SqlConnection(conString)
+            Using command As New SqlCommand(query, connection)
+                command.Parameters.Add("@Date1", SqlDbType.Date).Value = date1
+                command.Parameters.Add("@Date2", SqlDbType.Date).Value = date2
+                Try
+                    connection.Open()
+                    Dim reader As SqlDataReader = command.ExecuteReader()
+                    table.Load(reader)
+                    reader.Close()
+                    connection.Close()
+                Catch ex As Exception
+                    Throw ex
+
+                End Try
+
+            End Using
+        End Using
+        Return table
+    End Function
+
 
     'only the pendin request'
     Function GetStockRequest() As DataTable
 
         Dim query As String = "
-                                select so.[Item Id], so.[Item Name],so.Category, so.Department, so.Date, so.Person,SO.Amount, s.Stock from StockOutView2 SO
+                                select so.Id, so.[Item Id], so.[Item Name],so.Category, so.Department, so.Date, so.Person,SO.Amount, s.Stock from StockOutView3 SO
                                 full join Stock S on s.Item_id= so.[Item Id]								
                                 where so.State='Pending   '"
         Dim table As New DataTable
@@ -116,5 +217,35 @@ Public Class StockOutDB
         Return table
 
     End Function
+
+
+
+    'Function GetStockRequest() As DataTable
+
+    '    Dim query As String = "
+    '                            select so.[Item Id], so.[Item Name],so.Category, so.Department, so.Date, so.Person,SO.Amount, s.Stock from StockOutView2 SO
+    '                            full join Stock S on s.Item_id= so.[Item Id]								
+    '                            where so.State='Pending   '"
+    '    Dim table As New DataTable
+
+    '    Using connection As New SqlConnection(conString)
+    '        Dim command As New SqlCommand(query, connection)
+
+    '        Try
+    '            connection.Open()
+    '            Dim reader As SqlDataReader = command.ExecuteReader()
+    '            table.Load(reader)
+
+
+    '            reader.Close()
+    '            connection.Close()
+
+    '        Catch ex As Exception
+    '            Throw ex
+    '        End Try
+    '    End Using
+    '    Return table
+
+    'End Function
 
 End Class

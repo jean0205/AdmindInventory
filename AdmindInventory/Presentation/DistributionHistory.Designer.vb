@@ -25,6 +25,8 @@ Partial Class DistributionHistory
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.Label5 = New System.Windows.Forms.Label()
+        Me.ComboBoxDepartment = New System.Windows.Forms.ComboBox()
         Me.ButtonFilter = New System.Windows.Forms.Button()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.ComboBoxcategory = New System.Windows.Forms.ComboBox()
@@ -51,6 +53,7 @@ Partial Class DistributionHistory
         '
         'DataGridView1
         '
+        Me.DataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells
         Me.DataGridView1.Location = New System.Drawing.Point(6, 21)
         Me.DataGridView1.Name = "DataGridView1"
         Me.DataGridView1.Size = New System.Drawing.Size(1042, 429)
@@ -58,6 +61,8 @@ Partial Class DistributionHistory
         '
         'GroupBox1
         '
+        Me.GroupBox1.Controls.Add(Me.Label5)
+        Me.GroupBox1.Controls.Add(Me.ComboBoxDepartment)
         Me.GroupBox1.Controls.Add(Me.ButtonFilter)
         Me.GroupBox1.Controls.Add(Me.Label3)
         Me.GroupBox1.Controls.Add(Me.ComboBoxcategory)
@@ -74,6 +79,24 @@ Partial Class DistributionHistory
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Filter by:"
         '
+        'Label5
+        '
+        Me.Label5.AutoSize = True
+        Me.Label5.Location = New System.Drawing.Point(425, 15)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(65, 13)
+        Me.Label5.TabIndex = 12
+        Me.Label5.Text = "Department:"
+        '
+        'ComboBoxDepartment
+        '
+        Me.ComboBoxDepartment.FormattingEnabled = True
+        Me.ComboBoxDepartment.Items.AddRange(New Object() {"All Departments"})
+        Me.ComboBoxDepartment.Location = New System.Drawing.Point(428, 38)
+        Me.ComboBoxDepartment.Name = "ComboBoxDepartment"
+        Me.ComboBoxDepartment.Size = New System.Drawing.Size(152, 21)
+        Me.ComboBoxDepartment.TabIndex = 11
+        '
         'ButtonFilter
         '
         Me.ButtonFilter.Location = New System.Drawing.Point(951, 38)
@@ -86,7 +109,7 @@ Partial Class DistributionHistory
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(295, 16)
+        Me.Label3.Location = New System.Drawing.Point(214, 14)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(52, 13)
         Me.Label3.TabIndex = 9
@@ -95,7 +118,8 @@ Partial Class DistributionHistory
         'ComboBoxcategory
         '
         Me.ComboBoxcategory.FormattingEnabled = True
-        Me.ComboBoxcategory.Location = New System.Drawing.Point(298, 39)
+        Me.ComboBoxcategory.Items.AddRange(New Object() {"All Categories"})
+        Me.ComboBoxcategory.Location = New System.Drawing.Point(217, 38)
         Me.ComboBoxcategory.Name = "ComboBoxcategory"
         Me.ComboBoxcategory.Size = New System.Drawing.Size(152, 21)
         Me.ComboBoxcategory.TabIndex = 1
@@ -103,7 +127,7 @@ Partial Class DistributionHistory
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(52, 16)
+        Me.Label4.Location = New System.Drawing.Point(21, 16)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(30, 13)
         Me.Label4.TabIndex = 7
@@ -111,7 +135,7 @@ Partial Class DistributionHistory
         '
         'TextBoxItem
         '
-        Me.TextBoxItem.Location = New System.Drawing.Point(55, 39)
+        Me.TextBoxItem.Location = New System.Drawing.Point(24, 38)
         Me.TextBoxItem.Name = "TextBoxItem"
         Me.TextBoxItem.Size = New System.Drawing.Size(152, 20)
         Me.TextBoxItem.TabIndex = 0
@@ -179,4 +203,6 @@ Partial Class DistributionHistory
     Friend WithEvents Label1 As Label
     Friend WithEvents DateTimePicker2 As DateTimePicker
     Friend WithEvents DateTimePicker1 As DateTimePicker
+    Friend WithEvents Label5 As Label
+    Friend WithEvents ComboBoxDepartment As ComboBox
 End Class

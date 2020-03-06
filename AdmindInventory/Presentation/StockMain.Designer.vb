@@ -25,7 +25,6 @@ Partial Class StockMain
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.ButtonRequest = New System.Windows.Forms.Button()
-        Me.Button3 = New System.Windows.Forms.Button()
         Me.Button2 = New System.Windows.Forms.Button()
         Me.CheckBoxReorder = New System.Windows.Forms.CheckBox()
         Me.Label4 = New System.Windows.Forms.Label()
@@ -33,6 +32,7 @@ Partial Class StockMain
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.ComboBoxCategory = New System.Windows.Forms.ComboBox()
+        Me.Button3 = New System.Windows.Forms.Button()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.ButtonAddStock = New System.Windows.Forms.Button()
         Me.ButtonDistrStock = New System.Windows.Forms.Button()
@@ -53,6 +53,7 @@ Partial Class StockMain
         '
         'DataGridView1
         '
+        Me.DataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells
         Me.DataGridView1.ColumnHeadersHeight = 29
         Me.DataGridView1.Location = New System.Drawing.Point(9, 17)
         Me.DataGridView1.Name = "DataGridView1"
@@ -84,15 +85,6 @@ Partial Class StockMain
         Me.ButtonRequest.TabIndex = 10
         Me.ButtonRequest.Text = "StockRequest"
         Me.ButtonRequest.UseVisualStyleBackColor = True
-        '
-        'Button3
-        '
-        Me.Button3.Location = New System.Drawing.Point(0, 512)
-        Me.Button3.Name = "Button3"
-        Me.Button3.Size = New System.Drawing.Size(115, 38)
-        Me.Button3.TabIndex = 9
-        Me.Button3.Text = "Providers"
-        Me.Button3.UseVisualStyleBackColor = True
         '
         'Button2
         '
@@ -154,6 +146,15 @@ Partial Class StockMain
         Me.ComboBoxCategory.Size = New System.Drawing.Size(171, 21)
         Me.ComboBoxCategory.TabIndex = 0
         '
+        'Button3
+        '
+        Me.Button3.Location = New System.Drawing.Point(4, 534)
+        Me.Button3.Name = "Button3"
+        Me.Button3.Size = New System.Drawing.Size(115, 38)
+        Me.Button3.TabIndex = 9
+        Me.Button3.Text = "Providers"
+        Me.Button3.UseVisualStyleBackColor = True
+        '
         'Button1
         '
         Me.Button1.Location = New System.Drawing.Point(134, 497)
@@ -165,7 +166,7 @@ Partial Class StockMain
         '
         'ButtonAddStock
         '
-        Me.ButtonAddStock.Location = New System.Drawing.Point(4, 146)
+        Me.ButtonAddStock.Location = New System.Drawing.Point(4, 166)
         Me.ButtonAddStock.Name = "ButtonAddStock"
         Me.ButtonAddStock.Size = New System.Drawing.Size(115, 38)
         Me.ButtonAddStock.TabIndex = 3
@@ -174,7 +175,7 @@ Partial Class StockMain
         '
         'ButtonDistrStock
         '
-        Me.ButtonDistrStock.Location = New System.Drawing.Point(4, 191)
+        Me.ButtonDistrStock.Location = New System.Drawing.Point(4, 212)
         Me.ButtonDistrStock.Name = "ButtonDistrStock"
         Me.ButtonDistrStock.Size = New System.Drawing.Size(115, 38)
         Me.ButtonDistrStock.TabIndex = 4
@@ -211,7 +212,7 @@ Partial Class StockMain
         '
         'ButtonReports
         '
-        Me.ButtonReports.Location = New System.Drawing.Point(4, 564)
+        Me.ButtonReports.Location = New System.Drawing.Point(4, 580)
         Me.ButtonReports.Name = "ButtonReports"
         Me.ButtonReports.Size = New System.Drawing.Size(115, 38)
         Me.ButtonReports.TabIndex = 11
@@ -220,7 +221,7 @@ Partial Class StockMain
         '
         'ButtonPendingReqs
         '
-        Me.ButtonPendingReqs.Location = New System.Drawing.Point(3, 460)
+        Me.ButtonPendingReqs.Location = New System.Drawing.Point(4, 488)
         Me.ButtonPendingReqs.Name = "ButtonPendingReqs"
         Me.ButtonPendingReqs.Size = New System.Drawing.Size(115, 38)
         Me.ButtonPendingReqs.TabIndex = 10
@@ -229,7 +230,7 @@ Partial Class StockMain
         '
         'ButtonDistrbHistory
         '
-        Me.ButtonDistrbHistory.Location = New System.Drawing.Point(3, 416)
+        Me.ButtonDistrbHistory.Location = New System.Drawing.Point(4, 442)
         Me.ButtonDistrbHistory.Name = "ButtonDistrbHistory"
         Me.ButtonDistrbHistory.Size = New System.Drawing.Size(115, 38)
         Me.ButtonDistrbHistory.TabIndex = 9
@@ -238,16 +239,16 @@ Partial Class StockMain
         '
         'ButtonStockHistory
         '
-        Me.ButtonStockHistory.Location = New System.Drawing.Point(3, 371)
+        Me.ButtonStockHistory.Location = New System.Drawing.Point(4, 396)
         Me.ButtonStockHistory.Name = "ButtonStockHistory"
         Me.ButtonStockHistory.Size = New System.Drawing.Size(115, 38)
         Me.ButtonStockHistory.TabIndex = 8
-        Me.ButtonStockHistory.Text = "Stock History"
+        Me.ButtonStockHistory.Text = "Stock Entry History"
         Me.ButtonStockHistory.UseVisualStyleBackColor = True
         '
         'ButtonMngDepart
         '
-        Me.ButtonMngDepart.Location = New System.Drawing.Point(4, 326)
+        Me.ButtonMngDepart.Location = New System.Drawing.Point(4, 350)
         Me.ButtonMngDepart.Name = "ButtonMngDepart"
         Me.ButtonMngDepart.Size = New System.Drawing.Size(115, 38)
         Me.ButtonMngDepart.TabIndex = 7
@@ -256,7 +257,7 @@ Partial Class StockMain
         '
         'ButtonMngCat
         '
-        Me.ButtonMngCat.Location = New System.Drawing.Point(3, 281)
+        Me.ButtonMngCat.Location = New System.Drawing.Point(4, 304)
         Me.ButtonMngCat.Name = "ButtonMngCat"
         Me.ButtonMngCat.Size = New System.Drawing.Size(115, 38)
         Me.ButtonMngCat.TabIndex = 6
@@ -265,7 +266,7 @@ Partial Class StockMain
         '
         'ButtonMngitems
         '
-        Me.ButtonMngitems.Location = New System.Drawing.Point(3, 236)
+        Me.ButtonMngitems.Location = New System.Drawing.Point(4, 258)
         Me.ButtonMngitems.Name = "ButtonMngitems"
         Me.ButtonMngitems.Size = New System.Drawing.Size(115, 38)
         Me.ButtonMngitems.TabIndex = 5

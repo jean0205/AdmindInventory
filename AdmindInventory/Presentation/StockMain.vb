@@ -147,6 +147,7 @@
         Dim stock As New StockBL
         DataGridView1.DataSource = stock.GetStockList()
         DataGridView1.Columns(0).Visible = False
+        DataGridView1.Columns(6).Visible = False
         GetFlag()
 
 
@@ -174,6 +175,14 @@
 
             End If
         Next
+    End Sub
+
+    Private Sub DataGridView1_CellContentDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView1.CellContentDoubleClick
+
+        Dim itemId As Integer = DataGridView1.Rows(e.RowIndex).Cells(0).Value
+        Dim itemProviderFrm As New ItemProviderFrm(itemId)
+        itemProviderFrm.ShowDialog()
+
     End Sub
 
 

@@ -38,6 +38,8 @@
 
             Dim stockEntry As New StockEntryBL
             stockEntry.InsertStockEntry(itemId, invoice, providerName, amount, costEach, totalCost, recibed, todaysdate)
+            stockEntry.InsertItemprovider(itemId, providerName, costEach, todaysdate)
+
 
             Dim stock As New StockBL
             stock.UpdateStock(itemId, amount)
@@ -49,6 +51,14 @@
         End Try
 
 
+
+
+    End Sub
+
+    Private Sub ButtonNewprov_Click(sender As Object, e As EventArgs) Handles ButtonNewprov.Click
+        Dim provider As New ProviderFrm
+        provider.ShowDialog()
+        ReloadAutocomplete()
 
 
     End Sub
@@ -177,6 +187,8 @@
             e.Handled = True
         End If
     End Sub
+
+
 #End Region
 
 

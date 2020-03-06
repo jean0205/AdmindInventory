@@ -22,4 +22,27 @@
         Dim stock As New StockOutDB
         stock.UpdateRequestState(itemId, condition)
     End Sub
+
+    Function FilterStockOutByName(ByVal ItemName As String) As DataTable
+        Dim stock As New StockOutDB
+        Return stock.FilterStockOutByName(ItemName)
+    End Function
+    Function FilterStockOutByCategory(ByVal category As String) As DataTable
+
+        Dim stock As New StockOutDB
+        Return stock.FilterStockOutByCategory(category)
+
+    End Function
+    Function FilterStockOutByDepartment(ByVal department As String) As DataTable
+
+        Dim stock As New StockOutDB
+        Return stock.FilterStockOutByDepartment(department)
+
+    End Function
+    Function FilterStockHistoryByDate(ByVal date1 As Date, ByVal date2 As Date) As DataTable
+
+        Dim stock As New StockOutDB
+        Return stock.FilterStockHistoryByDate(date1, date2)
+
+    End Function
 End Class

@@ -114,6 +114,12 @@
     <Compile Include="Presentation\Departments.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Presentation\ItemProviderFrm.Designer.vb">
+      <DependentUpon>ItemProviderFrm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\ItemProviderFrm.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Presentation\ProviderFrm.Designer.vb">
       <DependentUpon>ProviderFrm.vb</DependentUpon>
     </Compile>
@@ -188,6 +194,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Presentation\Departments.resx">
       <DependentUpon>Departments.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentation\ItemProviderFrm.resx">
+      <DependentUpon>ItemProviderFrm.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Presentation\ProviderFrm.resx">
       <DependentUpon>ProviderFrm.vb</DependentUpon>

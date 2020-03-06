@@ -23,6 +23,8 @@ Partial Class Categories
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
+        Me.TextBoxGL = New System.Windows.Forms.TextBox()
+        Me.Label3 = New System.Windows.Forms.Label()
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
         Me.ButtonDelete = New System.Windows.Forms.Button()
         Me.ButtonNew = New System.Windows.Forms.Button()
@@ -33,8 +35,6 @@ Partial Class Categories
         Me.Label1 = New System.Windows.Forms.Label()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
-        Me.TextBoxGL = New System.Windows.Forms.TextBox()
-        Me.Label3 = New System.Windows.Forms.Label()
         Me.GroupBox2.SuspendLayout()
         Me.GroupBox3.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
@@ -55,6 +55,22 @@ Partial Class Categories
         Me.GroupBox2.Size = New System.Drawing.Size(419, 171)
         Me.GroupBox2.TabIndex = 4
         Me.GroupBox2.TabStop = False
+        '
+        'TextBoxGL
+        '
+        Me.TextBoxGL.Location = New System.Drawing.Point(80, 64)
+        Me.TextBoxGL.Name = "TextBoxGL"
+        Me.TextBoxGL.Size = New System.Drawing.Size(171, 20)
+        Me.TextBoxGL.TabIndex = 15
+        '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.Location = New System.Drawing.Point(9, 67)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(69, 13)
+        Me.Label3.TabIndex = 16
+        Me.Label3.Text = "G\L Number:"
         '
         'GroupBox3
         '
@@ -138,27 +154,12 @@ Partial Class Categories
         '
         'DataGridView1
         '
+        Me.DataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells
         Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DataGridView1.Location = New System.Drawing.Point(6, 19)
         Me.DataGridView1.Name = "DataGridView1"
         Me.DataGridView1.Size = New System.Drawing.Size(414, 238)
         Me.DataGridView1.TabIndex = 0
-        '
-        'TextBoxGL
-        '
-        Me.TextBoxGL.Location = New System.Drawing.Point(80, 64)
-        Me.TextBoxGL.Name = "TextBoxGL"
-        Me.TextBoxGL.Size = New System.Drawing.Size(171, 20)
-        Me.TextBoxGL.TabIndex = 15
-        '
-        'Label3
-        '
-        Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(9, 67)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(69, 13)
-        Me.Label3.TabIndex = 16
-        Me.Label3.Text = "G\L Number:"
         '
         'Categories
         '

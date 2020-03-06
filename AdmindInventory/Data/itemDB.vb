@@ -271,4 +271,28 @@ Public Class ItemDB
         Return itemI
     End Function
 
+    'Item-Provider table
+
+    Function GetProvidersPerItem(ByVal itemId As Integer) As DataTable
+        Dim table As New DataTable
+
+        Dim query As String = "select * from ItemProviderView where Id=@Id "
+        Using connection As New SqlConnection(conString)
+            Using command As New SqlCommand(query, connection)
+                command.Parameters.Add("@Id", SqlDbType.Int).Value = itemId
+                Try
+                    connection.Open()
+                    Dim reader As SqlDataReader = command.ExecuteReader()
+                    table.Load(reader)
+                    reader.Close()
+                    connection.Close()
+                Catch ex As Exception
+                    Throw ex
+
+                End Try
+
+            End Using
+        End Using
+        Return table
+    End Function
 End Class

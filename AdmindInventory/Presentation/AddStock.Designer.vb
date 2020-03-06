@@ -43,11 +43,13 @@ Partial Class FrmAddStock
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
+        Me.ButtonNewprov = New System.Windows.Forms.Button()
         Me.GroupBox1.SuspendLayout()
         Me.SuspendLayout()
         '
         'GroupBox1
         '
+        Me.GroupBox1.Controls.Add(Me.ButtonNewprov)
         Me.GroupBox1.Controls.Add(Me.Label10)
         Me.GroupBox1.Controls.Add(Me.Label9)
         Me.GroupBox1.Controls.Add(Me.TextBoxprovider)
@@ -96,7 +98,7 @@ Partial Class FrmAddStock
         '
         Me.TextBoxprovider.Location = New System.Drawing.Point(87, 190)
         Me.TextBoxprovider.Name = "TextBoxprovider"
-        Me.TextBoxprovider.Size = New System.Drawing.Size(174, 20)
+        Me.TextBoxprovider.Size = New System.Drawing.Size(147, 20)
         Me.TextBoxprovider.TabIndex = 18
         '
         'Label8
@@ -121,7 +123,7 @@ Partial Class FrmAddStock
         '
         Me.TextBoxInvoice.Location = New System.Drawing.Point(86, 154)
         Me.TextBoxInvoice.Name = "TextBoxInvoice"
-        Me.TextBoxInvoice.Size = New System.Drawing.Size(174, 20)
+        Me.TextBoxInvoice.Size = New System.Drawing.Size(199, 20)
         Me.TextBoxInvoice.TabIndex = 4
         '
         'Label7
@@ -171,7 +173,7 @@ Partial Class FrmAddStock
         Me.TextBoxCategory.Enabled = False
         Me.TextBoxCategory.Location = New System.Drawing.Point(86, 31)
         Me.TextBoxCategory.Name = "TextBoxCategory"
-        Me.TextBoxCategory.Size = New System.Drawing.Size(174, 20)
+        Me.TextBoxCategory.Size = New System.Drawing.Size(199, 20)
         Me.TextBoxCategory.TabIndex = 1
         '
         'ButtonReestock
@@ -195,7 +197,7 @@ Partial Class FrmAddStock
         Me.TextBoxPresentation.Enabled = False
         Me.TextBoxPresentation.Location = New System.Drawing.Point(86, 113)
         Me.TextBoxPresentation.Name = "TextBoxPresentation"
-        Me.TextBoxPresentation.Size = New System.Drawing.Size(174, 20)
+        Me.TextBoxPresentation.Size = New System.Drawing.Size(199, 20)
         Me.TextBoxPresentation.TabIndex = 3
         '
         'TextBoxName
@@ -203,7 +205,7 @@ Partial Class FrmAddStock
         Me.TextBoxName.Enabled = False
         Me.TextBoxName.Location = New System.Drawing.Point(86, 72)
         Me.TextBoxName.Name = "TextBoxName"
-        Me.TextBoxName.Size = New System.Drawing.Size(174, 20)
+        Me.TextBoxName.Size = New System.Drawing.Size(199, 20)
         Me.TextBoxName.TabIndex = 2
         '
         'Label4
@@ -242,6 +244,16 @@ Partial Class FrmAddStock
         Me.Label1.TabIndex = 3
         Me.Label1.Text = "Category:"
         '
+        'ButtonNewprov
+        '
+        Me.ButtonNewprov.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ButtonNewprov.Location = New System.Drawing.Point(242, 188)
+        Me.ButtonNewprov.Name = "ButtonNewprov"
+        Me.ButtonNewprov.Size = New System.Drawing.Size(43, 22)
+        Me.ButtonNewprov.TabIndex = 22
+        Me.ButtonNewprov.Text = "New"
+        Me.ButtonNewprov.UseVisualStyleBackColor = True
+        '
         'FrmAddStock
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -277,4 +289,5 @@ Partial Class FrmAddStock
     Friend WithEvents Label8 As Label
     Friend WithEvents Label10 As Label
     Friend WithEvents Label9 As Label
+    Friend WithEvents ButtonNewprov As Button
 End Class
