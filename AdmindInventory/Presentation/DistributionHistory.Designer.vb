@@ -99,7 +99,7 @@ Partial Class DistributionHistory
         '
         'ButtonFilter
         '
-        Me.ButtonFilter.Location = New System.Drawing.Point(951, 38)
+        Me.ButtonFilter.Location = New System.Drawing.Point(951, 35)
         Me.ButtonFilter.Name = "ButtonFilter"
         Me.ButtonFilter.Size = New System.Drawing.Size(75, 23)
         Me.ButtonFilter.TabIndex = 10

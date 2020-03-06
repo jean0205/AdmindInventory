@@ -77,9 +77,9 @@ Partial Class New_Item
         Me.GroupBoxState.Controls.Add(Me.RadioButtonInactive)
         Me.GroupBoxState.Controls.Add(Me.RadioButtonActive)
         Me.GroupBoxState.Location = New System.Drawing.Point(300, 80)
-        Me.GroupBoxState.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.GroupBoxState.Margin = New System.Windows.Forms.Padding(2)
         Me.GroupBoxState.Name = "GroupBoxState"
-        Me.GroupBoxState.Padding = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.GroupBoxState.Padding = New System.Windows.Forms.Padding(2)
         Me.GroupBoxState.Size = New System.Drawing.Size(117, 118)
         Me.GroupBoxState.TabIndex = 20
         Me.GroupBoxState.TabStop = False
@@ -89,7 +89,7 @@ Partial Class New_Item
         '
         Me.RadioButtonInactive.AutoSize = True
         Me.RadioButtonInactive.Location = New System.Drawing.Point(16, 62)
-        Me.RadioButtonInactive.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.RadioButtonInactive.Margin = New System.Windows.Forms.Padding(2)
         Me.RadioButtonInactive.Name = "RadioButtonInactive"
         Me.RadioButtonInactive.Size = New System.Drawing.Size(63, 17)
         Me.RadioButtonInactive.TabIndex = 1
@@ -101,10 +101,10 @@ Partial Class New_Item
         '
         Me.RadioButtonActive.AutoSize = True
         Me.RadioButtonActive.Location = New System.Drawing.Point(16, 28)
-        Me.RadioButtonActive.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.RadioButtonActive.Margin = New System.Windows.Forms.Padding(2)
         Me.RadioButtonActive.Name = "RadioButtonActive"
         Me.RadioButtonActive.Size = New System.Drawing.Size(55, 17)
-        Me.RadioButtonActive.TabIndex = 0
+        Me.RadioButtonActive.TabIndex = 5
         Me.RadioButtonActive.TabStop = True
         Me.RadioButtonActive.Text = "Active"
         Me.RadioButtonActive.UseVisualStyleBackColor = True
@@ -115,14 +115,14 @@ Partial Class New_Item
         Me.ComboBoxCat.Location = New System.Drawing.Point(103, 169)
         Me.ComboBoxCat.Name = "ComboBoxCat"
         Me.ComboBoxCat.Size = New System.Drawing.Size(174, 21)
-        Me.ComboBoxCat.TabIndex = 17
+        Me.ComboBoxCat.TabIndex = 4
         '
         'TextBoxPresentation
         '
         Me.TextBoxPresentation.Location = New System.Drawing.Point(103, 103)
         Me.TextBoxPresentation.Name = "TextBoxPresentation"
         Me.TextBoxPresentation.Size = New System.Drawing.Size(174, 20)
-        Me.TextBoxPresentation.TabIndex = 19
+        Me.TextBoxPresentation.TabIndex = 2
         '
         'Label3
         '
@@ -139,7 +139,7 @@ Partial Class New_Item
         Me.TextBoxDescript.Multiline = True
         Me.TextBoxDescript.Name = "TextBoxDescript"
         Me.TextBoxDescript.Size = New System.Drawing.Size(174, 43)
-        Me.TextBoxDescript.TabIndex = 17
+        Me.TextBoxDescript.TabIndex = 1
         '
         'Label6
         '
@@ -176,7 +176,7 @@ Partial Class New_Item
         Me.ButtonNew.Name = "ButtonNew"
         Me.ButtonNew.Size = New System.Drawing.Size(75, 23)
         Me.ButtonNew.TabIndex = 11
-        Me.ButtonNew.Text = "New"
+        Me.ButtonNew.Text = "Save"
         Me.ButtonNew.UseVisualStyleBackColor = True
         '
         'ButtonUpdate
@@ -193,14 +193,14 @@ Partial Class New_Item
         Me.TextBoxReorder.Location = New System.Drawing.Point(103, 137)
         Me.TextBoxReorder.Name = "TextBoxReorder"
         Me.TextBoxReorder.Size = New System.Drawing.Size(174, 20)
-        Me.TextBoxReorder.TabIndex = 9
+        Me.TextBoxReorder.TabIndex = 3
         '
         'TextBoxName
         '
         Me.TextBoxName.Location = New System.Drawing.Point(103, 12)
         Me.TextBoxName.Name = "TextBoxName"
         Me.TextBoxName.Size = New System.Drawing.Size(174, 20)
-        Me.TextBoxName.TabIndex = 7
+        Me.TextBoxName.TabIndex = 0
         '
         'Label4
         '

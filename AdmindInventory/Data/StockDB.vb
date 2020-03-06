@@ -169,5 +169,28 @@ Public Class StockDB
         End Using
     End Sub
 
+    Function GetStockToOrder() As DataTable
+        Dim table As New DataTable
+
+        Dim query As String = "select * from StockView where Reorder>=Stock"
+        Using connection As New SqlConnection(conString)
+            Using command As New SqlCommand(query, connection)
+                'command.Parameters.Add("@Item_name", SqlDbType.NChar).Value = ItemName
+                Try
+                    connection.Open()
+                    Dim reader As SqlDataReader = command.ExecuteReader()
+                    table.Load(reader)
+                    reader.Close()
+                    connection.Close()
+                Catch ex As Exception
+                    Throw ex
+
+                End Try
+
+            End Using
+        End Using
+        Return table
+    End Function
+
 
 End Class

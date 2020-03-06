@@ -101,21 +101,21 @@ Partial Class ProviderFrm
         Me.TextBoxNotes.Multiline = True
         Me.TextBoxNotes.Name = "TextBoxNotes"
         Me.TextBoxNotes.Size = New System.Drawing.Size(133, 101)
-        Me.TextBoxNotes.TabIndex = 21
+        Me.TextBoxNotes.TabIndex = 5
         '
         'TextBox1Contact
         '
         Me.TextBox1Contact.Location = New System.Drawing.Point(94, 183)
         Me.TextBox1Contact.Name = "TextBox1Contact"
         Me.TextBox1Contact.Size = New System.Drawing.Size(160, 20)
-        Me.TextBox1Contact.TabIndex = 20
+        Me.TextBox1Contact.TabIndex = 4
         '
         'TextBoxPhone
         '
         Me.TextBoxPhone.Location = New System.Drawing.Point(94, 117)
         Me.TextBoxPhone.Name = "TextBoxPhone"
         Me.TextBoxPhone.Size = New System.Drawing.Size(160, 20)
-        Me.TextBoxPhone.TabIndex = 19
+        Me.TextBoxPhone.TabIndex = 2
         '
         'Label3
         '
@@ -132,7 +132,7 @@ Partial Class ProviderFrm
         Me.TextBoxAddress.Multiline = True
         Me.TextBoxAddress.Name = "TextBoxAddress"
         Me.TextBoxAddress.Size = New System.Drawing.Size(160, 36)
-        Me.TextBoxAddress.TabIndex = 17
+        Me.TextBoxAddress.TabIndex = 1
         '
         'Label6
         '
@@ -169,7 +169,7 @@ Partial Class ProviderFrm
         Me.ButtonNew.Name = "ButtonNew"
         Me.ButtonNew.Size = New System.Drawing.Size(75, 23)
         Me.ButtonNew.TabIndex = 11
-        Me.ButtonNew.Text = "New"
+        Me.ButtonNew.Text = "Save"
         Me.ButtonNew.UseVisualStyleBackColor = True
         '
         'ButtonUpdate
@@ -186,14 +186,14 @@ Partial Class ProviderFrm
         Me.TextBoxEmail.Location = New System.Drawing.Point(94, 151)
         Me.TextBoxEmail.Name = "TextBoxEmail"
         Me.TextBoxEmail.Size = New System.Drawing.Size(160, 20)
-        Me.TextBoxEmail.TabIndex = 9
+        Me.TextBoxEmail.TabIndex = 3
         '
         'TextBoxName
         '
         Me.TextBoxName.Location = New System.Drawing.Point(94, 26)
         Me.TextBoxName.Name = "TextBoxName"
         Me.TextBoxName.Size = New System.Drawing.Size(160, 20)
-        Me.TextBoxName.TabIndex = 7
+        Me.TextBoxName.TabIndex = 0
         '
         'Label4
         '

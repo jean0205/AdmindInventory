@@ -184,6 +184,7 @@
     <Compile Include="Presentation\StockRequest.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Data\Entities\EntryReport.vb" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Presentation\AddStock.resx">
@@ -228,12 +229,18 @@
     <EmbeddedResource Include="Presentation\StockRequest.resx">
       <DependentUpon>StockRequest.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Reports\Report1.rdlc" />
   </ItemGroup>
   <ItemGroup>
     <None Include="My Project\Application.myapp">
       <Generator>MyApplicationCodeGenerator</Generator>
       <LastGenOutput>Application.Designer.vb</LastGenOutput>
     </None>
+    <None Include="My Project\DataSources\Category.datasource" />
+    <None Include="My Project\DataSources\Department.datasource" />
+    <None Include="My Project\DataSources\EntryReport.datasource" />
+    <None Include="My Project\DataSources\Item.datasource" />
+    <None Include="My Project\DataSources\StockEntryDB.datasource" />
     <None Include="My Project\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <CustomToolNamespace>My</CustomToolNamespace>

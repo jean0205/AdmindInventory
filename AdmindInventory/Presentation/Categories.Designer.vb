@@ -61,7 +61,7 @@ Partial Class Categories
         Me.TextBoxGL.Location = New System.Drawing.Point(80, 64)
         Me.TextBoxGL.Name = "TextBoxGL"
         Me.TextBoxGL.Size = New System.Drawing.Size(171, 20)
-        Me.TextBoxGL.TabIndex = 15
+        Me.TextBoxGL.TabIndex = 1
         '
         'Label3
         '
@@ -98,7 +98,7 @@ Partial Class Categories
         Me.ButtonNew.Name = "ButtonNew"
         Me.ButtonNew.Size = New System.Drawing.Size(75, 23)
         Me.ButtonNew.TabIndex = 3
-        Me.ButtonNew.Text = "New"
+        Me.ButtonNew.Text = "Save"
         Me.ButtonNew.UseVisualStyleBackColor = True
         '
         'ButtonUpdate
@@ -132,7 +132,7 @@ Partial Class Categories
         Me.TextBoxName.Location = New System.Drawing.Point(80, 25)
         Me.TextBoxName.Name = "TextBoxName"
         Me.TextBoxName.Size = New System.Drawing.Size(171, 20)
-        Me.TextBoxName.TabIndex = 1
+        Me.TextBoxName.TabIndex = 0
         '
         'Label1
         '

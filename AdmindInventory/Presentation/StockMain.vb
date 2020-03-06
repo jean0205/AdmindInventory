@@ -187,6 +187,21 @@
 
 
 
+    Private Sub CheckBoxReorder_Click(sender As Object, e As EventArgs) Handles CheckBoxReorder.Click
+        If CheckBoxReorder.Checked Then
+            Dim stock As New StockBL
+            DataGridView1.DataSource = stock.GetStockToOrder()
+            DataGridView1.Columns(0).Visible = False
+            DataGridView1.Columns(6).Visible = False
+            GetFlag()
+
+        Else
+            LoadStock()
+        End If
+    End Sub
+
+
+
 
 
 

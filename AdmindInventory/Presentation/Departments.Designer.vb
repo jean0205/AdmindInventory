@@ -68,7 +68,7 @@ Partial Class Departments
         Me.ButtonDelete.Location = New System.Drawing.Point(21, 113)
         Me.ButtonDelete.Name = "ButtonDelete"
         Me.ButtonDelete.Size = New System.Drawing.Size(75, 23)
-        Me.ButtonDelete.TabIndex = 5
+        Me.ButtonDelete.TabIndex = 4
         Me.ButtonDelete.Text = "Delete"
         Me.ButtonDelete.UseVisualStyleBackColor = True
         '
@@ -77,8 +77,8 @@ Partial Class Departments
         Me.ButtonNew.Location = New System.Drawing.Point(21, 17)
         Me.ButtonNew.Name = "ButtonNew"
         Me.ButtonNew.Size = New System.Drawing.Size(75, 23)
-        Me.ButtonNew.TabIndex = 3
-        Me.ButtonNew.Text = "New"
+        Me.ButtonNew.TabIndex = 2
+        Me.ButtonNew.Text = "Save"
         Me.ButtonNew.UseVisualStyleBackColor = True
         '
         'ButtonUpdate
@@ -86,7 +86,7 @@ Partial Class Departments
         Me.ButtonUpdate.Location = New System.Drawing.Point(21, 65)
         Me.ButtonUpdate.Name = "ButtonUpdate"
         Me.ButtonUpdate.Size = New System.Drawing.Size(75, 23)
-        Me.ButtonUpdate.TabIndex = 4
+        Me.ButtonUpdate.TabIndex = 3
         Me.ButtonUpdate.Text = "Update"
         Me.ButtonUpdate.UseVisualStyleBackColor = True
         '
@@ -96,7 +96,7 @@ Partial Class Departments
         Me.TextBoxDescription.Multiline = True
         Me.TextBoxDescription.Name = "TextBoxDescription"
         Me.TextBoxDescription.Size = New System.Drawing.Size(184, 59)
-        Me.TextBoxDescription.TabIndex = 2
+        Me.TextBoxDescription.TabIndex = 1
         '
         'Label2
         '
@@ -112,7 +112,7 @@ Partial Class Departments
         Me.TextBoxName.Location = New System.Drawing.Point(69, 25)
         Me.TextBoxName.Name = "TextBoxName"
         Me.TextBoxName.Size = New System.Drawing.Size(184, 20)
-        Me.TextBoxName.TabIndex = 1
+        Me.TextBoxName.TabIndex = 0
         '
         'Label1
         '

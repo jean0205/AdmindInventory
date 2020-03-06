@@ -32,5 +32,10 @@
 
     End Sub
 
+    Function GetStockToOrder() As DataTable
+        Dim stock As New StockDB
+        Return stock.GetStockToOrder()
+    End Function
+
 
 End Class

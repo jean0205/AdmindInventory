@@ -153,7 +153,7 @@ Partial Class FrmDistibuteStock
         Me.TextBoxInStock.Location = New System.Drawing.Point(222, 223)
         Me.TextBoxInStock.Name = "TextBoxInStock"
         Me.TextBoxInStock.Size = New System.Drawing.Size(69, 20)
-        Me.TextBoxInStock.TabIndex = 7
+        Me.TextBoxInStock.TabIndex = 2
         '
         'ComboBoxDepartment
         '
@@ -161,7 +161,7 @@ Partial Class FrmDistibuteStock
         Me.ComboBoxDepartment.Location = New System.Drawing.Point(90, 176)
         Me.ComboBoxDepartment.Name = "ComboBoxDepartment"
         Me.ComboBoxDepartment.Size = New System.Drawing.Size(201, 21)
-        Me.ComboBoxDepartment.TabIndex = 3
+        Me.ComboBoxDepartment.TabIndex = 0
         '
         'Label5
         '
@@ -203,7 +203,7 @@ Partial Class FrmDistibuteStock
         Me.TextBoxAmount.Location = New System.Drawing.Point(90, 223)
         Me.TextBoxAmount.Name = "TextBoxAmount"
         Me.TextBoxAmount.Size = New System.Drawing.Size(69, 20)
-        Me.TextBoxAmount.TabIndex = 4
+        Me.TextBoxAmount.TabIndex = 1
         '
         'FrmDistibuteStock
         '
