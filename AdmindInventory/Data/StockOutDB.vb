@@ -16,10 +16,10 @@ Public Class StockOutDB
             Using command As New SqlCommand(query, Connection)
 
                 command.Parameters.AddWithValue("@Item_Id", SqlDbType.Int).Value = itemId
-                command.Parameters.AddWithValue("@Depart_Name", SqlDbType.NChar).Value = departmentName
+                command.Parameters.AddWithValue("@Depart_Name", SqlDbType.VarChar).Value = departmentName
                 command.Parameters.AddWithValue("@Amount", SqlDbType.Int).Value = amount
                 command.Parameters.AddWithValue("@Date", SqlDbType.Date).Value = dateOut
-                command.Parameters.AddWithValue("@Person", SqlDbType.NChar).Value = person
+                command.Parameters.AddWithValue("@Person", SqlDbType.VarChar).Value = person
                 command.Parameters.AddWithValue("@Condition", SqlDbType.Int).Value = condition
                 command.Parameters.AddWithValue("@Requested", SqlDbType.Bit).Value = requested
 
@@ -66,7 +66,34 @@ Public Class StockOutDB
     'all records'
     Function GetStockOutHystory() As DataTable
 
-        Dim query As String = "select * from StockOutViewOrderById order by Id desc"
+        Dim query As String = "select * from StockOutViewOrderById Where State='Approved'order by Id desc"
+        Dim table As New DataTable
+
+        Using connection As New SqlConnection(conString)
+            Dim command As New SqlCommand(query, connection)
+
+            Try
+                connection.Open()
+                Dim reader As SqlDataReader = command.ExecuteReader()
+                table.Load(reader)
+
+
+                reader.Close()
+                connection.Close()
+
+            Catch ex As Exception
+                Throw ex
+            End Try
+        End Using
+        Return table
+
+    End Function
+
+    'Unapproved requests
+
+    Function GetRequestRefused() As DataTable
+
+        Dim query As String = "select * from StockOutViewOrderById Where State='Refused'order by Id desc"
         Dim table As New DataTable
 
         Using connection As New SqlConnection(conString)
@@ -93,10 +120,10 @@ Public Class StockOutDB
     Function FilterStockOutByName(ByVal ItemName As String) As DataTable
         Dim table As New DataTable
 
-        Dim query As String = "select * from StockOutView where Item_Name Like '" & ItemName & "%'"
+        Dim query As String = "select * from StockOutViewOrderById where Item_Name Like '" & ItemName & "%' and  State='Approved' order by Id desc"
         Using connection As New SqlConnection(conString)
             Using command As New SqlCommand(query, connection)
-                'command.Parameters.Add("@Item_name", SqlDbType.NChar).Value = ItemName
+                'command.Parameters.Add("@Item_name", SqlDbType.varchar).Value = ItemName
                 Try
                     connection.Open()
                     Dim reader As SqlDataReader = command.ExecuteReader()
@@ -117,10 +144,10 @@ Public Class StockOutDB
     Function FilterStockOutByCategory(ByVal category As String) As DataTable
         Dim table As New DataTable
 
-        Dim query As String = "select *from StockOutView where Category=@Category "
+        Dim query As String = "select *from StockOutViewOrderById where Category=@Category and State='Approved' order by Id desc"
         Using connection As New SqlConnection(conString)
             Using command As New SqlCommand(query, connection)
-                command.Parameters.Add("@Category", SqlDbType.NChar).Value = category
+                command.Parameters.Add("@Category", SqlDbType.VarChar).Value = category
                 Try
                     connection.Open()
                     Dim reader As SqlDataReader = command.ExecuteReader()
@@ -140,10 +167,10 @@ Public Class StockOutDB
     Function FilterStockOutByDepartment(ByVal department As String) As DataTable
         Dim table As New DataTable
 
-        Dim query As String = "select * from StockOutView where Department=@Department"
+        Dim query As String = "select * from StockOutViewOrderById where Department=@Department and  State='Approved' order by Id desc"
         Using connection As New SqlConnection(conString)
             Using command As New SqlCommand(query, connection)
-                command.Parameters.Add("@Department", SqlDbType.NChar).Value = department
+                command.Parameters.Add("@Department", SqlDbType.VarChar).Value = department
                 Try
                     connection.Open()
                     Dim reader As SqlDataReader = command.ExecuteReader()
@@ -160,14 +187,14 @@ Public Class StockOutDB
         Return table
     End Function
 
-    '
+
 
     'filter by date 
 
     Function FilterStockHistoryByDate(ByVal date1 As Date, ByVal date2 As Date) As DataTable
         Dim table As New DataTable
 
-        Dim query As String = "select * from StockOutView where Date between Cast(@Date1 As Date) and Cast(@Date2 As Date)"
+        Dim query As String = "select * from StockOutViewOrderById where Date between Cast(@Date1 As Date) and Cast(@Date2 As Date) and  State='Approved' order by Id desc"
         Using connection As New SqlConnection(conString)
             Using command As New SqlCommand(query, connection)
                 command.Parameters.Add("@Date1", SqlDbType.Date).Value = date1
@@ -188,13 +215,67 @@ Public Class StockOutDB
         Return table
     End Function
 
+    'Filter by date and department
+
+    Function FilterStockHistoryByDateAdDepartment(ByVal date1 As Date, ByVal date2 As Date, department As String) As DataTable
+        Dim table As New DataTable
+
+        Dim query As String = "select * from StockOutViewOrderById where Date between Cast(@Date1 As Date) and Cast(@Date2 As Date) and Department=@Department and State='Approved' order by Id desc"
+        Using connection As New SqlConnection(conString)
+            Using command As New SqlCommand(query, connection)
+                command.Parameters.Add("@Date1", SqlDbType.Date).Value = date1
+                command.Parameters.Add("@Date2", SqlDbType.Date).Value = date2
+                command.Parameters.Add("@Department", SqlDbType.VarChar).Value = department
+                Try
+                    connection.Open()
+                    Dim reader As SqlDataReader = command.ExecuteReader()
+                    table.Load(reader)
+                    reader.Close()
+                    connection.Close()
+                Catch ex As Exception
+                    Throw ex
+
+                End Try
+
+            End Using
+        End Using
+        Return table
+    End Function
+
+    ' filter by date an item
+
+    Function FilterStockHistoryByDateAndItem(ByVal date1 As Date, ByVal date2 As Date, item As String) As DataTable
+        Dim table As New DataTable
+
+        Dim query As String = "select * from StockOutViewOrderById where Date between Cast(@Date1 As Date) and Cast(@Date2 As Date) and Item_Name=@Item and State='Approved' order by Id desc"
+        Using connection As New SqlConnection(conString)
+            Using command As New SqlCommand(query, connection)
+                command.Parameters.Add("@Date1", SqlDbType.Date).Value = date1
+                command.Parameters.Add("@Date2", SqlDbType.Date).Value = date2
+                command.Parameters.Add("@Item", SqlDbType.VarChar).Value = item
+                Try
+                    connection.Open()
+                    Dim reader As SqlDataReader = command.ExecuteReader()
+                    table.Load(reader)
+                    reader.Close()
+                    connection.Close()
+                Catch ex As Exception
+                    Throw ex
+
+                End Try
+
+            End Using
+        End Using
+        Return table
+    End Function
+
 
     'only the pendin request'
     Function GetStockRequest() As DataTable
 
-        Dim query As String = "
-                                select so.Id, so.[Item Id], so.[Item Name],so.Category, so.Department, so.Date, so.Person,SO.Amount, s.Stock from StockOutView3 SO
-                                full join Stock S on s.Item_id= so.[Item Id]								
+        Dim query As String = "select so.Id, so.[Item Id], so.[Item Name],i.Presentation,so.Category, so.Department, so.Date, so.Person,SO.Amount, s.Stock from StockOutView3 SO
+                                full join Stock S on s.Item_id= so.[Item Id]
+								inner join Item I on I.Id= so.[Item Id]							
                                 where so.State='Pending   '"
         Dim table As New DataTable
 

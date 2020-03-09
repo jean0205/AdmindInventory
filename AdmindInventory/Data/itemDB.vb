@@ -72,7 +72,7 @@ Public Class ItemDB
         Dim query As String = "select I.Id, I.Name, I.Presentation, I.Description from Item I where Name Like '" & ItemName & "%' and Active='1' "
         Using connection As New SqlConnection(conString)
             Using command As New SqlCommand(query, connection)
-                'command.Parameters.Add("@Item_name", SqlDbType.NChar).Value = ItemName
+                'command.Parameters.Add("@Item_name", SqlDbType.varchar).Value = ItemName
                 Try
                     connection.Open()
                     Dim reader As SqlDataReader = command.ExecuteReader()
@@ -141,7 +141,7 @@ Public Class ItemDB
                 command.Parameters.AddWithValue("@Presentation", SqlDbType.Int).Value = presentation
                 command.Parameters.AddWithValue("@Description", SqlDbType.Int).Value = description
                 command.Parameters.AddWithValue("@Reorder", SqlDbType.Int).Value = reorder
-                command.Parameters.AddWithValue("@Category_Name", SqlDbType.NChar).Value = categoryName
+                command.Parameters.AddWithValue("@Category_Name", SqlDbType.VarChar).Value = categoryName
                 command.Parameters.AddWithValue("@Active", SqlDbType.Bit).Value = active
 
                 Try
@@ -170,7 +170,7 @@ Public Class ItemDB
                 command.Parameters.AddWithValue("@Presentation", SqlDbType.Int).Value = presentation
                 command.Parameters.AddWithValue("@Description", SqlDbType.Int).Value = description
                 command.Parameters.AddWithValue("@Reorder", SqlDbType.Int).Value = reorder
-                command.Parameters.AddWithValue("@Category_Name", SqlDbType.NChar).Value = categoryName
+                command.Parameters.AddWithValue("@Category_Name", SqlDbType.VarChar).Value = categoryName
                 command.Parameters.AddWithValue("@Active", SqlDbType.Bit).Value = active
 
                 Try

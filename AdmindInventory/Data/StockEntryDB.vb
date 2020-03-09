@@ -45,10 +45,10 @@ Public Class StockEntryDB
     Function FilterStockHistoryByName(ByVal ItemName As String) As DataTable
         Dim table As New DataTable
 
-        Dim query As String = "select * from StockHistory where Name Like '" & ItemName & "%'"
+        Dim query As String = "select * from StockHistory2 where Name Like '" & ItemName & "%' order by Id desc"
         Using connection As New SqlConnection(conString)
             Using command As New SqlCommand(query, connection)
-                'command.Parameters.Add("@Item_name", SqlDbType.NChar).Value = ItemName
+                'command.Parameters.Add("@Item_name", SqlDbType.varchar).Value = ItemName
                 Try
                     connection.Open()
                     Dim reader As SqlDataReader = command.ExecuteReader()
@@ -70,10 +70,34 @@ Public Class StockEntryDB
     Function FilterStockHistoryByInvoice(ByVal invoice As String) As DataTable
         Dim table As New DataTable
 
-        Dim query As String = "select * from StockHistory where InvoiceNo Like '" & invoice & "%'"
+        Dim query As String = "select * from StockHistory2 where InvoiceNo Like '" & invoice & "%' order by Id desc"
         Using connection As New SqlConnection(conString)
             Using command As New SqlCommand(query, connection)
-                'command.Parameters.Add("@Item_name", SqlDbType.NChar).Value = ItemName
+                'command.Parameters.Add("@Item_name", SqlDbType.varchar).Value = ItemName
+                Try
+                    connection.Open()
+                    Dim reader As SqlDataReader = command.ExecuteReader()
+                    table.Load(reader)
+                    reader.Close()
+                    connection.Close()
+                Catch ex As Exception
+                    Throw ex
+
+                End Try
+
+            End Using
+        End Using
+        Return table
+    End Function
+
+    'Filter by provider
+    Function FilterStockHistoryByProvider(ByVal provider As String) As DataTable
+        Dim table As New DataTable
+
+        Dim query As String = "select * from StockHistory2 where Provider Like '" & provider & "%' order by Id desc"
+        Using connection As New SqlConnection(conString)
+            Using command As New SqlCommand(query, connection)
+                'command.Parameters.Add("@Item_name", SqlDbType.varchar).Value = ItemName
                 Try
                     connection.Open()
                     Dim reader As SqlDataReader = command.ExecuteReader()
@@ -95,7 +119,7 @@ Public Class StockEntryDB
     Function FilterStockHistoryByDate(ByVal date1 As Date, ByVal date2 As Date) As DataTable
         Dim table As New DataTable
 
-        Dim query As String = "select * from StockHistory where Date between Cast(@Date1 As Date) and Cast(@Date2 As Date)"
+        Dim query As String = "select * from StockHistory2 where Date between Cast(@Date1 As Date) and Cast(@Date2 As Date) order by Id desc"
         Using connection As New SqlConnection(conString)
             Using command As New SqlCommand(query, connection)
                 command.Parameters.Add("@Date1", SqlDbType.Date).Value = date1
@@ -124,7 +148,7 @@ Public Class StockEntryDB
         Dim query As String = "select * from StockHistory2 order by Id desc"
         Using connection As New SqlConnection(conString)
             Using command As New SqlCommand(query, connection)
-                'command.Parameters.Add("@Item_name", SqlDbType.NChar).Value = ItemName
+                'command.Parameters.Add("@Item_name", SqlDbType.varchar).Value = ItemName
                 Try
                     connection.Open()
                     Dim reader As SqlDataReader = command.ExecuteReader()
@@ -155,12 +179,12 @@ Public Class StockEntryDB
             Using command As New SqlCommand(query, Connection)
 
                 command.Parameters.AddWithValue("@Item_Id", SqlDbType.Int).Value = itemId
-                command.Parameters.AddWithValue("@InvoiceNo", SqlDbType.NChar).Value = invoiceNo
-                command.Parameters.AddWithValue("@Provider_Id", SqlDbType.NChar).Value = providerId
+                command.Parameters.AddWithValue("@InvoiceNo", SqlDbType.VarChar).Value = invoiceNo
+                command.Parameters.AddWithValue("@Provider_Id", SqlDbType.VarChar).Value = providerId
                 command.Parameters.AddWithValue("@Amount", SqlDbType.Int).Value = amount
                 command.Parameters.AddWithValue("@CostEach", SqlDbType.Decimal).Value = costEach
                 command.Parameters.AddWithValue("@CostTotal", SqlDbType.Decimal).Value = costTotal
-                command.Parameters.AddWithValue("@Recived", SqlDbType.NChar).Value = recived
+                command.Parameters.AddWithValue("@Recived", SqlDbType.VarChar).Value = recived
                 command.Parameters.AddWithValue("@Date", SqlDbType.Date).Value = daterecived
 
                 Try
@@ -194,7 +218,7 @@ Public Class StockEntryDB
             Using command As New SqlCommand(query, Connection)
 
                 command.Parameters.AddWithValue("@Item_Id", SqlDbType.Int).Value = itemId
-                command.Parameters.AddWithValue("@Provider_Id", SqlDbType.NChar).Value = providerId
+                command.Parameters.AddWithValue("@Provider_Id", SqlDbType.VarChar).Value = providerId
                 command.Parameters.AddWithValue("@CostEach", SqlDbType.Decimal).Value = costEach
                 command.Parameters.AddWithValue("@Date", SqlDbType.Date).Value = daterecived
 

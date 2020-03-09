@@ -45,4 +45,20 @@
         Return stock.FilterStockHistoryByDate(date1, date2)
 
     End Function
+
+    Function FilterStockHistoryByDateAdDepartment(ByVal date1 As Date, ByVal date2 As Date, department As String) As DataTable
+        Dim stock As New StockOutDB
+        Return stock.FilterStockHistoryByDateAdDepartment(date1, date2, department)
+    End Function
+
+    Function FilterStockHistoryByDateAndItem(ByVal date1 As Date, ByVal date2 As Date, item As String) As DataTable
+        Dim stock As New StockOutDB
+        Return stock.FilterStockHistoryByDateAndItem(date1, date2, item)
+    End Function
+
+    Function GetRequestRefused() As DataTable
+        Dim stock As New StockOutDB
+        Return stock.GetRequestRefused
+
+    End Function
 End Class

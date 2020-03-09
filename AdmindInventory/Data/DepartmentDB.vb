@@ -37,8 +37,8 @@ Public Class DepartmentDB
         Dim query As String = "Insert INTO Department (Name, Description) values (@Name, @Description)"
         Using connection As New SqlConnection(conString)
             Using command As New SqlCommand(query, connection)
-                command.Parameters.AddWithValue("@Name", SqlDbType.NChar).Value = name
-                command.Parameters.AddWithValue("@Description", SqlDbType.NChar).Value = description
+                command.Parameters.AddWithValue("@Name", SqlDbType.VarChar).Value = name
+                command.Parameters.AddWithValue("@Description", SqlDbType.VarChar).Value = description
                 Try
                     connection.Open()
                     command.ExecuteNonQuery()
@@ -59,8 +59,8 @@ Public Class DepartmentDB
         Using connection As New SqlConnection(conString)
             Using command As New SqlCommand(query, connection)
                 command.Parameters.AddWithValue("@Id", SqlDbType.Int).Value = id
-                command.Parameters.AddWithValue("@Name", SqlDbType.NChar).Value = name
-                command.Parameters.AddWithValue("@Description", SqlDbType.NChar).Value = description
+                command.Parameters.AddWithValue("@Name", SqlDbType.VarChar).Value = name
+                command.Parameters.AddWithValue("@Description", SqlDbType.VarChar).Value = description
                 Try
                     connection.Open()
                     command.ExecuteNonQuery()

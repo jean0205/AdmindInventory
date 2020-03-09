@@ -138,6 +138,18 @@
 
 
     End Sub
+    Private Sub CheckBoxReorder_Click(sender As Object, e As EventArgs) Handles CheckBoxReorder.Click
+        If CheckBoxReorder.Checked Then
+            Dim stock As New StockBL
+            DataGridView1.DataSource = stock.GetStockToOrder()
+            DataGridView1.Columns(0).Visible = False
+            DataGridView1.Columns(6).Visible = False
+            GetFlag()
+
+        Else
+            LoadStock()
+        End If
+    End Sub
 
 #End Region
 
@@ -187,22 +199,50 @@
 
 
 
-    Private Sub CheckBoxReorder_Click(sender As Object, e As EventArgs) Handles CheckBoxReorder.Click
-        If CheckBoxReorder.Checked Then
-            Dim stock As New StockBL
-            DataGridView1.DataSource = stock.GetStockToOrder()
-            DataGridView1.Columns(0).Visible = False
-            DataGridView1.Columns(6).Visible = False
-            GetFlag()
 
-        Else
-            LoadStock()
-        End If
+
+    Private Sub Button4_Click_2(sender As Object, e As EventArgs)
+        'Dim report As New ReportEntryHistoryFrm
+        ' Report.Show()
     End Sub
 
-    Private Sub Button4_Click_2(sender As Object, e As EventArgs) Handles Button4.Click
-        Dim report As New Form1
+    Private Sub ButtonReport_Click(sender As Object, e As EventArgs) Handles ButtonReport.Click
+
+        Dim category As String = "All Categories"
+        Dim reorderList As String = String.Empty
+        Dim total As Integer = DataGridView1.Rows.Count
+        Dim stockList As New List(Of ReportStock)
+
+        If ComboBoxCategory.SelectedIndex > 0 Then
+            category = ComboBoxCategory.SelectedItem
+        End If
+        If CheckBoxReorder.Checked Then
+            reorderList = "Items to Reorder"
+            total = DataGridView1.Rows.Count - 1
+        End If
+
+        For Each row As DataGridViewRow In DataGridView1.Rows
+            Dim stock As New ReportStock
+
+            stock.ItemName = row.Cells(1).Value
+            Stock.ItemCategory = row.Cells(2).Value
+            Stock.ItemPresentation = row.Cells(3).Value
+            Stock.ItemReorder = row.Cells(4).Value
+            stock.StockRemains = row.Cells(5).Value
+
+            stockList.Add(stock)
+
+
+
+        Next
+
+        Dim report As New ReportStockFrm(category, reorderList, total, stockList)
         report.Show()
+
+        CheckBoxReorder.Checked = False
+        ComboBoxCategory.Text = String.Empty
+
+
     End Sub
 
 

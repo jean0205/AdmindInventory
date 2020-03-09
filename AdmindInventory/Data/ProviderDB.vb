@@ -58,11 +58,11 @@ Public Class ProviderDB
         Using Connection As New SqlConnection(conString)
             Using command As New SqlCommand(query, Connection)
 
-                command.Parameters.AddWithValue("@Name", SqlDbType.NChar).Value = name
-                command.Parameters.AddWithValue("@Address", SqlDbType.NChar).Value = address
-                command.Parameters.AddWithValue("@Phone", SqlDbType.NChar).Value = phone
+                command.Parameters.AddWithValue("@Name", SqlDbType.VarChar).Value = name
+                command.Parameters.AddWithValue("@Address", SqlDbType.VarChar).Value = address
+                command.Parameters.AddWithValue("@Phone", SqlDbType.VarChar).Value = phone
                 command.Parameters.AddWithValue("@Email", SqlDbType.VarChar).Value = email
-                command.Parameters.AddWithValue("@Contact_Person", SqlDbType.NChar).Value = contactPerson
+                command.Parameters.AddWithValue("@Contact_Person", SqlDbType.VarChar).Value = contactPerson
                 command.Parameters.AddWithValue("@Notes", SqlDbType.NVarChar).Value = note
 
                 Try
@@ -87,11 +87,11 @@ Public Class ProviderDB
             Using command As New SqlCommand(query, Connection)
 
                 command.Parameters.AddWithValue("@Id", SqlDbType.Int).Value = Id
-                command.Parameters.AddWithValue("@Name", SqlDbType.NChar).Value = name
-                command.Parameters.AddWithValue("@Address", SqlDbType.NChar).Value = address
-                command.Parameters.AddWithValue("@Phone", SqlDbType.NChar).Value = phone
+                command.Parameters.AddWithValue("@Name", SqlDbType.VarChar).Value = name
+                command.Parameters.AddWithValue("@Address", SqlDbType.VarChar).Value = address
+                command.Parameters.AddWithValue("@Phone", SqlDbType.VarChar).Value = phone
                 command.Parameters.AddWithValue("@Email", SqlDbType.VarChar).Value = email
-                command.Parameters.AddWithValue("@Contact_Person", SqlDbType.NChar).Value = contactPerson
+                command.Parameters.AddWithValue("@Contact_Person", SqlDbType.VarChar).Value = contactPerson
                 command.Parameters.AddWithValue("@Notes", SqlDbType.NVarChar).Value = note
 
                 Try

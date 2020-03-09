@@ -103,11 +103,6 @@
     <Compile Include="Data\StockDB.vb" />
     <Compile Include="Data\StockEntryDB.vb" />
     <Compile Include="Data\StockOutDB.vb" />
-    <Compile Include="InventoryDataSet.Designer.vb">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>InventoryDataSet.xsd</DependentUpon>
-    </Compile>
     <Compile Include="Logic\CategoryBL.vb" />
     <Compile Include="Logic\DepartmentBL.vb" />
     <Compile Include="Logic\ItemBL.vb" />
@@ -203,12 +198,25 @@
     <Compile Include="Presentation\StockRequest.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Reports\Form1.Designer.vb">
-      <DependentUpon>Form1.vb</DependentUpon>
+    <Compile Include="Reports\ReportDistribution.Designer.vb">
+      <DependentUpon>ReportDistribution.vb</DependentUpon>
     </Compile>
-    <Compile Include="Reports\Form1.vb">
+    <Compile Include="Reports\ReportDistribution.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Reports\ReportEntryHistoryFrm.Designer.vb">
+      <DependentUpon>ReportEntryHistoryFrm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\ReportEntryHistoryFrm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\ReportStockFrm.Designer.vb">
+      <DependentUpon>ReportStockFrm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\ReportStockFrm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\ReportStructure.vb" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Presentation\AddStock.resx">
@@ -253,23 +261,20 @@
     <EmbeddedResource Include="Presentation\StockRequest.resx">
       <DependentUpon>StockRequest.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Reports\Form1.resx">
-      <DependentUpon>Form1.vb</DependentUpon>
+    <EmbeddedResource Include="Reports\ReportStock.rdlc" />
+    <EmbeddedResource Include="Reports\ReportDistribution.rdlc" />
+    <EmbeddedResource Include="Reports\ReportDistribution.resx">
+      <DependentUpon>ReportDistribution.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Reports\Report1.rdlc" />
+    <EmbeddedResource Include="Reports\ReportEntry.rdlc" />
+    <EmbeddedResource Include="Reports\ReportEntryHistoryFrm.resx">
+      <DependentUpon>ReportEntryHistoryFrm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\ReportStockFrm.resx">
+      <DependentUpon>ReportStockFrm.vb</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <None Include="InventoryDataSet.xsc">
-      <DependentUpon>InventoryDataSet.xsd</DependentUpon>
-    </None>
-    <None Include="InventoryDataSet.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>InventoryDataSet.Designer.vb</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="InventoryDataSet.xss">
-      <DependentUpon>InventoryDataSet.xsd</DependentUpon>
-    </None>
     <None Include="My Project\Application.myapp">
       <Generator>MyApplicationCodeGenerator</Generator>
       <LastGenOutput>Application.Designer.vb</LastGenOutput>
@@ -281,6 +286,9 @@
     <None Include="My Project\DataSources\Item.datasource" />
     <None Include="My Project\DataSources\Report.datasource" />
     <None Include="My Project\DataSources\Report2.datasource" />
+    <None Include="My Project\DataSources\ReportStock.datasource" />
+    <None Include="My Project\DataSources\ReportStockEntry.datasource" />
+    <None Include="My Project\DataSources\ReportStockOut.datasource" />
     <None Include="My Project\DataSources\StockEntryDB.datasource" />
     <None Include="My Project\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

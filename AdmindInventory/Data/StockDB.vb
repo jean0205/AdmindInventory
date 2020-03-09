@@ -43,7 +43,7 @@ Public Class StockDB
         Dim query As String = "select * from StockView where Cat_Name=@CatName"
         Using connection As New SqlConnection(conString)
             Using command As New SqlCommand(query, connection)
-                command.Parameters.Add("@CatName", SqlDbType.NChar).Value = catName
+                command.Parameters.Add("@CatName", SqlDbType.VarChar).Value = catName
                 Try
                     connection.Open()
                     Dim reader As SqlDataReader = command.ExecuteReader()
@@ -76,7 +76,7 @@ Public Class StockDB
         Dim query As String = "select * from StockView where Item_Name Like '" & ItemName & "%'"
         Using connection As New SqlConnection(conString)
             Using command As New SqlCommand(query, connection)
-                'command.Parameters.Add("@Item_name", SqlDbType.NChar).Value = ItemName
+                'command.Parameters.Add("@Item_name", SqlDbType.varchar).Value = ItemName
                 Try
                     connection.Open()
                     Dim reader As SqlDataReader = command.ExecuteReader()
@@ -175,7 +175,7 @@ Public Class StockDB
         Dim query As String = "select * from StockView where Reorder>=Stock"
         Using connection As New SqlConnection(conString)
             Using command As New SqlCommand(query, connection)
-                'command.Parameters.Add("@Item_name", SqlDbType.NChar).Value = ItemName
+                'command.Parameters.Add("@Item_name", SqlDbType.varchar).Value = ItemName
                 Try
                     connection.Open()
                     Dim reader As SqlDataReader = command.ExecuteReader()

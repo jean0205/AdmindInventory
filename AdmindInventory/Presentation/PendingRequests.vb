@@ -53,7 +53,7 @@
         Dim senderGrid = DirectCast(sender, DataGridView)
         'buttom approve
         If TypeOf senderGrid.Columns(e.ColumnIndex) Is DataGridViewButtonColumn AndAlso
-           e.RowIndex >= 0 AndAlso e.ColumnIndex = 9 Then
+           e.RowIndex >= 0 AndAlso e.ColumnIndex = 10 Then
 
 
             If IsDBNull(DataGridView1.Rows(e.RowIndex).Cells(e.ColumnIndex - 1).Value) Then
@@ -78,7 +78,7 @@
                 Dim requestId As Integer = DataGridView1.CurrentRow.Cells(0).Value
                 Dim itemId As Integer = DataGridView1.CurrentRow.Cells(1).Value
                 Dim condition As Integer = 2
-                Dim amoutn As Integer = -(DataGridView1.CurrentRow.Cells(7).Value)
+                Dim amoutn As Integer = -(DataGridView1.CurrentRow.Cells(8).Value)
 
 
                 Dim stockOut As New StockOutBL
@@ -100,7 +100,7 @@
 
         ' buttom refuse
         If TypeOf senderGrid.Columns(e.ColumnIndex) Is DataGridViewButtonColumn AndAlso
-          e.RowIndex >= 0 AndAlso e.ColumnIndex = 10 Then
+          e.RowIndex >= 0 AndAlso e.ColumnIndex = 11 Then
 
             Dim requestId As Integer = DataGridView1.CurrentRow.Cells(0).Value
             Dim condition As Integer = 3

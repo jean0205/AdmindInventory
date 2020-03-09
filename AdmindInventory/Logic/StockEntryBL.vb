@@ -40,6 +40,12 @@
 
     End Function
 
+    Function FilterStockHistoryByProvider(ByVal provider As String) As DataTable
+        Dim stockEntry As New StockEntryDB
+        Return stockEntry.FilterStockHistoryByProvider(provider)
+
+    End Function
+
     Function FilterStockHistoryByDate(ByVal date1 As Date, ByVal date2 As Date) As DataTable
         Dim stockEntry As New StockEntryDB
         Return stockEntry.FilterStockHistoryByDate(date1, date2)

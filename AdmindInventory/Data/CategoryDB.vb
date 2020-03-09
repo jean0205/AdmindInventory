@@ -38,9 +38,9 @@ Public Class CategoryDB
         Dim query As String = "Insert INTO Category (Name, GL_Number, Description) values (@Name, @GL_Number, @Description)"
         Using connection As New SqlConnection(conString)
             Using command As New SqlCommand(query, connection)
-                command.Parameters.AddWithValue("@Name", SqlDbType.NChar).Value = name
-                command.Parameters.AddWithValue("@GL_Number", SqlDbType.NChar).Value = GLnumber
-                command.Parameters.AddWithValue("@Description", SqlDbType.NChar).Value = description
+                command.Parameters.AddWithValue("@Name", SqlDbType.VarChar).Value = name
+                command.Parameters.AddWithValue("@GL_Number", SqlDbType.VarChar).Value = GLnumber
+                command.Parameters.AddWithValue("@Description", SqlDbType.VarChar).Value = description
                 Try
                     connection.Open()
                     command.ExecuteNonQuery()
@@ -62,9 +62,9 @@ Public Class CategoryDB
         Using connection As New SqlConnection(conString)
             Using command As New SqlCommand(query, connection)
                 command.Parameters.AddWithValue("@Id", SqlDbType.Int).Value = id
-                command.Parameters.AddWithValue("@Name", SqlDbType.NChar).Value = name
-                command.Parameters.AddWithValue("@GL_Number", SqlDbType.NChar).Value = glnumber
-                command.Parameters.AddWithValue("@Description", SqlDbType.NChar).Value = description
+                command.Parameters.AddWithValue("@Name", SqlDbType.VarChar).Value = name
+                command.Parameters.AddWithValue("@GL_Number", SqlDbType.VarChar).Value = glnumber
+                command.Parameters.AddWithValue("@Description", SqlDbType.VarChar).Value = description
                 Try
                     connection.Open()
                     command.ExecuteNonQuery()
