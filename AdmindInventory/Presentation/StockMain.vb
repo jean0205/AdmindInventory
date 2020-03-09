@@ -108,6 +108,8 @@
     Private Sub StockMain_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         LoadStock()
         LoadCategories()
+
+
     End Sub
 
 #Region "Events"
@@ -159,7 +161,9 @@
         Dim stock As New StockBL
         DataGridView1.DataSource = stock.GetStockList()
         DataGridView1.Columns(0).Visible = False
-        DataGridView1.Columns(6).Visible = False
+        'DataGridView1.Columns(6).Visible = False
+
+
         GetFlag()
 
 
@@ -253,4 +257,40 @@
 
 
 #End Region
+
+
+
+    Private Sub DataGridView1_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView1.CellContentClick
+
+        If e.RowIndex >= 0 AndAlso e.ColumnIndex = 6 Then
+
+            'Reference the GridView Row.
+            Dim row As DataGridViewRow = DataGridView1.Rows(e.RowIndex)
+
+            'Set the CheckBox selection.
+            row.Cells(6).Value = Convert.ToBoolean(row.Cells(6).EditedFormattedValue)
+
+            'If CheckBox is checked, display Message Box.
+            If Not Convert.ToBoolean(row.Cells(6).Value) Then
+
+                Dim item As New ItemBL
+                Dim stock As New StockBL
+                Dim itemId As Integer = DataGridView1.CurrentRow.Cells(0).Value
+                Dim stockremain As Integer = DataGridView1.CurrentRow.Cells(5).Value
+
+                If stockremain = 0 Then
+                    item.ChangeItemState(itemId)
+                    stock.DeleteItemInactive(itemId)
+
+                    MessageBox.Show("Item state changed to inactive." & vbCrLf & "Item deleted from the stock table.")
+
+                    LoadStock()
+                Else
+                    MessageBox.Show("This item have remaining stock." & vbCrLf & "Just items with no remaining stock can be inactivated.")
+                    LoadStock()
+                End If
+            End If
+        End If
+
+    End Sub
 End Class

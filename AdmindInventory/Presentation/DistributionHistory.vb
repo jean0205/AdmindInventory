@@ -19,6 +19,19 @@
         DataGridView1.DataSource = stockOut.GetStockOutHystory
         DataGridView1.Columns(0).Visible = False
 
+        Dim x As Integer = 1
+
+        For Each row As DataGridViewRow In DataGridView1.Rows
+
+            x += 1
+            If (x Mod 2) <> 0 Then
+                row.DefaultCellStyle.BackColor = Color.Beige
+            End If
+
+
+
+        Next
+
     End Sub
 
     Sub LoadDepartments()

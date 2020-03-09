@@ -7,7 +7,7 @@ Public Class StockDB
     Function GetStockList() As List(Of Stock)
 
         Dim stockList As New List(Of Stock)
-        Dim query As String = "Select * from StockView"
+        Dim query As String = "Select * from StockViewState"
         Using connection As New SqlConnection(conString)
             Using command As New SqlCommand(query, connection)
                 Try
@@ -22,7 +22,7 @@ Public Class StockDB
                         stock.ItemPresentation = reader.GetString(3)
                         stock.ItemReorder = reader.GetInt32(4)
                         stock.StockRemains = reader.GetInt32(5)
-                        stock.TotalCost = reader.GetDecimal(6)
+                        stock.Active = reader.GetBoolean(6)
                         stockList.Add(stock)
                     End While
 
@@ -40,7 +40,7 @@ Public Class StockDB
     Function GetStockListByCat(ByVal catName As String) As List(Of Stock)
 
         Dim stockList As New List(Of Stock)
-        Dim query As String = "select * from StockView where Cat_Name=@CatName"
+        Dim query As String = "select * from StockViewState where Cat_Name=@CatName"
         Using connection As New SqlConnection(conString)
             Using command As New SqlCommand(query, connection)
                 command.Parameters.Add("@CatName", SqlDbType.VarChar).Value = catName
@@ -56,7 +56,7 @@ Public Class StockDB
                         stock.ItemPresentation = reader.GetString(3)
                         stock.ItemReorder = reader.GetInt32(4)
                         stock.StockRemains = reader.GetInt32(5)
-                        stock.TotalCost = reader.GetDecimal(6)
+                        stock.Active = reader.GetBoolean(6)
                         stockList.Add(stock)
                     End While
 
@@ -73,7 +73,7 @@ Public Class StockDB
     'get stock filtering by name
     Function GetStockByName(ByVal ItemName As String) As List(Of Stock)
         Dim stockList As New List(Of Stock)
-        Dim query As String = "select * from StockView where Item_Name Like '" & ItemName & "%'"
+        Dim query As String = "select * from StockViewState where Item_Name Like '" & ItemName & "%'"
         Using connection As New SqlConnection(conString)
             Using command As New SqlCommand(query, connection)
                 'command.Parameters.Add("@Item_name", SqlDbType.varchar).Value = ItemName
@@ -89,7 +89,7 @@ Public Class StockDB
                         stock.ItemPresentation = reader.GetString(3)
                         stock.ItemReorder = reader.GetInt32(4)
                         stock.StockRemains = reader.GetInt32(5)
-                        stock.TotalCost = reader.GetDecimal(6)
+                        stock.Active = reader.GetBoolean(6)
                         stockList.Add(stock)
                     End While
 
@@ -172,7 +172,7 @@ Public Class StockDB
     Function GetStockToOrder() As DataTable
         Dim table As New DataTable
 
-        Dim query As String = "select * from StockView where Reorder>=Stock"
+        Dim query As String = "select * from StockViewState where Reorder>=Stock"
         Using connection As New SqlConnection(conString)
             Using command As New SqlCommand(query, connection)
                 'command.Parameters.Add("@Item_name", SqlDbType.varchar).Value = ItemName

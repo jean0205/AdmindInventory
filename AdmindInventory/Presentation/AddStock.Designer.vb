@@ -147,9 +147,9 @@ Partial Class FrmAddStock
         '
         'TextBoxTotalCost
         '
-        Me.TextBoxTotalCost.Enabled = False
         Me.TextBoxTotalCost.Location = New System.Drawing.Point(232, 276)
         Me.TextBoxTotalCost.Name = "TextBoxTotalCost"
+        Me.TextBoxTotalCost.ReadOnly = True
         Me.TextBoxTotalCost.Size = New System.Drawing.Size(97, 20)
         Me.TextBoxTotalCost.TabIndex = 7
         '
@@ -180,9 +180,9 @@ Partial Class FrmAddStock
         '
         'TextBoxCategory
         '
-        Me.TextBoxCategory.Enabled = False
         Me.TextBoxCategory.Location = New System.Drawing.Point(86, 31)
         Me.TextBoxCategory.Name = "TextBoxCategory"
+        Me.TextBoxCategory.ReadOnly = True
         Me.TextBoxCategory.Size = New System.Drawing.Size(245, 20)
         Me.TextBoxCategory.TabIndex = 1
         '
@@ -204,17 +204,17 @@ Partial Class FrmAddStock
         '
         'TextBoxPresentation
         '
-        Me.TextBoxPresentation.Enabled = False
         Me.TextBoxPresentation.Location = New System.Drawing.Point(86, 113)
         Me.TextBoxPresentation.Name = "TextBoxPresentation"
+        Me.TextBoxPresentation.ReadOnly = True
         Me.TextBoxPresentation.Size = New System.Drawing.Size(245, 20)
         Me.TextBoxPresentation.TabIndex = 3
         '
         'TextBoxName
         '
-        Me.TextBoxName.Enabled = False
         Me.TextBoxName.Location = New System.Drawing.Point(86, 72)
         Me.TextBoxName.Name = "TextBoxName"
+        Me.TextBoxName.ReadOnly = True
         Me.TextBoxName.Size = New System.Drawing.Size(245, 20)
         Me.TextBoxName.TabIndex = 2
         '

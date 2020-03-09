@@ -105,9 +105,9 @@ Partial Class FrmDistibuteStock
         '
         'TextBoxPresentation
         '
-        Me.TextBoxPresentation.Enabled = False
         Me.TextBoxPresentation.Location = New System.Drawing.Point(90, 137)
         Me.TextBoxPresentation.Name = "TextBoxPresentation"
+        Me.TextBoxPresentation.ReadOnly = True
         Me.TextBoxPresentation.Size = New System.Drawing.Size(201, 20)
         Me.TextBoxPresentation.TabIndex = 12
         '
@@ -122,10 +122,10 @@ Partial Class FrmDistibuteStock
         '
         'TextBoxDescription
         '
-        Me.TextBoxDescription.Enabled = False
         Me.TextBoxDescription.Location = New System.Drawing.Point(90, 71)
         Me.TextBoxDescription.Multiline = True
         Me.TextBoxDescription.Name = "TextBoxDescription"
+        Me.TextBoxDescription.ReadOnly = True
         Me.TextBoxDescription.Size = New System.Drawing.Size(201, 52)
         Me.TextBoxDescription.TabIndex = 2
         '
@@ -149,9 +149,9 @@ Partial Class FrmDistibuteStock
         '
         'TextBoxInStock
         '
-        Me.TextBoxInStock.Enabled = False
         Me.TextBoxInStock.Location = New System.Drawing.Point(222, 223)
         Me.TextBoxInStock.Name = "TextBoxInStock"
+        Me.TextBoxInStock.ReadOnly = True
         Me.TextBoxInStock.Size = New System.Drawing.Size(69, 20)
         Me.TextBoxInStock.TabIndex = 2
         '
@@ -183,9 +183,9 @@ Partial Class FrmDistibuteStock
         '
         'TextBoxItem
         '
-        Me.TextBoxItem.Enabled = False
         Me.TextBoxItem.Location = New System.Drawing.Point(90, 27)
         Me.TextBoxItem.Name = "TextBoxItem"
+        Me.TextBoxItem.ReadOnly = True
         Me.TextBoxItem.Size = New System.Drawing.Size(201, 20)
         Me.TextBoxItem.TabIndex = 1
         '

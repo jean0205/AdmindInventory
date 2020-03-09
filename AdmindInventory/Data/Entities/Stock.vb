@@ -7,6 +7,7 @@
     Public Property ItemPresentation As String
     Public Property ItemReorder As Integer
     Public Property StockRemains As Integer
-    Public Property TotalCost As Decimal
+    Public Property Active As Boolean
+
 
 End Class

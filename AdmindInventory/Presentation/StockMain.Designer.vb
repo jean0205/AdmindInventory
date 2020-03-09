@@ -38,7 +38,6 @@ Partial Class StockMain
         Me.ButtonDistrStock = New System.Windows.Forms.Button()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.Panel1 = New System.Windows.Forms.Panel()
-        Me.ButtonReports = New System.Windows.Forms.Button()
         Me.ButtonPendingReqs = New System.Windows.Forms.Button()
         Me.ButtonDistrbHistory = New System.Windows.Forms.Button()
         Me.ButtonStockHistory = New System.Windows.Forms.Button()
@@ -64,7 +63,6 @@ Partial Class StockMain
         '
         'GroupBox1
         '
-        Me.GroupBox1.Controls.Add(Me.ButtonRequest)
         Me.GroupBox1.Controls.Add(Me.Button2)
         Me.GroupBox1.Controls.Add(Me.CheckBoxReorder)
         Me.GroupBox1.Controls.Add(Me.Label4)
@@ -74,13 +72,13 @@ Partial Class StockMain
         Me.GroupBox1.Controls.Add(Me.ComboBoxCategory)
         Me.GroupBox1.Location = New System.Drawing.Point(127, 5)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(927, 111)
+        Me.GroupBox1.Size = New System.Drawing.Size(927, 87)
         Me.GroupBox1.TabIndex = 1
         Me.GroupBox1.TabStop = False
         '
         'ButtonRequest
         '
-        Me.ButtonRequest.Location = New System.Drawing.Point(9, 82)
+        Me.ButtonRequest.Location = New System.Drawing.Point(127, 638)
         Me.ButtonRequest.Name = "ButtonRequest"
         Me.ButtonRequest.Size = New System.Drawing.Size(92, 23)
         Me.ButtonRequest.TabIndex = 10
@@ -89,7 +87,7 @@ Partial Class StockMain
         '
         'Button2
         '
-        Me.Button2.Location = New System.Drawing.Point(801, 71)
+        Me.Button2.Location = New System.Drawing.Point(801, 49)
         Me.Button2.Name = "Button2"
         Me.Button2.Size = New System.Drawing.Size(75, 23)
         Me.Button2.TabIndex = 8
@@ -116,7 +114,7 @@ Partial Class StockMain
         '
         'TextBoxName
         '
-        Me.TextBoxName.Location = New System.Drawing.Point(517, 22)
+        Me.TextBoxName.Location = New System.Drawing.Point(510, 26)
         Me.TextBoxName.Name = "TextBoxName"
         Me.TextBoxName.Size = New System.Drawing.Size(166, 20)
         Me.TextBoxName.TabIndex = 5
@@ -124,7 +122,7 @@ Partial Class StockMain
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(421, 26)
+        Me.Label3.Location = New System.Drawing.Point(414, 30)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(90, 13)
         Me.Label3.TabIndex = 3
@@ -133,7 +131,7 @@ Partial Class StockMain
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(92, 27)
+        Me.Label1.Location = New System.Drawing.Point(26, 30)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(96, 13)
         Me.Label1.TabIndex = 1
@@ -142,14 +140,14 @@ Partial Class StockMain
         'ComboBoxCategory
         '
         Me.ComboBoxCategory.FormattingEnabled = True
-        Me.ComboBoxCategory.Location = New System.Drawing.Point(203, 23)
+        Me.ComboBoxCategory.Location = New System.Drawing.Point(137, 26)
         Me.ComboBoxCategory.Name = "ComboBoxCategory"
         Me.ComboBoxCategory.Size = New System.Drawing.Size(171, 21)
         Me.ComboBoxCategory.TabIndex = 0
         '
         'Button3
         '
-        Me.Button3.Location = New System.Drawing.Point(4, 534)
+        Me.Button3.Location = New System.Drawing.Point(3, 367)
         Me.Button3.Name = "Button3"
         Me.Button3.Size = New System.Drawing.Size(115, 38)
         Me.Button3.TabIndex = 9
@@ -167,7 +165,7 @@ Partial Class StockMain
         '
         'ButtonAddStock
         '
-        Me.ButtonAddStock.Location = New System.Drawing.Point(4, 166)
+        Me.ButtonAddStock.Location = New System.Drawing.Point(3, 411)
         Me.ButtonAddStock.Name = "ButtonAddStock"
         Me.ButtonAddStock.Size = New System.Drawing.Size(115, 38)
         Me.ButtonAddStock.TabIndex = 3
@@ -176,7 +174,7 @@ Partial Class StockMain
         '
         'ButtonDistrStock
         '
-        Me.ButtonDistrStock.Location = New System.Drawing.Point(4, 212)
+        Me.ButtonDistrStock.Location = New System.Drawing.Point(3, 455)
         Me.ButtonDistrStock.Name = "ButtonDistrStock"
         Me.ButtonDistrStock.Size = New System.Drawing.Size(115, 38)
         Me.ButtonDistrStock.TabIndex = 4
@@ -186,16 +184,15 @@ Partial Class StockMain
         'GroupBox2
         '
         Me.GroupBox2.Controls.Add(Me.DataGridView1)
-        Me.GroupBox2.Location = New System.Drawing.Point(127, 116)
+        Me.GroupBox2.Location = New System.Drawing.Point(127, 98)
         Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Size = New System.Drawing.Size(927, 509)
+        Me.GroupBox2.Size = New System.Drawing.Size(927, 527)
         Me.GroupBox2.TabIndex = 6
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "."
         '
         'Panel1
         '
-        Me.Panel1.Controls.Add(Me.ButtonReports)
         Me.Panel1.Controls.Add(Me.Button3)
         Me.Panel1.Controls.Add(Me.ButtonPendingReqs)
         Me.Panel1.Controls.Add(Me.ButtonDistrbHistory)
@@ -211,18 +208,9 @@ Partial Class StockMain
         Me.Panel1.Size = New System.Drawing.Size(121, 671)
         Me.Panel1.TabIndex = 8
         '
-        'ButtonReports
-        '
-        Me.ButtonReports.Location = New System.Drawing.Point(4, 580)
-        Me.ButtonReports.Name = "ButtonReports"
-        Me.ButtonReports.Size = New System.Drawing.Size(115, 38)
-        Me.ButtonReports.TabIndex = 11
-        Me.ButtonReports.Text = "Reports"
-        Me.ButtonReports.UseVisualStyleBackColor = True
-        '
         'ButtonPendingReqs
         '
-        Me.ButtonPendingReqs.Location = New System.Drawing.Point(4, 488)
+        Me.ButtonPendingReqs.Location = New System.Drawing.Point(3, 587)
         Me.ButtonPendingReqs.Name = "ButtonPendingReqs"
         Me.ButtonPendingReqs.Size = New System.Drawing.Size(115, 38)
         Me.ButtonPendingReqs.TabIndex = 10
@@ -231,7 +219,7 @@ Partial Class StockMain
         '
         'ButtonDistrbHistory
         '
-        Me.ButtonDistrbHistory.Location = New System.Drawing.Point(4, 442)
+        Me.ButtonDistrbHistory.Location = New System.Drawing.Point(3, 543)
         Me.ButtonDistrbHistory.Name = "ButtonDistrbHistory"
         Me.ButtonDistrbHistory.Size = New System.Drawing.Size(115, 38)
         Me.ButtonDistrbHistory.TabIndex = 9
@@ -240,7 +228,7 @@ Partial Class StockMain
         '
         'ButtonStockHistory
         '
-        Me.ButtonStockHistory.Location = New System.Drawing.Point(4, 396)
+        Me.ButtonStockHistory.Location = New System.Drawing.Point(3, 499)
         Me.ButtonStockHistory.Name = "ButtonStockHistory"
         Me.ButtonStockHistory.Size = New System.Drawing.Size(115, 38)
         Me.ButtonStockHistory.TabIndex = 8
@@ -249,7 +237,7 @@ Partial Class StockMain
         '
         'ButtonMngDepart
         '
-        Me.ButtonMngDepart.Location = New System.Drawing.Point(4, 350)
+        Me.ButtonMngDepart.Location = New System.Drawing.Point(3, 279)
         Me.ButtonMngDepart.Name = "ButtonMngDepart"
         Me.ButtonMngDepart.Size = New System.Drawing.Size(115, 38)
         Me.ButtonMngDepart.TabIndex = 7
@@ -258,7 +246,7 @@ Partial Class StockMain
         '
         'ButtonMngCat
         '
-        Me.ButtonMngCat.Location = New System.Drawing.Point(4, 304)
+        Me.ButtonMngCat.Location = New System.Drawing.Point(3, 235)
         Me.ButtonMngCat.Name = "ButtonMngCat"
         Me.ButtonMngCat.Size = New System.Drawing.Size(115, 38)
         Me.ButtonMngCat.TabIndex = 6
@@ -267,7 +255,7 @@ Partial Class StockMain
         '
         'ButtonMngitems
         '
-        Me.ButtonMngitems.Location = New System.Drawing.Point(4, 258)
+        Me.ButtonMngitems.Location = New System.Drawing.Point(3, 323)
         Me.ButtonMngitems.Name = "ButtonMngitems"
         Me.ButtonMngitems.Size = New System.Drawing.Size(115, 38)
         Me.ButtonMngitems.TabIndex = 5
@@ -276,7 +264,7 @@ Partial Class StockMain
         '
         'ButtonReport
         '
-        Me.ButtonReport.Location = New System.Drawing.Point(958, 633)
+        Me.ButtonReport.Location = New System.Drawing.Point(961, 635)
         Me.ButtonReport.Name = "ButtonReport"
         Me.ButtonReport.Size = New System.Drawing.Size(88, 28)
         Me.ButtonReport.TabIndex = 9
@@ -288,6 +276,7 @@ Partial Class StockMain
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1064, 671)
+        Me.Controls.Add(Me.ButtonRequest)
         Me.Controls.Add(Me.ButtonReport)
         Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.GroupBox2)
@@ -323,7 +312,6 @@ Partial Class StockMain
     Friend WithEvents ButtonDistrbHistory As Button
     Friend WithEvents ButtonStockHistory As Button
     Friend WithEvents ButtonPendingReqs As Button
-    Friend WithEvents ButtonReports As Button
     Friend WithEvents Button2 As Button
     Friend WithEvents Button3 As Button
     Friend WithEvents ButtonRequest As Button
