@@ -17,6 +17,12 @@
 
 #Region "Buttons"
     Private Sub ButtonNew_Click(sender As Object, e As EventArgs) Handles ButtonNew.Click
+
+
+        If CheckInformation() Then
+            Return
+        End If
+
         Dim name As String = TextBoxName.Text
         Dim description As String = TextBoxDescription.Text
 
@@ -25,14 +31,22 @@
 
             Try
                 department.NewDepartments(name, description)
-                MessageBox.Show("Department successfully created")
+                MessageBox.Show("Department successfully created.",
+                                "Create Complete",
+                                     MessageBoxButtons.OK,
+                                        MessageBoxIcon.Information,
+                                            MessageBoxDefaultButton.Button1)
 
             Catch ex As Exception
                 MessageBox.Show(ex.Message)
             End Try
         Else
             department.UpdateDepartment(idUpdate, name, description)
-            MessageBox.Show("Department successfully updated")
+            MessageBox.Show("Department successfully created.",
+                                "Update Complete",
+                                     MessageBoxButtons.OK,
+                                        MessageBoxIcon.Information,
+                                            MessageBoxDefaultButton.Button1)
             isNew = True
         End If
         CleanScreen()
@@ -61,11 +75,21 @@
         If result = DialogResult.Yes Then
             Try
                 department.DeleteDepartment(id)
-                MessageBox.Show("Department successfully deleted")
+
+                MessageBox.Show("Department successfully deleted.",
+                                "Delete Complete",
+                                     MessageBoxButtons.OK,
+                                        MessageBoxIcon.Information,
+                                            MessageBoxDefaultButton.Button1)
                 LoadDepartments()
             Catch ex As Exception
 
-                MessageBox.Show("The selected Department it is not empty." & ex.Message)
+
+                MessageBox.Show("The selected Department it is not empty." & ex.Message,
+                                "Delete Error",
+                                     MessageBoxButtons.OK,
+                                        MessageBoxIcon.Error,
+                                            MessageBoxDefaultButton.Button1)
             End Try
 
             LoadDepartments()
@@ -92,18 +116,29 @@
         TextBoxDescription.Clear()
 
     End Sub
-
-
-
-
-
-
-
-
-
-
-
-
-
 #End Region
+
+    Function CheckInformation() As Boolean
+        If String.IsNullOrEmpty(TextBoxName.Text) Then
+            MessageBox.Show("You must provide the department name.",
+                                "Missing Information",
+                                     MessageBoxButtons.OK,
+                                        MessageBoxIcon.Exclamation,
+                                            MessageBoxDefaultButton.Button1)
+
+            Return True
+        End If
+
+        If String.IsNullOrEmpty(TextBoxDescription.Text) Then
+            MessageBox.Show("You must provide the department description.",
+                                "Missing Information",
+                                     MessageBoxButtons.OK,
+                                        MessageBoxIcon.Exclamation,
+                                            MessageBoxDefaultButton.Button1)
+
+            Return True
+        End If
+
+        Return False
+    End Function
 End Class

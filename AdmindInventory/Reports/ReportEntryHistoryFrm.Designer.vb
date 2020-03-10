@@ -44,7 +44,7 @@ Partial Class ReportEntryHistoryFrm
         Me.ReportViewer2.Location = New System.Drawing.Point(0, 0)
         Me.ReportViewer2.Name = "ReportViewer2"
         Me.ReportViewer2.ServerReport.BearerToken = Nothing
-        Me.ReportViewer2.Size = New System.Drawing.Size(1064, 676)
+        Me.ReportViewer2.Size = New System.Drawing.Size(1168, 522)
         Me.ReportViewer2.TabIndex = 0
         '
         'ReportBindingSource
@@ -55,10 +55,10 @@ Partial Class ReportEntryHistoryFrm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1064, 676)
+        Me.ClientSize = New System.Drawing.Size(1168, 522)
         Me.Controls.Add(Me.ReportViewer2)
         Me.Name = "ReportEntryHistoryFrm"
-        Me.Text = "Form1"
+        Me.Text = "Stock Entry Report"
         CType(Me.ReportBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 

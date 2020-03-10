@@ -31,9 +31,9 @@ Partial Class ItemProviderFrm
         'GroupBox1
         '
         Me.GroupBox1.Controls.Add(Me.DataGridView1)
-        Me.GroupBox1.Location = New System.Drawing.Point(12, 12)
+        Me.GroupBox1.Location = New System.Drawing.Point(5, 12)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(642, 346)
+        Me.GroupBox1.Size = New System.Drawing.Size(651, 346)
         Me.GroupBox1.TabIndex = 0
         Me.GroupBox1.TabStop = False
         '
@@ -41,9 +41,9 @@ Partial Class ItemProviderFrm
         '
         Me.DataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells
         Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView1.Location = New System.Drawing.Point(6, 19)
+        Me.DataGridView1.Location = New System.Drawing.Point(6, 15)
         Me.DataGridView1.Name = "DataGridView1"
-        Me.DataGridView1.Size = New System.Drawing.Size(630, 309)
+        Me.DataGridView1.Size = New System.Drawing.Size(639, 321)
         Me.DataGridView1.TabIndex = 0
         '
         'ItemProviderFrm
@@ -53,7 +53,7 @@ Partial Class ItemProviderFrm
         Me.ClientSize = New System.Drawing.Size(666, 370)
         Me.Controls.Add(Me.GroupBox1)
         Me.Name = "ItemProviderFrm"
-        Me.Text = "ItemProviderFrm"
+        Me.Text = "Items Providers History"
         Me.GroupBox1.ResumeLayout(False)
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)

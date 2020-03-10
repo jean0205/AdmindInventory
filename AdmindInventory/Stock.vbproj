@@ -299,6 +299,11 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\createpdftoexcel_1.png" />
+    <None Include="Resources\1__A3r2q07yWyr6TeLk4DsxQ.png" />
+    <None Include="Resources\download.png" />
+    <None Include="Resources\pdf-xchange-editor%284144%29_250x250.png" />
+    <None Include="Resources\4222333.jpg" />
     <Content Include="SqlServerTypes\Loader.cs" />
     <Content Include="SqlServerTypes\readme.htm" />
     <Content Include="SqlServerTypes\x64\msvcr120.dll">

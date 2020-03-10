@@ -31,9 +31,9 @@ Partial Class PendingRequests
         'GroupBox1
         '
         Me.GroupBox1.Controls.Add(Me.DataGridView1)
-        Me.GroupBox1.Location = New System.Drawing.Point(6, 12)
+        Me.GroupBox1.Location = New System.Drawing.Point(6, 3)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(868, 426)
+        Me.GroupBox1.Size = New System.Drawing.Size(946, 658)
         Me.GroupBox1.TabIndex = 0
         Me.GroupBox1.TabStop = False
         '
@@ -43,17 +43,17 @@ Partial Class PendingRequests
         Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DataGridView1.Location = New System.Drawing.Point(6, 19)
         Me.DataGridView1.Name = "DataGridView1"
-        Me.DataGridView1.Size = New System.Drawing.Size(852, 394)
+        Me.DataGridView1.Size = New System.Drawing.Size(934, 628)
         Me.DataGridView1.TabIndex = 0
         '
         'PendingRequests
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(882, 450)
+        Me.ClientSize = New System.Drawing.Size(964, 671)
         Me.Controls.Add(Me.GroupBox1)
         Me.Name = "PendingRequests"
-        Me.Text = "PendingRequests"
+        Me.Text = "Pending Requests"
         Me.GroupBox1.ResumeLayout(False)
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)

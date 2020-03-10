@@ -14,6 +14,11 @@
 #Region "Buttoms"
 
     Private Sub ButtonNew_Click(sender As Object, e As EventArgs) Handles ButtonNew.Click
+
+        If CheckInformation() Then
+            Return
+
+        End If
         Dim name As String = TextBoxName.Text
         Dim GLnumber As String = TextBoxGL.Text
         Dim description As String = TextBoxDescription.Text
@@ -23,14 +28,22 @@
 
             Try
                 category.NewCategory(name, GLnumber, description)
-                MessageBox.Show("Category successfully created")
+                MessageBox.Show("Category successfully created.",
+                                "Create Complete",
+                                     MessageBoxButtons.OK,
+                                        MessageBoxIcon.Information,
+                                            MessageBoxDefaultButton.Button1)
 
             Catch ex As Exception
                 MessageBox.Show(ex.Message)
             End Try
         Else
             category.UpdateCategory(idUpdate, name, GLnumber, description)
-            MessageBox.Show("Category successfully updated")
+            MessageBox.Show("Category successfully updated.",
+                                "Update Complete",
+                                     MessageBoxButtons.OK,
+                                        MessageBoxIcon.Information,
+                                            MessageBoxDefaultButton.Button1)
             isNew = True
         End If
         CleanScreen()
@@ -60,11 +73,17 @@
         If result = DialogResult.Yes Then
             Try
                 category.DeleteCategory(id)
-                MessageBox.Show("Category successfully deleted")
+
+                MessageBox.Show("Category successfully deleted.",
+                                "Delete Complete",
+                                     MessageBoxButtons.OK,
+                                        MessageBoxIcon.Information,
+                                            MessageBoxDefaultButton.Button1)
                 LoadCategories()
             Catch ex As Exception
 
                 MessageBox.Show("The selected Category it is not empty." & ex.Message)
+
             End Try
 
             LoadCategories()
@@ -106,4 +125,35 @@
 
 
 #End Region
+    Function CheckInformation() As Boolean
+        If String.IsNullOrEmpty(TextBoxName.Text) Then
+            MessageBox.Show("You must provide the category name.",
+                                "Missing Information",
+                                     MessageBoxButtons.OK,
+                                        MessageBoxIcon.Exclamation,
+                                            MessageBoxDefaultButton.Button1)
+
+            Return True
+        End If
+        If String.IsNullOrEmpty(TextBoxGL.Text) Then
+            MessageBox.Show("You must provide the category G\L number.",
+                                "Missing Information",
+                                     MessageBoxButtons.OK,
+                                        MessageBoxIcon.Exclamation,
+                                            MessageBoxDefaultButton.Button1)
+
+            Return True
+        End If
+        If String.IsNullOrEmpty(TextBoxDescription.Text) Then
+            MessageBox.Show("You must provide the category description.",
+                                "Missing Information",
+                                     MessageBoxButtons.OK,
+                                        MessageBoxIcon.Exclamation,
+                                            MessageBoxDefaultButton.Button1)
+
+            Return True
+        End If
+
+        Return False
+    End Function
 End Class

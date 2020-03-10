@@ -102,16 +102,28 @@
 
     Private Sub CheckBox1_CheckedChanged(sender As Object, e As EventArgs) Handles CheckBox1.CheckedChanged
 
-        If CheckBox1.Checked Then
-            Dim startdate As Date = DateTimePicker1.Value.Date
-            Dim endDate As Date = DateTimePicker2.Value.Date
-            Dim stockEntry As New StockEntryBL
-            DataGridView1.DataSource = stockEntry.FilterStockHistoryByDate(startdate, endDate)
-            PaintDatagrid()
-            getTotal()
+        Dim startdate As Date = DateTimePicker1.Value.Date
+        Dim endDate As Date = DateTimePicker2.Value.Date
 
-        Else
-            LoadData()
+        Dim stockEntry As New StockEntryBL
+
+        If CheckBox1.Checked Then
+            If Not String.IsNullOrEmpty(TextBox1.Text) Then
+                Dim provider As String = DataGridView1.Rows(0).Cells(8).Value
+                DataGridView1.DataSource = stockEntry.FilterStockHistoryByDateAAndProvider(startdate, endDate, provider)
+                PaintDatagrid()
+                getTotal()
+                Return
+
+
+            End If
+
+            DataGridView1.DataSource = stockEntry.FilterStockHistoryByDate(startdate, endDate)
+                PaintDatagrid()
+                getTotal()
+
+            Else
+                LoadData()
 
 
         End If
@@ -192,6 +204,10 @@
         Dim reportFrm As New ReportEntryHistoryFrm(item, dateFrom, dateTo, totalcost, invoice, provider, stockEntryList)
         reportFrm.Show()
 
+
+    End Sub
+
+    Private Sub TextBox1_TextChanged(sender As Object, e As EventArgs) Handles TextBox1.TextChanged
 
     End Sub
 

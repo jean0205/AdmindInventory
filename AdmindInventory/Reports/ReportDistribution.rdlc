@@ -880,7 +880,6 @@
               <Border>
                 <Style>None</Style>
               </Border>
-              <BackgroundColor>LightGreen</BackgroundColor>
               <PaddingLeft>2pt</PaddingLeft>
               <PaddingRight>2pt</PaddingRight>
               <PaddingTop>2pt</PaddingTop>
@@ -948,7 +947,6 @@
               <Border>
                 <Style>None</Style>
               </Border>
-              <BackgroundColor>LightGreen</BackgroundColor>
               <PaddingLeft>2pt</PaddingLeft>
               <PaddingRight>2pt</PaddingRight>
               <PaddingTop>2pt</PaddingTop>
@@ -1016,7 +1014,6 @@
               <Border>
                 <Style>None</Style>
               </Border>
-              <BackgroundColor>LightGreen</BackgroundColor>
               <PaddingLeft>2pt</PaddingLeft>
               <PaddingRight>2pt</PaddingRight>
               <PaddingTop>2pt</PaddingTop>

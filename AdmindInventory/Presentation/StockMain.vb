@@ -40,12 +40,15 @@
 
     Private Sub Button6_Click(sender As Object, e As EventArgs) Handles ButtonMngDepart.Click
         Dim departmentF As New Departments
-        departmentF.Show()
+        departmentF.ShowDialog()
+
+
     End Sub
 
     Private Sub Button5_Click(sender As Object, e As EventArgs) Handles ButtonMngCat.Click
         Dim categoriesF As New Categories
-        categoriesF.Show()
+        categoriesF.ShowDialog()
+        LoadCategories()
     End Sub
 
     Private Sub Button7_Click(sender As Object, e As EventArgs) Handles ButtonStockHistory.Click
@@ -75,26 +78,26 @@
     End Sub
 
     'probando inactivar items o sea borrarlos de la tabla
-    Private Sub Button2_Click_1(sender As Object, e As EventArgs) Handles Button2.Click
-        Dim item As New ItemBL
-        Dim stock As New StockBL
-        Dim itemId As Integer = DataGridView1.CurrentRow.Cells(0).Value
-        Dim stockremain As Integer = DataGridView1.CurrentRow.Cells(5).Value
+    'Private Sub Button2_Click_1(sender As Object, e As EventArgs) Handles Button2.Click
+    '    Dim item As New ItemBL
+    '    Dim stock As New StockBL
+    '    Dim itemId As Integer = DataGridView1.CurrentRow.Cells(0).Value
+    '    Dim stockremain As Integer = DataGridView1.CurrentRow.Cells(5).Value
 
-        If stockremain = 0 Then
-            item.ChangeItemState(itemId)
-            stock.DeleteItemInactive(itemId)
+    '    If stockremain = 0 Then
+    '        item.ChangeItemState(itemId)
+    '        stock.DeleteItemInactive(itemId)
 
-            MessageBox.Show("Item state changed to inactive." & vbCrLf & "Item deleted from the stock table.")
-            LoadStock()
-        Else
-            MessageBox.Show("This item have remaining stock." & vbCrLf & "Just items with no remaining stock can be inactivated.")
-        End If
-
-
+    '        MessageBox.Show("Item state changed to inactive." & vbCrLf & "Item deleted from the stock table.")
+    '        LoadStock()
+    '    Else
+    '        MessageBox.Show("This item have remaining stock." & vbCrLf & "Just items with no remaining stock can be inactivated.")
+    '    End If
 
 
-    End Sub
+
+
+    'End Sub
     ' boton de prueba para los providers
     Private Sub Button3_Click_1(sender As Object, e As EventArgs) Handles Button3.Click
         Dim providerFrm As New ProviderFrm
@@ -243,7 +246,7 @@
         Dim report As New ReportStockFrm(category, reorderList, total, stockList)
         report.Show()
 
-        CheckBoxReorder.Checked = False
+        'CheckBoxReorder.Checked = False
         ComboBoxCategory.Text = String.Empty
 
 

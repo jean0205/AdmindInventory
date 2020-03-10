@@ -4,41 +4,41 @@ Public Class StockEntryDB
 
     Dim conString As String = My.Settings.conString
     'Gett stock view
-    Function GetStockEntryList() As List(Of StockEntry)
+    'Function GetStockEntryList() As List(Of StockEntry)
 
-        Dim stockList As New List(Of StockEntry)
-        Dim query As String = "Select * from StockEntry order by Id desc"
-        Using connection As New SqlConnection(conString)
-            Using command As New SqlCommand(query, connection)
-                Try
-                    connection.Open()
-                    Dim reader As SqlDataReader = command.ExecuteReader()
-                    While reader.Read
-                        Dim stockentry As New StockEntry
+    '    Dim stockList As New List(Of StockEntry)
+    '    Dim query As String = "Select * from StockEntry order by Id desc"
+    '    Using connection As New SqlConnection(conString)
+    '        Using command As New SqlCommand(query, connection)
+    '            Try
+    '                connection.Open()
+    '                Dim reader As SqlDataReader = command.ExecuteReader()
+    '                While reader.Read
+    '                    Dim stockentry As New StockEntry
 
-                        stockentry.Id = reader.GetInt32(0)
-                        stockentry.Item_Id = reader.GetInt32(1)
-                        stockentry.InvoiceNo = reader.GetString(2)
-                        stockentry.Provider = reader.GetInt32(3)
-                        stockentry.Amount = reader.GetInt32(4)
-                        stockentry.CostEach = reader.GetDecimal(5)
-                        stockentry.CostTotal = reader.GetDecimal(6)
-                        stockentry.Recived = reader.GetString(7)
-                        stockentry.DateReciv = reader.GetDateTime(8)
+    '                    stockentry.Id = reader.GetInt32(0)
+    '                    stockentry.Item_Id = reader.GetInt32(1)
+    '                    stockentry.InvoiceNo = reader.GetString(2)
+    '                    stockentry.Provider = reader.GetInt32(3)
+    '                    stockentry.Amount = reader.GetInt32(4)
+    '                    stockentry.CostEach = reader.GetDecimal(5)
+    '                    stockentry.CostTotal = reader.GetDecimal(6)
+    '                    stockentry.Recived = reader.GetString(7)
+    '                    stockentry.DateReciv = reader.GetDateTime(8)
 
 
-                        stockList.Add(stockentry)
-                    End While
+    '                    stockList.Add(stockentry)
+    '                End While
 
-                Catch ex As Exception
-                    Throw ex
+    '            Catch ex As Exception
+    '                Throw ex
 
-                End Try
+    '            End Try
 
-            End Using
-        End Using
-        Return stockList
-    End Function
+    '        End Using
+    '    End Using
+    '    Return stockList
+    'End Function
 
     'filter by Item Name in stockHistoryView
 
@@ -237,6 +237,30 @@ Public Class StockEntryDB
 
     End Sub
 
+    'filter by date and provider
+    Function FilterStockHistoryByDateAdProvider(ByVal date1 As Date, ByVal date2 As Date, provider As String) As DataTable
+        Dim table As New DataTable
 
+        Dim query As String = "select * from StockHistory2 where Provider Like '" & provider & "%' and Date between Cast(@Date1 As Date) and Cast(@Date2 As Date) order by Id desc"
+        Using connection As New SqlConnection(conString)
+            Using command As New SqlCommand(query, connection)
+                command.Parameters.Add("@Date1", SqlDbType.Date).Value = date1
+                command.Parameters.Add("@Date2", SqlDbType.Date).Value = date2
+
+                Try
+                    connection.Open()
+                    Dim reader As SqlDataReader = command.ExecuteReader()
+                    table.Load(reader)
+                    reader.Close()
+                    connection.Close()
+                Catch ex As Exception
+                    Throw ex
+
+                End Try
+
+            End Using
+        End Using
+        Return table
+    End Function
 
 End Class

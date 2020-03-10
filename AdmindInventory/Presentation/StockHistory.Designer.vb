@@ -23,6 +23,7 @@ Partial Class StockHistory
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.ButtonRport = New System.Windows.Forms.Button()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.TextBox1 = New System.Windows.Forms.TextBox()
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
@@ -39,7 +40,6 @@ Partial Class StockHistory
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.TextBoxTotalcost = New System.Windows.Forms.TextBox()
-        Me.ButtonRport = New System.Windows.Forms.Button()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox3.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
@@ -48,6 +48,7 @@ Partial Class StockHistory
         '
         'GroupBox1
         '
+        Me.GroupBox1.Controls.Add(Me.ButtonRport)
         Me.GroupBox1.Controls.Add(Me.Label6)
         Me.GroupBox1.Controls.Add(Me.TextBox1)
         Me.GroupBox1.Controls.Add(Me.GroupBox3)
@@ -62,10 +63,21 @@ Partial Class StockHistory
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Filter by:"
         '
+        'ButtonRport
+        '
+        Me.ButtonRport.BackgroundImage = Global.AdmindInventory.My.Resources.Resources.pdf_xchange_editor_4144__250x250
+        Me.ButtonRport.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.ButtonRport.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.ButtonRport.Location = New System.Drawing.Point(1073, 25)
+        Me.ButtonRport.Name = "ButtonRport"
+        Me.ButtonRport.Size = New System.Drawing.Size(50, 50)
+        Me.ButtonRport.TabIndex = 16
+        Me.ButtonRport.UseVisualStyleBackColor = True
+        '
         'Label6
         '
         Me.Label6.AutoSize = True
-        Me.Label6.Location = New System.Drawing.Point(490, 25)
+        Me.Label6.Location = New System.Drawing.Point(403, 25)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(49, 13)
         Me.Label6.TabIndex = 15
@@ -73,7 +85,7 @@ Partial Class StockHistory
         '
         'TextBox1
         '
-        Me.TextBox1.Location = New System.Drawing.Point(493, 48)
+        Me.TextBox1.Location = New System.Drawing.Point(405, 48)
         Me.TextBox1.Name = "TextBox1"
         Me.TextBox1.Size = New System.Drawing.Size(152, 20)
         Me.TextBox1.TabIndex = 14
@@ -85,16 +97,16 @@ Partial Class StockHistory
         Me.GroupBox3.Controls.Add(Me.DateTimePicker1)
         Me.GroupBox3.Controls.Add(Me.DateTimePicker2)
         Me.GroupBox3.Controls.Add(Me.Label2)
-        Me.GroupBox3.Location = New System.Drawing.Point(747, 7)
+        Me.GroupBox3.Location = New System.Drawing.Point(703, 7)
         Me.GroupBox3.Name = "GroupBox3"
-        Me.GroupBox3.Size = New System.Drawing.Size(377, 74)
+        Me.GroupBox3.Size = New System.Drawing.Size(324, 78)
         Me.GroupBox3.TabIndex = 13
         Me.GroupBox3.TabStop = False
         '
         'CheckBox1
         '
         Me.CheckBox1.AutoSize = True
-        Me.CheckBox1.Location = New System.Drawing.Point(295, 41)
+        Me.CheckBox1.Location = New System.Drawing.Point(17, 11)
         Me.CheckBox1.Name = "CheckBox1"
         Me.CheckBox1.Size = New System.Drawing.Size(48, 17)
         Me.CheckBox1.TabIndex = 11
@@ -104,7 +116,7 @@ Partial Class StockHistory
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(14, 23)
+        Me.Label1.Location = New System.Drawing.Point(21, 32)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(58, 13)
         Me.Label1.TabIndex = 2
@@ -113,7 +125,7 @@ Partial Class StockHistory
         'DateTimePicker1
         '
         Me.DateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.DateTimePicker1.Location = New System.Drawing.Point(22, 42)
+        Me.DateTimePicker1.Location = New System.Drawing.Point(22, 51)
         Me.DateTimePicker1.Name = "DateTimePicker1"
         Me.DateTimePicker1.Size = New System.Drawing.Size(111, 20)
         Me.DateTimePicker1.TabIndex = 2
@@ -121,7 +133,7 @@ Partial Class StockHistory
         'DateTimePicker2
         '
         Me.DateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.DateTimePicker2.Location = New System.Drawing.Point(152, 42)
+        Me.DateTimePicker2.Location = New System.Drawing.Point(152, 51)
         Me.DateTimePicker2.Name = "DateTimePicker2"
         Me.DateTimePicker2.Size = New System.Drawing.Size(111, 20)
         Me.DateTimePicker2.TabIndex = 3
@@ -129,7 +141,7 @@ Partial Class StockHistory
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(152, 23)
+        Me.Label2.Location = New System.Drawing.Point(152, 32)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(55, 13)
         Me.Label2.TabIndex = 3
@@ -138,7 +150,7 @@ Partial Class StockHistory
         'Label5
         '
         Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(253, 26)
+        Me.Label5.Location = New System.Drawing.Point(211, 26)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(65, 13)
         Me.Label5.TabIndex = 12
@@ -146,7 +158,7 @@ Partial Class StockHistory
         '
         'TextBoxInvoice
         '
-        Me.TextBoxInvoice.Location = New System.Drawing.Point(256, 48)
+        Me.TextBoxInvoice.Location = New System.Drawing.Point(211, 48)
         Me.TextBoxInvoice.Name = "TextBoxInvoice"
         Me.TextBoxInvoice.Size = New System.Drawing.Size(152, 20)
         Me.TextBoxInvoice.TabIndex = 11
@@ -154,7 +166,7 @@ Partial Class StockHistory
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(29, 27)
+        Me.Label4.Location = New System.Drawing.Point(14, 27)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(30, 13)
         Me.Label4.TabIndex = 7
@@ -162,7 +174,7 @@ Partial Class StockHistory
         '
         'TextBoxItem
         '
-        Me.TextBoxItem.Location = New System.Drawing.Point(32, 48)
+        Me.TextBoxItem.Location = New System.Drawing.Point(17, 48)
         Me.TextBoxItem.Name = "TextBoxItem"
         Me.TextBoxItem.Size = New System.Drawing.Size(152, 20)
         Me.TextBoxItem.TabIndex = 0
@@ -172,7 +184,7 @@ Partial Class StockHistory
         Me.GroupBox2.Controls.Add(Me.DataGridView1)
         Me.GroupBox2.Location = New System.Drawing.Point(4, 102)
         Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Size = New System.Drawing.Size(1142, 492)
+        Me.GroupBox2.Size = New System.Drawing.Size(1142, 533)
         Me.GroupBox2.TabIndex = 9
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "."
@@ -182,13 +194,13 @@ Partial Class StockHistory
         Me.DataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells
         Me.DataGridView1.Location = New System.Drawing.Point(6, 15)
         Me.DataGridView1.Name = "DataGridView1"
-        Me.DataGridView1.Size = New System.Drawing.Size(1129, 467)
+        Me.DataGridView1.Size = New System.Drawing.Size(1129, 512)
         Me.DataGridView1.TabIndex = 0
         '
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(867, 614)
+        Me.Label3.Location = New System.Drawing.Point(876, 645)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(58, 13)
         Me.Label3.TabIndex = 15
@@ -196,26 +208,16 @@ Partial Class StockHistory
         '
         'TextBoxTotalcost
         '
-        Me.TextBoxTotalcost.Location = New System.Drawing.Point(931, 610)
+        Me.TextBoxTotalcost.Location = New System.Drawing.Point(940, 641)
         Me.TextBoxTotalcost.Name = "TextBoxTotalcost"
         Me.TextBoxTotalcost.Size = New System.Drawing.Size(196, 20)
         Me.TextBoxTotalcost.TabIndex = 14
-        '
-        'ButtonRport
-        '
-        Me.ButtonRport.Location = New System.Drawing.Point(12, 614)
-        Me.ButtonRport.Name = "ButtonRport"
-        Me.ButtonRport.Size = New System.Drawing.Size(75, 23)
-        Me.ButtonRport.TabIndex = 16
-        Me.ButtonRport.Text = "Report"
-        Me.ButtonRport.UseVisualStyleBackColor = True
         '
         'StockHistory
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1151, 647)
-        Me.Controls.Add(Me.ButtonRport)
+        Me.ClientSize = New System.Drawing.Size(1151, 671)
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.TextBoxTotalcost)
         Me.Controls.Add(Me.GroupBox1)

@@ -42,7 +42,7 @@ Partial Class ReportDistribution
         Me.ClientSize = New System.Drawing.Size(1184, 561)
         Me.Controls.Add(Me.ReportViewer1)
         Me.Name = "ReportDistribution"
-        Me.Text = "ReportDistribution"
+        Me.Text = "Stock Distribution Report"
         Me.ResumeLayout(False)
 
     End Sub

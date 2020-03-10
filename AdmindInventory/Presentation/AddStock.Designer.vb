@@ -89,7 +89,7 @@ Partial Class FrmAddStock
         'Label10
         '
         Me.Label10.AutoSize = True
-        Me.Label10.Location = New System.Drawing.Point(247, 351)
+        Me.Label10.Location = New System.Drawing.Point(155, 337)
         Me.Label10.Name = "Label10"
         Me.Label10.Size = New System.Drawing.Size(58, 13)
         Me.Label10.TabIndex = 21
@@ -98,7 +98,7 @@ Partial Class FrmAddStock
         'Label9
         '
         Me.Label9.AutoSize = True
-        Me.Label9.Location = New System.Drawing.Point(175, 351)
+        Me.Label9.Location = New System.Drawing.Point(83, 337)
         Me.Label9.Name = "Label9"
         Me.Label9.Size = New System.Drawing.Size(55, 13)
         Me.Label9.TabIndex = 20
@@ -122,7 +122,7 @@ Partial Class FrmAddStock
         '
         'ButtonClean
         '
-        Me.ButtonClean.Location = New System.Drawing.Point(15, 381)
+        Me.ButtonClean.Location = New System.Drawing.Point(27, 374)
         Me.ButtonClean.Name = "ButtonClean"
         Me.ButtonClean.Size = New System.Drawing.Size(75, 23)
         Me.ButtonClean.TabIndex = 17
@@ -188,7 +188,7 @@ Partial Class FrmAddStock
         '
         'ButtonReestock
         '
-        Me.ButtonReestock.Location = New System.Drawing.Point(233, 381)
+        Me.ButtonReestock.Location = New System.Drawing.Point(245, 374)
         Me.ButtonReestock.Name = "ButtonReestock"
         Me.ButtonReestock.Size = New System.Drawing.Size(75, 23)
         Me.ButtonReestock.TabIndex = 4
