@@ -1,4 +1,7 @@
 ﻿Public Class StockRequest
+
+    Dim selectedItem As Boolean = False
+
     Private Sub StockRequest_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         GetItems()
         GetCategories()
@@ -93,6 +96,7 @@
         Dim item As New ItemDB
         ComboBoxCategory.SelectedIndex = 0
         DataGridView1.DataSource = item.GetItemsByName(TextBoxItem.Text)
+        selectedItem = False
         'HideColumns()
 
     End Sub
@@ -105,48 +109,100 @@
     End Sub
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
-        If (ComboBoxDepartment.SelectedIndex < 0) Then
-            MessageBox.Show("You must select some Department")
+
+        If CheckInformation() Then
             Return
-        End If
-        If TextBoxAmount.Text.Length < 1 Then
-            MessageBox.Show("You must enter the required amount")
-            Return
-        End If
-        If Convert.ToInt32(TextBoxAmount.Text) < 1 Then
-            MessageBox.Show("The required amount shoul be higer than 0. ")
-            Return
+
         End If
 
+        'If (ComboBoxDepartment.SelectedIndex < 0) Then
+        '    MessageBox.Show("You must select some Department")
+        '    Return
+        'End If
+        'If TextBoxAmount.Text.Length < 1 Then
+        '    MessageBox.Show("You must enter the required amount")
+        '    Return
+        'End If
+        'If Convert.ToInt32(TextBoxAmount.Text) < 1 Then
+        '    MessageBox.Show("The required amount shoul be higer than 0. ")
+        '    Return
+        'End If
+
+        Try
+
+            Dim itemId As Integer = DataGridView1.CurrentRow.Cells(0).Value
+            Dim departmetName As String = ComboBoxDepartment.SelectedItem
+            Dim amount As Integer = Convert.ToInt32(TextBoxAmount.Text)
+            Dim todaysdate As Date = Format(DateTime.Now)
+            Dim person As String = "AuthenticatedUser"
+            Dim condition As Integer = 1 'pending
+            Dim requested As Boolean = True ' it was not a request
+            Dim name As String = DataGridView1.CurrentRow.Cells(1).Value
+
+            Dim stockOut As New StockOutBL
+            stockOut.InsertStockOut(itemId, departmetName, amount, todaysdate, person, condition, requested)
 
 
-        Dim itemId As Integer = DataGridView1.CurrentRow.Cells(0).Value
-        Dim departmetName As String = ComboBoxDepartment.SelectedItem
-        Dim amount As Integer = Convert.ToInt32(TextBoxAmount.Text)
-        Dim todaysdate As Date = Format(DateTime.Now)
-        Dim person As String = "AuthenticatedUser"
-        Dim condition As Integer = 1 'pending
-        Dim requested As Boolean = True ' it was not a request
-        Dim name As String = DataGridView1.CurrentRow.Cells(1).Value
+            MessageBox.Show("Your " & name.TrimEnd & "  request was successffully post it.",
+                                "Request Complete",
+                                     MessageBoxButtons.OK,
+                                        MessageBoxIcon.Information,
+                                            MessageBoxDefaultButton.Button1)
 
-        Dim stockOut As New StockOutBL
-        stockOut.InsertStockOut(itemId, departmetName, amount, todaysdate, person, condition, requested)
-
-        MessageBox.Show("Your " & name.TrimEnd & "  request was successffully post it.")
-
-        CleanInterfaz()
-
-
-
-
+            CleanInterfaz()
+            selectedItem = False
+        Catch ex As Exception
+            MessageBox.Show(ex.Message)
+        End Try
 
     End Sub
 
     Private Sub DataGridView1_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView1.CellContentClick
         TextBoxItem.Text = DataGridView1.Rows(e.RowIndex).Cells(1).Value.ToString.TrimEnd()
+        selectedItem = True
 
 
     End Sub
 
+    Function CheckInformation() As Boolean
+        If ComboBoxDepartment.SelectedIndex < 0 Then
+            MessageBox.Show("You must select the requesting department.",
+                                "Missing Information",
+                                     MessageBoxButtons.OK,
+                                        MessageBoxIcon.Exclamation,
+                                            MessageBoxDefaultButton.Button1)
+
+            Return True
+        End If
+        If TextBoxAmount.Text.Length < 1 Then
+            MessageBox.Show("You must enter the required amount.",
+                                "Missing Information",
+                                     MessageBoxButtons.OK,
+                                        MessageBoxIcon.Exclamation,
+                                            MessageBoxDefaultButton.Button1)
+
+            Return True
+        End If
+        If Convert.ToInt32(TextBoxAmount.Text) < 1 Then
+            MessageBox.Show("The required amount shoul be higer than 0.",
+                                "Missing Information",
+                                     MessageBoxButtons.OK,
+                                        MessageBoxIcon.Exclamation,
+                                            MessageBoxDefaultButton.Button1)
+
+            Return True
+        End If
+        If selectedItem = False Then
+            MessageBox.Show("You must select the item from the list below.",
+                                "Missing Information",
+                                     MessageBoxButtons.OK,
+                                        MessageBoxIcon.Exclamation,
+                                            MessageBoxDefaultButton.Button1)
+
+            Return True
+        End If
+
+        Return False
+    End Function
 
 End Class

@@ -36,18 +36,22 @@
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
 
-        If ComboBoxDepartment.SelectedIndex < 0 Then
-            MessageBox.Show("You must select the Department first. ")
+        If CheckInformation() Then
             Return
         End If
-        If TextBoxAmount.Text.Length = 0 Then
-            MessageBox.Show("You must enter some amount. ")
-            Return
-        End If
-        If Convert.ToInt32(TextBoxAmount.Text) = 0 Then
-            MessageBox.Show("You must enter some amount other than 0. ")
-            Return
-        End If
+
+        'If ComboBoxDepartment.SelectedIndex < 0 Then
+        '    MessageBox.Show("You must select the Department first. ")
+        '    Return
+        'End If
+        'If TextBoxAmount.Text.Length = 0 Then
+        '    MessageBox.Show("You must enter some amount. ")
+        '    Return
+        'End If
+        'If Convert.ToInt32(TextBoxAmount.Text) = 0 Then
+        '    MessageBox.Show("You must enter some amount other than 0. ")
+        '    Return
+        'End If
 
         Try
             Dim departmetName As String = ComboBoxDepartment.SelectedItem
@@ -62,7 +66,12 @@
             Dim stock As New StockBL
             stock.UpdateStock(itemId, -amount)
 
-            MessageBox.Show("The item was correctly distributed to the department: " & ComboBoxDepartment.SelectedItem)
+
+            MessageBox.Show("The item was correctly distributed to the department: " & ComboBoxDepartment.SelectedItem,
+                                "Distribution Complete",
+                                     MessageBoxButtons.OK,
+                                        MessageBoxIcon.Information,
+                                            MessageBoxDefaultButton.Button1)
         Catch ex As Exception
             MessageBox.Show(ex.Message)
         End Try
@@ -134,4 +143,36 @@
         End If
     End Sub
 #End Region
+
+    Function CheckInformation() As Boolean
+        If ComboBoxDepartment.SelectedIndex < 0 Then
+            MessageBox.Show("You must select the Department.",
+                                "Missing Information",
+                                     MessageBoxButtons.OK,
+                                        MessageBoxIcon.Exclamation,
+                                            MessageBoxDefaultButton.Button1)
+
+            Return True
+        End If
+        If TextBoxAmount.Text.Length = 0 Then
+            MessageBox.Show("You must enter some amount to distribute.",
+                                "Missing Information",
+                                     MessageBoxButtons.OK,
+                                        MessageBoxIcon.Exclamation,
+                                            MessageBoxDefaultButton.Button1)
+
+            Return True
+        End If
+        If Convert.ToInt32(TextBoxAmount.Text) = 0 Then
+            MessageBox.Show("You must enter some amount to distribute, higer than 0.",
+                                "Missing Information",
+                                     MessageBoxButtons.OK,
+                                        MessageBoxIcon.Exclamation,
+                                            MessageBoxDefaultButton.Button1)
+
+            Return True
+        End If
+
+        Return False
+    End Function
 End Class

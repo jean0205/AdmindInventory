@@ -40,11 +40,8 @@ Partial Class New_Item
         Me.Label4 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
-        Me.ComboBoxCategory = New System.Windows.Forms.ComboBox()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
-        Me.Label5 = New System.Windows.Forms.Label()
-        Me.TextBoxFindByName = New System.Windows.Forms.TextBox()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBoxState.SuspendLayout()
         Me.GroupBox3.SuspendLayout()
@@ -229,52 +226,24 @@ Partial Class New_Item
         Me.Label1.TabIndex = 3
         Me.Label1.Text = "Category:"
         '
-        'ComboBoxCategory
-        '
-        Me.ComboBoxCategory.FormattingEnabled = True
-        Me.ComboBoxCategory.Items.AddRange(New Object() {"All Categories"})
-        Me.ComboBoxCategory.Location = New System.Drawing.Point(327, 18)
-        Me.ComboBoxCategory.Name = "ComboBoxCategory"
-        Me.ComboBoxCategory.Size = New System.Drawing.Size(174, 21)
-        Me.ComboBoxCategory.TabIndex = 2
-        '
         'DataGridView1
         '
         Me.DataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells
         Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView1.Location = New System.Drawing.Point(9, 50)
+        Me.DataGridView1.Location = New System.Drawing.Point(9, 19)
         Me.DataGridView1.Name = "DataGridView1"
         Me.DataGridView1.RowHeadersWidth = 51
-        Me.DataGridView1.Size = New System.Drawing.Size(543, 300)
+        Me.DataGridView1.Size = New System.Drawing.Size(543, 331)
         Me.DataGridView1.TabIndex = 1
         '
         'GroupBox2
         '
-        Me.GroupBox2.Controls.Add(Me.Label5)
-        Me.GroupBox2.Controls.Add(Me.TextBoxFindByName)
         Me.GroupBox2.Controls.Add(Me.DataGridView1)
-        Me.GroupBox2.Controls.Add(Me.ComboBoxCategory)
         Me.GroupBox2.Location = New System.Drawing.Point(9, 222)
         Me.GroupBox2.Name = "GroupBox2"
         Me.GroupBox2.Size = New System.Drawing.Size(560, 359)
         Me.GroupBox2.TabIndex = 2
         Me.GroupBox2.TabStop = False
-        '
-        'Label5
-        '
-        Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(15, 23)
-        Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(76, 13)
-        Me.Label5.TabIndex = 16
-        Me.Label5.Text = "Find By Name:"
-        '
-        'TextBoxFindByName
-        '
-        Me.TextBoxFindByName.Location = New System.Drawing.Point(103, 19)
-        Me.TextBoxFindByName.Name = "TextBoxFindByName"
-        Me.TextBoxFindByName.Size = New System.Drawing.Size(174, 20)
-        Me.TextBoxFindByName.TabIndex = 16
         '
         'New_Item
         '
@@ -292,14 +261,12 @@ Partial Class New_Item
         Me.GroupBox3.ResumeLayout(False)
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox2.ResumeLayout(False)
-        Me.GroupBox2.PerformLayout()
         Me.ResumeLayout(False)
 
     End Sub
 
     Friend WithEvents GroupBox1 As GroupBox
     Friend WithEvents Label1 As Label
-    Friend WithEvents ComboBoxCategory As ComboBox
     Friend WithEvents Label2 As Label
     Friend WithEvents Label4 As Label
     Friend WithEvents TextBoxReorder As TextBox
@@ -310,8 +277,6 @@ Partial Class New_Item
     Friend WithEvents ButtonUpdate As Button
     Friend WithEvents DataGridView1 As DataGridView
     Friend WithEvents GroupBox2 As GroupBox
-    Friend WithEvents Label5 As Label
-    Friend WithEvents TextBoxFindByName As TextBox
     Friend WithEvents TextBoxDescript As TextBox
     Friend WithEvents Label6 As Label
     Friend WithEvents TextBoxPresentation As TextBox

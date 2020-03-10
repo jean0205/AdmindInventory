@@ -19,18 +19,7 @@
 
         getTotal()
 
-        Dim x As Integer = 1
-
-        For Each row As DataGridViewRow In DataGridView1.Rows
-
-            x += 1
-            If (x Mod 2) <> 0 Then
-                row.DefaultCellStyle.BackColor = Color.Beige
-            End If
-
-
-
-        Next
+        PaintDatagrid()
 
 
     End Sub
@@ -47,6 +36,20 @@
         Next
         TextBoxTotalcost.Text = total.ToString
     End Sub
+    Sub PaintDatagrid()
+        Dim x As Integer = 1
+
+        For Each row As DataGridViewRow In DataGridView1.Rows
+
+            x += 1
+            If (x Mod 2) <> 0 Then
+                row.DefaultCellStyle.BackColor = Color.Beige
+            End If
+
+
+
+        Next
+    End Sub
 
 
 #End Region
@@ -59,11 +62,13 @@
         Dim endDate As Date = DateTimePicker2.Value.Date
         Dim stockEntry As New StockEntryBL
         DataGridView1.DataSource = stockEntry.FilterStockHistoryByDate(startdate, endDate)
+        PaintDatagrid()
         getTotal()
 
 
 
     End Sub
+
 
 #Region "Events"
     Private Sub TextBoxItem_KeyUp(sender As Object, e As KeyEventArgs) Handles TextBoxItem.KeyUp
@@ -71,6 +76,7 @@
         TextBox1.Clear()
         Dim stockEntry As New StockEntryBL
         DataGridView1.DataSource = stockEntry.FilterStockHistoryByName(TextBoxItem.Text)
+        PaintDatagrid()
         getTotal()
 
     End Sub
@@ -80,6 +86,7 @@
         TextBox1.Clear()
         Dim stockEntry As New StockEntryBL
         DataGridView1.DataSource = stockEntry.FilterStockHistoryByInvoice(TextBoxInvoice.Text)
+        PaintDatagrid()
         getTotal()
 
     End Sub
@@ -89,6 +96,7 @@
         TextBoxInvoice.Clear()
         Dim stockEntry As New StockEntryBL
         DataGridView1.DataSource = stockEntry.FilterStockHistoryByProvider(TextBox1.Text)
+        PaintDatagrid()
         getTotal()
     End Sub
 
@@ -99,6 +107,7 @@
             Dim endDate As Date = DateTimePicker2.Value.Date
             Dim stockEntry As New StockEntryBL
             DataGridView1.DataSource = stockEntry.FilterStockHistoryByDate(startdate, endDate)
+            PaintDatagrid()
             getTotal()
 
         Else
@@ -109,6 +118,16 @@
 
 
     End Sub
+    Private Sub DateTimePicker1_ValueChanged(sender As Object, e As EventArgs) Handles DateTimePicker1.ValueChanged
+        CheckBox1.Checked = False
+
+    End Sub
+
+    Private Sub DateTimePicker2_ValueChanged(sender As Object, e As EventArgs) Handles DateTimePicker2.ValueChanged
+        CheckBox1.Checked = False
+
+    End Sub
+
 
 
 
@@ -175,6 +194,7 @@
 
 
     End Sub
+
 
 
 

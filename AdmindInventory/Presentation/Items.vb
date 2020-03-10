@@ -25,6 +25,11 @@
         Dim item As New ItemDB
         Dim stock As New StockBL
 
+        'chequin information completed
+        If CheckInformation() Then
+            Return
+        End If
+
         Try
             Dim name As String = TextBoxName.Text
             Dim presentation As String = TextBoxPresentation.Text
@@ -33,8 +38,16 @@
             Dim category As String = ComboBoxCat.SelectedItem
             Dim Active As Boolean = RadioButtonActive.Checked
             If isNew Then
+
+
+
                 item.NewItem(name, presentation, description, reorder, category, Active)
-                MessageBox.Show("Item successfully created")
+
+                MessageBox.Show("Item successfully created.",
+                                "Create Complete",
+                                     MessageBoxButtons.OK,
+                                        MessageBoxIcon.Information,
+                                            MessageBoxDefaultButton.Button1)
                 GetItems()
                 Dim itemId As Integer = DataGridView1.Rows(DataGridView1.Rows.Count - 1).Cells(0).Value
                 If Active = True Then
@@ -42,8 +55,15 @@
                 End If
 
             Else
+
+
                 item.UpdateItem(idUpdate, name, presentation, description, reorder, category, Active)
-                MessageBox.Show("Item successfully updated")
+
+                MessageBox.Show("Item successfully updated.",
+                                "Update Complete",
+                                     MessageBoxButtons.OK,
+                                        MessageBoxIcon.Information,
+                                            MessageBoxDefaultButton.Button1)
                 Dim itemId As Integer = DataGridView1.CurrentRow.Cells(0).Value
                 If Active = True Then
                     stock.InsertItemToStock(itemId)
@@ -95,14 +115,21 @@
         Dim message As String = "Do you want to delete this item?"
         Dim title As String = "Delete item"
         Dim buttons As MessageBoxButtons = MessageBoxButtons.YesNo
-        Dim result As DialogResult = MessageBox.Show(message, title, buttons)
+
+        Dim result As DialogResult = MessageBox.Show(message, title, buttons, MessageBoxIcon.Question)
         If result = DialogResult.Yes Then
             Try
                 item.DeleteItem(id)
-                MessageBox.Show("Item  successfully deleted")
+                MessageBox.Show("Item successfully deleted.",
+                                "Delection Complete",
+                                     MessageBoxButtons.OK,
+                                        MessageBoxIcon.Information,
+                                            MessageBoxDefaultButton.Button1)
                 GetItems()
             Catch ex As Exception
-                MessageBox.Show(ex.Message)
+                MessageBox.Show("it is not possible to delete an active item. ", "Error", MessageBoxButtons.OK,
+                                        MessageBoxIcon.Error,
+                                            MessageBoxDefaultButton.Button1)
             End Try
         End If
     End Sub
@@ -131,7 +158,7 @@
 
 
         For Each name As String In category.GetCategoriesNames()
-            ComboBoxCategory.Items.Add(name)
+            'ComboBoxCategory.Items.Add(name)
             ComboBoxCat.Items.Add(name)
         Next
 
@@ -146,6 +173,7 @@
         DataGridView1.DataSource = item.GetItems()
 
         DataGridView1.Columns("Id").Visible = False
+        PaintDatagrid()
     End Sub
 
 
@@ -160,25 +188,108 @@
         RadioButtonInactive.Checked = False
     End Sub
 
+    Sub PaintDatagrid()
+        Dim x As Integer = 1
+
+        For Each row As DataGridViewRow In DataGridView1.Rows
+
+            x += 1
+            If (x Mod 2) <> 0 Then
+                row.DefaultCellStyle.BackColor = Color.Beige
+            End If
+
+
+
+        Next
+    End Sub
+
+
+    Function CheckInformation() As Boolean
+        If String.IsNullOrEmpty(TextBoxName.Text) Then
+            MessageBox.Show("You must provide the item name.",
+                                "Missing Information",
+                                     MessageBoxButtons.OK,
+                                        MessageBoxIcon.Exclamation,
+                                            MessageBoxDefaultButton.Button1)
+
+            Return True
+        End If
+        If String.IsNullOrEmpty(TextBoxDescript.Text) Then
+            MessageBox.Show("You must provide the item description.",
+                                "Missing Information",
+                                     MessageBoxButtons.OK,
+                                        MessageBoxIcon.Exclamation,
+                                            MessageBoxDefaultButton.Button1)
+
+            Return True
+        End If
+        If String.IsNullOrEmpty(TextBoxPresentation.Text) Then
+            MessageBox.Show("You must provide the item presentation.",
+                                "Missing Information",
+                                     MessageBoxButtons.OK,
+                                        MessageBoxIcon.Exclamation,
+                                            MessageBoxDefaultButton.Button1)
+
+            Return True
+        End If
+        If String.IsNullOrEmpty(TextBoxReorder.Text) Then
+            MessageBox.Show("You must provide the item re-order level.",
+                                "Missing Information",
+                                     MessageBoxButtons.OK,
+                                        MessageBoxIcon.Exclamation,
+                                            MessageBoxDefaultButton.Button1)
+
+            Return True
+        End If
+        If ComboBoxCat.SelectedIndex < 0 Then
+            MessageBox.Show("You must provide the item category.",
+                                "Missing Information",
+                                     MessageBoxButtons.OK,
+                                        MessageBoxIcon.Exclamation,
+                                            MessageBoxDefaultButton.Button1)
+
+
+            Return True
+        End If
+        Return False
+    End Function
 
 #End Region
 
 #Region "Events"
-    Private Sub ComboBoxCategory_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboBoxCategory.SelectedIndexChanged
+    'Private Sub ComboBoxCategory_SelectedIndexChanged(sender As Object, e As EventArgs)
 
-        If ComboBoxCategory.Text <> "All Categories" Then
-            Dim category As String
-            Dim item As New ItemDB
+    '    If ComboBoxCategory.Text <> "All Categories" Then
+    '        Dim category As String
+    '        Dim item As New ItemDB
 
-            category = ComboBoxCategory.SelectedItem
-            DataGridView1.DataSource = item.GetItemsByCat(category)
+    '        category = ComboBoxCategory.SelectedItem
+    '        DataGridView1.DataSource = item.GetItemsByCat(category)
 
 
 
+    '    Else
+    '        GetItems()
+    '    End If
+
+
+    'End Sub
+
+    Private Sub TextBoxReorder_KeyPress(sender As Object, e As KeyPressEventArgs) Handles TextBoxReorder.KeyPress
+        If Char.IsDigit(e.KeyChar) Then
+            e.Handled = False
+        ElseIf Char.IsControl(e.KeyChar) Then
+            e.Handled = False
         Else
-            GetItems()
+            e.Handled = True
         End If
+    End Sub
 
+    Private Sub TextBoxName_KeyUp(sender As Object, e As KeyEventArgs) Handles TextBoxName.KeyUp
+        Dim item As New ItemDB
+
+        DataGridView1.DataSource = item.GetItemsByName(TextBoxName.Text)
+        PaintDatagrid()
 
     End Sub
 

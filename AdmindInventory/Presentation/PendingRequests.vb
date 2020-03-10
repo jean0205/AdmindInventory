@@ -60,7 +60,12 @@
 
             If IsDBNull(DataGridView1.Rows(e.RowIndex).Cells(e.ColumnIndex - 1).Value) Then
 
-                MessageBox.Show("It is not possible to approve this request. Not enough stocks")
+
+                MessageBox.Show("It is not possible to approve this request. Not enough in stocks.",
+                                "Incomplete Action",
+                                     MessageBoxButtons.OK,
+                                        MessageBoxIcon.Stop,
+                                            MessageBoxDefaultButton.Button1)
 
                 Return
 
@@ -68,7 +73,11 @@
             End If
             If DataGridView1.Rows(e.RowIndex).Cells(e.ColumnIndex - 2).Value > DataGridView1.Rows(e.RowIndex).Cells(e.ColumnIndex - 1).Value Then
 
-                MessageBox.Show("It is not possible to approve this request. Not enough stocks")
+                MessageBox.Show("It is not possible to approve this request. Not enough in stocks.",
+                                "Incomplete Action",
+                                     MessageBoxButtons.OK,
+                                        MessageBoxIcon.Stop,
+                                            MessageBoxDefaultButton.Button1)
 
                 Return
 
@@ -90,7 +99,11 @@
                 Dim stock As New StockBL
                 stock.UpdateStock(itemId, amoutn)
 
-                MessageBox.Show("Request Approved")
+                MessageBox.Show("The request was successfully approved.",
+                                "Approve Complete",
+                                     MessageBoxButtons.OK,
+                                        MessageBoxIcon.Information,
+                                            MessageBoxDefaultButton.Button1)
                 GetRequest()
 
             Catch ex As Exception
@@ -111,7 +124,12 @@
             Dim stockOut As New StockOutBL
             stockOut.UpdateRequestState(requestId, condition)
 
-            MessageBox.Show("Request Refused")
+
+            MessageBox.Show("The request was refused.",
+                                "Refuse Complete",
+                                     MessageBoxButtons.OK,
+                                        MessageBoxIcon.Information,
+                                            MessageBoxDefaultButton.Button1)
             GetRequest()
         End If
 

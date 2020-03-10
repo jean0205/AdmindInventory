@@ -24,8 +24,14 @@
 #Region "Buttom"
     Private Sub ButtonReestock_Click(sender As Object, e As EventArgs) Handles ButtonReestock.Click
 
+        If CheckInformation() Then
+            Return
+        End If
 
         Try
+
+
+
             Dim invoice As String = TextBoxInvoice.Text
             Dim providerName As String = TextBoxprovider.Text
             Dim amount As Integer = Convert.ToInt32(TextBoxAmount.Text)
@@ -44,7 +50,11 @@
             Dim stock As New StockBL
             stock.UpdateStock(itemId, amount)
 
-            MessageBox.Show("Stock entry saved.")
+            MessageBox.Show("Stock entry saved.",
+                                "Entry Complete",
+                                     MessageBoxButtons.OK,
+                                        MessageBoxIcon.Information,
+                                            MessageBoxDefaultButton.Button1)
             CleanInterfaz()
         Catch ex As Exception
             MessageBox.Show(ex.Message)
@@ -88,6 +98,50 @@
 
     End Sub
 #End Region
+
+    Function CheckInformation() As Boolean
+        If String.IsNullOrEmpty(TextBoxInvoice.Text) Then
+            MessageBox.Show("You must provide the invoice number.",
+                                "Missing Information",
+                                     MessageBoxButtons.OK,
+                                        MessageBoxIcon.Exclamation,
+                                            MessageBoxDefaultButton.Button1)
+
+            Return True
+        End If
+        If String.IsNullOrEmpty(TextBoxAmount.Text) Then
+            MessageBox.Show("You must provide the item amount.",
+                                "Missing Information",
+                                     MessageBoxButtons.OK,
+                                        MessageBoxIcon.Exclamation,
+                                            MessageBoxDefaultButton.Button1)
+
+            Return True
+        End If
+        If String.IsNullOrEmpty(TextBoxprovider.Text) Then
+            MessageBox.Show("You must provide the item provider.",
+                                "Missing Information",
+                                     MessageBoxButtons.OK,
+                                        MessageBoxIcon.Exclamation,
+                                            MessageBoxDefaultButton.Button1)
+
+            Return True
+        End If
+        If String.IsNullOrEmpty(TextBoxCost.Text) Then
+            MessageBox.Show("You must provide the item cost.",
+                                "Missing Information",
+                                     MessageBoxButtons.OK,
+                                        MessageBoxIcon.Exclamation,
+                                            MessageBoxDefaultButton.Button1)
+
+            Return True
+        End If
+
+
+
+        Return False
+
+    End Function
 
 #Region "Autocomplete texbox from provider.name"
 

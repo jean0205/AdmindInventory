@@ -66,6 +66,7 @@ Public Class ItemDB
         Return table
     End Function
 
+    'filter item by name for stock request
     Function GetItemsByName(ByVal ItemName As String) As DataTable
         Dim table As New DataTable
 
@@ -88,6 +89,32 @@ Public Class ItemDB
         End Using
         Return table
     End Function
+
+
+    'filter item by name for create new items
+    Function GetItemsByNameTocreate(ByVal ItemName As String) As DataTable
+        Dim table As New DataTable
+
+        Dim query As String = "select I.Id, I.Name, I.Presentation, I.Description from Item I where Name Like '" & ItemName & "%'"
+        Using connection As New SqlConnection(conString)
+            Using command As New SqlCommand(query, connection)
+                'command.Parameters.Add("@Item_name", SqlDbType.varchar).Value = ItemName
+                Try
+                    connection.Open()
+                    Dim reader As SqlDataReader = command.ExecuteReader()
+                    table.Load(reader)
+                    reader.Close()
+                    connection.Close()
+                Catch ex As Exception
+                    Throw ex
+
+                End Try
+
+            End Using
+        End Using
+        Return table
+    End Function
+
 
     'Get item list by category
     Function GetItemsByCat(ByVal name As String) As List(Of Item)

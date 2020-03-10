@@ -18,19 +18,9 @@
         Dim stockOut As New StockOutBL
         DataGridView1.DataSource = stockOut.GetStockOutHystory
         DataGridView1.Columns(0).Visible = False
-
-        Dim x As Integer = 1
-
-        For Each row As DataGridViewRow In DataGridView1.Rows
-
-            x += 1
-            If (x Mod 2) <> 0 Then
-                row.DefaultCellStyle.BackColor = Color.Beige
-            End If
+        PaintDatagrid()
 
 
-
-        Next
 
     End Sub
 
@@ -56,6 +46,21 @@
 
     End Sub
 
+    Sub PaintDatagrid()
+        Dim x As Integer = 1
+
+        For Each row As DataGridViewRow In DataGridView1.Rows
+
+            x += 1
+            If (x Mod 2) <> 0 Then
+                row.DefaultCellStyle.BackColor = Color.Beige
+            End If
+
+
+
+        Next
+    End Sub
+
 
 #End Region
 
@@ -66,6 +71,8 @@
 
         Dim stockOut As New StockOutBL
         DataGridView1.DataSource = stockOut.FilterStockOutByName(TextBoxItem.Text)
+
+        PaintDatagrid()
 
     End Sub
 
@@ -78,6 +85,8 @@
 
             category = ComboBoxcategory.SelectedItem
             DataGridView1.DataSource = stockout.FilterStockOutByCategory(category)
+
+            PaintDatagrid()
 
 
 
@@ -99,6 +108,7 @@
 
             department = ComboBoxDepartment.SelectedItem
             DataGridView1.DataSource = stockout.FilterStockOutByDepartment(department)
+            PaintDatagrid()
 
         Else
             getStockOutHistory()
@@ -120,12 +130,16 @@
                 Dim endDate As Date = DateTimePicker2.Value.Date
                 Dim stockOut As New StockOutBL
                 DataGridView1.DataSource = stockOut.FilterStockHistoryByDateAdDepartment(startdate, endDate, department)
+
+                PaintDatagrid()
+                Return
             Else
 
                 Dim startdate As Date = DateTimePicker1.Value.Date
                 Dim endDate As Date = DateTimePicker2.Value.Date
                 Dim stockOut As New StockOutBL
                 DataGridView1.DataSource = stockOut.FilterStockHistoryByDate(startdate, endDate)
+                PaintDatagrid()
 
             End If
             If Not String.IsNullOrEmpty(TextBoxItem.Text) Then
@@ -135,7 +149,18 @@
                 Dim endDate As Date = DateTimePicker2.Value.Date
                 Dim stockOut As New StockOutBL
                 DataGridView1.DataSource = stockOut.FilterStockHistoryByDateAndItem(startdate, endDate, item)
+                PaintDatagrid()
+                Return
             End If
+            If CheckBox2.Checked Then
+                Dim startdate As Date = DateTimePicker1.Value.Date
+                Dim endDate As Date = DateTimePicker2.Value.Date
+                Dim stockOut As New StockOutBL
+                DataGridView1.DataSource = stockOut.FilterstockOutBydateAndRefused(startdate, endDate)
+                PaintDatagrid()
+                Return
+            End If
+
         Else
             getStockOutHistory()
 
@@ -151,11 +176,17 @@
         If CheckBox2.Checked Then
             Dim stockOut As New StockOutBL
             DataGridView1.DataSource = stockOut.GetRequestRefused
+            PaintDatagrid()
+
         Else
             getStockOutHistory()
+            CheckBox1.Checked = False
 
 
         End If
+        TextBoxItem.Clear()
+        ComboBoxcategory.Text = String.Empty
+        ComboBoxDepartment.Text = String.Empty
     End Sub
 
 
@@ -203,10 +234,12 @@
             item = DataGridView1.Rows(0).Cells(1).Value
         End If
         If Not String.IsNullOrWhiteSpace(ComboBoxDepartment.SelectedItem) Then
-            department = DataGridView1.Rows(0).Cells(4).Value
+            'department = DataGridView1.Rows(0).Cells(4).Value
+            department = ComboBoxDepartment.SelectedItem
         End If
         If Not String.IsNullOrWhiteSpace(ComboBoxcategory.SelectedItem) Then
-            category = DataGridView1.Rows(0).Cells(2).Value
+            'category = DataGridView1.Rows(0).Cells(2).Value
+            category = ComboBoxcategory.SelectedItem
         End If
 
         If CheckBox1.Checked Then
@@ -215,10 +248,35 @@
         Else
 
         End If
+        If CheckBox2.Checked Then
+            item = "Unapprbed Requests"
+
+        End If
+
 
 
         Dim reportFrm As New ReportDistribution(item, dateFrom, dateTo, category, department, stockOutList)
         reportFrm.Show()
+
+    End Sub
+
+    Private Sub DateTimePicker1_ValueChanged(sender As Object, e As EventArgs) Handles DateTimePicker1.ValueChanged
+        CheckBox1.Checked = False
+
+    End Sub
+
+    Private Sub DateTimePicker2_ValueChanged(sender As Object, e As EventArgs) Handles DateTimePicker2.ValueChanged
+        CheckBox1.Checked = False
+    End Sub
+
+    Private Sub DataGridView1_CellContentDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView1.CellContentDoubleClick
+        TextBoxItem.Text = DataGridView1.Rows(e.RowIndex).Cells(e.ColumnIndex).Value
+
+        Dim stockOut As New StockOutBL
+        DataGridView1.DataSource = stockOut.FilterStockOutByName(TextBoxItem.Text)
+
+        PaintDatagrid()
+
 
     End Sub
 

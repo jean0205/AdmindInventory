@@ -61,4 +61,9 @@
         Return stock.GetRequestRefused
 
     End Function
+    Function FilterstockOutBydateAndRefused(ByVal date1 As Date, ByVal date2 As Date) As DataTable
+        Dim stock As New StockOutDB
+        Return stock.FilterstockOutBydateAndRefused(date1, date2)
+
+    End Function
 End Class

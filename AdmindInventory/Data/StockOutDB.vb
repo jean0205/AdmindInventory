@@ -242,6 +242,33 @@ Public Class StockOutDB
         Return table
     End Function
 
+    'Filter by date and department
+
+    Function FilterstockOutBydateAndRefused(ByVal date1 As Date, ByVal date2 As Date) As DataTable
+        Dim table As New DataTable
+
+        Dim query As String = "select * from StockOutViewOrderById where Date between Cast(@Date1 As Date) and Cast(@Date2 As Date)  and State='Refused' order by Id desc"
+        Using connection As New SqlConnection(conString)
+            Using command As New SqlCommand(query, connection)
+                command.Parameters.Add("@Date1", SqlDbType.Date).Value = date1
+                command.Parameters.Add("@Date2", SqlDbType.Date).Value = date2
+
+                Try
+                    connection.Open()
+                    Dim reader As SqlDataReader = command.ExecuteReader()
+                    table.Load(reader)
+                    reader.Close()
+                    connection.Close()
+                Catch ex As Exception
+                    Throw ex
+
+                End Try
+
+            End Using
+        End Using
+        Return table
+    End Function
+
     ' filter by date an item
 
     Function FilterStockHistoryByDateAndItem(ByVal date1 As Date, ByVal date2 As Date, item As String) As DataTable
