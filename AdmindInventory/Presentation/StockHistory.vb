@@ -2,6 +2,7 @@
     Private Sub StockHistory_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
         LoadData()
+        GetCategories()
 
 
 
@@ -30,7 +31,7 @@
 
         Dim total As Decimal
         For Each row As DataGridViewRow In DataGridView1.Rows
-            total += row.Cells(6).Value
+            total += row.Cells(8).Value
 
 
         Next
@@ -49,6 +50,20 @@
 
 
         Next
+    End Sub
+
+    Sub GetCategories()
+
+
+        Dim category As New CategoryBL
+        Dim categoryNames As New List(Of String)
+
+
+        For Each name As String In category.GetCategoriesNames()
+            ComboBoxCategory.Items.Add(name)
+
+        Next
+
     End Sub
 
 
@@ -74,6 +89,10 @@
     Private Sub TextBoxItem_KeyUp(sender As Object, e As KeyEventArgs) Handles TextBoxItem.KeyUp
         TextBoxInvoice.Clear()
         TextBox1.Clear()
+        CheckBox1.Checked = False
+
+        ComboBoxCategory.SelectedIndex = 0
+
         Dim stockEntry As New StockEntryBL
         DataGridView1.DataSource = stockEntry.FilterStockHistoryByName(TextBoxItem.Text)
         PaintDatagrid()
@@ -84,6 +103,9 @@
     Private Sub TextBoxInvoice_KeyUp(sender As Object, e As KeyEventArgs) Handles TextBoxInvoice.KeyUp
         TextBoxItem.Clear()
         TextBox1.Clear()
+        ComboBoxCategory.SelectedIndex = 0
+        CheckBox1.Checked = False
+
         Dim stockEntry As New StockEntryBL
         DataGridView1.DataSource = stockEntry.FilterStockHistoryByInvoice(TextBoxInvoice.Text)
         PaintDatagrid()
@@ -94,10 +116,40 @@
     Private Sub TextBox1_KeyUp(sender As Object, e As KeyEventArgs) Handles TextBox1.KeyUp
         TextBoxItem.Clear()
         TextBoxInvoice.Clear()
+        ComboBoxCategory.SelectedIndex = 0
+        CheckBox1.Checked = False
+
         Dim stockEntry As New StockEntryBL
         DataGridView1.DataSource = stockEntry.FilterStockHistoryByProvider(TextBox1.Text)
         PaintDatagrid()
         getTotal()
+    End Sub
+
+    Private Sub TextBox1_TextChanged(sender As Object, e As EventArgs) Handles TextBox1.TextChanged
+
+    End Sub
+
+    Private Sub ComboBoxCategory_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboBoxCategory.SelectedIndexChanged
+
+
+        Dim stockEntry As New StockEntryBL
+        If ComboBoxCategory.Text <> "All Categories" Then
+
+            DataGridView1.DataSource = stockEntry.FilterStockHistoryCategory(ComboBoxCategory.SelectedItem)
+            PaintDatagrid()
+            getTotal()
+            TextBoxItem.Clear()
+            TextBoxInvoice.Clear()
+            TextBox1.Clear()
+            CheckBox1.Checked = False
+
+        Else
+            LoadData()
+
+        End If
+
+
+
     End Sub
 
     Private Sub CheckBox1_CheckedChanged(sender As Object, e As EventArgs) Handles CheckBox1.CheckedChanged
@@ -109,21 +161,46 @@
 
         If CheckBox1.Checked Then
             If Not String.IsNullOrEmpty(TextBox1.Text) Then
-                Dim provider As String = DataGridView1.Rows(0).Cells(8).Value
+                Dim provider As String = DataGridView1.Rows(0).Cells(10).Value
+                TextBox1.Text = provider
                 DataGridView1.DataSource = stockEntry.FilterStockHistoryByDateAAndProvider(startdate, endDate, provider)
                 PaintDatagrid()
                 getTotal()
                 Return
 
+            End If
+            If Not String.IsNullOrEmpty(TextBoxItem.Text) Then
+                Dim item As String = DataGridView1.Rows(0).Cells(2).Value
+                TextBoxItem.Text = item
+
+                DataGridView1.DataSource = stockEntry.FilterStockHistoryByItemAndDate(startdate, endDate, item)
+                PaintDatagrid()
+                getTotal()
+                Return
+
+            End If
+            If ComboBoxCategory.SelectedIndex > 0 Then
+                Dim category As String = ComboBoxCategory.SelectedItem
+                Dim date1 As Date = DateTimePicker1.Value.Date
+                Dim date2 As Date = DateTimePicker2.Value.Date
+                DataGridView1.DataSource = stockEntry.FilterStockHistoryCategoryAndDate(date1, date2, category)
+                PaintDatagrid()
+                getTotal()
+                Return
 
             End If
 
             DataGridView1.DataSource = stockEntry.FilterStockHistoryByDate(startdate, endDate)
-                PaintDatagrid()
-                getTotal()
+            PaintDatagrid()
+            getTotal()
 
-            Else
-                LoadData()
+        Else
+            ComboBoxCategory.SelectedIndex = 0
+            TextBoxItem.Clear()
+            TextBoxInvoice.Clear()
+            TextBox1.Clear()
+
+            LoadData()
 
 
         End If
@@ -153,8 +230,9 @@
         Dim stockEntryList As New List(Of ReportStockEntry)
         Dim totalcost As Decimal = Convert.ToDecimal(TextBoxTotalcost.Text)
         Dim item As String = "All Items"
-        Dim dateFrom As Date = DataGridView1.Rows(DataGridView1.Rows.Count - 2).Cells(10).Value
-        Dim dateTo As Date = DataGridView1.Rows(0).Cells(10).Value
+        Dim dateFrom As Date = DataGridView1.Rows(DataGridView1.Rows.Count - 2).Cells(12).Value
+        Dim dateTo As Date = DataGridView1.Rows(0).Cells(12).Value
+        Dim category As String = "All Categories"
 
         Dim invoice As String = "All Invoices"
         Dim provider As String = "All Providers"
@@ -164,14 +242,16 @@
             Dim stockEntry As New ReportStockEntry
 
             stockEntry.Item_Name = row.Cells(2).Value
-            StockEntry.Item_Presentationd = row.Cells(3).Value
-            StockEntry.Amount = row.Cells(4).Value
-            StockEntry.CostEach = row.Cells(5).Value
-            StockEntry.CostTotal = row.Cells(6).Value
-            StockEntry.InvoiceNo = row.Cells(7).Value
-            StockEntry.Provider = row.Cells(8).Value
-            stockEntry.Recived = row.Cells(9).Value
-            stockEntry.DateReciv = row.Cells(10).Value
+            stockEntry.Category = row.Cells(3).Value
+            stockEntry.GlNumber = row.Cells(4).Value
+            stockEntry.Item_Presentationd = row.Cells(5).Value
+            stockEntry.Amount = row.Cells(6).Value
+            stockEntry.CostEach = row.Cells(7).Value
+            stockEntry.CostTotal = row.Cells(8).Value
+            stockEntry.InvoiceNo = row.Cells(9).Value
+            stockEntry.Provider = row.Cells(10).Value
+            stockEntry.Recived = row.Cells(11).Value
+            stockEntry.DateReciv = row.Cells(12).Value
 
 
 
@@ -187,10 +267,13 @@
             item = DataGridView1.Rows(0).Cells(2).Value
         End If
         If Not String.IsNullOrWhiteSpace(TextBoxInvoice.Text) Then
-            invoice = DataGridView1.Rows(0).Cells(7).Value
+            invoice = DataGridView1.Rows(0).Cells(9).Value
         End If
         If Not String.IsNullOrWhiteSpace(TextBox1.Text) Then
-            provider = DataGridView1.Rows(0).Cells(8).Value
+            provider = DataGridView1.Rows(0).Cells(10).Value
+        End If
+        If ComboBoxCategory.SelectedIndex > 0 Then
+            category = ComboBoxCategory.SelectedItem
         End If
 
         If CheckBox1.Checked Then
@@ -201,15 +284,13 @@
         End If
 
 
-        Dim reportFrm As New ReportEntryHistoryFrm(item, dateFrom, dateTo, totalcost, invoice, provider, stockEntryList)
+        Dim reportFrm As New ReportEntryHistoryFrm(item, dateFrom, dateTo, totalcost, invoice, provider, stockEntryList, category)
         reportFrm.Show()
 
 
     End Sub
 
-    Private Sub TextBox1_TextChanged(sender As Object, e As EventArgs) Handles TextBox1.TextChanged
 
-    End Sub
 
 
 

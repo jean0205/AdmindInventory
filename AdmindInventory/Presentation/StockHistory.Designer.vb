@@ -40,6 +40,8 @@ Partial Class StockHistory
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.TextBoxTotalcost = New System.Windows.Forms.TextBox()
+        Me.Label7 = New System.Windows.Forms.Label()
+        Me.ComboBoxCategory = New System.Windows.Forms.ComboBox()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox3.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
@@ -48,6 +50,8 @@ Partial Class StockHistory
         '
         'GroupBox1
         '
+        Me.GroupBox1.Controls.Add(Me.Label7)
+        Me.GroupBox1.Controls.Add(Me.ComboBoxCategory)
         Me.GroupBox1.Controls.Add(Me.ButtonRport)
         Me.GroupBox1.Controls.Add(Me.Label6)
         Me.GroupBox1.Controls.Add(Me.TextBox1)
@@ -77,7 +81,7 @@ Partial Class StockHistory
         'Label6
         '
         Me.Label6.AutoSize = True
-        Me.Label6.Location = New System.Drawing.Point(403, 25)
+        Me.Label6.Location = New System.Drawing.Point(345, 25)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(49, 13)
         Me.Label6.TabIndex = 15
@@ -85,7 +89,7 @@ Partial Class StockHistory
         '
         'TextBox1
         '
-        Me.TextBox1.Location = New System.Drawing.Point(405, 48)
+        Me.TextBox1.Location = New System.Drawing.Point(347, 48)
         Me.TextBox1.Name = "TextBox1"
         Me.TextBox1.Size = New System.Drawing.Size(152, 20)
         Me.TextBox1.TabIndex = 14
@@ -97,9 +101,9 @@ Partial Class StockHistory
         Me.GroupBox3.Controls.Add(Me.DateTimePicker1)
         Me.GroupBox3.Controls.Add(Me.DateTimePicker2)
         Me.GroupBox3.Controls.Add(Me.Label2)
-        Me.GroupBox3.Location = New System.Drawing.Point(703, 7)
+        Me.GroupBox3.Location = New System.Drawing.Point(693, 7)
         Me.GroupBox3.Name = "GroupBox3"
-        Me.GroupBox3.Size = New System.Drawing.Size(324, 78)
+        Me.GroupBox3.Size = New System.Drawing.Size(348, 78)
         Me.GroupBox3.TabIndex = 13
         Me.GroupBox3.TabStop = False
         '
@@ -150,7 +154,7 @@ Partial Class StockHistory
         'Label5
         '
         Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(211, 26)
+        Me.Label5.Location = New System.Drawing.Point(177, 26)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(65, 13)
         Me.Label5.TabIndex = 12
@@ -158,7 +162,7 @@ Partial Class StockHistory
         '
         'TextBoxInvoice
         '
-        Me.TextBoxInvoice.Location = New System.Drawing.Point(211, 48)
+        Me.TextBoxInvoice.Location = New System.Drawing.Point(177, 48)
         Me.TextBoxInvoice.Name = "TextBoxInvoice"
         Me.TextBoxInvoice.Size = New System.Drawing.Size(152, 20)
         Me.TextBoxInvoice.TabIndex = 11
@@ -166,7 +170,7 @@ Partial Class StockHistory
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(14, 27)
+        Me.Label4.Location = New System.Drawing.Point(6, 27)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(30, 13)
         Me.Label4.TabIndex = 7
@@ -174,7 +178,7 @@ Partial Class StockHistory
         '
         'TextBoxItem
         '
-        Me.TextBoxItem.Location = New System.Drawing.Point(17, 48)
+        Me.TextBoxItem.Location = New System.Drawing.Point(9, 48)
         Me.TextBoxItem.Name = "TextBoxItem"
         Me.TextBoxItem.Size = New System.Drawing.Size(152, 20)
         Me.TextBoxItem.TabIndex = 0
@@ -212,6 +216,24 @@ Partial Class StockHistory
         Me.TextBoxTotalcost.Name = "TextBoxTotalcost"
         Me.TextBoxTotalcost.Size = New System.Drawing.Size(196, 20)
         Me.TextBoxTotalcost.TabIndex = 14
+        '
+        'Label7
+        '
+        Me.Label7.AutoSize = True
+        Me.Label7.Location = New System.Drawing.Point(523, 24)
+        Me.Label7.Name = "Label7"
+        Me.Label7.Size = New System.Drawing.Size(52, 13)
+        Me.Label7.TabIndex = 18
+        Me.Label7.Text = "Category:"
+        '
+        'ComboBoxCategory
+        '
+        Me.ComboBoxCategory.FormattingEnabled = True
+        Me.ComboBoxCategory.Items.AddRange(New Object() {"All Categories"})
+        Me.ComboBoxCategory.Location = New System.Drawing.Point(523, 47)
+        Me.ComboBoxCategory.Name = "ComboBoxCategory"
+        Me.ComboBoxCategory.Size = New System.Drawing.Size(126, 21)
+        Me.ComboBoxCategory.TabIndex = 17
         '
         'StockHistory
         '
@@ -253,4 +275,6 @@ Partial Class StockHistory
     Friend WithEvents CheckBox1 As CheckBox
     Friend WithEvents Label6 As Label
     Friend WithEvents TextBox1 As TextBox
+    Friend WithEvents Label7 As Label
+    Friend WithEvents ComboBoxCategory As ComboBox
 End Class

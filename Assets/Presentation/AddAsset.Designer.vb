@@ -194,7 +194,7 @@ Partial Class AssetAddition
         '
         'TextBox10
         '
-        Me.TextBox10.Location = New System.Drawing.Point(341, 169)
+        Me.TextBox10.Location = New System.Drawing.Point(275, 169)
         Me.TextBox10.Multiline = True
         Me.TextBox10.Name = "TextBox10"
         Me.TextBox10.Size = New System.Drawing.Size(213, 80)

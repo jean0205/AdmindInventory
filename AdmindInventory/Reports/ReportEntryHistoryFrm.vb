@@ -9,8 +9,9 @@ Public Class ReportEntryHistoryFrm
     Dim Item As String
     Dim invoice As String
     Dim provider As String
+    Dim category As String
 
-    Sub New(item As String, datefrom As Date, dateto As Date, totalCost As Decimal, invoice As String, provider As String, entryList As List(Of ReportStockEntry))
+    Sub New(item As String, datefrom As Date, dateto As Date, totalCost As Decimal, invoice As String, provider As String, entryList As List(Of ReportStockEntry), category As String)
 
         Me.Item = item
         Me.dateFrom = datefrom
@@ -19,6 +20,7 @@ Public Class ReportEntryHistoryFrm
         Me.invoice = invoice
         Me.provider = provider
         Me.entryList = entryList
+        Me.category = category
 
 
         ' This call is required by the designer.
@@ -37,6 +39,7 @@ Public Class ReportEntryHistoryFrm
         Dim dateToP As New ReportParameter("DateTo", dateTo)
         Dim invoiceP As New ReportParameter("Invoice", invoice)
         Dim providerP As New ReportParameter("Provider", provider)
+        Dim categoryP As New ReportParameter("Category", category)
 
 
 
@@ -51,6 +54,7 @@ Public Class ReportEntryHistoryFrm
         ReportViewer2.LocalReport.SetParameters(itemP)
         ReportViewer2.LocalReport.SetParameters(invoiceP)
         ReportViewer2.LocalReport.SetParameters(providerP)
+        ReportViewer2.LocalReport.SetParameters(categoryP)
 
 
 

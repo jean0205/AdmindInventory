@@ -45,7 +45,7 @@ Public Class StockEntryDB
     Function FilterStockHistoryByName(ByVal ItemName As String) As DataTable
         Dim table As New DataTable
 
-        Dim query As String = "select * from StockHistory2 where Name Like '" & ItemName & "%' order by Id desc"
+        Dim query As String = "select * from StockHistoryCategory where Name Like '" & ItemName & "%' order by Id desc"
         Using connection As New SqlConnection(conString)
             Using command As New SqlCommand(query, connection)
                 'command.Parameters.Add("@Item_name", SqlDbType.varchar).Value = ItemName
@@ -70,7 +70,7 @@ Public Class StockEntryDB
     Function FilterStockHistoryByInvoice(ByVal invoice As String) As DataTable
         Dim table As New DataTable
 
-        Dim query As String = "select * from StockHistory2 where InvoiceNo Like '" & invoice & "%' order by Id desc"
+        Dim query As String = "select * from StockHistoryCategory where InvoiceNo Like '" & invoice & "%' order by Id desc"
         Using connection As New SqlConnection(conString)
             Using command As New SqlCommand(query, connection)
                 'command.Parameters.Add("@Item_name", SqlDbType.varchar).Value = ItemName
@@ -94,7 +94,7 @@ Public Class StockEntryDB
     Function FilterStockHistoryByProvider(ByVal provider As String) As DataTable
         Dim table As New DataTable
 
-        Dim query As String = "select * from StockHistory2 where Provider Like '" & provider & "%' order by Id desc"
+        Dim query As String = "select * from StockHistoryCategory where Provider Like '" & provider & "%' order by Id desc"
         Using connection As New SqlConnection(conString)
             Using command As New SqlCommand(query, connection)
                 'command.Parameters.Add("@Item_name", SqlDbType.varchar).Value = ItemName
@@ -119,7 +119,7 @@ Public Class StockEntryDB
     Function FilterStockHistoryByDate(ByVal date1 As Date, ByVal date2 As Date) As DataTable
         Dim table As New DataTable
 
-        Dim query As String = "select * from StockHistory2 where Date between Cast(@Date1 As Date) and Cast(@Date2 As Date) order by Id desc"
+        Dim query As String = "select * from StockHistoryCategory where Date between Cast(@Date1 As Date) and Cast(@Date2 As Date) order by Id desc"
         Using connection As New SqlConnection(conString)
             Using command As New SqlCommand(query, connection)
                 command.Parameters.Add("@Date1", SqlDbType.Date).Value = date1
@@ -141,11 +141,96 @@ Public Class StockEntryDB
     End Function
 
 
+    'Filter by category
+
+    Function FilterStockHistoryCategory(category As String) As DataTable
+        Dim table As New DataTable
+
+        Dim query As String = "select * from StockHistoryCategory where Category=@Category order by Id desc"
+        Using connection As New SqlConnection(conString)
+            Using command As New SqlCommand(query, connection)
+                command.Parameters.Add("@Category", SqlDbType.VarChar).Value = category
+
+                Try
+                    connection.Open()
+                    Dim reader As SqlDataReader = command.ExecuteReader()
+                    table.Load(reader)
+                    reader.Close()
+                    connection.Close()
+                Catch ex As Exception
+                    Throw ex
+
+                End Try
+
+            End Using
+        End Using
+        Return table
+    End Function
+
+    'Filter by category and date
+
+    Function FilterStockHistoryCategoryAndDate(ByVal date1 As Date, ByVal date2 As Date, category As String) As DataTable
+        Dim table As New DataTable
+
+        Dim query As String = "select * from StockHistoryCategory where Date between Cast(@Date1 As Date) and Cast(@Date2 As Date) and Category=@Category order by Id desc"
+        Using connection As New SqlConnection(conString)
+            Using command As New SqlCommand(query, connection)
+
+                command.Parameters.Add("@Date1", SqlDbType.Date).Value = date1
+                command.Parameters.Add("@Date2", SqlDbType.Date).Value = date2
+                command.Parameters.Add("@Category", SqlDbType.VarChar).Value = category
+
+                Try
+                    connection.Open()
+                    Dim reader As SqlDataReader = command.ExecuteReader()
+                    table.Load(reader)
+                    reader.Close()
+                    connection.Close()
+                Catch ex As Exception
+                    Throw ex
+
+                End Try
+
+            End Using
+        End Using
+        Return table
+    End Function
+
+
+    'Filter by item  and date
+
+    Function FilterStockHistoryItemAndDate(ByVal date1 As Date, ByVal date2 As Date, item As String) As DataTable
+        Dim table As New DataTable
+
+        Dim query As String = "select * from StockHistoryCategory where Date between Cast(@Date1 As Date) and Cast(@Date2 As Date) and Name=@Name order by Id desc"
+        Using connection As New SqlConnection(conString)
+            Using command As New SqlCommand(query, connection)
+
+                command.Parameters.Add("@Date1", SqlDbType.Date).Value = date1
+                command.Parameters.Add("@Date2", SqlDbType.Date).Value = date2
+                command.Parameters.Add("@Name", SqlDbType.VarChar).Value = item
+
+                Try
+                    connection.Open()
+                    Dim reader As SqlDataReader = command.ExecuteReader()
+                    table.Load(reader)
+                    reader.Close()
+                    connection.Close()
+                Catch ex As Exception
+                    Throw ex
+
+                End Try
+
+            End Using
+        End Using
+        Return table
+    End Function
+
     'get stock hystory view
     Function GetStockEntryHistory() As DataTable
         Dim table As New DataTable
 
-        Dim query As String = "select * from StockHistory2 order by Id desc"
+        Dim query As String = "select * from StockHistoryCategory order by Id desc"
         Using connection As New SqlConnection(conString)
             Using command As New SqlCommand(query, connection)
                 'command.Parameters.Add("@Item_name", SqlDbType.varchar).Value = ItemName
@@ -241,7 +326,7 @@ Public Class StockEntryDB
     Function FilterStockHistoryByDateAdProvider(ByVal date1 As Date, ByVal date2 As Date, provider As String) As DataTable
         Dim table As New DataTable
 
-        Dim query As String = "select * from StockHistory2 where Provider Like '" & provider & "%' and Date between Cast(@Date1 As Date) and Cast(@Date2 As Date) order by Id desc"
+        Dim query As String = "select * from StockHistoryCategory where Provider Like '" & provider & "%' and Date between Cast(@Date1 As Date) and Cast(@Date2 As Date) order by Id desc"
         Using connection As New SqlConnection(conString)
             Using command As New SqlCommand(query, connection)
                 command.Parameters.Add("@Date1", SqlDbType.Date).Value = date1

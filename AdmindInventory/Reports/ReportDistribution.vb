@@ -4,7 +4,7 @@ Public Class ReportDistribution
 
 
 
-    Dim outList As List(Of ReportStockOut)
+    Dim outList As List(Of ReportStockOut2)
     Dim dateFrom As Date
     Dim dateTo As Date
     Dim Item As String
@@ -12,7 +12,7 @@ Public Class ReportDistribution
     Dim department As String
 
 
-    Sub New(item As String, datefrom As Date, dateto As Date, category As String, department As String, outList As List(Of ReportStockOut))
+    Sub New(item As String, datefrom As Date, dateto As Date, category As String, department As String, outList As List(Of ReportStockOut2))
 
         Me.Item = item
         Me.dateFrom = datefrom

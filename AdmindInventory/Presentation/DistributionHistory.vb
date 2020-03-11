@@ -67,10 +67,17 @@
 #Region "Events"
 
 
+
+
     Private Sub TextBoxItem_KeyUp(sender As Object, e As KeyEventArgs) Handles TextBoxItem.KeyUp
+        ComboBoxcategory.SelectedIndex = 0
+        ComboBoxDepartment.SelectedIndex = 0
+        CheckBox1.Checked = False
 
         Dim stockOut As New StockOutBL
         DataGridView1.DataSource = stockOut.FilterStockOutByName(TextBoxItem.Text)
+
+
 
         PaintDatagrid()
 
@@ -78,8 +85,10 @@
 
     Private Sub ComboBoxcategory_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboBoxcategory.SelectedIndexChanged
 
-
+        CheckBox1.Checked = False
         If ComboBoxcategory.Text <> "All Categories" Then
+            ComboBoxDepartment.SelectedIndex = 0
+
             Dim category As String
             Dim stockout As New StockOutBL
 
@@ -88,21 +97,23 @@
 
             PaintDatagrid()
 
+            TextBoxItem.Clear()
+
 
 
 
         Else
             getStockOutHistory()
         End If
-        ComboBoxDepartment.Text = String.Empty
-        TextBoxItem.Clear()
+
 
     End Sub
 
     Private Sub ComboBoxDepartment_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboBoxDepartment.SelectedIndexChanged
-
+        CheckBox1.Checked = False
 
         If ComboBoxDepartment.Text <> "All Departments" Then
+            ComboBoxcategory.SelectedIndex = 0
             Dim department As String
             Dim stockout As New StockOutBL
 
@@ -110,11 +121,12 @@
             DataGridView1.DataSource = stockout.FilterStockOutByDepartment(department)
             PaintDatagrid()
 
+            TextBoxItem.Clear()
+
         Else
             getStockOutHistory()
         End If
-        ComboBoxcategory.Text = String.Empty
-        TextBoxItem.Clear()
+
     End Sub
 
 
@@ -161,12 +173,37 @@
                 Return
             End If
 
+
         Else
             getStockOutHistory()
+            ComboBoxcategory.SelectedIndex = 0
+            TextBoxItem.Clear()
+            ComboBoxDepartment.SelectedIndex = 0
 
         End If
 
 
+
+
+
+    End Sub
+
+    Private Sub DateTimePicker1_ValueChanged(sender As Object, e As EventArgs) Handles DateTimePicker1.ValueChanged
+        CheckBox1.Checked = False
+
+    End Sub
+
+    Private Sub DateTimePicker2_ValueChanged(sender As Object, e As EventArgs) Handles DateTimePicker2.ValueChanged
+        CheckBox1.Checked = False
+    End Sub
+
+    Private Sub DataGridView1_CellContentDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView1.CellContentDoubleClick
+        TextBoxItem.Text = DataGridView1.Rows(e.RowIndex).Cells(1).Value
+
+        Dim stockOut As New StockOutBL
+        DataGridView1.DataSource = stockOut.FilterStockOutByName(TextBoxItem.Text)
+
+        PaintDatagrid()
 
 
     End Sub
@@ -196,11 +233,11 @@
 #Region "Report"
     Private Sub ButtonReport_Click(sender As Object, e As EventArgs) Handles ButtonReport.Click
 
-        Dim stockOutList As New List(Of ReportStockOut)
+        Dim stockOutList As New List(Of ReportStockOut2)
 
         Dim item As String = "All Items"
-        Dim dateFrom As Date = DataGridView1.Rows(DataGridView1.Rows.Count - 2).Cells(6).Value
-        Dim dateTo As Date = DataGridView1.Rows(0).Cells(6).Value
+        Dim dateFrom As Date = DataGridView1.Rows(DataGridView1.Rows.Count - 2).Cells(7).Value
+        Dim dateTo As Date = DataGridView1.Rows(0).Cells(7).Value
         Dim department As String = "All Departments"
         Dim category As String = "All Categories"
 
@@ -208,17 +245,18 @@
 
 
         For Each row As DataGridViewRow In DataGridView1.Rows
-            Dim stockOut As New ReportStockOut
+            Dim stockOut As New ReportStockOut2
 
-            stockOut.Item_Name = row.Cells(1).Value
-            stockOut.Category = row.Cells(2).Value
-            stockOut.GL = row.Cells(3).Value
-            stockOut.Department = row.Cells(4).Value
-            stockOut.Amount = row.Cells(5).Value
-            stockOut.DateRevic = row.Cells(6).Value
-            stockOut.State = row.Cells(7).Value
-            stockOut.Person = row.Cells(8).Value
-            stockOut.Requested = row.Cells(9).Value
+            stockOut.Item = row.Cells(1).Value
+            stockOut.Attribute = row.Cells(2).Value
+            stockOut.Category = row.Cells(3).Value
+            stockOut.GL = row.Cells(4).Value
+            stockOut.Department = row.Cells(5).Value
+            stockOut.Amount = row.Cells(6).Value
+            stockOut.DateRevic = row.Cells(7).Value
+            stockOut.State = row.Cells(8).Value
+            stockOut.Person = row.Cells(9).Value
+            stockOut.Requested = row.Cells(10).Value
 
 
 
@@ -260,25 +298,7 @@
 
     End Sub
 
-    Private Sub DateTimePicker1_ValueChanged(sender As Object, e As EventArgs) Handles DateTimePicker1.ValueChanged
-        CheckBox1.Checked = False
 
-    End Sub
-
-    Private Sub DateTimePicker2_ValueChanged(sender As Object, e As EventArgs) Handles DateTimePicker2.ValueChanged
-        CheckBox1.Checked = False
-    End Sub
-
-    Private Sub DataGridView1_CellContentDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView1.CellContentDoubleClick
-        TextBoxItem.Text = DataGridView1.Rows(e.RowIndex).Cells(e.ColumnIndex).Value
-
-        Dim stockOut As New StockOutBL
-        DataGridView1.DataSource = stockOut.FilterStockOutByName(TextBoxItem.Text)
-
-        PaintDatagrid()
-
-
-    End Sub
 
 
 #End Region

@@ -143,7 +143,7 @@ Partial Class StockMain
         'ButtonRequest
         '
         Me.ButtonRequest.BackColor = System.Drawing.SystemColors.MenuHighlight
-        Me.ButtonRequest.Location = New System.Drawing.Point(1, 228)
+        Me.ButtonRequest.Location = New System.Drawing.Point(3, 228)
         Me.ButtonRequest.Name = "ButtonRequest"
         Me.ButtonRequest.Size = New System.Drawing.Size(115, 38)
         Me.ButtonRequest.TabIndex = 10
@@ -240,7 +240,7 @@ Partial Class StockMain
         Me.ButtonDistrbHistory.Name = "ButtonDistrbHistory"
         Me.ButtonDistrbHistory.Size = New System.Drawing.Size(115, 38)
         Me.ButtonDistrbHistory.TabIndex = 9
-        Me.ButtonDistrbHistory.Text = "Distribution History"
+        Me.ButtonDistrbHistory.Text = "Stock Distribution History"
         Me.ButtonDistrbHistory.UseVisualStyleBackColor = True
         '
         'ButtonStockHistory
@@ -289,7 +289,7 @@ Partial Class StockMain
         Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.GroupBox1)
         Me.Name = "StockMain"
-        Me.Text = "Stock"
+        Me.Text = "Stock Management System"
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()

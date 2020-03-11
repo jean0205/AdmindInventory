@@ -288,7 +288,9 @@
     <None Include="My Project\DataSources\Report2.datasource" />
     <None Include="My Project\DataSources\ReportStock.datasource" />
     <None Include="My Project\DataSources\ReportStockEntry.datasource" />
+    <None Include="My Project\DataSources\ReportStockEntry2.datasource" />
     <None Include="My Project\DataSources\ReportStockOut.datasource" />
+    <None Include="My Project\DataSources\ReportStockOut2.datasource" />
     <None Include="My Project\DataSources\StockEntryDB.datasource" />
     <None Include="My Project\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

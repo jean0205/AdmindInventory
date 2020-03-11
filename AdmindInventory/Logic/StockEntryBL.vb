@@ -58,4 +58,24 @@
 
     End Function
 
+    Function FilterStockHistoryCategory(category As String) As DataTable
+
+        Dim stockEntry As New StockEntryDB
+        Return stockEntry.FilterStockHistoryCategory(category)
+
+    End Function
+
+    Function FilterStockHistoryCategoryAndDate(ByVal date1 As Date, ByVal date2 As Date, category As String) As DataTable
+        Dim stockEntry As New StockEntryDB
+        Return stockEntry.FilterStockHistoryCategoryAndDate(date1, date2, category)
+
+
+    End Function
+
+    Function FilterStockHistoryByItemAndDate(ByVal date1 As Date, ByVal date2 As Date, item As String) As DataTable
+        Dim stockEntry As New StockEntryDB
+        Return stockEntry.FilterStockHistoryItemAndDate(date1, date2, item)
+
+    End Function
+
 End Class
