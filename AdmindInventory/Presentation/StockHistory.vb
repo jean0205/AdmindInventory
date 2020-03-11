@@ -290,6 +290,14 @@
 
     End Sub
 
+    Private Sub ButtonUpdate_Click(sender As Object, e As EventArgs) Handles ButtonUpdate.Click
+
+        Dim itemId As Integer = DataGridView1.CurrentRow.Cells(1).Value
+
+        Dim addStock As New FrmAddStock(itemId)
+        addStock.ShowDialog()
+    End Sub
+
 
 
 

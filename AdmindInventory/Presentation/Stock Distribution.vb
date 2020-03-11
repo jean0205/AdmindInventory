@@ -105,7 +105,7 @@
         item = itemDB.GetItemsById(itemId)
         TextBoxItem.Text = item.Name
         TextBoxDescription.Text = item.Description
-        TextBoxPresentation.Text = item.Presentation
+        TextBoxPresentation.Text = item.Attribute
         TextBoxInStock.Text = stockAmount.ToString
 
     End Sub

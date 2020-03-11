@@ -2,10 +2,12 @@
     Dim itemDB As New ItemDB
 
     Dim itemId As Integer
+    Dim updating As Boolean
 
-    Sub New(ByVal itemId As Integer)
+    Sub New(ByVal itemId As Integer, updating As Boolean)
 
         Me.itemId = itemId
+        mee.
 
 
         ' This call is required by the designer.
@@ -83,7 +85,7 @@
         item = itemDB.GetItemsById(itemId)
         TextBoxName.Text = item.Name
         TextBoxCategory.Text = item.Category_Name
-        TextBoxPresentation.Text = item.Presentation
+        TextBoxPresentation.Text = item.Attribute
 
 
     End Sub

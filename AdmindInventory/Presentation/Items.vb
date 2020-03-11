@@ -286,7 +286,14 @@
     End Sub
 
     Private Sub TextBoxName_KeyUp(sender As Object, e As KeyEventArgs) Handles TextBoxName.KeyUp
+
+        If String.IsNullOrEmpty(TextBoxName.Text) Then
+            GetItems()
+            Return
+
+        End If
         Dim item As New ItemDB
+
 
         DataGridView1.DataSource = item.GetItemsByName(TextBoxName.Text)
         PaintDatagrid()

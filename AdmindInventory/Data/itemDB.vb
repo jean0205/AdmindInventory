@@ -19,7 +19,7 @@ Public Class ItemDB
 
                     item.Id = reader.GetInt32(0)
                     item.Name = reader.GetString(1)
-                    item.Presentation = reader.GetString(2)
+                    item.Attribute = reader.GetString(2)
                     item.Description = reader.GetString(3)
                     item.Reorder = reader.GetInt32(4)
                     item.Category_Name = reader.GetString(5)
@@ -43,7 +43,7 @@ Public Class ItemDB
     'Get item list to request screen
     Function GetItemTorequest() As DataTable
         Dim itemsList As New List(Of Item)
-        Dim query As String = "Select I.Id,I.Name, I.Presentation, I.Description from Item I where i.Active='1'"
+        Dim query As String = "Select I.Id,I.Name, I.Presentation As " & "Attribute" & ", I.Description from Item I where i.Active='1'"
 
         Dim table As New DataTable
 
@@ -70,7 +70,7 @@ Public Class ItemDB
     Function GetItemsByName(ByVal ItemName As String) As DataTable
         Dim table As New DataTable
 
-        Dim query As String = "select I.Id, I.Name, I.Presentation, I.Description from Item I where Name Like '" & ItemName & "%' and Active='1' "
+        Dim query As String = "select I.Id, I.Name, I.Presentation As " & "Attribute" & ", I.Description from Item I where Name Like '" & ItemName & "%' and Active='1' "
         Using connection As New SqlConnection(conString)
             Using command As New SqlCommand(query, connection)
                 'command.Parameters.Add("@Item_name", SqlDbType.varchar).Value = ItemName
@@ -95,7 +95,7 @@ Public Class ItemDB
     Function GetItemsByNameTocreate(ByVal ItemName As String) As DataTable
         Dim table As New DataTable
 
-        Dim query As String = "select I.Id, I.Name, I.Presentation, I.Description from Item I where Name Like '" & ItemName & "%'"
+        Dim query As String = "select I.Id, I.Name, I.Presentation As " & "Attribute" & ", I.Description from Item I where Name Like '" & ItemName & "%'"
         Using connection As New SqlConnection(conString)
             Using command As New SqlCommand(query, connection)
                 'command.Parameters.Add("@Item_name", SqlDbType.varchar).Value = ItemName
@@ -137,7 +137,7 @@ Public Class ItemDB
 
                         item.Id = reader.GetInt32(0)
                         item.Name = reader.GetString(1)
-                        item.Presentation = reader.GetString(2)
+                        item.Attribute = reader.GetString(2)
                         item.Description = reader.GetString(3)
                         item.Reorder = reader.GetInt32(4)
                         item.Category_Name = reader.GetString(5)
@@ -281,7 +281,7 @@ Public Class ItemDB
                     While reader.Read()
                         itemI.Id = reader.GetInt32(0)
                         itemI.Name = reader.GetString(1)
-                        itemI.Presentation = reader.GetString(2)
+                        itemI.Attribute = reader.GetString(2)
                         itemI.Description = reader.GetString(3)
                         itemI.Reorder = reader.GetInt32(4)
                         itemI.Category_Name = reader.GetString(5)

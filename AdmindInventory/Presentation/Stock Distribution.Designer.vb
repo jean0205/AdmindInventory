@@ -99,9 +99,9 @@ Partial Class FrmDistibuteStock
         Me.Label7.AutoSize = True
         Me.Label7.Location = New System.Drawing.Point(21, 142)
         Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(69, 13)
+        Me.Label7.Size = New System.Drawing.Size(49, 13)
         Me.Label7.TabIndex = 13
-        Me.Label7.Text = "Presentation:"
+        Me.Label7.Text = "Attribute:"
         '
         'TextBoxPresentation
         '

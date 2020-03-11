@@ -300,7 +300,7 @@ Public Class StockOutDB
     'only the pendin request'
     Function GetStockRequest() As DataTable
 
-        Dim query As String = "select so.Id, so.[Item Id], so.[Item Name],i.Presentation,so.Category, so.Department, so.Date, so.Person,SO.Amount, s.Stock from StockOutView3 SO
+        Dim query As String = "select so.Id, so.[Item Id], so.[Item Name],i.Presentation As " & "Attribute" & ",so.Category, so.Department, so.Date, so.Person,SO.Amount, s.Stock from StockOutView3 SO
                                 full join Stock S on s.Item_id= so.[Item Id]
 								inner join Item I on I.Id= so.[Item Id]							
                                 where so.State='Pending   '"

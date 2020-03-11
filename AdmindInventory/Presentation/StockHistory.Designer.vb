@@ -23,6 +23,8 @@ Partial Class StockHistory
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.Label7 = New System.Windows.Forms.Label()
+        Me.ComboBoxCategory = New System.Windows.Forms.ComboBox()
         Me.ButtonRport = New System.Windows.Forms.Button()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.TextBox1 = New System.Windows.Forms.TextBox()
@@ -40,8 +42,7 @@ Partial Class StockHistory
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.TextBoxTotalcost = New System.Windows.Forms.TextBox()
-        Me.Label7 = New System.Windows.Forms.Label()
-        Me.ComboBoxCategory = New System.Windows.Forms.ComboBox()
+        Me.ButtonUpdate = New System.Windows.Forms.Button()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox3.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
@@ -66,6 +67,24 @@ Partial Class StockHistory
         Me.GroupBox1.TabIndex = 10
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Filter by:"
+        '
+        'Label7
+        '
+        Me.Label7.AutoSize = True
+        Me.Label7.Location = New System.Drawing.Point(523, 24)
+        Me.Label7.Name = "Label7"
+        Me.Label7.Size = New System.Drawing.Size(52, 13)
+        Me.Label7.TabIndex = 18
+        Me.Label7.Text = "Category:"
+        '
+        'ComboBoxCategory
+        '
+        Me.ComboBoxCategory.FormattingEnabled = True
+        Me.ComboBoxCategory.Items.AddRange(New Object() {"All Categories"})
+        Me.ComboBoxCategory.Location = New System.Drawing.Point(523, 47)
+        Me.ComboBoxCategory.Name = "ComboBoxCategory"
+        Me.ComboBoxCategory.Size = New System.Drawing.Size(126, 21)
+        Me.ComboBoxCategory.TabIndex = 17
         '
         'ButtonRport
         '
@@ -217,29 +236,21 @@ Partial Class StockHistory
         Me.TextBoxTotalcost.Size = New System.Drawing.Size(196, 20)
         Me.TextBoxTotalcost.TabIndex = 14
         '
-        'Label7
+        'ButtonUpdate
         '
-        Me.Label7.AutoSize = True
-        Me.Label7.Location = New System.Drawing.Point(523, 24)
-        Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(52, 13)
-        Me.Label7.TabIndex = 18
-        Me.Label7.Text = "Category:"
-        '
-        'ComboBoxCategory
-        '
-        Me.ComboBoxCategory.FormattingEnabled = True
-        Me.ComboBoxCategory.Items.AddRange(New Object() {"All Categories"})
-        Me.ComboBoxCategory.Location = New System.Drawing.Point(523, 47)
-        Me.ComboBoxCategory.Name = "ComboBoxCategory"
-        Me.ComboBoxCategory.Size = New System.Drawing.Size(126, 21)
-        Me.ComboBoxCategory.TabIndex = 17
+        Me.ButtonUpdate.Location = New System.Drawing.Point(32, 641)
+        Me.ButtonUpdate.Name = "ButtonUpdate"
+        Me.ButtonUpdate.Size = New System.Drawing.Size(75, 23)
+        Me.ButtonUpdate.TabIndex = 1
+        Me.ButtonUpdate.Text = "Update"
+        Me.ButtonUpdate.UseVisualStyleBackColor = True
         '
         'StockHistory
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1151, 671)
+        Me.Controls.Add(Me.ButtonUpdate)
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.TextBoxTotalcost)
         Me.Controls.Add(Me.GroupBox1)
@@ -277,4 +288,5 @@ Partial Class StockHistory
     Friend WithEvents TextBox1 As TextBox
     Friend WithEvents Label7 As Label
     Friend WithEvents ComboBoxCategory As ComboBox
+    Friend WithEvents ButtonUpdate As Button
 End Class
