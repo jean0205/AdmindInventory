@@ -43,6 +43,7 @@ Partial Class StockHistory
         Me.Label3 = New System.Windows.Forms.Label()
         Me.TextBoxTotalcost = New System.Windows.Forms.TextBox()
         Me.ButtonUpdate = New System.Windows.Forms.Button()
+        Me.ButtonDelete = New System.Windows.Forms.Button()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox3.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
@@ -245,11 +246,21 @@ Partial Class StockHistory
         Me.ButtonUpdate.Text = "Update"
         Me.ButtonUpdate.UseVisualStyleBackColor = True
         '
+        'ButtonDelete
+        '
+        Me.ButtonDelete.Location = New System.Drawing.Point(144, 641)
+        Me.ButtonDelete.Name = "ButtonDelete"
+        Me.ButtonDelete.Size = New System.Drawing.Size(75, 23)
+        Me.ButtonDelete.TabIndex = 16
+        Me.ButtonDelete.Text = "Delete"
+        Me.ButtonDelete.UseVisualStyleBackColor = True
+        '
         'StockHistory
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1151, 671)
+        Me.Controls.Add(Me.ButtonDelete)
         Me.Controls.Add(Me.ButtonUpdate)
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.TextBoxTotalcost)
@@ -289,4 +300,5 @@ Partial Class StockHistory
     Friend WithEvents Label7 As Label
     Friend WithEvents ComboBoxCategory As ComboBox
     Friend WithEvents ButtonUpdate As Button
+    Friend WithEvents ButtonDelete As Button
 End Class

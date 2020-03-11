@@ -77,5 +77,28 @@
         Return stockEntry.FilterStockHistoryItemAndDate(date1, date2, item)
 
     End Function
+    Sub UpdateStockEntry(ByVal id As Integer, ByVal invoiceNo As String, ByVal providerId As String,
+                         ByVal amount As Integer, ByVal costEach As Decimal, ByVal costTotal As Decimal,
+                         ByVal recived As String, ByVal daterecived As Date)
+
+        Dim stockEntry As New StockEntryDB
+        stockEntry.UpdateStockEntry(id, invoiceNo, providerId, amount, costEach, costTotal, recived, daterecived)
+    End Sub
+
+    Sub UpdateItemprovider(ByVal providerId As String,
+                        ByVal costEach As Decimal, ByVal daterecived As Date, ByVal entryId As Integer)
+
+        Dim stockEntry As New StockEntryDB
+        stockEntry.UpdateItemprovider(providerId, costEach, daterecived, entryId)
+
+    End Sub
+    Sub DeleteStockEntry(ByVal entryId As Integer)
+        Dim stockEntry As New StockEntryDB
+        stockEntry.DeleteStockEntry(entryId)
+    End Sub
+    Sub DeleteItemprovider(ByVal entryId As Integer)
+        Dim stockEntry As New StockEntryDB
+        stockEntry.DeleteItemprovider(entryId)
+    End Sub
 
 End Class

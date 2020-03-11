@@ -66,4 +66,14 @@
         Return stock.FilterstockOutBydateAndRefused(date1, date2)
 
     End Function
+
+    Sub updateStockOut(ByVal outId As Integer, ByVal departmentName As String, ByVal amount As Integer)
+        Dim stock As New StockOutDB
+        stock.updateStockOut(outId, departmentName, amount)
+
+    End Sub
+    Sub DeleteStockOutRecord(ByVal entryId As Integer)
+        Dim stock As New StockOutDB
+        stock.DeleteStockOutRecord(entryId)
+    End Sub
 End Class

@@ -287,7 +287,70 @@ Public Class StockEntryDB
 
     End Sub
 
+    'Updtae an entry
+    Sub UpdateStockEntry(ByVal entryId As Integer, ByVal invoiceNo As String, ByVal providerId As String,
+                         ByVal amount As Integer, ByVal costEach As Decimal, ByVal costTotal As Decimal,
+                         ByVal recived As String, ByVal daterecived As Date)
 
+
+        Dim query As String = "Update StockEntry set InvoiceNo=@InvoiceNo, Provider_Id=(Select Id from Provider where Name=@Provider_Id), Amount=@Amount,
+                                CostEach=@CostEach, CostTotal=@CostTotal Where Id=@Id"
+
+        Using Connection As New SqlConnection(conString)
+
+            Using command As New SqlCommand(query, Connection)
+
+                command.Parameters.AddWithValue("@Id", SqlDbType.Int).Value = entryId
+                command.Parameters.AddWithValue("@InvoiceNo", SqlDbType.VarChar).Value = invoiceNo
+                command.Parameters.AddWithValue("@Provider_Id", SqlDbType.VarChar).Value = providerId
+                command.Parameters.AddWithValue("@Amount", SqlDbType.Int).Value = amount
+                command.Parameters.AddWithValue("@CostEach", SqlDbType.Decimal).Value = costEach
+                command.Parameters.AddWithValue("@CostTotal", SqlDbType.Decimal).Value = costTotal
+                command.Parameters.AddWithValue("@Recived", SqlDbType.VarChar).Value = recived
+                command.Parameters.AddWithValue("@Date", SqlDbType.Date).Value = daterecived
+
+                Try
+                    Connection.Open()
+                    command.ExecuteNonQuery()
+                    Connection.Close()
+                Catch ex As Exception
+                    Throw ex
+                End Try
+            End Using
+
+        End Using
+
+
+
+    End Sub
+
+    'delete stock entry 
+    Sub DeleteStockEntry(ByVal entryId As Integer)
+
+
+        Dim query As String = "Delete from StockEntry where Id=@Id"
+
+        Using Connection As New SqlConnection(conString)
+
+            Using command As New SqlCommand(query, Connection)
+
+                command.Parameters.AddWithValue("@Id", SqlDbType.Int).Value = entryId
+
+
+                Try
+                    Connection.Open()
+                    command.ExecuteNonQuery()
+                    Connection.Close()
+                Catch ex As Exception
+                    Throw ex
+                End Try
+            End Using
+
+        End Using
+
+
+
+    End Sub
 
     'Insertar registros en la tabla item provider para saber el costo de cada item cada vez q se compro con un provider
 
@@ -295,7 +358,7 @@ Public Class StockEntryDB
                          ByVal costEach As Decimal, ByVal daterecived As Date)
 
 
-        Dim query As String = "insert into Item_Provider(Item_id, Provider_Id, Cost, Date) values(@Item_Id, (select Id from Provider where Name= @Provider_Id), @CostEach, @Date)"
+        Dim query As String = "insert into Item_Provider(Item_id, Provider_Id, Cost, Date, Entry_Id) values(@Item_Id, (select Id from Provider where Name= @Provider_Id), @CostEach, @Date, (Select Max(Id) from StockEntry))"
 
 
         Using Connection As New SqlConnection(conString)
@@ -306,6 +369,69 @@ Public Class StockEntryDB
                 command.Parameters.AddWithValue("@Provider_Id", SqlDbType.VarChar).Value = providerId
                 command.Parameters.AddWithValue("@CostEach", SqlDbType.Decimal).Value = costEach
                 command.Parameters.AddWithValue("@Date", SqlDbType.Date).Value = daterecived
+
+                Try
+                    Connection.Open()
+                    command.ExecuteNonQuery()
+                    Connection.Close()
+                Catch ex As Exception
+                    Throw ex
+                End Try
+            End Using
+
+        End Using
+
+
+
+    End Sub
+
+    'update itemprovider table with entry id
+
+    Sub UpdateItemprovider(ByVal providerId As String,
+                         ByVal costEach As Decimal, ByVal daterecived As Date, ByVal entryId As Integer)
+
+
+        Dim query As String = "Update  Item_Provider set  Provider_Id=(select Id from Provider where Name= @Provider_Id), Cost=@CostEach, Date=@Date where entry_id=@EntryId"
+
+
+        Using Connection As New SqlConnection(conString)
+
+            Using command As New SqlCommand(query, Connection)
+
+
+                command.Parameters.AddWithValue("@Provider_Id", SqlDbType.VarChar).Value = providerId
+                command.Parameters.AddWithValue("@CostEach", SqlDbType.Decimal).Value = costEach
+                command.Parameters.AddWithValue("@Date", SqlDbType.Date).Value = daterecived
+                command.Parameters.AddWithValue("@EntryId", SqlDbType.Int).Value = entryId
+
+                Try
+                    Connection.Open()
+                    command.ExecuteNonQuery()
+                    Connection.Close()
+                Catch ex As Exception
+                    Throw ex
+                End Try
+            End Using
+
+        End Using
+
+
+
+    End Sub
+
+    'Delete itemprovider entry
+
+    Sub DeleteItemprovider(ByVal entryId As Integer)
+
+
+        Dim query As String = "Delete from  Item_Provider  where entry_id=@EntryId"
+
+
+        Using Connection As New SqlConnection(conString)
+
+            Using command As New SqlCommand(query, Connection)
+
+                command.Parameters.AddWithValue("@EntryId", SqlDbType.Int).Value = entryId
 
                 Try
                     Connection.Open()

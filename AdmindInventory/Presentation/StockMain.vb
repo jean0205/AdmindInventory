@@ -53,7 +53,9 @@
 
     Private Sub Button7_Click(sender As Object, e As EventArgs) Handles ButtonStockHistory.Click
         Dim stockHistoryFrm As New StockHistory
-        stockHistoryFrm.Show()
+        stockHistoryFrm.ShowDialog()
+        LoadStock()
+
     End Sub
 
     Private Sub Button8_Click(sender As Object, e As EventArgs) Handles ButtonDistrbHistory.Click

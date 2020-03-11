@@ -291,11 +291,64 @@
     End Sub
 
     Private Sub ButtonUpdate_Click(sender As Object, e As EventArgs) Handles ButtonUpdate.Click
+        Dim itemId As Integer = DataGridView1.CurrentRow.Cells(1).Value
+        Dim entryId As Integer = DataGridView1.CurrentRow.Cells(0).Value
+        Dim invoice As String = DataGridView1.CurrentRow.Cells(9).Value
+        Dim provider As String = DataGridView1.CurrentRow.Cells(10).Value
+        Dim amount As Integer = DataGridView1.CurrentRow.Cells(6).Value
+        Dim cost As Decimal = DataGridView1.CurrentRow.Cells(7).Value
+
+
+
+        Dim addStock As New FrmAddStock(itemId, entryId, True, invoice, provider, amount, cost)
+        addStock.ShowDialog()
+        LoadData()
+    End Sub
+
+    Private Sub ButtonDelete_Click(sender As Object, e As EventArgs) Handles ButtonDelete.Click
 
         Dim itemId As Integer = DataGridView1.CurrentRow.Cells(1).Value
+        Dim entryId As Integer = DataGridView1.CurrentRow.Cells(0).Value
 
-        Dim addStock As New FrmAddStock(itemId)
-        addStock.ShowDialog()
+        Dim amount As String = DataGridView1.CurrentRow.Cells(6).Value
+
+
+
+
+
+
+
+
+        Dim message As String = "Do you want to delete this item?"
+        Dim title As String = "Delete item"
+        Dim buttons As MessageBoxButtons = MessageBoxButtons.YesNo
+
+        Dim result As DialogResult = MessageBox.Show(message, title, buttons, MessageBoxIcon.Question)
+        If result = DialogResult.Yes Then
+            Try
+                Dim stockentry As New StockEntryBL
+                stockentry.DeleteStockEntry(entryId)
+                stockentry.DeleteItemprovider(entryId)
+
+                Dim stock As New StockBL
+                stock.UpdateStock(itemId, -amount)
+
+                MessageBox.Show("Stock entry successfully deleted.",
+                                "Delection Complete",
+                                     MessageBoxButtons.OK,
+                                        MessageBoxIcon.Information,
+                                            MessageBoxDefaultButton.Button1)
+                LoadData()
+            Catch ex As Exception
+
+
+            End Try
+        End If
+
+
+
+
+
     End Sub
 
 

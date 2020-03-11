@@ -2,13 +2,34 @@
     Dim itemDB As New ItemDB
 
     Dim itemId As Integer
-    Dim updating As Boolean
+    Dim updating As Boolean = False
+    Dim entryId As Integer
+    Dim invoice As String
+    Dim provider As String
+    Dim amountBefore As Integer
+    Dim cost As Decimal
 
-    Sub New(ByVal itemId As Integer, updating As Boolean)
+    Sub New(ByVal itemId As Integer)
 
         Me.itemId = itemId
-        mee.
 
+
+
+        ' This call is required by the designer.
+        InitializeComponent()
+
+        ' Add any initialization after the InitializeComponent() call.
+
+    End Sub
+    Sub New(ByVal itemId As Integer, ByVal entryId As Integer, updating As Boolean, ByVal invoice As String, ByVal provider As String, ByVal amount As Integer, ByVal cost As Decimal)
+
+        Me.itemId = itemId
+        Me.entryId = entryId
+        Me.updating = updating
+        Me.invoice = invoice
+        Me.provider = provider
+        Me.amountBefore = amount
+        Me.cost = cost
 
         ' This call is required by the designer.
         InitializeComponent()
@@ -20,12 +41,24 @@
         GetItemInformation()
         ReloadAutocomplete()
 
+        If updating Then
+            Me.TextBoxInvoice.Text = invoice
+            Me.TextBoxprovider.Text = provider
+            Me.TextBoxAmount.Text = amountBefore
+            Me.TextBoxCost.Text = cost
+        End If
+
+
 
     End Sub
 
 #Region "Buttom"
     Private Sub ButtonReestock_Click(sender As Object, e As EventArgs) Handles ButtonReestock.Click
 
+        'ver si update es true para update
+        ' update la tabla item provider
+        'update el stock
+        '
         If CheckInformation() Then
             Return
         End If
@@ -44,19 +77,49 @@
 
 
 
+
             Dim stockEntry As New StockEntryBL
-            stockEntry.InsertStockEntry(itemId, invoice, providerName, amount, costEach, totalCost, recibed, todaysdate)
-            stockEntry.InsertItemprovider(itemId, providerName, costEach, todaysdate)
+
+            If Not updating Then
+                stockEntry.InsertStockEntry(itemId, invoice, providerName, amount, costEach, totalCost, recibed, todaysdate)
+                stockEntry.InsertItemprovider(itemId, providerName, costEach, todaysdate)
+
+                Dim stock As New StockBL
+                stock.UpdateStock(itemId, amount)
+
+                MessageBox.Show("Stock entry saved.",
+                                    "Entry Complete",
+                                         MessageBoxButtons.OK,
+                                            MessageBoxIcon.Information,
+                                                MessageBoxDefaultButton.Button1)
+            Else
+
+                stockEntry.UpdateStockEntry(entryId, invoice, providerName, amount, costEach, totalCost, recibed, todaysdate)
+                stockEntry.UpdateItemprovider(providerName, costEach, todaysdate, entryId)
+                updating = False
+
+                Dim diferencia As Integer = amount - amountBefore
 
 
-            Dim stock As New StockBL
-            stock.UpdateStock(itemId, amount)
+                Dim stock As New StockBL
+                    stock.UpdateStock(itemId, diferencia)
 
-            MessageBox.Show("Stock entry saved.",
-                                "Entry Complete",
-                                     MessageBoxButtons.OK,
-                                        MessageBoxIcon.Information,
-                                            MessageBoxDefaultButton.Button1)
+                    MessageBox.Show("Stock entry Updated.",
+                                        "Update Complete",
+                                             MessageBoxButtons.OK,
+                                                MessageBoxIcon.Information,
+                                                    MessageBoxDefaultButton.Button1)
+
+
+
+
+
+            End If
+
+
+
+
+
             CleanInterfaz()
         Catch ex As Exception
             MessageBox.Show(ex.Message)

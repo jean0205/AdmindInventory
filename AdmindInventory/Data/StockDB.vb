@@ -19,7 +19,7 @@ Public Class StockDB
                         stock.ItemId = reader.GetInt32(0)
                         stock.Item = reader.GetString(1)
                         stock.Category = reader.GetString(2)
-                        stock.Attribute = reader.GetString(3)
+                        stock.Presentation = reader.GetString(3)
                         stock.Reorder = reader.GetInt32(4)
                         stock.InStock = reader.GetInt32(5)
                         stock.Active = reader.GetBoolean(6)
@@ -53,7 +53,7 @@ Public Class StockDB
                         stock.ItemId = reader.GetInt32(0)
                         stock.Item = reader.GetString(1)
                         stock.Category = reader.GetString(2)
-                        stock.Attribute = reader.GetString(3)
+                        stock.Presentation = reader.GetString(3)
                         stock.Reorder = reader.GetInt32(4)
                         stock.InStock = reader.GetInt32(5)
                         stock.Active = reader.GetBoolean(6)
@@ -86,7 +86,7 @@ Public Class StockDB
                         stock.ItemId = reader.GetInt32(0)
                         stock.Item = reader.GetString(1)
                         stock.Category = reader.GetString(2)
-                        stock.Attribute = reader.GetString(3)
+                        stock.Presentation = reader.GetString(3)
                         stock.Reorder = reader.GetInt32(4)
                         stock.InStock = reader.GetInt32(5)
                         stock.Active = reader.GetBoolean(6)
@@ -190,6 +190,34 @@ Public Class StockDB
             End Using
         End Using
         Return table
+    End Function
+
+    Function GetStockById(id As Integer) As Integer
+        Dim stock As Integer
+
+        Dim query As String = "select s.stock from Stock s where Item_id=@Id"
+        Using connection As New SqlConnection(conString)
+            Using command As New SqlCommand(query, connection)
+                command.Parameters.Add("@Id", SqlDbType.Int).Value = id
+                Try
+                    connection.Open()
+                    Dim reader As SqlDataReader = command.ExecuteReader()
+                    While reader.Read
+                        stock = reader.GetInt32(0)
+                    End While
+
+
+
+                    reader.Close()
+                    connection.Close()
+                Catch ex As Exception
+                    Throw ex
+
+                End Try
+
+            End Using
+        End Using
+        Return Stock
     End Function
 
 

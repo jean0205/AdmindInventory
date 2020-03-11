@@ -37,6 +37,33 @@ Public Class StockOutDB
 
     End Sub
 
+    Sub updateStockOut(ByVal outId As Integer, ByVal departmentName As String, ByVal amount As Integer)
+
+
+        Dim query As String = "update  StockDistribution  set  Departrment_Id=(select D.Id from Department D Where d.Name= @Depart_Name), Amount=@Amount where Id=@Id "
+        Using Connection As New SqlConnection(conString)
+
+            Using command As New SqlCommand(query, Connection)
+
+                command.Parameters.AddWithValue("@Id", SqlDbType.Int).Value = outId
+                command.Parameters.AddWithValue("@Depart_Name", SqlDbType.VarChar).Value = departmentName
+                command.Parameters.AddWithValue("@Amount", SqlDbType.Int).Value = amount
+
+
+
+                Try
+                    Connection.Open()
+                    command.ExecuteNonQuery()
+                    Connection.Close()
+                Catch ex As Exception
+                    Throw ex
+                End Try
+            End Using
+
+        End Using
+
+    End Sub
+
     Sub UpdateRequestState(ByVal requestid As Integer, ByVal condition As Integer)
 
 
@@ -325,6 +352,34 @@ Public Class StockOutDB
         Return table
 
     End Function
+
+    'delete stockOut entrys
+    Sub DeleteStockOutRecord(ByVal entryId As Integer)
+
+
+        Dim query As String = "Delete from StockDistribution where Id=@Id"
+
+        Using Connection As New SqlConnection(conString)
+
+            Using command As New SqlCommand(query, Connection)
+
+                command.Parameters.AddWithValue("@Id", SqlDbType.Int).Value = entryId
+
+
+                Try
+                    Connection.Open()
+                    command.ExecuteNonQuery()
+                    Connection.Close()
+                Catch ex As Exception
+                    Throw ex
+                End Try
+            End Using
+
+        End Using
+
+
+
+    End Sub
 
 
 

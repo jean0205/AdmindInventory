@@ -39,6 +39,8 @@ Partial Class DistributionHistory
         Me.ComboBoxcategory = New System.Windows.Forms.ComboBox()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.TextBoxItem = New System.Windows.Forms.TextBox()
+        Me.ButtonDelete = New System.Windows.Forms.Button()
+        Me.ButtonUpdate = New System.Windows.Forms.Button()
         Me.GroupBox2.SuspendLayout()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
@@ -211,11 +213,31 @@ Partial Class DistributionHistory
         Me.TextBoxItem.Size = New System.Drawing.Size(126, 20)
         Me.TextBoxItem.TabIndex = 0
         '
+        'ButtonDelete
+        '
+        Me.ButtonDelete.Location = New System.Drawing.Point(124, 665)
+        Me.ButtonDelete.Name = "ButtonDelete"
+        Me.ButtonDelete.Size = New System.Drawing.Size(75, 23)
+        Me.ButtonDelete.TabIndex = 18
+        Me.ButtonDelete.Text = "Delete"
+        Me.ButtonDelete.UseVisualStyleBackColor = True
+        '
+        'ButtonUpdate
+        '
+        Me.ButtonUpdate.Location = New System.Drawing.Point(12, 665)
+        Me.ButtonUpdate.Name = "ButtonUpdate"
+        Me.ButtonUpdate.Size = New System.Drawing.Size(75, 23)
+        Me.ButtonUpdate.TabIndex = 17
+        Me.ButtonUpdate.Text = "Update"
+        Me.ButtonUpdate.UseVisualStyleBackColor = True
+        '
         'DistributionHistory
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1151, 671)
+        Me.ClientSize = New System.Drawing.Size(1151, 698)
+        Me.Controls.Add(Me.ButtonDelete)
+        Me.Controls.Add(Me.ButtonUpdate)
         Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.GroupBox2)
         Me.Name = "DistributionHistory"
@@ -247,4 +269,6 @@ Partial Class DistributionHistory
     Friend WithEvents GroupBox3 As GroupBox
     Friend WithEvents ButtonReport As Button
     Friend WithEvents CheckBox2 As CheckBox
+    Friend WithEvents ButtonDelete As Button
+    Friend WithEvents ButtonUpdate As Button
 End Class

@@ -4,6 +4,13 @@
 
     Dim itemId As Integer
     Dim stockAmount As Integer
+    Dim id As Integer
+    Dim updating As Boolean = False
+    Dim itemName As String
+    Dim attribute As String
+    Dim department As String
+    Dim amountBefore As Integer
+
 
 #End Region
 
@@ -26,9 +33,38 @@
         ' Add any initialization after the InitializeComponent() call.
 
     End Sub
+    Sub New(ByVal id As Integer, ByVal itemName As String, attribute As String, department As String, amount As Integer, updating As Boolean, itemid As Integer)
+
+        Me.id = id
+        Me.itemName = itemName
+        Me.attribute = attribute
+        Me.department = department
+        Me.amountBefore = amount
+        Me.updating = updating
+        Me.itemId = itemid
+
+
+        ' This call is required by the designer.
+        InitializeComponent()
+
+        ' Add any initialization after the InitializeComponent() call.
+
+    End Sub
     Private Sub FrmDistibuteStock_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         LoadDepartments()
         LoadItemInformation()
+
+        If updating Then
+            Me.TextBoxItem.Text = itemName
+            Me.TextBoxPresentation.Text = attribute
+            Me.ComboBoxDepartment.SelectedItem = ComboBoxDepartment.FindStringExact(department)
+            Me.TextBoxAmount.Text = amountBefore
+
+            Dim stock As New StockDB
+            Me.TextBoxInStock.Text = stock.GetStockById(itemId).ToString
+
+
+        End If
 
 
 
@@ -62,16 +98,38 @@
             Dim requested As Boolean = False ' it was not a request
 
             Dim stockOut As New StockOutBL
-            stockOut.InsertStockOut(itemId, departmetName, amount, todaysdate, person, condition, requested)
             Dim stock As New StockBL
-            stock.UpdateStock(itemId, -amount)
+
+            If Not updating Then
+
+                stockOut.InsertStockOut(itemId, departmetName, amount, todaysdate, person, condition, requested)
 
 
-            MessageBox.Show("The item was correctly distributed to the department: " & ComboBoxDepartment.SelectedItem,
-                                "Distribution Complete",
-                                     MessageBoxButtons.OK,
-                                        MessageBoxIcon.Information,
-                                            MessageBoxDefaultButton.Button1)
+
+                stock.UpdateStock(itemId, -amount)
+
+
+                MessageBox.Show("The item was correctly distributed to the department: " & ComboBoxDepartment.SelectedItem,
+                                    "Distribution Complete",
+                                         MessageBoxButtons.OK,
+                                            MessageBoxIcon.Information,
+                                                MessageBoxDefaultButton.Button1)
+            Else
+                stockOut.updateStockOut(Me.id, departmetName, amount)
+                Dim diferencia As Integer = amount - amountBefore
+
+                stock.UpdateStock(itemId, -diferencia)
+
+                MessageBox.Show("The record was successfully updated",
+                                   "Update Complete",
+                                        MessageBoxButtons.OK,
+                                           MessageBoxIcon.Information,
+                                               MessageBoxDefaultButton.Button1)
+                updating = False
+
+            End If
+
+
         Catch ex As Exception
             MessageBox.Show(ex.Message)
         End Try

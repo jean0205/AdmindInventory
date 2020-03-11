@@ -18,6 +18,7 @@
         Dim stockOut As New StockOutBL
         DataGridView1.DataSource = stockOut.GetStockOutHystory
         DataGridView1.Columns(0).Visible = False
+        DataGridView1.Columns(11).Visible = False
         PaintDatagrid()
 
 
@@ -295,6 +296,74 @@
 
         Dim reportFrm As New ReportDistribution(item, dateFrom, dateTo, category, department, stockOutList)
         reportFrm.Show()
+
+    End Sub
+
+    Private Sub ButtonUpdate_Click(sender As Object, e As EventArgs) Handles ButtonUpdate.Click
+
+
+        Dim outId As Integer = DataGridView1.CurrentRow.Cells(0).Value
+        Dim itemId As Integer = DataGridView1.CurrentRow.Cells(11).Value
+        Dim itemName As String = DataGridView1.CurrentRow.Cells(1).Value
+        Dim attribute As String = DataGridView1.CurrentRow.Cells(2).Value
+        Dim department As String = DataGridView1.CurrentRow.Cells(5).Value
+        Dim Amount As Integer = DataGridView1.CurrentRow.Cells(6).Value
+
+
+
+
+
+
+        Dim stockDist As New FrmDistibuteStock(outId, itemName, attribute, department, Amount, True, itemId)
+        stockDist.ShowDialog()
+
+        getStockOutHistory()
+
+
+
+    End Sub
+
+    Private Sub ButtonDelete_Click(sender As Object, e As EventArgs) Handles ButtonDelete.Click
+
+
+        Dim itemId As Integer = DataGridView1.CurrentRow.Cells(11).Value
+        Dim entryId As Integer = DataGridView1.CurrentRow.Cells(0).Value
+
+        Dim amount As String = DataGridView1.CurrentRow.Cells(6).Value
+
+
+
+
+
+
+
+
+        Dim message As String = "Do you want to delete this record?"
+        Dim title As String = "Delete item"
+        Dim buttons As MessageBoxButtons = MessageBoxButtons.YesNo
+
+        Dim result As DialogResult = MessageBox.Show(message, title, buttons, MessageBoxIcon.Question)
+        If result = DialogResult.Yes Then
+            Try
+                Dim stouOut As New StockOutBL
+                stouOut.DeleteStockOutRecord(entryId)
+
+
+                Dim stock As New StockBL
+                stock.UpdateStock(itemId, amount)
+
+                MessageBox.Show("Stock entry successfully deleted.",
+                                "Delection Complete",
+                                     MessageBoxButtons.OK,
+                                        MessageBoxIcon.Information,
+                                            MessageBoxDefaultButton.Button1)
+                getStockOutHistory()
+            Catch ex As Exception
+
+
+            End Try
+        End If
+
 
     End Sub
 
