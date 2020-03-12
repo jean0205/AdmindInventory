@@ -327,8 +327,9 @@
         If result = DialogResult.Yes Then
             Try
                 Dim stockentry As New StockEntryBL
-                stockentry.DeleteStockEntry(entryId)
                 stockentry.DeleteItemprovider(entryId)
+                stockentry.DeleteStockEntry(entryId)
+
 
                 Dim stock As New StockBL
                 stock.UpdateStock(itemId, -amount)

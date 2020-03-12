@@ -89,7 +89,7 @@ Partial Class FrmAddStock
         'Label10
         '
         Me.Label10.AutoSize = True
-        Me.Label10.Location = New System.Drawing.Point(155, 337)
+        Me.Label10.Location = New System.Drawing.Point(178, 337)
         Me.Label10.Name = "Label10"
         Me.Label10.Size = New System.Drawing.Size(58, 13)
         Me.Label10.TabIndex = 21
@@ -98,7 +98,7 @@ Partial Class FrmAddStock
         'Label9
         '
         Me.Label9.AutoSize = True
-        Me.Label9.Location = New System.Drawing.Point(83, 337)
+        Me.Label9.Location = New System.Drawing.Point(106, 337)
         Me.Label9.Name = "Label9"
         Me.Label9.Size = New System.Drawing.Size(55, 13)
         Me.Label9.TabIndex = 20
@@ -192,7 +192,7 @@ Partial Class FrmAddStock
         Me.ButtonReestock.Name = "ButtonReestock"
         Me.ButtonReestock.Size = New System.Drawing.Size(75, 23)
         Me.ButtonReestock.TabIndex = 4
-        Me.ButtonReestock.Text = "Re-Stock"
+        Me.ButtonReestock.Text = "Accept"
         Me.ButtonReestock.UseVisualStyleBackColor = True
         '
         'TextBoxAmount

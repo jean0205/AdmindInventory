@@ -10,6 +10,7 @@
     Dim attribute As String
     Dim department As String
     Dim amountBefore As Integer
+    Dim instock As Integer
 
 
 #End Region
@@ -114,6 +115,10 @@
                                          MessageBoxButtons.OK,
                                             MessageBoxIcon.Information,
                                                 MessageBoxDefaultButton.Button1)
+
+                TextBoxAmount.Clear()
+                ComboBoxDepartment.SelectedIndex = -1
+
             Else
                 stockOut.updateStockOut(Me.id, departmetName, amount)
                 Dim diferencia As Integer = amount - amountBefore
@@ -125,6 +130,8 @@
                                         MessageBoxButtons.OK,
                                            MessageBoxIcon.Information,
                                                MessageBoxDefaultButton.Button1)
+                TextBoxAmount.Clear()
+                ComboBoxDepartment.SelectedIndex = -1
                 updating = False
 
             End If

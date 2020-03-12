@@ -60,7 +60,8 @@
 
     Private Sub Button8_Click(sender As Object, e As EventArgs) Handles ButtonDistrbHistory.Click
         Dim distrHistoryFrm As New DistributionHistory
-        distrHistoryFrm.Show()
+        distrHistoryFrm.ShowDialog()
+        LoadStock()
     End Sub
 
     Private Sub Button9_Click(sender As Object, e As EventArgs) Handles ButtonPendingReqs.Click
@@ -175,6 +176,7 @@
     End Sub
 
     Sub LoadCategories()
+        ComboBoxCategory.Items.Clear()
         Dim category As New CategoryBL
         ComboBoxCategory.Items.Add("All Categories")
 
