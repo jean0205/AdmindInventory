@@ -100,6 +100,160 @@ Public Class CategoryDB
         End Using
     End Sub
 
+
+    ''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+    '''category budget
+    '''
+    Function GetbudgetTable() As DataTable
+
+        Dim query As String = "select B.id, C.Name As " & "Category" & ", B.Year, B.Budget, B.Expenses, B.in_Budget As " & "Available" & " from Budget B
+                            inner join Category C on B.Category_Id= c.Id"
+        Dim table As New DataTable
+
+        Using connection As New SqlConnection(conString)
+            Dim command As New SqlCommand(query, connection)
+
+            Try
+                connection.Open()
+                Dim reader As SqlDataReader = command.ExecuteReader()
+                table.Load(reader)
+
+
+                reader.Close()
+                connection.Close()
+
+            Catch ex As Exception
+                Throw ex
+            End Try
+        End Using
+        Return table
+
+    End Function
+
+    Function getBudgetByCategory(ByVal category As String) As DataTable
+
+        Dim query As String = "select B.id, C.Name As " & "Category" & ", B.Year, B.Budget, B.Expenses, B.in_Budget As " & "Available" & " from Budget B
+                                    inner join Category C on B.Category_Id= c.Id where Category_Id=(select Id from Category where Name=@Category_Id )"
+        Dim table As New DataTable
+
+        Using connection As New SqlConnection(conString)
+            Dim command As New SqlCommand(query, connection)
+            command.Parameters.AddWithValue("@Category_Id", SqlDbType.VarChar).Value = category
+            Try
+                connection.Open()
+                Dim reader As SqlDataReader = command.ExecuteReader()
+                table.Load(reader)
+
+
+                reader.Close()
+                connection.Close()
+
+            Catch ex As Exception
+                Throw ex
+            End Try
+        End Using
+        Return table
+
+    End Function
+
+
+
+    Sub InsertBudget(ByVal categoryName As String, ByVal budget As Decimal)
+        Dim query As String = "Insert INTO Budget (Category_Id, Year, Budget) values ((select Id from Category where Name=@Category_Id ),YEAR(GETDATE()), @Budget)"
+        Using connection As New SqlConnection(conString)
+            Using command As New SqlCommand(query, connection)
+                command.Parameters.AddWithValue("@Category_Id", SqlDbType.Int).Value = categoryName
+                ' command.Parameters.AddWithValue("@Year", SqlDbType.Int).Value = year
+                command.Parameters.AddWithValue("@Budget", SqlDbType.Decimal).Value = budget
+                'command.Parameters.AddWithValue("@Expenses", SqlDbType.Decimal).Value = expenses
+                Try
+                    connection.Open()
+                    command.ExecuteNonQuery()
+                    connection.Close()
+
+                Catch ex As Exception
+                    Throw ex
+                End Try
+
+            End Using
+
+        End Using
+
+    End Sub
+
+
+    Sub UpdateBudget(ByVal id As Integer, ByVal budget As Decimal)
+        Dim query As String = "Update  Budget set  Budget=@Budget where Id=@Id"
+        Using connection As New SqlConnection(conString)
+            Using command As New SqlCommand(query, connection)
+                command.Parameters.AddWithValue("@Id", SqlDbType.Int).Value = id
+                command.Parameters.AddWithValue("@Budget", SqlDbType.Decimal).Value = budget
+
+
+                Try
+                    connection.Open()
+                    command.ExecuteNonQuery()
+                    connection.Close()
+
+                Catch ex As Exception
+                    Throw ex
+                End Try
+
+            End Using
+
+        End Using
+
+    End Sub
+
+
+    Sub updateBudgetExpenses(ByVal expense As Decimal, ByVal categoryName As String)
+        Dim query As String = "UPDATE Budget  SET  Expenses += @Expense WHERE Year = YEAR(GETDATE()) and Category_Id=(select Id from Category where Name=@CategoryName) "
+        Using connection As New SqlConnection(conString)
+            Using command As New SqlCommand(query, connection)
+                command.Parameters.AddWithValue("@CategoryName", SqlDbType.VarChar).Value = categoryName
+
+                command.Parameters.AddWithValue("@Expense", SqlDbType.Decimal).Value = expense
+
+                Try
+                    connection.Open()
+                    command.ExecuteNonQuery()
+                    connection.Close()
+
+                Catch ex As Exception
+                    Throw ex
+                End Try
+
+            End Using
+
+        End Using
+
+    End Sub
+
+    Sub DeleteBudget(ByVal id As Decimal)
+        Dim query As String = "Delete from Budget where Id=@Id "
+        Using connection As New SqlConnection(conString)
+            Using command As New SqlCommand(query, connection)
+                command.Parameters.AddWithValue("@Id", SqlDbType.Int).Value = id
+
+
+
+                Try
+                    connection.Open()
+                    command.ExecuteNonQuery()
+                    connection.Close()
+
+                Catch ex As Exception
+                    Throw ex
+                End Try
+
+            End Using
+
+        End Using
+
+    End Sub
+
+
+
 End Class
 
 

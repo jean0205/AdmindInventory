@@ -45,4 +45,47 @@
 
     End Sub
 
+
+    'budget category part here
+    Function GetbudgetTable() As DataTable
+
+        Dim category As New CategoryDB
+
+        Return category.GetbudgetTable()
+    End Function
+
+    Sub InsertBudget(ByVal categoryName As String, ByVal budget As Decimal)
+
+        Dim category As New CategoryDB
+
+        category.InsertBudget(categoryName, budget)
+
+    End Sub
+    Sub UpdateBudget(ByVal id As Integer, ByVal budget As Decimal)
+        Dim category As New CategoryDB
+
+        category.UpdateBudget(id, budget)
+
+    End Sub
+
+    Sub updateBudgetExpenses(ByVal expense As Decimal, ByVal categoryName As String)
+
+        Dim category As New CategoryDB
+
+        category.updateBudgetExpenses(expense, categoryName)
+
+    End Sub
+
+    Sub DeleteBudget(ByVal id As Decimal)
+        Dim category As New CategoryDB
+
+        category.DeleteBudget(id)
+
+
+    End Sub
+    Function getBudgetByCategory(ByVal categoryname As String) As DataTable
+        Dim category As New CategoryDB
+
+        Return category.getBudgetByCategory(categoryname)
+    End Function
 End Class

@@ -79,6 +79,10 @@
 
 
     End Sub
+    Private Sub Buttonbudget_Click(sender As Object, e As EventArgs) Handles Buttonbudget.Click
+        Dim budgetfrm As New Budget
+        budgetfrm.ShowDialog()
+    End Sub
 
     'probando inactivar items o sea borrarlos de la tabla
     'Private Sub Button2_Click_1(sender As Object, e As EventArgs) Handles Button2.Click
@@ -128,8 +132,17 @@
             TextBoxName.Clear()
             GetFlag()
 
+            Dim category As New CategoryBL
+            For Each number As DataRow In category.getBudgetByCategory(ComboBoxCategory.SelectedItem).Rows
+                TextBox1.Text = number(3).ToString
+                TextBox2.Text = number(4).ToString
+                TextBox3.Text = number(5).ToString
+            Next
+
+            showBudget(True)
         Else
             LoadStock()
+            showBudget(False)
         End If
 
     End Sub
@@ -300,4 +313,16 @@
         End If
 
     End Sub
+
+    Sub showBudget(ByVal state As Boolean)
+        Label5.Visible = state
+        Label2.Visible = state
+        Label6.Visible = state
+        TextBox1.Visible = state
+        TextBox2.Visible = state
+        TextBox3.Visible = state
+
+
+    End Sub
+
 End Class

@@ -297,10 +297,11 @@
         Dim provider As String = DataGridView1.CurrentRow.Cells(10).Value
         Dim amount As Integer = DataGridView1.CurrentRow.Cells(6).Value
         Dim cost As Decimal = DataGridView1.CurrentRow.Cells(7).Value
+        Dim totalcost As Decimal = DataGridView1.CurrentRow.Cells(8).Value
 
 
 
-        Dim addStock As New FrmAddStock(itemId, entryId, True, invoice, provider, amount, cost)
+        Dim addStock As New FrmAddStock(itemId, entryId, True, invoice, provider, amount, cost, totalcost)
         addStock.ShowDialog()
         LoadData()
     End Sub

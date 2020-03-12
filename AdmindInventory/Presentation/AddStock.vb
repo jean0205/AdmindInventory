@@ -8,6 +8,8 @@
     Dim provider As String
     Dim amountBefore As Integer
     Dim cost As Decimal
+    Dim totalbefore
+
 
     Sub New(ByVal itemId As Integer)
 
@@ -21,7 +23,8 @@
         ' Add any initialization after the InitializeComponent() call.
 
     End Sub
-    Sub New(ByVal itemId As Integer, ByVal entryId As Integer, updating As Boolean, ByVal invoice As String, ByVal provider As String, ByVal amount As Integer, ByVal cost As Decimal)
+    Sub New(ByVal itemId As Integer, ByVal entryId As Integer, updating As Boolean, ByVal invoice As String,
+            ByVal provider As String, ByVal amount As Integer, ByVal cost As Decimal, ByVal totalcost As Decimal)
 
         Me.itemId = itemId
         Me.entryId = entryId
@@ -30,6 +33,7 @@
         Me.provider = provider
         Me.amountBefore = amount
         Me.cost = cost
+        Me.totalbefore = totalcost
 
         ' This call is required by the designer.
         InitializeComponent()
@@ -46,6 +50,7 @@
             Me.TextBoxprovider.Text = provider
             Me.TextBoxAmount.Text = amountBefore
             Me.TextBoxCost.Text = cost
+            TextBoxTotalCost.Text = totalbefore
         End If
 
 
@@ -74,6 +79,7 @@
             Dim totalCost As Decimal = Convert.ToDecimal(TextBoxTotalCost.Text)
             Dim recibed As String = Label10.Text
             Dim todaysdate As Date = Format(DateTime.Now)
+            Dim category As New CategoryBL
 
 
 
@@ -87,6 +93,8 @@
                 Dim stock As New StockBL
                 stock.UpdateStock(itemId, amount)
 
+                category.updateBudgetExpenses(Convert.ToDecimal(TextBoxTotalCost.Text), TextBoxCategory.Text)
+
                 MessageBox.Show("Stock entry saved.",
                                     "Entry Complete",
                                          MessageBoxButtons.OK,
@@ -96,22 +104,27 @@
 
                 stockEntry.UpdateStockEntry(entryId, invoice, providerName, amount, costEach, totalCost, recibed, todaysdate)
                 stockEntry.UpdateItemprovider(providerName, costEach, todaysdate, entryId)
+
+
                 updating = False
 
                 Dim diferencia As Integer = amount - amountBefore
+                Dim difExpenses As Decimal = Convert.ToDecimal(TextBoxTotalCost.Text) - totalbefore
 
 
                 Dim stock As New StockBL
-                    stock.UpdateStock(itemId, diferencia)
+                stock.UpdateStock(itemId, diferencia)
 
-                    MessageBox.Show("Stock entry Updated.",
+                category.updateBudgetExpenses(difExpenses, TextBoxCategory.Text)
+
+                MessageBox.Show("Stock entry Updated.",
                                         "Update Complete",
                                              MessageBoxButtons.OK,
                                                 MessageBoxIcon.Information,
                                                     MessageBoxDefaultButton.Button1)
 
 
-
+                Me.Close()
 
 
             End If
@@ -159,6 +172,9 @@
         TextBoxTotalCost.Clear()
         TextBoxInvoice.Clear()
         TextBoxprovider.Clear()
+        CheckBox1.Checked = False
+        TextBoxVat.Clear()
+
 
 
     End Sub
@@ -242,9 +258,24 @@
                 Dim amount As Integer = Convert.ToInt32(TextBoxAmount.Text)
 
                 If TextBoxCost.Text.Length > 0 Then
-                    Dim costEach As Decimal = Convert.ToDecimal(TextBoxCost.Text)
-                    Dim totalCost As Decimal = amount * costEach
-                    TextBoxTotalCost.Text = totalCost.ToString("n2")
+                    If CheckBox1.Checked Then
+                        Dim cost As Decimal = Convert.ToDecimal(TextBoxCost.Text)
+                        Dim costVat As Decimal = cost + (cost * 15) / 100
+
+                        TextBoxVat.Text = costVat.ToString("n2")
+
+                        Dim totalCost As Decimal = amount * Convert.ToInt32(TextBoxVat.Text)
+                        TextBoxTotalCost.Text = totalCost.ToString("n2")
+                    Else
+                        Dim costEach As Decimal = Convert.ToDecimal(TextBoxCost.Text)
+                        Dim totalCost As Decimal = amount * costEach
+                        TextBoxTotalCost.Text = totalCost.ToString("n2")
+                    End If
+
+
+                    'Dim costEach As Decimal = Convert.ToDecimal(TextBoxCost.Text)
+                    'Dim totalCost As Decimal = amount * costEach
+                    'TextBoxTotalCost.Text = totalCost.ToString("n2")
                 End If
             Else
                 TextBoxTotalCost.Clear()
@@ -268,9 +299,22 @@
                 Dim amount As Integer = Convert.ToInt32(TextBoxAmount.Text)
 
                 If TextBoxAmount.Text.Length > 0 Then
-                    Dim costEach As Decimal = Convert.ToDecimal(TextBoxCost.Text)
-                    Dim totalCost As Decimal = amount * costEach
-                    TextBoxTotalCost.Text = totalCost.ToString("n2")
+
+                    If CheckBox1.Checked Then
+                        Dim cost As Decimal = Convert.ToDecimal(TextBoxCost.Text)
+                        Dim costVat As Decimal = cost + (cost * 15) / 100
+
+                        TextBoxVat.Text = costVat.ToString("n2")
+
+                        Dim totalCost As Decimal = amount * Convert.ToDecimal(TextBoxVat.Text)
+                        TextBoxTotalCost.Text = totalCost.ToString("n2")
+                    Else
+                        Dim costEach As Decimal = Convert.ToDecimal(TextBoxCost.Text)
+                        Dim totalCost As Decimal = amount * costEach
+                        TextBoxTotalCost.Text = totalCost.ToString("n2")
+                    End If
+
+
                 End If
             Else
                 TextBoxTotalCost.Clear()
@@ -306,6 +350,27 @@
             e.Handled = True
         End If
     End Sub
+
+    Private Sub CheckBox1_CheckedChanged(sender As Object, e As EventArgs) Handles CheckBox1.CheckedChanged
+        If CheckBox1.Checked Then
+            Dim amount = Convert.ToInt32(TextBoxAmount.Text)
+
+            If (TextBoxCost.Text.Length > 0) Then
+                Dim cost As Decimal = Convert.ToDecimal(TextBoxCost.Text)
+                Dim costVat As Decimal = cost + (cost * 15) / 100
+                TextBoxVat.Text = costVat.ToString("n2")
+                TextBoxTotalCost.Text = (costVat * amount).ToString("n2")
+
+            End If
+
+
+
+        Else
+
+            TextBoxVat.Clear()
+        End If
+    End Sub
+
 
 
 #End Region

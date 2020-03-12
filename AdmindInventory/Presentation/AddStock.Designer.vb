@@ -28,7 +28,6 @@ Partial Class FrmAddStock
         Me.Label9 = New System.Windows.Forms.Label()
         Me.TextBoxprovider = New System.Windows.Forms.TextBox()
         Me.Label8 = New System.Windows.Forms.Label()
-        Me.ButtonClean = New System.Windows.Forms.Button()
         Me.TextBoxInvoice = New System.Windows.Forms.TextBox()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.TextBoxTotalCost = New System.Windows.Forms.TextBox()
@@ -44,17 +43,20 @@ Partial Class FrmAddStock
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
+        Me.TextBoxVat = New System.Windows.Forms.TextBox()
+        Me.CheckBox1 = New System.Windows.Forms.CheckBox()
         Me.GroupBox1.SuspendLayout()
         Me.SuspendLayout()
         '
         'GroupBox1
         '
+        Me.GroupBox1.Controls.Add(Me.CheckBox1)
+        Me.GroupBox1.Controls.Add(Me.TextBoxVat)
         Me.GroupBox1.Controls.Add(Me.ButtonNewprov)
         Me.GroupBox1.Controls.Add(Me.Label10)
         Me.GroupBox1.Controls.Add(Me.Label9)
         Me.GroupBox1.Controls.Add(Me.TextBoxprovider)
         Me.GroupBox1.Controls.Add(Me.Label8)
-        Me.GroupBox1.Controls.Add(Me.ButtonClean)
         Me.GroupBox1.Controls.Add(Me.TextBoxInvoice)
         Me.GroupBox1.Controls.Add(Me.Label7)
         Me.GroupBox1.Controls.Add(Me.TextBoxTotalCost)
@@ -89,7 +91,7 @@ Partial Class FrmAddStock
         'Label10
         '
         Me.Label10.AutoSize = True
-        Me.Label10.Location = New System.Drawing.Point(178, 337)
+        Me.Label10.Location = New System.Drawing.Point(82, 379)
         Me.Label10.Name = "Label10"
         Me.Label10.Size = New System.Drawing.Size(58, 13)
         Me.Label10.TabIndex = 21
@@ -98,7 +100,7 @@ Partial Class FrmAddStock
         'Label9
         '
         Me.Label9.AutoSize = True
-        Me.Label9.Location = New System.Drawing.Point(106, 337)
+        Me.Label9.Location = New System.Drawing.Point(10, 379)
         Me.Label9.Name = "Label9"
         Me.Label9.Size = New System.Drawing.Size(55, 13)
         Me.Label9.TabIndex = 20
@@ -120,15 +122,6 @@ Partial Class FrmAddStock
         Me.Label8.TabIndex = 19
         Me.Label8.Text = "Provider.:"
         '
-        'ButtonClean
-        '
-        Me.ButtonClean.Location = New System.Drawing.Point(27, 374)
-        Me.ButtonClean.Name = "ButtonClean"
-        Me.ButtonClean.Size = New System.Drawing.Size(75, 23)
-        Me.ButtonClean.TabIndex = 17
-        Me.ButtonClean.Text = "Clean"
-        Me.ButtonClean.UseVisualStyleBackColor = True
-        '
         'TextBoxInvoice
         '
         Me.TextBoxInvoice.Location = New System.Drawing.Point(86, 154)
@@ -147,7 +140,7 @@ Partial Class FrmAddStock
         '
         'TextBoxTotalCost
         '
-        Me.TextBoxTotalCost.Location = New System.Drawing.Point(232, 276)
+        Me.TextBoxTotalCost.Location = New System.Drawing.Point(232, 308)
         Me.TextBoxTotalCost.Name = "TextBoxTotalCost"
         Me.TextBoxTotalCost.ReadOnly = True
         Me.TextBoxTotalCost.Size = New System.Drawing.Size(97, 20)
@@ -156,7 +149,7 @@ Partial Class FrmAddStock
         'Label6
         '
         Me.Label6.AutoSize = True
-        Me.Label6.Location = New System.Drawing.Point(234, 252)
+        Me.Label6.Location = New System.Drawing.Point(234, 289)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(58, 13)
         Me.Label6.TabIndex = 14
@@ -164,7 +157,7 @@ Partial Class FrmAddStock
         '
         'TextBoxCost
         '
-        Me.TextBoxCost.Location = New System.Drawing.Point(86, 273)
+        Me.TextBoxCost.Location = New System.Drawing.Point(86, 267)
         Me.TextBoxCost.Name = "TextBoxCost"
         Me.TextBoxCost.Size = New System.Drawing.Size(69, 20)
         Me.TextBoxCost.TabIndex = 3
@@ -172,7 +165,7 @@ Partial Class FrmAddStock
         'Label5
         '
         Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(12, 278)
+        Me.Label5.Location = New System.Drawing.Point(12, 268)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(59, 13)
         Me.Label5.TabIndex = 12
@@ -188,7 +181,7 @@ Partial Class FrmAddStock
         '
         'ButtonReestock
         '
-        Me.ButtonReestock.Location = New System.Drawing.Point(245, 374)
+        Me.ButtonReestock.Location = New System.Drawing.Point(255, 374)
         Me.ButtonReestock.Name = "ButtonReestock"
         Me.ButtonReestock.Size = New System.Drawing.Size(75, 23)
         Me.ButtonReestock.TabIndex = 4
@@ -197,7 +190,7 @@ Partial Class FrmAddStock
         '
         'TextBoxAmount
         '
-        Me.TextBoxAmount.Location = New System.Drawing.Point(86, 232)
+        Me.TextBoxAmount.Location = New System.Drawing.Point(86, 227)
         Me.TextBoxAmount.Name = "TextBoxAmount"
         Me.TextBoxAmount.Size = New System.Drawing.Size(69, 20)
         Me.TextBoxAmount.TabIndex = 2
@@ -221,7 +214,7 @@ Partial Class FrmAddStock
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(12, 237)
+        Me.Label4.Location = New System.Drawing.Point(12, 232)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(46, 13)
         Me.Label4.TabIndex = 6
@@ -254,6 +247,24 @@ Partial Class FrmAddStock
         Me.Label1.TabIndex = 3
         Me.Label1.Text = "Category:"
         '
+        'TextBoxVat
+        '
+        Me.TextBoxVat.Location = New System.Drawing.Point(86, 308)
+        Me.TextBoxVat.Name = "TextBoxVat"
+        Me.TextBoxVat.ReadOnly = True
+        Me.TextBoxVat.Size = New System.Drawing.Size(69, 20)
+        Me.TextBoxVat.TabIndex = 23
+        '
+        'CheckBox1
+        '
+        Me.CheckBox1.AutoSize = True
+        Me.CheckBox1.Location = New System.Drawing.Point(24, 310)
+        Me.CheckBox1.Name = "CheckBox1"
+        Me.CheckBox1.Size = New System.Drawing.Size(47, 17)
+        Me.CheckBox1.TabIndex = 24
+        Me.CheckBox1.Text = "VAT"
+        Me.CheckBox1.UseVisualStyleBackColor = True
+        '
         'FrmAddStock
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -284,10 +295,11 @@ Partial Class FrmAddStock
     Friend WithEvents TextBoxCategory As TextBox
     Friend WithEvents TextBoxInvoice As TextBox
     Friend WithEvents Label7 As Label
-    Friend WithEvents ButtonClean As Button
     Friend WithEvents TextBoxprovider As TextBox
     Friend WithEvents Label8 As Label
     Friend WithEvents Label10 As Label
     Friend WithEvents Label9 As Label
     Friend WithEvents ButtonNewprov As Button
+    Friend WithEvents CheckBox1 As CheckBox
+    Friend WithEvents TextBoxVat As TextBox
 End Class
