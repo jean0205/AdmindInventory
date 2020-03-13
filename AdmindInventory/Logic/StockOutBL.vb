@@ -76,4 +76,22 @@
         Dim stock As New StockOutDB
         stock.DeleteStockOutRecord(entryId)
     End Sub
+
+    Function StockOutAudit() As DataTable
+        Dim stock As New StockOutDB
+        Return stock.StockOutAudit
+    End Function
+    Function StockOutAuditByUser(user As String) As DataTable
+        Dim stock As New StockOutDB
+        Return stock.StockOutAuditByUser(user)
+    End Function
+
+    Function StockOutAuditByOperation(operation As String) As DataTable
+        Dim stock As New StockOutDB
+        Return stock.StockOutAuditByOperation(operation)
+    End Function
+    Function StockOutAuditByStation(station As String) As DataTable
+        Dim stock As New StockOutDB
+        Return stock.StockOutAuditByStation(station)
+    End Function
 End Class

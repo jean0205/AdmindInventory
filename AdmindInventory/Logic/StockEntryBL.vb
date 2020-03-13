@@ -101,4 +101,23 @@
         stockEntry.DeleteItemprovider(entryId)
     End Sub
 
+    Function StockEntryAudit() As DataTable
+        Dim stockEntry As New StockEntryDB
+        Return stockEntry.StockEntryAudit
+    End Function
+    Function StockEntryAuditByUser(user As String) As DataTable
+        Dim stockEntry As New StockEntryDB
+        Return stockEntry.StockEntryAuditByUser(user)
+
+    End Function
+    Function StockEntryAuditByStation(station As String) As DataTable
+        Dim stockEntry As New StockEntryDB
+        Return stockEntry.StockEntryAuditByStation(station)
+
+    End Function
+    Function StockEntryAuditByOperation(operation As String) As DataTable
+        Dim stockEntry As New StockEntryDB
+        Return stockEntry.StockEntryAuditByOperation(operation)
+    End Function
+
 End Class

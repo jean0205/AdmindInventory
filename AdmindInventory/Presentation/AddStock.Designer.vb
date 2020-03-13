@@ -23,6 +23,8 @@ Partial Class FrmAddStock
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.CheckBox1 = New System.Windows.Forms.CheckBox()
+        Me.TextBoxVat = New System.Windows.Forms.TextBox()
         Me.ButtonNewprov = New System.Windows.Forms.Button()
         Me.Label10 = New System.Windows.Forms.Label()
         Me.Label9 = New System.Windows.Forms.Label()
@@ -43,8 +45,6 @@ Partial Class FrmAddStock
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
-        Me.TextBoxVat = New System.Windows.Forms.TextBox()
-        Me.CheckBox1 = New System.Windows.Forms.CheckBox()
         Me.GroupBox1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -77,6 +77,24 @@ Partial Class FrmAddStock
         Me.GroupBox1.Size = New System.Drawing.Size(354, 412)
         Me.GroupBox1.TabIndex = 1
         Me.GroupBox1.TabStop = False
+        '
+        'CheckBox1
+        '
+        Me.CheckBox1.AutoSize = True
+        Me.CheckBox1.Location = New System.Drawing.Point(24, 310)
+        Me.CheckBox1.Name = "CheckBox1"
+        Me.CheckBox1.Size = New System.Drawing.Size(47, 17)
+        Me.CheckBox1.TabIndex = 24
+        Me.CheckBox1.Text = "VAT"
+        Me.CheckBox1.UseVisualStyleBackColor = True
+        '
+        'TextBoxVat
+        '
+        Me.TextBoxVat.Location = New System.Drawing.Point(86, 308)
+        Me.TextBoxVat.Name = "TextBoxVat"
+        Me.TextBoxVat.ReadOnly = True
+        Me.TextBoxVat.Size = New System.Drawing.Size(69, 20)
+        Me.TextBoxVat.TabIndex = 23
         '
         'ButtonNewprov
         '
@@ -246,24 +264,6 @@ Partial Class FrmAddStock
         Me.Label1.Size = New System.Drawing.Size(52, 13)
         Me.Label1.TabIndex = 3
         Me.Label1.Text = "Category:"
-        '
-        'TextBoxVat
-        '
-        Me.TextBoxVat.Location = New System.Drawing.Point(86, 308)
-        Me.TextBoxVat.Name = "TextBoxVat"
-        Me.TextBoxVat.ReadOnly = True
-        Me.TextBoxVat.Size = New System.Drawing.Size(69, 20)
-        Me.TextBoxVat.TabIndex = 23
-        '
-        'CheckBox1
-        '
-        Me.CheckBox1.AutoSize = True
-        Me.CheckBox1.Location = New System.Drawing.Point(24, 310)
-        Me.CheckBox1.Name = "CheckBox1"
-        Me.CheckBox1.Size = New System.Drawing.Size(47, 17)
-        Me.CheckBox1.TabIndex = 24
-        Me.CheckBox1.Text = "VAT"
-        Me.CheckBox1.UseVisualStyleBackColor = True
         '
         'FrmAddStock
         '

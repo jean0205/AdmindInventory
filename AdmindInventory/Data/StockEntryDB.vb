@@ -474,4 +474,113 @@ Public Class StockEntryDB
         Return table
     End Function
 
+    Function StockEntryAudit() As DataTable
+        Dim table As New DataTable
+
+        Dim query As String = "select a.Id, item.Name, item.Presentation, a.Amount,a.CostEach, a.CostTotal, a.Date, a.[User],a.Station,a.Operation from stockentryaudit A
+                                    inner join Item on a.Item_Id= Item.Id
+                                    inner join Provider on a.Provider_Id= Provider.Id
+                                        order by id desc"
+
+        Using connection As New SqlConnection(conString)
+            Using command As New SqlCommand(query, connection)
+                'command.Parameters.Add("@Item_name", SqlDbType.varchar).Value = ItemName
+                Try
+                    connection.Open()
+                    Dim reader As SqlDataReader = command.ExecuteReader()
+                    table.Load(reader)
+                    reader.Close()
+                    connection.Close()
+                Catch ex As Exception
+                    Throw ex
+
+                End Try
+
+            End Using
+        End Using
+        Return table
+    End Function
+
+    Function StockEntryAuditByUser(user As String) As DataTable
+        Dim table As New DataTable
+
+        Dim query As String = "select a.Id, item.Name, item.Presentation, a.Amount,a.CostEach, a.CostTotal, a.Date, a.[User],a.Station,a.Operation from stockentryaudit A
+                                    inner join Item on a.Item_Id= Item.Id
+                                    inner join Provider on a.Provider_Id= Provider.Id
+                                        Where a.[User]=@User
+                                            order by id desc"
+        Using connection As New SqlConnection(conString)
+            Using command As New SqlCommand(query, connection)
+                command.Parameters.Add("@User", SqlDbType.VarChar).Value = user
+                Try
+                    connection.Open()
+                    Dim reader As SqlDataReader = command.ExecuteReader()
+                    table.Load(reader)
+                    reader.Close()
+                    connection.Close()
+                Catch ex As Exception
+                    Throw ex
+
+                End Try
+
+            End Using
+        End Using
+        Return table
+    End Function
+
+    Function StockEntryAuditByStation(station As String) As DataTable
+        Dim table As New DataTable
+
+        Dim query As String = "select a.Id, item.Name, item.Presentation, a.Amount,a.CostEach, a.CostTotal, a.Date, a.[User],a.Station,a.Operation from stockentryaudit A
+                                    inner join Item on a.Item_Id= Item.Id
+                                    inner join Provider on a.Provider_Id= Provider.Id
+                                        Where a.[Station]=@Station
+                                            order by id desc"
+        Using connection As New SqlConnection(conString)
+            Using command As New SqlCommand(query, connection)
+                command.Parameters.Add("@Station", SqlDbType.VarChar).Value = station
+                Try
+                    connection.Open()
+                    Dim reader As SqlDataReader = command.ExecuteReader()
+                    table.Load(reader)
+                    reader.Close()
+                    connection.Close()
+                Catch ex As Exception
+                    Throw ex
+
+                End Try
+
+            End Using
+        End Using
+        Return table
+    End Function
+
+    Function StockEntryAuditByOperation(operation As String) As DataTable
+        Dim table As New DataTable
+
+        Dim query As String = "select a.Id, item.Name, item.Presentation, a.Amount,a.CostEach, a.CostTotal, a.Date, a.[User],a.Station,a.Operation from stockentryaudit A
+                                    inner join Item on a.Item_Id= Item.Id
+                                    inner join Provider on a.Provider_Id= Provider.Id
+                                        Where a.[Operation]=@Operation
+                                        order by id desc"
+        Using connection As New SqlConnection(conString)
+            Using command As New SqlCommand(query, connection)
+                command.Parameters.Add("@Operation", SqlDbType.VarChar).Value = operation
+                Try
+                    connection.Open()
+                    Dim reader As SqlDataReader = command.ExecuteReader()
+                    table.Load(reader)
+                    reader.Close()
+                    connection.Close()
+                Catch ex As Exception
+                    Throw ex
+
+                End Try
+
+            End Using
+        End Using
+        Return table
+    End Function
+
+
 End Class

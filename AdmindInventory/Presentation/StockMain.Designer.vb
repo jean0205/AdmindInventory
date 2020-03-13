@@ -24,7 +24,6 @@ Partial Class StockMain
     Private Sub InitializeComponent()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
-        Me.ButtonReport = New System.Windows.Forms.Button()
         Me.CheckBoxReorder = New System.Windows.Forms.CheckBox()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.TextBoxName = New System.Windows.Forms.TextBox()
@@ -39,7 +38,6 @@ Partial Class StockMain
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.Buttonbudget = New System.Windows.Forms.Button()
-        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.ButtonPendingReqs = New System.Windows.Forms.Button()
         Me.ButtonDistrbHistory = New System.Windows.Forms.Button()
         Me.ButtonStockHistory = New System.Windows.Forms.Button()
@@ -52,6 +50,9 @@ Partial Class StockMain
         Me.TextBox2 = New System.Windows.Forms.TextBox()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.TextBox3 = New System.Windows.Forms.TextBox()
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        Me.ButtonReport = New System.Windows.Forms.Button()
+        Me.Button2 = New System.Windows.Forms.Button()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
@@ -83,18 +84,6 @@ Partial Class StockMain
         Me.GroupBox1.Size = New System.Drawing.Size(927, 71)
         Me.GroupBox1.TabIndex = 1
         Me.GroupBox1.TabStop = False
-        '
-        'ButtonReport
-        '
-        Me.ButtonReport.BackgroundImage = Global.AdmindInventory.My.Resources.Resources.pdf_xchange_editor_4144__250x250
-        Me.ButtonReport.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.ButtonReport.FlatAppearance.BorderSize = 0
-        Me.ButtonReport.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.ButtonReport.Location = New System.Drawing.Point(868, 12)
-        Me.ButtonReport.Name = "ButtonReport"
-        Me.ButtonReport.Size = New System.Drawing.Size(50, 50)
-        Me.ButtonReport.TabIndex = 9
-        Me.ButtonReport.UseVisualStyleBackColor = True
         '
         'CheckBoxReorder
         '
@@ -205,6 +194,7 @@ Partial Class StockMain
         '
         'Panel1
         '
+        Me.Panel1.Controls.Add(Me.Button2)
         Me.Panel1.Controls.Add(Me.Buttonbudget)
         Me.Panel1.Controls.Add(Me.PictureBox1)
         Me.Panel1.Controls.Add(Me.ButtonRequest)
@@ -231,16 +221,6 @@ Partial Class StockMain
         Me.Buttonbudget.TabIndex = 12
         Me.Buttonbudget.Text = "Budget"
         Me.Buttonbudget.UseVisualStyleBackColor = True
-        '
-        'PictureBox1
-        '
-        Me.PictureBox1.Image = Global.AdmindInventory.My.Resources.Resources._4222333
-        Me.PictureBox1.Location = New System.Drawing.Point(5, 11)
-        Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(113, 115)
-        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
-        Me.PictureBox1.TabIndex = 11
-        Me.PictureBox1.TabStop = False
         '
         'ButtonPendingReqs
         '
@@ -344,6 +324,37 @@ Partial Class StockMain
         Me.TextBox3.Size = New System.Drawing.Size(120, 20)
         Me.TextBox3.TabIndex = 14
         '
+        'PictureBox1
+        '
+        Me.PictureBox1.Image = Global.AdmindInventory.My.Resources.Resources._4222333
+        Me.PictureBox1.Location = New System.Drawing.Point(5, 11)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.Size = New System.Drawing.Size(113, 115)
+        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.PictureBox1.TabIndex = 11
+        Me.PictureBox1.TabStop = False
+        '
+        'ButtonReport
+        '
+        Me.ButtonReport.BackgroundImage = Global.AdmindInventory.My.Resources.Resources.pdf_xchange_editor_4144__250x250
+        Me.ButtonReport.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.ButtonReport.FlatAppearance.BorderSize = 0
+        Me.ButtonReport.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.ButtonReport.Location = New System.Drawing.Point(868, 12)
+        Me.ButtonReport.Name = "ButtonReport"
+        Me.ButtonReport.Size = New System.Drawing.Size(50, 50)
+        Me.ButtonReport.TabIndex = 9
+        Me.ButtonReport.UseVisualStyleBackColor = True
+        '
+        'Button2
+        '
+        Me.Button2.Location = New System.Drawing.Point(6, 160)
+        Me.Button2.Name = "Button2"
+        Me.Button2.Size = New System.Drawing.Size(115, 22)
+        Me.Button2.TabIndex = 13
+        Me.Button2.Text = "Audit"
+        Me.Button2.UseVisualStyleBackColor = True
+        '
         'StockMain
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -402,4 +413,5 @@ Partial Class StockMain
     Friend WithEvents TextBox2 As TextBox
     Friend WithEvents Label6 As Label
     Friend WithEvents TextBox3 As TextBox
+    Friend WithEvents Button2 As Button
 End Class

@@ -133,6 +133,7 @@
                 TextBoxAmount.Clear()
                 ComboBoxDepartment.SelectedIndex = -1
                 updating = False
+                Me.Close()
 
             End If
 

@@ -381,6 +381,111 @@ Public Class StockOutDB
 
     End Sub
 
+    Function StockOutAudit() As DataTable
+        Dim table As New DataTable
+
+        Dim query As String = "select a.Id, item.Name, item.Presentation, a.Amount,d.Name AS " & "Department" & ", a.Condition,a.Requested, a.Date, a.[User],a.Station,a.Operation from StockDistributionAudit A
+                                    inner join Item on a.Item_Id= Item.Id
+                                         inner join Department d on a.Departrment_Id= d.Id"
+        Using connection As New SqlConnection(conString)
+            Using command As New SqlCommand(query, connection)
+                'command.Parameters.Add("@Item_name", SqlDbType.varchar).Value = ItemName
+                Try
+                    connection.Open()
+                    Dim reader As SqlDataReader = command.ExecuteReader()
+                    table.Load(reader)
+                    reader.Close()
+                    connection.Close()
+                Catch ex As Exception
+                    Throw ex
+
+                End Try
+
+            End Using
+        End Using
+        Return table
+    End Function
+
+    Function StockOutAuditByUser(user As String) As DataTable
+        Dim table As New DataTable
+
+        Dim query As String = "select a.Id, item.Name, item.Presentation, a.Amount,d.Name AS " & "Department" & ", a.Condition,a.Requested, a.Date, a.[User],a.Station,a.Operation from StockDistributionAudit A
+                                    inner join Item on a.Item_Id= Item.Id
+                                         inner join Department d on a.Departrment_Id= d.Id
+                                        Where a.[User]=@User
+                                            order by id desc"
+        Using connection As New SqlConnection(conString)
+            Using command As New SqlCommand(query, connection)
+                command.Parameters.Add("@User", SqlDbType.VarChar).Value = user
+                Try
+                    connection.Open()
+                    Dim reader As SqlDataReader = command.ExecuteReader()
+                    table.Load(reader)
+                    reader.Close()
+                    connection.Close()
+                Catch ex As Exception
+                    Throw ex
+
+                End Try
+
+            End Using
+        End Using
+        Return table
+    End Function
+
+    Function StockOutAuditByOperation(operation As String) As DataTable
+        Dim table As New DataTable
+
+        Dim query As String = "select a.Id, item.Name, item.Presentation, a.Amount,d.Name AS " & "Department" & ", a.Condition,a.Requested, a.Date, a.[User],a.Station,a.Operation from StockDistributionAudit A
+                                    inner join Item on a.Item_Id= Item.Id
+                                         inner join Department d on a.Departrment_Id= d.Id
+                                        Where a.[Operation]=@User
+                                            order by id desc"
+        Using connection As New SqlConnection(conString)
+            Using command As New SqlCommand(query, connection)
+                command.Parameters.Add("@User", SqlDbType.VarChar).Value = operation
+                Try
+                    connection.Open()
+                    Dim reader As SqlDataReader = command.ExecuteReader()
+                    table.Load(reader)
+                    reader.Close()
+                    connection.Close()
+                Catch ex As Exception
+                    Throw ex
+
+                End Try
+
+            End Using
+        End Using
+        Return table
+    End Function
+
+    Function StockOutAuditByStation(station As String) As DataTable
+        Dim table As New DataTable
+
+        Dim query As String = "select a.Id, item.Name, item.Presentation, a.Amount,d.Name AS " & "Department" & ", a.Condition,a.Requested, a.Date, a.[User],a.Station,a.Operation from StockDistributionAudit A
+                                    inner join Item on a.Item_Id= Item.Id
+                                         inner join Department d on a.Departrment_Id= d.Id
+                                        Where a.[Station]=@User
+                                            order by id desc"
+        Using connection As New SqlConnection(conString)
+            Using command As New SqlCommand(query, connection)
+                command.Parameters.Add("@User", SqlDbType.VarChar).Value = station
+                Try
+                    connection.Open()
+                    Dim reader As SqlDataReader = command.ExecuteReader()
+                    table.Load(reader)
+                    reader.Close()
+                    connection.Close()
+                Catch ex As Exception
+                    Throw ex
+
+                End Try
+
+            End Using
+        End Using
+        Return table
+    End Function
 
 
     'Function GetStockRequest() As DataTable

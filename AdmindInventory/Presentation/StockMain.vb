@@ -83,6 +83,10 @@
         Dim budgetfrm As New Budget
         budgetfrm.ShowDialog()
     End Sub
+    Private Sub Button2_Click_1(sender As Object, e As EventArgs) Handles Button2.Click
+        Dim auditfrm As New AuditStock
+        auditfrm.ShowDialog()
+    End Sub
 
     'probando inactivar items o sea borrarlos de la tabla
     'Private Sub Button2_Click_1(sender As Object, e As EventArgs) Handles Button2.Click
@@ -324,5 +328,6 @@
 
 
     End Sub
+
 
 End Class

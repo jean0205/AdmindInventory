@@ -133,7 +133,7 @@ Public Class CategoryDB
     Function getBudgetByCategory(ByVal category As String) As DataTable
 
         Dim query As String = "select B.id, C.Name As " & "Category" & ", B.Year, B.Budget, B.Expenses, B.in_Budget As " & "Available" & " from Budget B
-                                    inner join Category C on B.Category_Id= c.Id where Category_Id=(select Id from Category where Name=@Category_Id )"
+                                    inner join Category C on B.Category_Id= c.Id where Category_Id=(select Id from Category where Name=@Category_Id ) and Year = YEAR(GETDATE())"
         Dim table As New DataTable
 
         Using connection As New SqlConnection(conString)

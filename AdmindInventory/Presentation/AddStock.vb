@@ -264,7 +264,7 @@
 
                         TextBoxVat.Text = costVat.ToString("n2")
 
-                        Dim totalCost As Decimal = amount * Convert.ToInt32(TextBoxVat.Text)
+                        Dim totalCost As Decimal = amount * Convert.ToDecimal(TextBoxVat.Text)
                         TextBoxTotalCost.Text = totalCost.ToString("n2")
                     Else
                         Dim costEach As Decimal = Convert.ToDecimal(TextBoxCost.Text)
@@ -369,6 +369,10 @@
 
             TextBoxVat.Clear()
         End If
+    End Sub
+
+    Private Sub TextBoxAmount_TextChanged(sender As Object, e As EventArgs) Handles TextBoxAmount.TextChanged
+
     End Sub
 
 
