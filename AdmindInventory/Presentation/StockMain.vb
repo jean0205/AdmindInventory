@@ -164,12 +164,15 @@
 
     End Sub
     Private Sub CheckBoxReorder_Click(sender As Object, e As EventArgs) Handles CheckBoxReorder.Click
+        ComboBoxCategory.SelectedIndex = 0
         If CheckBoxReorder.Checked Then
             Dim stock As New StockBL
             DataGridView1.DataSource = stock.GetStockToOrder()
             DataGridView1.Columns(0).Visible = False
-            DataGridView1.Columns(6).Visible = False
+
             GetFlag()
+            showBudget(False)
+
 
         Else
             LoadStock()
@@ -184,7 +187,11 @@
         Dim stock As New StockBL
         DataGridView1.DataSource = stock.GetStockList()
         DataGridView1.Columns(0).Visible = False
-        'DataGridView1.Columns(6).Visible = False
+        DataGridView1.Columns(1).Name = "Item"
+        DataGridView1.Columns(2).Name = "Category"
+        DataGridView1.Columns(3).Name = "Attribute"
+
+
 
 
         GetFlag()
@@ -239,7 +246,7 @@
         Dim category As String = "All Categories"
         Dim reorderList As String = String.Empty
         Dim total As Integer = DataGridView1.Rows.Count
-        Dim stockList As New List(Of ReportStock)
+        Dim stockList As New List(Of ReportStock2)
 
         If ComboBoxCategory.SelectedIndex > 0 Then
             category = ComboBoxCategory.SelectedItem
@@ -250,25 +257,46 @@
         End If
 
         For Each row As DataGridViewRow In DataGridView1.Rows
-            Dim stock As New ReportStock
+            Dim stock As New ReportStock2
 
             stock.ItemName = row.Cells(1).Value
             Stock.ItemCategory = row.Cells(2).Value
             Stock.ItemPresentation = row.Cells(3).Value
             Stock.ItemReorder = row.Cells(4).Value
             stock.StockRemains = row.Cells(5).Value
+            If Not IsDBNull(row.Cells(7).Value) Then
+                stock.Expenses = Convert.ToDecimal(row.Cells(7).Value)
+            Else
+                stock.Expenses = 0.00
+            End If
 
             stockList.Add(stock)
 
 
 
         Next
+        Dim budget As Decimal
+        Dim expenses As Decimal
+        Dim available As Decimal
 
-        Dim report As New ReportStockFrm(category, reorderList, total, stockList)
+        If String.IsNullOrEmpty(TextBox1.Text) AndAlso String.IsNullOrEmpty(TextBox2.Text) AndAlso String.IsNullOrEmpty(TextBox3.Text) Then
+            budget = Nothing
+            expenses = Nothing
+            available = Nothing
+        Else
+
+            budget = Convert.ToDecimal(TextBox1.Text)
+            expenses = Convert.ToDecimal(TextBox2.Text)
+            available = Convert.ToDecimal(TextBox3.Text)
+
+        End If
+
+
+        Dim report As New ReportStockFrm(category, reorderList, total, stockList, budget, expenses, available)
         report.Show()
 
         'CheckBoxReorder.Checked = False
-        ComboBoxCategory.Text = String.Empty
+        ComboBoxCategory.SelectedIndex = 0
 
 
     End Sub
@@ -329,5 +357,7 @@
 
     End Sub
 
+    Private Sub CheckBoxReorder_CheckedChanged(sender As Object, e As EventArgs) Handles CheckBoxReorder.CheckedChanged
 
+    End Sub
 End Class

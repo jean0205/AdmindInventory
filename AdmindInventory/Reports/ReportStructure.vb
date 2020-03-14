@@ -111,6 +111,18 @@ Public Class ReportStock
     Public Property ItemPresentation As String
     Public Property ItemReorder As Integer
     Public Property StockRemains As Integer
+    Public Property Expenses As Decimal
 
 End Class
+Public Class ReportStock2
+
+    Public Property ItemName As String
+    Public Property ItemCategory As String
+    Public Property ItemPresentation As String
+    Public Property ItemReorder As Integer
+    Public Property StockRemains As Integer
+    Public Property Expenses As Decimal
+
+End Class
+
 

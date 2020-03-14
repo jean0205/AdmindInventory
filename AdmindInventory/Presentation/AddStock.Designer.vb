@@ -109,7 +109,7 @@ Partial Class FrmAddStock
         'Label10
         '
         Me.Label10.AutoSize = True
-        Me.Label10.Location = New System.Drawing.Point(82, 379)
+        Me.Label10.Location = New System.Drawing.Point(90, 379)
         Me.Label10.Name = "Label10"
         Me.Label10.Size = New System.Drawing.Size(58, 13)
         Me.Label10.TabIndex = 21
@@ -118,7 +118,7 @@ Partial Class FrmAddStock
         'Label9
         '
         Me.Label9.AutoSize = True
-        Me.Label9.Location = New System.Drawing.Point(10, 379)
+        Me.Label9.Location = New System.Drawing.Point(18, 379)
         Me.Label9.Name = "Label9"
         Me.Label9.Size = New System.Drawing.Size(55, 13)
         Me.Label9.TabIndex = 20
@@ -271,6 +271,8 @@ Partial Class FrmAddStock
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(374, 426)
         Me.Controls.Add(Me.GroupBox1)
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog
+        Me.MaximizeBox = False
         Me.Name = "FrmAddStock"
         Me.Text = "Restock Inventory"
         Me.GroupBox1.ResumeLayout(False)

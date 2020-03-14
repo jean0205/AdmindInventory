@@ -305,6 +305,7 @@
     <None Include="My Project\DataSources\Report.datasource" />
     <None Include="My Project\DataSources\Report2.datasource" />
     <None Include="My Project\DataSources\ReportStock.datasource" />
+    <None Include="My Project\DataSources\ReportStock2.datasource" />
     <None Include="My Project\DataSources\ReportStockEntry.datasource" />
     <None Include="My Project\DataSources\ReportStockEntry2.datasource" />
     <None Include="My Project\DataSources\ReportStockOut.datasource" />

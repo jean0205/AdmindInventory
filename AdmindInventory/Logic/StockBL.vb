@@ -6,7 +6,7 @@
     End Function
 
     'get stock filterin by category
-    Function GetStockListByCat(ByVal catName As String) As List(Of Stock)
+    Function GetStockListByCat(ByVal catName As String)
         Dim stock As New StockDB
         Return stock.GetStockListByCat(catName)
 

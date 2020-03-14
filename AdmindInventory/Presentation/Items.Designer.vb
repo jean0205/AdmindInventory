@@ -65,7 +65,7 @@ Partial Class New_Item
         Me.GroupBox1.Controls.Add(Me.Label1)
         Me.GroupBox1.Location = New System.Drawing.Point(9, 5)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(560, 211)
+        Me.GroupBox1.Size = New System.Drawing.Size(783, 211)
         Me.GroupBox1.TabIndex = 0
         Me.GroupBox1.TabStop = False
         '
@@ -73,7 +73,7 @@ Partial Class New_Item
         '
         Me.GroupBoxState.Controls.Add(Me.RadioButtonInactive)
         Me.GroupBoxState.Controls.Add(Me.RadioButtonActive)
-        Me.GroupBoxState.Location = New System.Drawing.Point(300, 80)
+        Me.GroupBoxState.Location = New System.Drawing.Point(398, 83)
         Me.GroupBoxState.Margin = New System.Windows.Forms.Padding(2)
         Me.GroupBoxState.Name = "GroupBoxState"
         Me.GroupBoxState.Padding = New System.Windows.Forms.Padding(2)
@@ -111,14 +111,14 @@ Partial Class New_Item
         Me.ComboBoxCat.FormattingEnabled = True
         Me.ComboBoxCat.Location = New System.Drawing.Point(103, 169)
         Me.ComboBoxCat.Name = "ComboBoxCat"
-        Me.ComboBoxCat.Size = New System.Drawing.Size(174, 21)
+        Me.ComboBoxCat.Size = New System.Drawing.Size(209, 21)
         Me.ComboBoxCat.TabIndex = 4
         '
         'TextBoxPresentation
         '
         Me.TextBoxPresentation.Location = New System.Drawing.Point(103, 103)
         Me.TextBoxPresentation.Name = "TextBoxPresentation"
-        Me.TextBoxPresentation.Size = New System.Drawing.Size(174, 20)
+        Me.TextBoxPresentation.Size = New System.Drawing.Size(209, 20)
         Me.TextBoxPresentation.TabIndex = 2
         '
         'Label3
@@ -135,7 +135,7 @@ Partial Class New_Item
         Me.TextBoxDescript.Location = New System.Drawing.Point(103, 46)
         Me.TextBoxDescript.Multiline = True
         Me.TextBoxDescript.Name = "TextBoxDescript"
-        Me.TextBoxDescript.Size = New System.Drawing.Size(174, 43)
+        Me.TextBoxDescript.Size = New System.Drawing.Size(209, 43)
         Me.TextBoxDescript.TabIndex = 1
         '
         'Label6
@@ -152,7 +152,7 @@ Partial Class New_Item
         Me.GroupBox3.Controls.Add(Me.ButtonDelete)
         Me.GroupBox3.Controls.Add(Me.ButtonNew)
         Me.GroupBox3.Controls.Add(Me.ButtonUpdate)
-        Me.GroupBox3.Location = New System.Drawing.Point(430, 19)
+        Me.GroupBox3.Location = New System.Drawing.Point(644, 19)
         Me.GroupBox3.Name = "GroupBox3"
         Me.GroupBox3.Size = New System.Drawing.Size(119, 182)
         Me.GroupBox3.TabIndex = 15
@@ -189,14 +189,14 @@ Partial Class New_Item
         '
         Me.TextBoxReorder.Location = New System.Drawing.Point(103, 137)
         Me.TextBoxReorder.Name = "TextBoxReorder"
-        Me.TextBoxReorder.Size = New System.Drawing.Size(174, 20)
+        Me.TextBoxReorder.Size = New System.Drawing.Size(209, 20)
         Me.TextBoxReorder.TabIndex = 3
         '
         'TextBoxName
         '
         Me.TextBoxName.Location = New System.Drawing.Point(103, 12)
         Me.TextBoxName.Name = "TextBoxName"
-        Me.TextBoxName.Size = New System.Drawing.Size(174, 20)
+        Me.TextBoxName.Size = New System.Drawing.Size(209, 20)
         Me.TextBoxName.TabIndex = 0
         '
         'Label4
@@ -233,7 +233,7 @@ Partial Class New_Item
         Me.DataGridView1.Location = New System.Drawing.Point(9, 19)
         Me.DataGridView1.Name = "DataGridView1"
         Me.DataGridView1.RowHeadersWidth = 51
-        Me.DataGridView1.Size = New System.Drawing.Size(543, 331)
+        Me.DataGridView1.Size = New System.Drawing.Size(774, 331)
         Me.DataGridView1.TabIndex = 1
         '
         'GroupBox2
@@ -241,7 +241,7 @@ Partial Class New_Item
         Me.GroupBox2.Controls.Add(Me.DataGridView1)
         Me.GroupBox2.Location = New System.Drawing.Point(9, 222)
         Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Size = New System.Drawing.Size(560, 359)
+        Me.GroupBox2.Size = New System.Drawing.Size(790, 359)
         Me.GroupBox2.TabIndex = 2
         Me.GroupBox2.TabStop = False
         '
@@ -249,7 +249,7 @@ Partial Class New_Item
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(581, 587)
+        Me.ClientSize = New System.Drawing.Size(804, 587)
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.GroupBox1)
         Me.Name = "New_Item"

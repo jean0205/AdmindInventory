@@ -102,11 +102,17 @@
                                                 MessageBoxDefaultButton.Button1)
             Else
 
+
+                '
+
                 stockEntry.UpdateStockEntry(entryId, invoice, providerName, amount, costEach, totalCost, recibed, todaysdate)
                 stockEntry.UpdateItemprovider(providerName, costEach, todaysdate, entryId)
 
 
                 updating = False
+
+                'diferencia no puede ser mayor q el actual stock para q no se ponga un valor negativo
+
 
                 Dim diferencia As Integer = amount - amountBefore
                 Dim difExpenses As Decimal = Convert.ToDecimal(TextBoxTotalCost.Text) - totalbefore

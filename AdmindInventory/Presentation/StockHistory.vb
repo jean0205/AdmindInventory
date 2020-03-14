@@ -312,7 +312,9 @@
         Dim entryId As Integer = DataGridView1.CurrentRow.Cells(0).Value
 
         Dim amount As String = DataGridView1.CurrentRow.Cells(6).Value
-
+        Dim category As New CategoryBL
+        Dim difexpenses As Decimal = DataGridView1.CurrentRow.Cells(8).Value
+        Dim categoryName As String = DataGridView1.CurrentRow.Cells(3).Value
 
 
 
@@ -328,12 +330,19 @@
         If result = DialogResult.Yes Then
             Try
                 Dim stockentry As New StockEntryBL
+
+                'antes de borrar verificar qel amount in stock sea mayorq la cantidad entrada q estoy borrando
+                'para no tener numeros negativos en el stock
+
                 stockentry.DeleteItemprovider(entryId)
                 stockentry.DeleteStockEntry(entryId)
 
 
                 Dim stock As New StockBL
+
                 stock.UpdateStock(itemId, -amount)
+
+                category.updateBudgetExpenses(-difexpenses, categoryName)
 
                 MessageBox.Show("Stock entry successfully deleted.",
                                 "Delection Complete",

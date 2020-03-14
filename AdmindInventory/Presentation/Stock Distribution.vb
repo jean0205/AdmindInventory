@@ -11,6 +11,8 @@
     Dim department As String
     Dim amountBefore As Integer
     Dim instock As Integer
+    Dim diferencia As Integer
+
 
 
 #End Region
@@ -70,7 +72,7 @@
 
 
     End Sub
-
+    ' Dim diferencia As Integer
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
 
         If CheckInformation() Then
@@ -120,8 +122,15 @@
                 ComboBoxDepartment.SelectedIndex = -1
 
             Else
+
+                'antes de actualizar el stockout debo revisar q el item no este desactivado
+                'si esta desactivado el retorno se pierde
+
+                'puedo ponerunyelow flag a los items q estan en el stock distribution y no en el estock
+                'Year a esos desactivarles la opcion de update o delete
+
                 stockOut.updateStockOut(Me.id, departmetName, amount)
-                Dim diferencia As Integer = amount - amountBefore
+                diferencia = amount - amountBefore
 
                 stock.UpdateStock(itemId, -diferencia)
 
@@ -183,13 +192,21 @@
 #End Region
 #Region "Events"
     Private Sub TextBoxAmount_KeyUp(sender As Object, e As KeyEventArgs) Handles TextBoxAmount.KeyUp
+
         If TextBoxAmount.Text <> String.Empty Then
             Dim amount As Integer = Convert.ToInt32(TextBoxAmount.Text)
             Dim stock As Integer = Convert.ToInt32(TextBoxInStock.Text)
+            diferencia = amount - amountBefore
+
+            If updating AndAlso diferencia > stock Then
+                TextBoxAmount.Text = TextBoxAmount.Text.Substring(0, TextBoxAmount.Text.Length - 1)
+
+                MessageBox.Show("The amount you are trying to update exceeds stocks.")
+            End If
 
 
 
-            If amount > stock Then
+            If amount > stock AndAlso Not updating Then
                 TextBoxAmount.Text = TextBoxAmount.Text.Substring(0, TextBoxAmount.Text.Length - 1)
 
                 MessageBox.Show("The amount you are trying to distribute exceeds stocks.")
