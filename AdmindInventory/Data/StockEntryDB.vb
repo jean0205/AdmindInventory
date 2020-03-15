@@ -167,7 +167,7 @@ Public Class StockEntryDB
         Return table
     End Function
 
-    'Filter by category and date
+    'Filter by category and dategh
 
     Function FilterStockHistoryCategoryAndDate(ByVal date1 As Date, ByVal date2 As Date, category As String) As DataTable
         Dim table As New DataTable
