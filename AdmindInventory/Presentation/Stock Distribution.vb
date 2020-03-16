@@ -60,7 +60,7 @@
         If updating Then
             Me.TextBoxItem.Text = itemName
             Me.TextBoxPresentation.Text = attribute
-            Me.ComboBoxDepartment.SelectedItem = ComboBoxDepartment.FindStringExact(department)
+            Me.ComboBoxDepartment.SelectedItem = department
             Me.TextBoxAmount.Text = amountBefore
 
             Dim stock As New StockDB
@@ -110,6 +110,11 @@
 
 
                 stock.UpdateStock(itemId, -amount)
+
+                stockAmount = stockAmount - amount
+
+                TextBoxInStock.Text = stockAmount.ToString
+
 
 
                 MessageBox.Show("The item was correctly distributed to the department: " & ComboBoxDepartment.SelectedItem,

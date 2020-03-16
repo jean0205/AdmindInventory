@@ -51,7 +51,8 @@ Partial Class New_Item
         '
         'GroupBox1
         '
-        Me.GroupBox1.Controls.Add(Me.GroupBoxState)
+        Me.GroupBox1.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.GroupBox1.Controls.Add(Me.ComboBoxCat)
         Me.GroupBox1.Controls.Add(Me.TextBoxPresentation)
         Me.GroupBox1.Controls.Add(Me.Label3)
@@ -63,21 +64,24 @@ Partial Class New_Item
         Me.GroupBox1.Controls.Add(Me.Label4)
         Me.GroupBox1.Controls.Add(Me.Label2)
         Me.GroupBox1.Controls.Add(Me.Label1)
-        Me.GroupBox1.Location = New System.Drawing.Point(9, 5)
+        Me.GroupBox1.Location = New System.Drawing.Point(12, 6)
+        Me.GroupBox1.Margin = New System.Windows.Forms.Padding(4)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(783, 211)
+        Me.GroupBox1.Padding = New System.Windows.Forms.Padding(4)
+        Me.GroupBox1.Size = New System.Drawing.Size(1141, 260)
         Me.GroupBox1.TabIndex = 0
         Me.GroupBox1.TabStop = False
         '
         'GroupBoxState
         '
+        Me.GroupBoxState.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.GroupBoxState.Controls.Add(Me.RadioButtonInactive)
         Me.GroupBoxState.Controls.Add(Me.RadioButtonActive)
-        Me.GroupBoxState.Location = New System.Drawing.Point(398, 83)
-        Me.GroupBoxState.Margin = New System.Windows.Forms.Padding(2)
+        Me.GroupBoxState.Location = New System.Drawing.Point(30, 43)
+        Me.GroupBoxState.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.GroupBoxState.Name = "GroupBoxState"
-        Me.GroupBoxState.Padding = New System.Windows.Forms.Padding(2)
-        Me.GroupBoxState.Size = New System.Drawing.Size(117, 118)
+        Me.GroupBoxState.Padding = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.GroupBoxState.Size = New System.Drawing.Size(156, 166)
         Me.GroupBoxState.TabIndex = 20
         Me.GroupBoxState.TabStop = False
         Me.GroupBoxState.Text = "State:"
@@ -85,10 +89,10 @@ Partial Class New_Item
         'RadioButtonInactive
         '
         Me.RadioButtonInactive.AutoSize = True
-        Me.RadioButtonInactive.Location = New System.Drawing.Point(16, 62)
-        Me.RadioButtonInactive.Margin = New System.Windows.Forms.Padding(2)
+        Me.RadioButtonInactive.Location = New System.Drawing.Point(21, 94)
+        Me.RadioButtonInactive.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.RadioButtonInactive.Name = "RadioButtonInactive"
-        Me.RadioButtonInactive.Size = New System.Drawing.Size(63, 17)
+        Me.RadioButtonInactive.Size = New System.Drawing.Size(77, 21)
         Me.RadioButtonInactive.TabIndex = 1
         Me.RadioButtonInactive.TabStop = True
         Me.RadioButtonInactive.Text = "Inactive"
@@ -97,10 +101,10 @@ Partial Class New_Item
         'RadioButtonActive
         '
         Me.RadioButtonActive.AutoSize = True
-        Me.RadioButtonActive.Location = New System.Drawing.Point(16, 28)
-        Me.RadioButtonActive.Margin = New System.Windows.Forms.Padding(2)
+        Me.RadioButtonActive.Location = New System.Drawing.Point(21, 34)
+        Me.RadioButtonActive.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.RadioButtonActive.Name = "RadioButtonActive"
-        Me.RadioButtonActive.Size = New System.Drawing.Size(55, 17)
+        Me.RadioButtonActive.Size = New System.Drawing.Size(67, 21)
         Me.RadioButtonActive.TabIndex = 5
         Me.RadioButtonActive.TabStop = True
         Me.RadioButtonActive.Text = "Active"
@@ -108,150 +112,204 @@ Partial Class New_Item
         '
         'ComboBoxCat
         '
+        Me.ComboBoxCat.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.ComboBoxCat.FormattingEnabled = True
-        Me.ComboBoxCat.Location = New System.Drawing.Point(103, 169)
+        Me.ComboBoxCat.Location = New System.Drawing.Point(137, 217)
+        Me.ComboBoxCat.Margin = New System.Windows.Forms.Padding(4)
+        Me.ComboBoxCat.MaximumSize = New System.Drawing.Size(350, 0)
         Me.ComboBoxCat.Name = "ComboBoxCat"
-        Me.ComboBoxCat.Size = New System.Drawing.Size(209, 21)
+        Me.ComboBoxCat.Size = New System.Drawing.Size(347, 24)
         Me.ComboBoxCat.TabIndex = 4
         '
         'TextBoxPresentation
         '
-        Me.TextBoxPresentation.Location = New System.Drawing.Point(103, 103)
+        Me.TextBoxPresentation.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.TextBoxPresentation.Location = New System.Drawing.Point(137, 136)
+        Me.TextBoxPresentation.Margin = New System.Windows.Forms.Padding(4)
+        Me.TextBoxPresentation.MaximumSize = New System.Drawing.Size(350, 55)
         Me.TextBoxPresentation.Name = "TextBoxPresentation"
-        Me.TextBoxPresentation.Size = New System.Drawing.Size(209, 20)
+        Me.TextBoxPresentation.Size = New System.Drawing.Size(347, 22)
         Me.TextBoxPresentation.TabIndex = 2
         '
         'Label3
         '
+        Me.Label3.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(15, 108)
+        Me.Label3.Location = New System.Drawing.Point(20, 142)
+        Me.Label3.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(49, 13)
+        Me.Label3.Size = New System.Drawing.Size(65, 17)
         Me.Label3.TabIndex = 18
         Me.Label3.Text = "Attribute:"
         '
         'TextBoxDescript
         '
-        Me.TextBoxDescript.Location = New System.Drawing.Point(103, 46)
+        Me.TextBoxDescript.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.TextBoxDescript.Location = New System.Drawing.Point(137, 66)
+        Me.TextBoxDescript.Margin = New System.Windows.Forms.Padding(4)
+        Me.TextBoxDescript.MaximumSize = New System.Drawing.Size(350, 55)
         Me.TextBoxDescript.Multiline = True
         Me.TextBoxDescript.Name = "TextBoxDescript"
-        Me.TextBoxDescript.Size = New System.Drawing.Size(209, 43)
+        Me.TextBoxDescript.Size = New System.Drawing.Size(347, 55)
         Me.TextBoxDescript.TabIndex = 1
         '
         'Label6
         '
+        Me.Label6.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label6.AutoSize = True
-        Me.Label6.Location = New System.Drawing.Point(15, 61)
+        Me.Label6.Location = New System.Drawing.Point(20, 84)
+        Me.Label6.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(63, 13)
+        Me.Label6.Size = New System.Drawing.Size(83, 17)
         Me.Label6.TabIndex = 16
         Me.Label6.Text = "Description:"
         '
         'GroupBox3
         '
+        Me.GroupBox3.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.GroupBox3.Controls.Add(Me.GroupBoxState)
         Me.GroupBox3.Controls.Add(Me.ButtonDelete)
         Me.GroupBox3.Controls.Add(Me.ButtonNew)
         Me.GroupBox3.Controls.Add(Me.ButtonUpdate)
-        Me.GroupBox3.Location = New System.Drawing.Point(644, 19)
+        Me.GroupBox3.Location = New System.Drawing.Point(775, 23)
+        Me.GroupBox3.Margin = New System.Windows.Forms.Padding(4)
         Me.GroupBox3.Name = "GroupBox3"
-        Me.GroupBox3.Size = New System.Drawing.Size(119, 182)
+        Me.GroupBox3.Padding = New System.Windows.Forms.Padding(4)
+        Me.GroupBox3.Size = New System.Drawing.Size(342, 224)
         Me.GroupBox3.TabIndex = 15
         Me.GroupBox3.TabStop = False
         '
         'ButtonDelete
         '
-        Me.ButtonDelete.Location = New System.Drawing.Point(21, 141)
+        Me.ButtonDelete.Location = New System.Drawing.Point(234, 178)
+        Me.ButtonDelete.Margin = New System.Windows.Forms.Padding(4)
         Me.ButtonDelete.Name = "ButtonDelete"
-        Me.ButtonDelete.Size = New System.Drawing.Size(75, 23)
+        Me.ButtonDelete.Size = New System.Drawing.Size(100, 28)
         Me.ButtonDelete.TabIndex = 13
         Me.ButtonDelete.Text = "Delete"
         Me.ButtonDelete.UseVisualStyleBackColor = True
         '
         'ButtonNew
         '
-        Me.ButtonNew.Location = New System.Drawing.Point(21, 17)
+        Me.ButtonNew.Location = New System.Drawing.Point(234, 25)
+        Me.ButtonNew.Margin = New System.Windows.Forms.Padding(4)
         Me.ButtonNew.Name = "ButtonNew"
-        Me.ButtonNew.Size = New System.Drawing.Size(75, 23)
+        Me.ButtonNew.Size = New System.Drawing.Size(100, 28)
         Me.ButtonNew.TabIndex = 11
         Me.ButtonNew.Text = "Save"
         Me.ButtonNew.UseVisualStyleBackColor = True
         '
         'ButtonUpdate
         '
-        Me.ButtonUpdate.Location = New System.Drawing.Point(21, 79)
+        Me.ButtonUpdate.Location = New System.Drawing.Point(234, 101)
+        Me.ButtonUpdate.Margin = New System.Windows.Forms.Padding(4)
         Me.ButtonUpdate.Name = "ButtonUpdate"
-        Me.ButtonUpdate.Size = New System.Drawing.Size(75, 23)
+        Me.ButtonUpdate.Size = New System.Drawing.Size(100, 28)
         Me.ButtonUpdate.TabIndex = 12
         Me.ButtonUpdate.Text = "Update"
         Me.ButtonUpdate.UseVisualStyleBackColor = True
         '
         'TextBoxReorder
         '
-        Me.TextBoxReorder.Location = New System.Drawing.Point(103, 137)
+        Me.TextBoxReorder.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.TextBoxReorder.Location = New System.Drawing.Point(137, 178)
+        Me.TextBoxReorder.Margin = New System.Windows.Forms.Padding(4)
+        Me.TextBoxReorder.MaximumSize = New System.Drawing.Size(350, 55)
         Me.TextBoxReorder.Name = "TextBoxReorder"
-        Me.TextBoxReorder.Size = New System.Drawing.Size(209, 20)
+        Me.TextBoxReorder.Size = New System.Drawing.Size(347, 22)
         Me.TextBoxReorder.TabIndex = 3
         '
         'TextBoxName
         '
-        Me.TextBoxName.Location = New System.Drawing.Point(103, 12)
+        Me.TextBoxName.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.TextBoxName.Location = New System.Drawing.Point(137, 24)
+        Me.TextBoxName.Margin = New System.Windows.Forms.Padding(4)
+        Me.TextBoxName.MaximumSize = New System.Drawing.Size(350, 55)
         Me.TextBoxName.Name = "TextBoxName"
-        Me.TextBoxName.Size = New System.Drawing.Size(209, 20)
+        Me.TextBoxName.Size = New System.Drawing.Size(347, 22)
         Me.TextBoxName.TabIndex = 0
         '
         'Label4
         '
+        Me.Label4.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(15, 141)
+        Me.Label4.Location = New System.Drawing.Point(20, 183)
+        Me.Label4.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(82, 13)
+        Me.Label4.Size = New System.Drawing.Size(110, 17)
         Me.Label4.TabIndex = 6
         Me.Label4.Text = "Re-Order Level:"
         '
         'Label2
         '
+        Me.Label2.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(15, 18)
+        Me.Label2.Location = New System.Drawing.Point(20, 31)
+        Me.Label2.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(38, 13)
+        Me.Label2.Size = New System.Drawing.Size(49, 17)
         Me.Label2.TabIndex = 4
         Me.Label2.Text = "Name:"
         '
         'Label1
         '
+        Me.Label1.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(15, 172)
+        Me.Label1.Location = New System.Drawing.Point(20, 221)
+        Me.Label1.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(52, 13)
+        Me.Label1.Size = New System.Drawing.Size(69, 17)
         Me.Label1.TabIndex = 3
         Me.Label1.Text = "Category:"
         '
         'DataGridView1
         '
+        Me.DataGridView1.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.DataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells
         Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView1.Location = New System.Drawing.Point(9, 19)
+        Me.DataGridView1.Location = New System.Drawing.Point(12, 23)
+        Me.DataGridView1.Margin = New System.Windows.Forms.Padding(4)
         Me.DataGridView1.Name = "DataGridView1"
+        Me.DataGridView1.ReadOnly = True
+        Me.DataGridView1.RowHeadersVisible = False
         Me.DataGridView1.RowHeadersWidth = 51
-        Me.DataGridView1.Size = New System.Drawing.Size(774, 331)
+        Me.DataGridView1.Size = New System.Drawing.Size(1129, 407)
         Me.DataGridView1.TabIndex = 1
         '
         'GroupBox2
         '
+        Me.GroupBox2.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.GroupBox2.Controls.Add(Me.DataGridView1)
-        Me.GroupBox2.Location = New System.Drawing.Point(9, 222)
+        Me.GroupBox2.Location = New System.Drawing.Point(12, 273)
+        Me.GroupBox2.Margin = New System.Windows.Forms.Padding(4)
         Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Size = New System.Drawing.Size(790, 359)
+        Me.GroupBox2.Padding = New System.Windows.Forms.Padding(4)
+        Me.GroupBox2.Size = New System.Drawing.Size(1150, 442)
         Me.GroupBox2.TabIndex = 2
         Me.GroupBox2.TabStop = False
         '
         'New_Item
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(804, 587)
+        Me.ClientSize = New System.Drawing.Size(1170, 722)
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.GroupBox1)
+        Me.Margin = New System.Windows.Forms.Padding(4)
         Me.Name = "New_Item"
         Me.Text = "Manage Items"
         Me.GroupBox1.ResumeLayout(False)

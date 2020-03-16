@@ -141,7 +141,7 @@
 
             End Try
 
-            LoadCategories()
+            'LoadCategories()
 
         End If
     End Sub

@@ -159,13 +159,13 @@ Public Class CategoryDB
 
 
     Sub InsertBudget(ByVal categoryName As String, ByVal budget As Decimal)
-        Dim query As String = "Insert INTO Budget (Category_Id, Year, Budget) values ((select Id from Category where Name=@Category_Id ),YEAR(GETDATE()), @Budget)"
+        Dim query As String = "Insert INTO Budget (Category_Id, Year, Budget, Expenses) values ((select Id from Category where Name=@Category_Id ),YEAR(GETDATE()), @Budget, @Expenses)"
         Using connection As New SqlConnection(conString)
             Using command As New SqlCommand(query, connection)
                 command.Parameters.AddWithValue("@Category_Id", SqlDbType.Int).Value = categoryName
                 ' command.Parameters.AddWithValue("@Year", SqlDbType.Int).Value = year
                 command.Parameters.AddWithValue("@Budget", SqlDbType.Decimal).Value = budget
-                'command.Parameters.AddWithValue("@Expenses", SqlDbType.Decimal).Value = expenses
+                command.Parameters.AddWithValue("@Expenses", SqlDbType.Decimal).Value = 0.00
                 Try
                     connection.Open()
                     command.ExecuteNonQuery()

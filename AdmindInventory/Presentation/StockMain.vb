@@ -191,6 +191,22 @@
         DataGridView1.Columns(2).Name = "Category"
         DataGridView1.Columns(3).Name = "Attribute"
 
+        For Each x As DataGridViewColumn In Me.DataGridView1.Columns
+            x.SortMode = DataGridViewColumnSortMode.NotSortable
+            If x.Name = "Active" Then
+                x.ReadOnly = False
+            Else
+                x.ReadOnly = True
+
+            End If
+
+
+        Next
+
+
+
+
+
 
 
 
@@ -224,13 +240,7 @@
         Next
     End Sub
 
-    Private Sub DataGridView1_CellContentDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView1.CellContentDoubleClick
 
-        Dim itemId As Integer = DataGridView1.Rows(e.RowIndex).Cells(0).Value
-        Dim itemProviderFrm As New ItemProviderFrm(itemId)
-        itemProviderFrm.ShowDialog()
-
-    End Sub
 
 
 
@@ -260,9 +270,9 @@
             Dim stock As New ReportStock2
 
             stock.ItemName = row.Cells(1).Value
-            Stock.ItemCategory = row.Cells(2).Value
-            Stock.ItemPresentation = row.Cells(3).Value
-            Stock.ItemReorder = row.Cells(4).Value
+            stock.ItemCategory = row.Cells(2).Value
+            stock.ItemPresentation = row.Cells(3).Value
+            stock.ItemReorder = row.Cells(4).Value
             stock.StockRemains = row.Cells(5).Value
             If Not IsDBNull(row.Cells(7).Value) Then
                 stock.Expenses = Convert.ToDecimal(row.Cells(7).Value)
@@ -312,8 +322,24 @@
 
 
 
-    Private Sub DataGridView1_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView1.CellContentClick
 
+
+    Sub showBudget(ByVal state As Boolean)
+        Label5.Visible = state
+        Label2.Visible = state
+        Label6.Visible = state
+        TextBox1.Visible = state
+        TextBox2.Visible = state
+        TextBox3.Visible = state
+
+
+    End Sub
+
+    Private Sub CheckBoxReorder_CheckedChanged(sender As Object, e As EventArgs) Handles CheckBoxReorder.CheckedChanged
+
+    End Sub
+
+    Private Sub DataGridView1_CellContentClick_1(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView1.CellContentClick
         If e.RowIndex >= 0 AndAlso e.ColumnIndex = 6 Then
 
             'Reference the GridView Row.
@@ -343,21 +369,13 @@
                 End If
             End If
         End If
-
     End Sub
 
-    Sub showBudget(ByVal state As Boolean)
-        Label5.Visible = state
-        Label2.Visible = state
-        Label6.Visible = state
-        TextBox1.Visible = state
-        TextBox2.Visible = state
-        TextBox3.Visible = state
-
-
-    End Sub
-
-    Private Sub CheckBoxReorder_CheckedChanged(sender As Object, e As EventArgs) Handles CheckBoxReorder.CheckedChanged
-
+    Private Sub DataGridView1_CellContentDoubleClick_1(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView1.CellContentDoubleClick
+        If e.RowIndex >= 0 Then
+            Dim itemId As Integer = DataGridView1.Rows(e.RowIndex).Cells(0).Value
+            Dim itemProviderFrm As New ItemProviderFrm(itemId)
+            itemProviderFrm.ShowDialog()
+        End If
     End Sub
 End Class

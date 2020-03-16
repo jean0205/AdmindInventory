@@ -20,6 +20,7 @@
         DataGridView1.Columns(0).Visible = False
         DataGridView1.Columns(11).Visible = False
         PaintDatagrid()
+        getDeactivatedItems()
 
 
 
@@ -62,6 +63,18 @@
         Next
     End Sub
 
+    Sub getDeactivatedItems()
+        Dim idList As New List(Of Integer)
+        Dim stock As New StockBL
+        idList = stock.GetStockItemId
+        For Each row As DataGridViewRow In DataGridView1.Rows
+            If Not idList.Contains(row.Cells(11).Value) Then
+                row.DefaultCellStyle.BackColor = Color.Yellow
+            End If
+        Next
+
+    End Sub
+
 
 #End Region
 
@@ -77,6 +90,9 @@
 
         Dim stockOut As New StockOutBL
         DataGridView1.DataSource = stockOut.FilterStockOutByName(TextBoxItem.Text)
+
+        getDeactivatedItems()
+
 
 
 
@@ -95,6 +111,8 @@
 
             category = ComboBoxcategory.SelectedItem
             DataGridView1.DataSource = stockout.FilterStockOutByCategory(category)
+
+            getDeactivatedItems()
 
             PaintDatagrid()
 
@@ -122,6 +140,8 @@
             DataGridView1.DataSource = stockout.FilterStockOutByDepartment(department)
             PaintDatagrid()
 
+            getDeactivatedItems()
+
             TextBoxItem.Clear()
 
         Else
@@ -143,7 +163,7 @@
                 Dim endDate As Date = DateTimePicker2.Value.Date
                 Dim stockOut As New StockOutBL
                 DataGridView1.DataSource = stockOut.FilterStockHistoryByDateAdDepartment(startdate, endDate, department)
-
+                getDeactivatedItems()
                 PaintDatagrid()
                 Return
             Else
@@ -152,6 +172,7 @@
                 Dim endDate As Date = DateTimePicker2.Value.Date
                 Dim stockOut As New StockOutBL
                 DataGridView1.DataSource = stockOut.FilterStockHistoryByDate(startdate, endDate)
+                getDeactivatedItems()
                 PaintDatagrid()
 
             End If
@@ -162,6 +183,7 @@
                 Dim endDate As Date = DateTimePicker2.Value.Date
                 Dim stockOut As New StockOutBL
                 DataGridView1.DataSource = stockOut.FilterStockHistoryByDateAndItem(startdate, endDate, item)
+                getDeactivatedItems()
                 PaintDatagrid()
                 Return
             End If
@@ -170,6 +192,7 @@
                 Dim endDate As Date = DateTimePicker2.Value.Date
                 Dim stockOut As New StockOutBL
                 DataGridView1.DataSource = stockOut.FilterstockOutBydateAndRefused(startdate, endDate)
+                getDeactivatedItems()
                 PaintDatagrid()
                 Return
             End If
@@ -177,6 +200,7 @@
 
         Else
             getStockOutHistory()
+
             ComboBoxcategory.SelectedIndex = 0
             TextBoxItem.Clear()
             ComboBoxDepartment.SelectedIndex = 0
@@ -204,6 +228,8 @@
         Dim stockOut As New StockOutBL
         DataGridView1.DataSource = stockOut.FilterStockOutByName(TextBoxItem.Text)
 
+        getDeactivatedItems()
+
         PaintDatagrid()
 
 
@@ -214,6 +240,9 @@
         If CheckBox2.Checked Then
             Dim stockOut As New StockOutBL
             DataGridView1.DataSource = stockOut.GetRequestRefused
+
+            getDeactivatedItems()
+
             PaintDatagrid()
 
         Else
@@ -301,6 +330,10 @@
 
     Private Sub ButtonUpdate_Click(sender As Object, e As EventArgs) Handles ButtonUpdate.Click
 
+        ' verify if the item it is not disable
+
+        Dim stock As New StockBL
+
 
         Dim outId As Integer = DataGridView1.CurrentRow.Cells(0).Value
         Dim itemId As Integer = DataGridView1.CurrentRow.Cells(11).Value
@@ -309,6 +342,15 @@
         Dim department As String = DataGridView1.CurrentRow.Cells(5).Value
         Dim Amount As Integer = DataGridView1.CurrentRow.Cells(6).Value
 
+        If Not stock.GetStockItemId.Contains(itemId) Then
+            MessageBox.Show("The selected record belongs to a deactivated item, it is not possible to modify or delete this record.",
+                                "Error",
+                                     MessageBoxButtons.OK,
+                                        MessageBoxIcon.Error,
+                                            MessageBoxDefaultButton.Button1)
+            Return
+
+        End If
 
 
 
@@ -325,10 +367,19 @@
 
     Private Sub ButtonDelete_Click(sender As Object, e As EventArgs) Handles ButtonDelete.Click
 
-
+        Dim stock1 As New StockBL
         Dim itemId As Integer = DataGridView1.CurrentRow.Cells(11).Value
-        Dim entryId As Integer = DataGridView1.CurrentRow.Cells(0).Value
 
+        If Not stock1.GetStockItemId.Contains(itemId) Then
+            MessageBox.Show("The selected record belongs to a deactivated item, it is not possible to modify or delete this record.",
+                                "Error",
+                                     MessageBoxButtons.OK,
+                                        MessageBoxIcon.Error,
+                                            MessageBoxDefaultButton.Button1)
+            Return
+
+        End If
+        Dim entryId As Integer = DataGridView1.CurrentRow.Cells(0).Value
         Dim amount As String = DataGridView1.CurrentRow.Cells(6).Value
 
 
@@ -346,6 +397,7 @@
         If result = DialogResult.Yes Then
             Try
                 Dim stouOut As New StockOutBL
+
                 stouOut.DeleteStockOutRecord(entryId)
 
 

@@ -100,6 +100,12 @@
         If RadioButtonActive.Checked = False Then
             RadioButtonInactive.Checked = True
         End If
+
+        If RadioButtonActive.Checked = True Then
+            GroupBoxState.Enabled = False
+        Else
+            GroupBoxState.Enabled = True
+        End If
         isNew = False
 
 
@@ -297,6 +303,10 @@
 
         DataGridView1.DataSource = item.GetItemsByName(TextBoxName.Text)
         PaintDatagrid()
+
+    End Sub
+
+    Private Sub DataGridView1_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView1.CellContentClick
 
     End Sub
 

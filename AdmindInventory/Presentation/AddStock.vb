@@ -173,12 +173,12 @@
     End Sub
 
     Sub CleanInterfaz()
+        CheckBox1.Checked = False
         TextBoxAmount.Clear()
         TextBoxCost.Clear()
         TextBoxTotalCost.Clear()
         TextBoxInvoice.Clear()
         TextBoxprovider.Clear()
-        CheckBox1.Checked = False
         TextBoxVat.Clear()
 
 
@@ -358,8 +358,10 @@
     End Sub
 
     Private Sub CheckBox1_CheckedChanged(sender As Object, e As EventArgs) Handles CheckBox1.CheckedChanged
+
+        Dim amount As Integer = Convert.ToInt32(TextBoxAmount.Text)
         If CheckBox1.Checked Then
-            Dim amount = Convert.ToInt32(TextBoxAmount.Text)
+
 
             If (TextBoxCost.Text.Length > 0) Then
                 Dim cost As Decimal = Convert.ToDecimal(TextBoxCost.Text)
@@ -374,6 +376,8 @@
         Else
 
             TextBoxVat.Clear()
+            Dim cost As Decimal = Convert.ToDecimal(TextBoxCost.Text)
+            TextBoxTotalCost.Text = (cost * amount).ToString("n2")
         End If
     End Sub
 

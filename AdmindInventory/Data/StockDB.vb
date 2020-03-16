@@ -263,5 +263,34 @@ Public Class StockDB
         Return Stock
     End Function
 
+    'get stock item id
+    Function GetStockItemId() As List(Of Integer)
 
+        Dim IdList As New List(Of Integer)
+
+
+        Dim query As String = "select s.Item_id from Stock s "
+        Using connection As New SqlConnection(conString)
+            Using command As New SqlCommand(query, connection)
+
+                Try
+                    connection.Open()
+                    Dim reader As SqlDataReader = command.ExecuteReader()
+                    While reader.Read
+                        IdList.Add(reader.GetInt32(0))
+                    End While
+
+
+
+                    reader.Close()
+                    connection.Close()
+                Catch ex As Exception
+                    Throw ex
+
+                End Try
+
+            End Using
+        End Using
+        Return IdList
+    End Function
 End Class

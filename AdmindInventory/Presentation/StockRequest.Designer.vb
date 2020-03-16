@@ -44,9 +44,11 @@ Partial Class StockRequest
         'GroupBox1
         '
         Me.GroupBox1.Controls.Add(Me.DataGridView1)
-        Me.GroupBox1.Location = New System.Drawing.Point(9, 212)
+        Me.GroupBox1.Location = New System.Drawing.Point(12, 261)
+        Me.GroupBox1.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(387, 289)
+        Me.GroupBox1.Padding = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.GroupBox1.Size = New System.Drawing.Size(659, 356)
         Me.GroupBox1.TabIndex = 0
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Items List"
@@ -55,9 +57,14 @@ Partial Class StockRequest
         '
         Me.DataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells
         Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView1.Location = New System.Drawing.Point(8, 19)
+        Me.DataGridView1.Location = New System.Drawing.Point(11, 23)
+        Me.DataGridView1.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.DataGridView1.Name = "DataGridView1"
-        Me.DataGridView1.Size = New System.Drawing.Size(369, 264)
+        Me.DataGridView1.ReadOnly = True
+        Me.DataGridView1.RowHeadersVisible = False
+        Me.DataGridView1.RowHeadersWidth = 51
+        Me.DataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
+        Me.DataGridView1.Size = New System.Drawing.Size(640, 325)
         Me.DataGridView1.TabIndex = 0
         '
         'GroupBox2
@@ -73,51 +80,58 @@ Partial Class StockRequest
         Me.GroupBox2.Controls.Add(Me.TextBoxAmount)
         Me.GroupBox2.Controls.Add(Me.Label4)
         Me.GroupBox2.Controls.Add(Me.TextBoxItem)
-        Me.GroupBox2.Location = New System.Drawing.Point(8, 3)
+        Me.GroupBox2.Location = New System.Drawing.Point(11, 4)
+        Me.GroupBox2.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Size = New System.Drawing.Size(386, 203)
+        Me.GroupBox2.Padding = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.GroupBox2.Size = New System.Drawing.Size(658, 250)
         Me.GroupBox2.TabIndex = 1
         Me.GroupBox2.TabStop = False
         '
         'ComboBoxDepartment
         '
         Me.ComboBoxDepartment.FormattingEnabled = True
-        Me.ComboBoxDepartment.Location = New System.Drawing.Point(89, 13)
+        Me.ComboBoxDepartment.Location = New System.Drawing.Point(119, 16)
+        Me.ComboBoxDepartment.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.ComboBoxDepartment.Name = "ComboBoxDepartment"
-        Me.ComboBoxDepartment.Size = New System.Drawing.Size(168, 21)
+        Me.ComboBoxDepartment.Size = New System.Drawing.Size(223, 24)
         Me.ComboBoxDepartment.TabIndex = 0
         '
         'Label5
         '
         Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(13, 16)
+        Me.Label5.Location = New System.Drawing.Point(17, 20)
+        Me.Label5.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(65, 13)
+        Me.Label5.Size = New System.Drawing.Size(86, 17)
         Me.Label5.TabIndex = 17
         Me.Label5.Text = "Department:"
         '
         'TextBoxrequested
         '
-        Me.TextBoxrequested.Enabled = False
-        Me.TextBoxrequested.Location = New System.Drawing.Point(90, 157)
+        Me.TextBoxrequested.Location = New System.Drawing.Point(120, 207)
+        Me.TextBoxrequested.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.TextBoxrequested.Name = "TextBoxrequested"
-        Me.TextBoxrequested.Size = New System.Drawing.Size(140, 20)
+        Me.TextBoxrequested.ReadOnly = True
+        Me.TextBoxrequested.Size = New System.Drawing.Size(185, 22)
         Me.TextBoxrequested.TabIndex = 4
         '
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(13, 160)
+        Me.Label3.Location = New System.Drawing.Point(17, 211)
+        Me.Label3.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(77, 13)
+        Me.Label3.Size = New System.Drawing.Size(101, 17)
         Me.Label3.TabIndex = 15
         Me.Label3.Text = "Requested By:"
         '
         'Button1
         '
-        Me.Button1.Location = New System.Drawing.Point(271, 157)
+        Me.Button1.Location = New System.Drawing.Point(509, 197)
+        Me.Button1.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(95, 24)
+        Me.Button1.Size = New System.Drawing.Size(127, 30)
         Me.Button1.TabIndex = 5
         Me.Button1.Text = "Post Request"
         Me.Button1.UseVisualStyleBackColor = True
@@ -126,59 +140,68 @@ Partial Class StockRequest
         '
         Me.ComboBoxCategory.FormattingEnabled = True
         Me.ComboBoxCategory.Items.AddRange(New Object() {"All Categories"})
-        Me.ComboBoxCategory.Location = New System.Drawing.Point(90, 50)
+        Me.ComboBoxCategory.Location = New System.Drawing.Point(120, 62)
+        Me.ComboBoxCategory.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.ComboBoxCategory.Name = "ComboBoxCategory"
-        Me.ComboBoxCategory.Size = New System.Drawing.Size(168, 21)
+        Me.ComboBoxCategory.Size = New System.Drawing.Size(223, 24)
         Me.ComboBoxCategory.TabIndex = 1
         '
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(13, 50)
+        Me.Label2.Location = New System.Drawing.Point(17, 62)
+        Me.Label2.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(52, 13)
+        Me.Label2.Size = New System.Drawing.Size(69, 17)
         Me.Label2.TabIndex = 12
         Me.Label2.Text = "Category:"
         '
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(13, 122)
+        Me.Label1.Location = New System.Drawing.Point(17, 150)
+        Me.Label1.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(46, 13)
+        Me.Label1.Size = New System.Drawing.Size(60, 17)
         Me.Label1.TabIndex = 11
         Me.Label1.Text = "Amount:"
         '
         'TextBoxAmount
         '
-        Me.TextBoxAmount.Location = New System.Drawing.Point(89, 123)
+        Me.TextBoxAmount.Location = New System.Drawing.Point(119, 151)
+        Me.TextBoxAmount.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.TextBoxAmount.Name = "TextBoxAmount"
-        Me.TextBoxAmount.Size = New System.Drawing.Size(77, 20)
+        Me.TextBoxAmount.Size = New System.Drawing.Size(101, 22)
         Me.TextBoxAmount.TabIndex = 3
         '
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(13, 84)
+        Me.Label4.Location = New System.Drawing.Point(17, 103)
+        Me.Label4.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(30, 13)
+        Me.Label4.Size = New System.Drawing.Size(38, 17)
         Me.Label4.TabIndex = 9
         Me.Label4.Text = "Item:"
         '
         'TextBoxItem
         '
-        Me.TextBoxItem.Location = New System.Drawing.Point(90, 85)
+        Me.TextBoxItem.Location = New System.Drawing.Point(120, 105)
+        Me.TextBoxItem.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.TextBoxItem.Name = "TextBoxItem"
-        Me.TextBoxItem.Size = New System.Drawing.Size(168, 20)
+        Me.TextBoxItem.Size = New System.Drawing.Size(223, 22)
         Me.TextBoxItem.TabIndex = 2
         '
         'StockRequest
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(403, 504)
+        Me.ClientSize = New System.Drawing.Size(682, 620)
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.GroupBox1)
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog
+        Me.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.MaximizeBox = False
         Me.Name = "StockRequest"
         Me.Text = "Stock Request"
         Me.GroupBox1.ResumeLayout(False)

@@ -36,6 +36,11 @@
         Dim stock As New StockDB
         Return stock.GetStockToOrder()
     End Function
+    Function GetStockItemId() As List(Of Integer)
+        Dim stock As New StockDB
+        Return stock.GetStockItemId
+    End Function
+
 
 
 End Class

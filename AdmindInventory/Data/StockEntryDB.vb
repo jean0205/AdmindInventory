@@ -230,7 +230,8 @@ Public Class StockEntryDB
     Function GetStockEntryHistory() As DataTable
         Dim table As New DataTable
 
-        Dim query As String = "select * from StockHistoryCategory order by Id desc"
+        'Dim query As String = "select * from StockHistoryCategory order by Id desc"
+        Dim query As String = "Select * From StockHistoryCategory s Where Year(s.Date) = Year(GETDATE()) Order By Id desc "
         Using connection As New SqlConnection(conString)
             Using command As New SqlCommand(query, connection)
                 'command.Parameters.Add("@Item_name", SqlDbType.varchar).Value = ItemName

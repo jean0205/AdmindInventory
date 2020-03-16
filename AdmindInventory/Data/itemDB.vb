@@ -121,7 +121,7 @@ Public Class ItemDB
         Dim itemsList As New List(Of Item)
         Dim query As String = "Select I.Id, I.Name, I.Presentation, I.Description, I.Reorder, C.Name, I.Active from Item I
                                 Inner Join Category C on C.Id=I.Category_Id
-                                where I.Category_Id=(Select c.Id from Category C where c.Name=@Name)"
+                                where I.Category_Id=(Select c.Id from Category C where c.Name=@Name) and  I.Active = 1"
 
         Using connection As New SqlConnection(conString)
 
